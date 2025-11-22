@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.annotation.OptIn
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -16,6 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -53,6 +55,7 @@ fun WarmupGameScreen(
     onBack: () -> Unit
 ) {
     val gameState by viewModel.gameState.collectAsState()
+    val showRulesDialog by viewModel.showRulesDialog.collectAsState()
     val players by partyViewModel.players.collectAsState()
     val configuration = LocalConfiguration.current
     val screenHeight = configuration.screenHeightDp.dp
@@ -88,6 +91,7 @@ fun WarmupGameScreen(
                     is WarmupViewModel.GameState.Idle -> {
                         IdleContent(
                             onStart = { viewModel.startWarmup() },
+                            onShowRules = { viewModel.showRules() },
                             screenHeight = screenHeight,
                             screenWidth = screenWidth
                         )
@@ -126,6 +130,14 @@ fun WarmupGameScreen(
                     }
                 }
             }
+        }
+
+        // DIÁLOGO DE REGLAS
+        if (showRulesDialog) {
+            RulesDialog(
+                onDismiss = { viewModel.hideRules() },
+                screenWidth = screenWidth
+            )
         }
     }
 }
@@ -221,6 +233,7 @@ fun ResponsiveHeader(onBack: () -> Unit, screenWidth: androidx.compose.ui.unit.D
 @Composable
 fun IdleContent(
     onStart: () -> Unit,
+    onShowRules: () -> Unit,
     screenHeight: androidx.compose.ui.unit.Dp,
     screenWidth: androidx.compose.ui.unit.Dp
 ) {
@@ -309,7 +322,7 @@ fun IdleContent(
                     Spacer(modifier = Modifier.height(contentPadding * 0.75f))
 
                     // Características
-                    ResponsiveFeature("✨", "Eventos sorpresa", bodySize)
+                    ResponsiveFeature("✨", "¡Eventos sorpresa! No olvides añadir jugadores al grupo para los eventos sorpresa", bodySize)
                     Spacer(modifier = Modifier.height(8.dp))
                     ResponsiveFeature("🎲", "Jugadores aleatorios", bodySize)
                     Spacer(modifier = Modifier.height(8.dp))
@@ -326,6 +339,40 @@ fun IdleContent(
                 height = buttonHeight,
                 color = Color(0xFFF59E0B)
             )
+
+            Spacer(modifier = Modifier.height(contentPadding))
+
+            // Botón de Reglas
+            OutlinedButton(
+                onClick = onShowRules,
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = Color(0xFFF59E0B),
+                    containerColor = Color.Transparent
+                ),
+                border = BorderStroke(2.dp, Color(0xFFF59E0B).copy(alpha = 0.5f)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(buttonHeight * 0.8f),
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Info,
+                        contentDescription = null,
+                        tint = Color(0xFFF59E0B),
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "Ver Reglas",
+                        fontSize = (screenWidth * 0.04f).value.coerceIn(14f, 18f).sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
         }
     }
 }
@@ -610,16 +657,15 @@ fun EventDialog(
                         textAlign = TextAlign.Center
                     )
 
-                    Spacer(modifier = Modifier.height(dialogPadding))
+                    Spacer(modifier = Modifier.height(dialogPadding * 0.5f))
 
-                    // ⬇️ MOSTRAR JUGADOR SELECCIONADO (para eventos no grupales, excepto Gift en fase RAISE_HAND) ⬇️
-                    if (event.selectedPlayer != null &&
-                        !(isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND)) {
+                    // ⬇️ MOSTRAR JUGADOR SELECCIONADO (Estilo Visual Antiguo Restaurado) ⬇️
+                    if (event.selectedPlayer != null) {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(20.dp),
                             colors = CardDefaults.cardColors(
-                                containerColor = event.selectedPlayer.getAvatarColor().copy(alpha = 0.25f)
+                                containerColor = event.color.copy(alpha = 0.25f) // Usamos el color del evento
                             )
                         ) {
                             Row(
@@ -633,12 +679,12 @@ fun EventDialog(
                                         .size(48.dp)
                                         .clip(CircleShape)
                                         .background(
-                                            event.selectedPlayer.getAvatarColor().copy(alpha = 0.7f)
+                                            event.color.copy(alpha = 0.7f) // Usamos el color del evento
                                         ),
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Text(
-                                        text = event.selectedPlayer.getDisplayEmoji(),
+                                        text = event.selectedPlayer.avatarEmoji, // Usamos la propiedad del modelo actual
                                         fontSize = 28.sp
                                     )
                                 }
@@ -660,9 +706,9 @@ fun EventDialog(
                                 }
                             }
                         }
-
                         Spacer(modifier = Modifier.height(dialogPadding))
                     }
+                    // ------------------------------------------------
 
                     // Descripción (varía según la fase)
                     Card(
@@ -963,5 +1009,128 @@ fun ResponsiveButton(
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
+    }
+}
+
+@Composable
+fun RulesDialog(
+    onDismiss: () -> Unit,
+    screenWidth: androidx.compose.ui.unit.Dp
+) {
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(
+            usePlatformDefaultWidth = false
+        )
+    ) {
+        val dialogPadding = (screenWidth * 0.05f).coerceIn(16.dp, 24.dp)
+        val titleSize = (screenWidth * 0.06f).value.coerceIn(20f, 28f).sp
+        val bodySize = (screenWidth * 0.04f).value.coerceIn(14f, 16f).sp
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth(0.9f)
+                .padding(dialogPadding)
+                .shadow(24.dp, RoundedCornerShape(24.dp)),
+            shape = RoundedCornerShape(24.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF1E1E1E)
+            )
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .border(
+                        width = 2.dp,
+                        color = Color(0xFFF59E0B).copy(alpha = 0.5f),
+                        shape = RoundedCornerShape(24.dp)
+                    )
+                    .padding(dialogPadding),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Header del Dialog
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "📜 Reglas del Juego",
+                        fontSize = titleSize,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFF59E0B)
+                    )
+                    IconButton(onClick = onDismiss) {
+                        Icon(
+                            Icons.Filled.Close,
+                            contentDescription = "Cerrar",
+                            tint = Color.Gray
+                        )
+                    }
+                }
+
+                Divider(
+                    modifier = Modifier.padding(vertical = 12.dp),
+                    color = Color.White.copy(alpha = 0.1f)
+                )
+
+                // Contenido scrolleable
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f, fill = false)
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    RuleItem("1️⃣", "Instrucciones", "Sigue las instrucciones de cada tarjeta, y dale a siguiente para avanzar.", bodySize)
+                    RuleItem("2️⃣", "Eventos", "Aparecerán eventos aleatorios cada ciertas rondas, pero sólo aparecen cuando hay jugadores en la Party. ¡No olvides añadir jugadores al grupo en el menú!", bodySize)
+                    RuleItem("3️⃣", "Turnos", "El juego asignará turnos o seleccionará jugadores al azar. Respeta el turno del compañero.", bodySize)
+                    RuleItem("4️⃣", "Hidratación", "Recuerda beber agua entre rondas y jugar con responsabilidad.", bodySize)
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(
+                    onClick = onDismiss,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFF59E0B)
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        "¡Entendido!",
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun RuleItem(emoji: String, title: String, description: String, fontSize: androidx.compose.ui.unit.TextUnit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.Top
+    ) {
+        Text(text = emoji, fontSize = fontSize * 1.2f, modifier = Modifier.padding(top = 2.dp))
+        Spacer(modifier = Modifier.width(12.dp))
+        Column {
+            Text(
+                text = title,
+                fontSize = fontSize,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
+            Text(
+                text = description,
+                fontSize = fontSize * 0.9f,
+                color = Color.Gray,
+                lineHeight = fontSize * 1.3f
+            )
+        }
     }
 }

@@ -5,8 +5,10 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Refresh
@@ -23,8 +25,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -46,6 +50,11 @@ fun StaringGameScreen(
     val players by partyViewModel.players.collectAsState()
     val selectedPlayers by viewModel.selectedPlayers.collectAsState()
 
+    // Obtener dimensiones de pantalla para responsividad
+    val configuration = LocalConfiguration.current
+    val screenHeight = configuration.screenHeightDp.dp
+    val screenWidth = configuration.screenWidthDp.dp
+
     // Pasar jugadores al ViewModel
     LaunchedEffect(players) {
         viewModel.setPlayers(players)
@@ -62,19 +71,21 @@ fun StaringGameScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .statusBarsPadding()
+                .navigationBarsPadding()
         ) {
             // Header
             StaringHeader(
                 onBack = onBack,
-                onReset = { viewModel.reset() }
+                onReset = { viewModel.reset() },
+                screenWidth = screenWidth
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
-
+            // Contenedor Principal con Peso y Centrado
             Box(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
                 when (state) {
@@ -82,19 +93,23 @@ fun StaringGameScreen(
                         IdleContent(
                             players = selectedPlayers,
                             hasPlayers = players.isNotEmpty(),
-                            onStart = { viewModel.startDuel() }
+                            onStart = { viewModel.startDuel() },
+                            screenHeight = screenHeight,
+                            screenWidth = screenWidth
                         )
                     }
                     is StaringViewModel.GameState.Counting -> {
                         CountingContent(
                             count = count,
-                            players = selectedPlayers
+                            players = selectedPlayers,
+                            screenWidth = screenWidth
                         )
                     }
                     is StaringViewModel.GameState.Fight -> {
                         FightContent(
                             players = selectedPlayers,
-                            hasPlayers = players.isNotEmpty()
+                            hasPlayers = players.isNotEmpty(),
+                            screenWidth = screenWidth
                         )
                     }
                 }
@@ -169,10 +184,16 @@ fun StaringBackground(state: StaringViewModel.GameState) {
 @Composable
 fun StaringHeader(
     onBack: () -> Unit,
-    onReset: () -> Unit
+    onReset: () -> Unit,
+    screenWidth: Dp
 ) {
+    val headerPadding = (screenWidth * 0.05f).coerceIn(16.dp, 24.dp)
+    val titleSize = (screenWidth * 0.055f).value.coerceIn(18f, 24f).sp
+
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = headerPadding, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
@@ -192,7 +213,7 @@ fun StaringHeader(
                 text = "👁️ Duelo de Miradas",
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Black,
-                    fontSize = 22.sp
+                    fontSize = titleSize
                 ),
                 color = AccentCyan
             )
@@ -222,7 +243,9 @@ fun StaringHeader(
 fun IdleContent(
     players: List<PlayerModel>,
     hasPlayers: Boolean,
-    onStart: () -> Unit
+    onStart: () -> Unit,
+    screenHeight: Dp,
+    screenWidth: Dp
 ) {
     var isVisible by remember { mutableStateOf(false) }
 
@@ -237,46 +260,65 @@ fun IdleContent(
         isVisible = true
     }
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.scale(scale)
+    val emojiSize = (screenWidth * 0.25f).value.coerceIn(60f, 100f).sp
+    val contentPadding = (screenWidth * 0.06f).coerceIn(20.dp, 32.dp)
+    val buttonHeight = (screenHeight * 0.08f).coerceIn(56.dp, 72.dp)
+
+    // Box para centrar contenido si es poco, pero permitir scroll si es mucho
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        // Emoji animado con efecto de ojos
-        val infiniteTransition = rememberInfiniteTransition(label = "eyes")
-        val eyeScale by infiniteTransition.animateFloat(
-            initialValue = 1f,
-            targetValue = 1.1f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(2000),
-                repeatMode = RepeatMode.Reverse
-            ),
-            label = "eyeScale"
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState()) // Scroll para pantallas pequeñas
+                .padding(contentPadding)
+                .scale(scale)
+        ) {
+            // Emoji animado con efecto de ojos
+            val infiniteTransition = rememberInfiniteTransition(label = "eyes")
+            val eyeScale by infiniteTransition.animateFloat(
+                initialValue = 1f,
+                targetValue = 1.1f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(2000),
+                    repeatMode = RepeatMode.Reverse
+                ),
+                label = "eyeScale"
+            )
 
-        Text(
-            text = "👁️👁️",
-            fontSize = 80.sp,
-            modifier = Modifier.scale(eyeScale)
-        )
+            Text(
+                text = "👁️👁️",
+                fontSize = emojiSize,
+                modifier = Modifier.scale(eyeScale)
+            )
 
-        Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(contentPadding))
 
-        // Mostrar jugadores seleccionados o mensaje general
-        if (hasPlayers && players.size == 2) {
-            PlayersDuelCard(players = players)
-        } else {
-            GeneralDuelCard()
+            // Mostrar jugadores seleccionados o mensaje general
+            if (hasPlayers && players.size == 2) {
+                PlayersDuelCard(players = players)
+            } else {
+                GeneralDuelCard()
+            }
+
+            Spacer(modifier = Modifier.height(contentPadding))
+
+            // Instrucciones
+            InstructionsCard()
+
+            Spacer(modifier = Modifier.height(contentPadding * 1.5f))
+
+            // Botón de inicio
+            StartDuelButton(
+                onClick = onStart,
+                height = buttonHeight,
+                screenWidth = screenWidth
+            )
         }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        // Instrucciones
-        InstructionsCard()
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        // Botón de inicio
-        StartDuelButton(onClick = onStart)
     }
 }
 
@@ -296,7 +338,7 @@ fun PlayersDuelCard(players: List<PlayerModel>) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "DUELISTAS SELECCIONADOS",
+                text = "DUELISTAS",
                 style = MaterialTheme.typography.labelLarge.copy(
                     letterSpacing = 2.sp,
                     fontWeight = FontWeight.Black
@@ -304,17 +346,17 @@ fun PlayersDuelCard(players: List<PlayerModel>) {
                 color = AccentCyan
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             // Jugador 1
             PlayerDuelChip(player = players[0])
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // VS animado
             VsAnimatedSeparator()
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Jugador 2
             PlayerDuelChip(player = players[1])
@@ -341,13 +383,13 @@ fun PlayerDuelChip(player: PlayerModel) {
                 color = player.getAvatarColor().copy(alpha = 0.5f),
                 shape = RoundedCornerShape(16.dp)
             )
-            .padding(16.dp),
+            .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Avatar
         Box(
             modifier = Modifier
-                .size(56.dp)
+                .size(48.dp)
                 .clip(CircleShape)
                 .background(
                     brush = Brush.radialGradient(
@@ -361,32 +403,24 @@ fun PlayerDuelChip(player: PlayerModel) {
         ) {
             Text(
                 text = player.getDisplayEmoji(),
-                fontSize = 32.sp
+                fontSize = 28.sp
             )
         }
 
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(12.dp))
 
         // Nombre
-        Column {
-            Text(
-                text = player.name,
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.Black
-                ),
-                color = Color.White
-            )
-            Text(
-                text = "¡Prepárate!",
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.Gray
-            )
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = player.name,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.Black
+            ),
+            color = Color.White,
+            modifier = Modifier.weight(1f)
+        )
 
         // Emoji de ojo
-        Text(text = "👁️", fontSize = 32.sp)
+        Text(text = "👁️", fontSize = 24.sp)
     }
 }
 
@@ -404,16 +438,6 @@ fun VsAnimatedSeparator() {
         label = "rotation"
     )
 
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = 1.2f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "scale"
-    )
-
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
@@ -421,62 +445,22 @@ fun VsAnimatedSeparator() {
     ) {
         Box(
             modifier = Modifier
-                .width(80.dp)
-                .height(2.dp)
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            AccentCyan,
-                            Color.Transparent
-                        )
-                    )
-                )
-        )
-
-        Spacer(modifier = Modifier.width(16.dp))
-
-        Box(
-            modifier = Modifier
-                .size(64.dp)
-                .scale(scale)
+                .size(40.dp)
                 .rotate(rotation)
                 .clip(CircleShape)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            AccentCyan.copy(alpha = 0.8f),
-                            AccentCyan.copy(alpha = 0.4f)
-                        )
-                    )
-                )
-                .border(2.dp, Color.White.copy(alpha = 0.3f), CircleShape),
+                .background(AccentCyan.copy(alpha = 0.2f))
+                .border(1.dp, AccentCyan.copy(alpha = 0.5f), CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = "VS",
-                style = MaterialTheme.typography.titleLarge.copy(
+                style = MaterialTheme.typography.labelLarge.copy(
                     fontWeight = FontWeight.Black
                 ),
-                color = Color.White,
+                color = AccentCyan,
                 modifier = Modifier.rotate(-rotation)
             )
         }
-
-        Spacer(modifier = Modifier.width(16.dp))
-
-        Box(
-            modifier = Modifier
-                .width(80.dp)
-                .height(2.dp)
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            AccentCyan
-                        )
-                    )
-                )
-        )
     }
 }
 
@@ -492,26 +476,25 @@ fun GeneralDuelCard() {
         )
     ) {
         Column(
-            modifier = Modifier.padding(32.dp),
+            modifier = Modifier.padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Elijan dos oponentes",
-                style = MaterialTheme.typography.headlineMedium.copy(
+                style = MaterialTheme.typography.headlineSmall.copy(
                     fontWeight = FontWeight.Bold
                 ),
                 color = Color.White,
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Text(
                 text = "Dos personas deben mirarse fijamente sin pestañear",
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray,
-                textAlign = TextAlign.Center,
-                lineHeight = 24.sp
+                textAlign = TextAlign.Center
             )
         }
     }
@@ -527,33 +510,24 @@ fun InstructionsCard() {
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "📋 Reglas del Duelo",
+                text = "📋 Reglas",
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
                 color = Color.White
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-            RuleItem(
-                emoji = "👁️",
-                text = "Mírense fijamente a los ojos"
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            RuleItem(
-                emoji = "🚫",
-                text = "No pueden pestañear ni reír"
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            RuleItem(
-                emoji = "🍺",
-                text = "El primero que falle: ¡BEBE!"
-            )
+            RuleItem(emoji = "👁️", text = "Mírense fijamente")
+            Spacer(modifier = Modifier.height(4.dp))
+            RuleItem(emoji = "🚫", text = "Sin pestañear ni reír")
+            Spacer(modifier = Modifier.height(4.dp))
+            RuleItem(emoji = "🍺", text = "El primero que falle bebe")
         }
     }
 }
@@ -564,25 +538,8 @@ fun RuleItem(emoji: String, text: String) {
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            modifier = Modifier
-                .size(36.dp)
-                .clip(CircleShape)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            AccentCyan.copy(alpha = 0.3f),
-                            AccentCyan.copy(alpha = 0.1f)
-                        )
-                    )
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(text = emoji, fontSize = 20.sp)
-        }
-
+        Text(text = emoji, fontSize = 18.sp)
         Spacer(modifier = Modifier.width(12.dp))
-
         Text(
             text = text,
             style = MaterialTheme.typography.bodyMedium,
@@ -592,7 +549,11 @@ fun RuleItem(emoji: String, text: String) {
 }
 
 @Composable
-fun StartDuelButton(onClick: () -> Unit) {
+fun StartDuelButton(
+    onClick: () -> Unit,
+    height: Dp,
+    screenWidth: Dp
+) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
@@ -602,6 +563,8 @@ fun StartDuelButton(onClick: () -> Unit) {
         label = "buttonScale"
     )
 
+    val fontSize = (screenWidth * 0.05f).value.coerceIn(16f, 22f).sp
+
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -609,7 +572,7 @@ fun StartDuelButton(onClick: () -> Unit) {
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .height(64.dp)
+            .height(height)
             .scale(scale)
             .shadow(
                 elevation = 16.dp,
@@ -633,11 +596,11 @@ fun StartDuelButton(onClick: () -> Unit) {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "⚔️", fontSize = 24.sp)
+            Text(text = "⚔️", fontSize = fontSize * 1.2f)
             Spacer(modifier = Modifier.width(12.dp))
             Text(
                 text = "¡Iniciar Duelo!",
-                fontSize = 20.sp,
+                fontSize = fontSize,
                 fontWeight = FontWeight.Bold,
                 color = Color.White
             )
@@ -646,7 +609,11 @@ fun StartDuelButton(onClick: () -> Unit) {
 }
 
 @Composable
-fun CountingContent(count: Int, players: List<PlayerModel>) {
+fun CountingContent(
+    count: Int,
+    players: List<PlayerModel>,
+    screenWidth: Dp
+) {
     val infiniteTransition = rememberInfiniteTransition(label = "count")
 
     val scale by infiniteTransition.animateFloat(
@@ -669,148 +636,148 @@ fun CountingContent(count: Int, players: List<PlayerModel>) {
         label = "countRot"
     )
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        // Mostrar jugadores en cuenta regresiva
-        if (players.size == 2) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                PlayerCountdownChip(player = players[0])
-                Text(text = "⚔️", fontSize = 32.sp)
-                PlayerCountdownChip(player = players[1])
-            }
+    // Dimensiones responsivas para el círculo
+    val circleSize = (screenWidth * 0.55f).coerceIn(180.dp, 280.dp)
+    val fontSize = (circleSize.value * 0.5f).sp
 
-            Spacer(modifier = Modifier.height(48.dp))
-        }
-
-        Text(
-            text = "Prepárense...",
-            style = MaterialTheme.typography.headlineMedium.copy(
-                fontWeight = FontWeight.Bold
-            ),
-            color = Color.Gray,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(bottom = 40.dp)
-        )
-
-        // Círculo de cuenta regresiva
-        Box(
-            modifier = Modifier.size(200.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            repeat(3) { index ->
-                Box(
-                    modifier = Modifier
-                        .size((200 - index * 30).dp)
-                        .clip(CircleShape)
-                        .border(
-                            width = (3 - index).dp,
-                            color = AccentCyan.copy(alpha = 0.3f - index * 0.1f),
-                            shape = CircleShape
-                        )
-                )
-            }
-
-            Box(
-                modifier = Modifier
-                    .size(140.dp)
-                    .clip(CircleShape)
-                    .background(
-                        brush = Brush.radialGradient(
-                            colors = listOf(
-                                AccentCyan.copy(alpha = 0.4f),
-                                AccentCyan.copy(alpha = 0.1f)
-                            )
-                        )
-                    )
-                    .border(3.dp, AccentCyan, CircleShape),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "$count",
-                    style = MaterialTheme.typography.displayLarge.copy(
-                        fontWeight = FontWeight.Black,
-                        fontSize = 100.sp
-                    ),
-                    color = AccentCyan,
-                    modifier = Modifier
-                        .scale(scale)
-                        .graphicsLayer { rotationZ = rotation }
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Text(
-            text = "¡MÍRENSE FIJAMENTE!",
-            style = MaterialTheme.typography.bodyLarge.copy(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 2.sp
-            ),
-            color = AccentCyan.copy(alpha = 0.7f)
-        )
-    }
-}
-
-@Composable
-fun PlayerCountdownChip(player: PlayerModel) {
-    Card(
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = player.getAvatarColor().copy(alpha = 0.2f)
-        )
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clip(CircleShape)
-                    .background(player.getAvatarColor().copy(alpha = 0.6f)),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = player.getDisplayEmoji(), fontSize = 28.sp)
+            // Mostrar jugadores en cuenta regresiva
+            if (players.size == 2) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    PlayerCountdownChip(player = players[0])
+                    Text(text = "⚔️", fontSize = 32.sp)
+                    PlayerCountdownChip(player = players[1])
+                }
+
+                Spacer(modifier = Modifier.height(32.dp))
             }
-            Spacer(modifier = Modifier.height(8.dp))
+
             Text(
-                text = player.name,
-                style = MaterialTheme.typography.labelLarge.copy(
+                text = "Prepárense...",
+                style = MaterialTheme.typography.headlineSmall.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.White,
-                maxLines = 1
+                color = Color.Gray,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(bottom = 32.dp)
+            )
+
+            // Círculo de cuenta regresiva RESPONSIVO
+            Box(
+                modifier = Modifier.size(circleSize),
+                contentAlignment = Alignment.Center
+            ) {
+                repeat(3) { index ->
+                    Box(
+                        modifier = Modifier
+                            .size(circleSize - (index * 30).dp)
+                            .clip(CircleShape)
+                            .border(
+                                width = (3 - index).dp,
+                                color = AccentCyan.copy(alpha = 0.3f - index * 0.1f),
+                                shape = CircleShape
+                            )
+                    )
+                }
+
+                Box(
+                    modifier = Modifier
+                        .size(circleSize * 0.7f)
+                        .clip(CircleShape)
+                        .background(
+                            brush = Brush.radialGradient(
+                                colors = listOf(
+                                    AccentCyan.copy(alpha = 0.4f),
+                                    AccentCyan.copy(alpha = 0.1f)
+                                )
+                            )
+                        )
+                        .border(3.dp, AccentCyan, CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "$count",
+                        style = MaterialTheme.typography.displayLarge.copy(
+                            fontWeight = FontWeight.Black,
+                            fontSize = fontSize
+                        ),
+                        color = AccentCyan,
+                        modifier = Modifier
+                            .scale(scale)
+                            .graphicsLayer { rotationZ = rotation }
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Text(
+                text = "¡MÍRENSE FIJAMENTE!",
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 2.sp
+                ),
+                color = AccentCyan.copy(alpha = 0.7f)
             )
         }
     }
 }
 
 @Composable
-fun FightContent(players: List<PlayerModel>, hasPlayers: Boolean) {
+fun PlayerCountdownChip(player: PlayerModel) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+                .background(player.getAvatarColor().copy(alpha = 0.6f)),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = player.getDisplayEmoji(), fontSize = 24.sp)
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = player.name,
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontWeight = FontWeight.Bold
+            ),
+            color = Color.White,
+            maxLines = 1
+        )
+    }
+}
+
+@Composable
+fun FightContent(
+    players: List<PlayerModel>,
+    hasPlayers: Boolean,
+    screenWidth: Dp
+) {
     var isVisible by remember { mutableStateOf(false) }
 
     val scale by animateFloatAsState(
         targetValue = if (isVisible) 1f else 0.5f,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        ),
+        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy),
         label = "scale"
     )
 
     val rotation by animateFloatAsState(
         targetValue = if (isVisible) 0f else 180f,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        ),
+        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy),
         label = "rotation"
     )
 
@@ -819,43 +786,54 @@ fun FightContent(players: List<PlayerModel>, hasPlayers: Boolean) {
         isVisible = true
     }
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .scale(scale)
-            .graphicsLayer { rotationX = rotation }
+    // Tamaño de fuente dinámico
+    val yaSize = (screenWidth * 0.2f).value.coerceIn(48f, 80f).sp
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        // Lightning effect
-        val infiniteTransition = rememberInfiniteTransition(label = "lightning")
-        val lightningScale by infiniteTransition.animateFloat(
-            initialValue = 1f,
-            targetValue = 1.2f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(400),
-                repeatMode = RepeatMode.Reverse
-            ),
-            label = "lightningScale"
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(24.dp)
+                .scale(scale)
+                .graphicsLayer { rotationX = rotation }
+        ) {
+            // Lightning effect
+            val infiniteTransition = rememberInfiniteTransition(label = "lightning")
+            val lightningScale by infiniteTransition.animateFloat(
+                initialValue = 1f,
+                targetValue = 1.2f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(400),
+                    repeatMode = RepeatMode.Reverse
+                ),
+                label = "lightningScale"
+            )
 
-        Text(
-            text = "⚡ ¡YA! ⚡",
-            style = MaterialTheme.typography.displayLarge.copy(
-                fontWeight = FontWeight.Black,
-                fontSize = 72.sp
-            ),
-            color = AccentCyan,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.scale(lightningScale)
-        )
+            Text(
+                text = "⚡ ¡YA! ⚡",
+                style = MaterialTheme.typography.displayLarge.copy(
+                    fontWeight = FontWeight.Black,
+                    fontSize = yaSize
+                ),
+                color = AccentCyan,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.scale(lightningScale)
+            )
 
-        Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-        // Mostrar vs de jugadores
-        if (hasPlayers && players.size == 2) {
-            FightPlayersCard(players = players)
-        } else {
-            FightGeneralCard()
+            // Mostrar vs de jugadores
+            if (hasPlayers && players.size == 2) {
+                FightPlayersCard(players = players)
+            } else {
+                FightGeneralCard()
+            }
         }
     }
 }
@@ -877,16 +855,21 @@ fun FightPlayersCard(players: List<PlayerModel>) {
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = "${players[0].name} 👁️ VS 👁️ ${players[1].name}",
-                style = MaterialTheme.typography.headlineSmall.copy(
-                    fontWeight = FontWeight.Black,
-                    fontSize = 24.sp
-                ),
-                color = Color.White,
-                textAlign = TextAlign.Center,
-                lineHeight = 32.sp
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(text = players[0].getDisplayEmoji(), fontSize = 40.sp)
+                    Text(text = players[0].name, color = Color.White, fontWeight = FontWeight.Bold)
+                }
+                Text(text = "VS", fontSize = 24.sp, fontWeight = FontWeight.Black, color = AccentCyan)
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(text = players[1].getDisplayEmoji(), fontSize = 40.sp)
+                    Text(text = players[1].name, color = Color.White, fontWeight = FontWeight.Bold)
+                }
+            }
 
             Spacer(modifier = Modifier.height(20.dp))
 

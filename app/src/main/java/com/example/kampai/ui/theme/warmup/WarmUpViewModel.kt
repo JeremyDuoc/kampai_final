@@ -66,6 +66,9 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     private val _gameState = MutableStateFlow<GameState>(GameState.Idle)
     val gameState: StateFlow<GameState> = _gameState.asStateFlow()
 
+    private val _showRulesDialog = MutableStateFlow(false)
+    val showRulesDialog: StateFlow<Boolean> = _showRulesDialog.asStateFlow()
+
     private val _selectedPlayerForEvent = MutableStateFlow<PlayerModel?>(null)
     val selectedPlayerForEvent: StateFlow<PlayerModel?> = _selectedPlayerForEvent.asStateFlow()
 
@@ -414,6 +417,10 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     fun setPlayers(players: List<PlayerModel>) {
         eventPlayers = players
     }
+
+    fun showRules() { _showRulesDialog.value = true }
+
+    fun hideRules() { _showRulesDialog.value = false }
 
     fun startWarmup() {
         currentRound = 0

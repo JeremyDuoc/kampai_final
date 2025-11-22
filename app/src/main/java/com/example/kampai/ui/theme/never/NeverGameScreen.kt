@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -48,91 +49,107 @@ fun NeverGameScreen(
     var isDragging by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
+    val configuration = LocalConfiguration.current
+    val screenWidth = configuration.screenWidthDp.dp
+
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Fondo animado
+        // Fondo animado mejorado
         NeverBackground()
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .statusBarsPadding()
+                .navigationBarsPadding()
         ) {
-            // Header
-            NeverHeader(
-                onBack = onBack,
-                questionNumber = questionNumber,
-                onReset = { viewModel.reset() }
-            )
+            // Header con Surface para mejor contraste
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                color = Color.Black.copy(alpha = 0.3f)
+            ) {
+                NeverHeader(
+                    onBack = onBack,
+                    questionNumber = questionNumber,
+                    onReset = { viewModel.reset() },
+                    screenWidth = screenWidth
+                )
+            }
 
-            Spacer(modifier = Modifier.height(40.dp))
-
-            // Instrucción
-            InstructionCard()
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Tarjeta de pregunta con swipe
+            // Contenido principal
             Box(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
+                    .padding(horizontal = (screenWidth * 0.05f).coerceIn(16.dp, 24.dp))
             ) {
-                QuestionCard(
-                    question = question,
-                    isChanging = isChanging,
-                    offsetX = offsetX,
-                    isDragging = isDragging,
-                    onDragStart = { isDragging = true },
-                    onDragEnd = {
-                        isDragging = false
-                        if (abs(offsetX) > 300f) {
-                            scope.launch {
-                                viewModel.nextQuestion()
-                                delay(100)
-                                offsetX = 0f
-                            }
-                        } else {
-                            scope.launch {
-                                animate(
-                                    initialValue = offsetX,
-                                    targetValue = 0f,
-                                    animationSpec = spring(
-                                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                                        stiffness = Spring.StiffnessMedium
-                                    )
-                                ) { value, _ ->
-                                    offsetX = value
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    // Instrucción sutil
+                    InstructionBadge()
+
+                    // Tarjeta de pregunta con swipe
+                    QuestionCard(
+                        question = question,
+                        isChanging = isChanging,
+                        offsetX = offsetX,
+                        isDragging = isDragging,
+                        onDragStart = { isDragging = true },
+                        onDragEnd = {
+                            isDragging = false
+                            if (abs(offsetX) > 150f) {
+                                scope.launch {
+                                    viewModel.nextQuestion()
+                                    delay(100)
+                                    offsetX = 0f
+                                }
+                            } else {
+                                scope.launch {
+                                    animate(
+                                        initialValue = offsetX,
+                                        targetValue = 0f,
+                                        animationSpec = spring(
+                                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                                            stiffness = Spring.StiffnessMedium
+                                        )
+                                    ) { value, _ ->
+                                        offsetX = value
+                                    }
                                 }
                             }
-                        }
-                    },
-                    onDrag = { delta ->
-                        offsetX += delta
-                    }
-                )
+                        },
+                        onDrag = { delta ->
+                            offsetX += delta
+                        },
+                        screenWidth = screenWidth
+                    )
+
+                    // Indicador de swipe mejorado
+                    SwipeIndicator(offsetX = offsetX)
+                }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Indicador de swipe
-            SwipeIndicator(offsetX = offsetX)
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Botón siguiente
-            NextButton(
-                onClick = {
-                    scope.launch {
-                        viewModel.nextQuestion()
-                    }
-                },
-                isChanging = isChanging
-            )
+            // Botón siguiente (fijo en la parte inferior)
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                color = Color(0xFF0F172A).copy(alpha = 0.9f)
+            ) {
+                NextButton(
+                    onClick = {
+                        scope.launch {
+                            viewModel.nextQuestion()
+                        }
+                    },
+                    isChanging = isChanging,
+                    screenWidth = screenWidth
+                )
+            }
         }
     }
 }
@@ -219,19 +236,31 @@ fun NeverBackground() {
 fun NeverHeader(
     onBack: () -> Unit,
     questionNumber: Int,
-    onReset: () -> Unit
+    onReset: () -> Unit,
+    screenWidth: androidx.compose.ui.unit.Dp
 ) {
+    val headerPadding = (screenWidth * 0.05f).coerceIn(16.dp, 24.dp)
+    val iconSize = (screenWidth * 0.12f).coerceIn(40.dp, 56.dp)
+    val titleSize = (screenWidth * 0.055f).value.coerceIn(18f, 26f).sp
+
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = headerPadding, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
             onClick = onBack,
             modifier = Modifier
-                .size(48.dp)
-                .background(Color.White.copy(alpha = 0.1f), CircleShape)
+                .size(iconSize)
+                .background(Color.White.copy(alpha = 0.15f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(
+                Icons.Filled.ArrowBack,
+                contentDescription = "Atrás",
+                tint = Color.White,
+                modifier = Modifier.size(iconSize * 0.5f)
+            )
         }
 
         Column(
@@ -239,18 +268,14 @@ fun NeverHeader(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "🍻 Yo Nunca Nunca",
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.Black,
-                    fontSize = 22.sp
-                ),
+                text = "🤫 Yo Nunca Nunca",
+                fontSize = titleSize,
+                fontWeight = FontWeight.Black,
                 color = AccentCyan
             )
             Text(
                 text = "Pregunta #$questionNumber",
-                style = MaterialTheme.typography.labelMedium.copy(
-                    letterSpacing = 1.sp
-                ),
+                fontSize = (titleSize.value * 0.5f).sp,
                 color = Color.Gray
             )
         }
@@ -258,60 +283,60 @@ fun NeverHeader(
         IconButton(
             onClick = onReset,
             modifier = Modifier
-                .size(48.dp)
-                .background(Color.White.copy(alpha = 0.1f), CircleShape)
+                .size(iconSize)
+                .background(Color.White.copy(alpha = 0.15f), CircleShape)
         ) {
             Icon(
                 imageVector = Icons.Filled.Refresh,
                 contentDescription = "Reiniciar",
-                tint = AccentCyan
+                tint = AccentCyan,
+                modifier = Modifier.size(iconSize * 0.5f)
             )
         }
     }
 }
 
 @Composable
-fun InstructionCard() {
+fun InstructionBadge() {
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
 
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = 1.05f,
+    val alpha by infiniteTransition.animateFloat(
+        initialValue = 0.4f,
+        targetValue = 0.8f,
         animationSpec = infiniteRepeatable(
             animation = tween(2000),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "scale"
+        label = "alpha"
     )
 
-    Card(
+    Surface(
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.08f)
-        ),
-        modifier = Modifier.scale(scale)
+        color = Color.White.copy(alpha = 0.08f),
+        modifier = Modifier.padding(vertical = 8.dp)
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 text = "👉",
-                fontSize = 24.sp
+                fontSize = 18.sp,
+                modifier = Modifier.graphicsLayer { this.alpha = alpha }
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = "Si lo hiciste, bebes",
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold
-                ),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
                 color = Color.White
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = "👈",
-                fontSize = 24.sp
+                fontSize = 18.sp,
+                modifier = Modifier.graphicsLayer { this.alpha = alpha }
             )
         }
     }
@@ -325,7 +350,8 @@ fun QuestionCard(
     isDragging: Boolean,
     onDragStart: () -> Unit,
     onDragEnd: () -> Unit,
-    onDrag: (Float) -> Unit
+    onDrag: (Float) -> Unit,
+    screenWidth: androidx.compose.ui.unit.Dp
 ) {
     val scale by animateFloatAsState(
         targetValue = if (isChanging) 0.85f else 1f,
@@ -354,27 +380,32 @@ fun QuestionCard(
     // Color de borde dinámico basado en el swipe
     val borderColor by animateColorAsState(
         targetValue = when {
-            offsetX > 100f -> Color.Green
-            offsetX < -100f -> Color.Red
-            else -> AccentCyan
+            abs(offsetX) > 150f -> if (offsetX > 0) Color(0xFF10B981) else Color(0xFF10B981)
+            abs(offsetX) > 50f -> AccentCyan.copy(alpha = 0.8f)
+            else -> AccentCyan.copy(alpha = 0.5f)
         },
         label = "borderColor"
     )
 
+    val cardWidth = (screenWidth * 0.9f).coerceIn(280.dp, 400.dp)
+    val cardHeight = (screenWidth * 1.3f).coerceIn(360.dp, 520.dp)
+    val emojiSize = (screenWidth * 0.18f).value.coerceIn(60f, 100f).sp
+    val questionSize = (screenWidth * 0.055f).value.coerceIn(20f, 32f).sp
+
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
         Card(
             modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(0.85f)
+                .width(cardWidth)
+                .height(cardHeight)
                 .scale(scale)
                 .graphicsLayer {
                     rotationY = rotation
                     this.alpha = alpha
                     translationX = offsetX
-                    rotationZ = offsetX * 0.02f
+                    rotationZ = offsetX * 0.015f
                 }
                 .shadow(
                     elevation = if (isDragging) 32.dp else 24.dp,
@@ -400,9 +431,9 @@ fun QuestionCard(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        brush = Brush.linearGradient(
+                        brush = Brush.verticalGradient(
                             colors = listOf(
-                                MaterialTheme.colorScheme.surface,
+                                Color(0xFF1A1A1A),
                                 AccentCyan.copy(alpha = 0.15f),
                                 PrimaryViolet.copy(alpha = 0.1f)
                             )
@@ -410,44 +441,153 @@ fun QuestionCard(
                     )
                     .border(
                         width = 3.dp,
-                        color = borderColor.copy(alpha = 0.6f),
+                        color = borderColor,
                         shape = RoundedCornerShape(32.dp)
                     )
-                    .padding(40.dp),
+                    .padding(32.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
                     // Emoji decorativo animado
                     val infiniteTransition = rememberInfiniteTransition(label = "emoji")
                     val emojiScale by infiniteTransition.animateFloat(
                         initialValue = 1f,
-                        targetValue = 1.2f,
+                        targetValue = 1.15f,
                         animationSpec = infiniteRepeatable(
-                            animation = tween(1000),
+                            animation = tween(1200),
                             repeatMode = RepeatMode.Reverse
                         ),
                         label = "emojiScale"
                     )
 
+                    val emojiRotation by infiniteTransition.animateFloat(
+                        initialValue = -5f,
+                        targetValue = 5f,
+                        animationSpec = infiniteRepeatable(
+                            animation = tween(1500),
+                            repeatMode = RepeatMode.Reverse
+                        ),
+                        label = "emojiRotation"
+                    )
+
                     Text(
                         text = "🤫",
-                        fontSize = 80.sp,
-                        modifier = Modifier.scale(emojiScale)
+                        fontSize = emojiSize,
+                        modifier = Modifier
+                            .scale(emojiScale)
+                            .graphicsLayer { rotationZ = emojiRotation }
+                    )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Text(
+                        text = question,
+                        fontSize = questionSize,
+                        fontWeight = FontWeight.Black,
+                        lineHeight = (questionSize.value * 1.3f).sp,
+                        textAlign = TextAlign.Center,
+                        color = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(32.dp))
 
+                    // Hint de deslizar - sutil y discreto
+                    SwipeHint()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SwipeHint() {
+    val infiniteTransition = rememberInfiniteTransition(label = "hint")
+
+    val offsetX by infiniteTransition.animateFloat(
+        initialValue = -8f,
+        targetValue = 8f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(1500, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "hintOffset"
+    )
+
+    val alpha by infiniteTransition.animateFloat(
+        initialValue = 0.3f,
+        targetValue = 0.6f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(2000),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "hintAlpha"
+    )
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.graphicsLayer { this.alpha = alpha }
+    ) {
+        Text(
+            text = "←",
+            fontSize = 20.sp,
+            color = Color.White,
+            modifier = Modifier.offset(x = (-offsetX).dp)
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+            text = "Desliza para siguiente",
+            fontSize = 12.sp,
+            color = Color.White.copy(alpha = 0.7f)
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+            text = "→",
+            fontSize = 20.sp,
+            color = Color.White,
+            modifier = Modifier.offset(x = offsetX.dp)
+        )
+    }
+}
+
+@Composable
+fun SwipeIndicator(offsetX: Float) {
+    val swipeProgress = (abs(offsetX) / 150f).coerceIn(0f, 1f)
+
+    val indicatorAlpha by animateFloatAsState(
+        targetValue = if (swipeProgress > 0.1f) swipeProgress else 0f,
+        animationSpec = tween(200),
+        label = "indicatorAlpha"
+    )
+
+    if (indicatorAlpha > 0f) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Surface(
+                shape = RoundedCornerShape(20.dp),
+                color = Color(0xFF10B981).copy(alpha = indicatorAlpha * 0.3f)
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
-                        text = question,
-                        style = MaterialTheme.typography.headlineMedium.copy(
-                            fontWeight = FontWeight.Black,
-                            fontSize = 28.sp,
-                            lineHeight = 36.sp
-                        ),
-                        textAlign = TextAlign.Center,
-                        color = Color.White
+                        text = if (offsetX > 0) "→" else "←",
+                        fontSize = 24.sp,
+                        color = Color.White.copy(alpha = indicatorAlpha)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = if (swipeProgress >= 1f) "¡Suelta!" else "Siguiente...",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White.copy(alpha = indicatorAlpha)
                     )
                 }
             }
@@ -456,129 +596,72 @@ fun QuestionCard(
 }
 
 @Composable
-fun SwipeIndicator(offsetX: Float) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        // Indicador izquierdo
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.graphicsLayer {
-                alpha = if (offsetX < -50f) 1f else 0.3f
-                scaleX = if (offsetX < -50f) 1.2f else 1f
-                scaleY = if (offsetX < -50f) 1.2f else 1f
-            }
-        ) {
-            Text(text = "👈", fontSize = 32.sp)
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = "Pasar",
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Bold
-                ),
-                color = Color.Red
-            )
-        }
-
-        // Indicador central
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "↔️",
-                fontSize = 24.sp
-            )
-            Text(
-                text = "Desliza",
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.Gray
-            )
-        }
-
-        // Indicador derecho
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.graphicsLayer {
-                alpha = if (offsetX > 50f) 1f else 0.3f
-                scaleX = if (offsetX > 50f) 1.2f else 1f
-                scaleY = if (offsetX > 50f) 1.2f else 1f
-            }
-        ) {
-            Text(
-                text = "Siguiente",
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Bold
-                ),
-                color = Color.Green
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "👉", fontSize = 32.sp)
-        }
-    }
-}
-
-@Composable
 fun NextButton(
     onClick: () -> Unit,
-    isChanging: Boolean
+    isChanging: Boolean,
+    screenWidth: androidx.compose.ui.unit.Dp
 ) {
-    val infiniteTransition = rememberInfiniteTransition(label = "button")
+    val buttonHeight = (screenWidth * 0.15f).coerceIn(56.dp, 72.dp)
+    val buttonPadding = (screenWidth * 0.05f).coerceIn(16.dp, 24.dp)
+    val fontSize = (screenWidth * 0.045f).value.coerceIn(16f, 22f).sp
 
-    val shimmer by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1000f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(2000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = "shimmer"
-    )
-
-    Button(
-        onClick = onClick,
-        enabled = !isChanging,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            disabledContainerColor = Color.Transparent
-        ),
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(64.dp)
-            .shadow(
-                elevation = 16.dp,
-                shape = RoundedCornerShape(16.dp),
-                ambientColor = AccentCyan,
-                spotColor = PrimaryViolet
-            )
-            .background(
-                brush = Brush.horizontalGradient(
-                    colors = listOf(
-                        AccentCyan,
-                        PrimaryViolet,
-                        SecondaryPink
-                    )
-                ),
-                shape = RoundedCornerShape(16.dp)
-            ),
-        shape = RoundedCornerShape(16.dp),
-        contentPadding = PaddingValues(0.dp)
+            .padding(buttonPadding)
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
+        Button(
+            onClick = onClick,
+            enabled = !isChanging,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                disabledContainerColor = Color.Transparent
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(buttonHeight)
+                .shadow(
+                    elevation = 16.dp,
+                    shape = RoundedCornerShape(16.dp),
+                    ambientColor = AccentCyan,
+                    spotColor = PrimaryViolet
+                )
+                .background(
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(
+                            AccentCyan.copy(alpha = if (isChanging) 0.3f else 1f),
+                            PrimaryViolet.copy(alpha = if (isChanging) 0.3f else 1f),
+                            SecondaryPink.copy(alpha = if (isChanging) 0.3f else 1f)
+                        )
+                    ),
+                    shape = RoundedCornerShape(16.dp)
+                ),
+            shape = RoundedCornerShape(16.dp),
+            contentPadding = PaddingValues(0.dp)
         ) {
-            Text(
-                text = if (isChanging) "Cargando..." else "Siguiente Pregunta",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White
-            )
-
-            if (!isChanging) {
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(text = "🍺", fontSize = 20.sp)
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                if (!isChanging) {
+                    Text(
+                        text = "Siguiente",
+                        fontSize = fontSize,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "🍺",
+                        fontSize = fontSize * 1.2f
+                    )
+                } else {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(24.dp),
+                        color = Color.White,
+                        strokeWidth = 3.dp
+                    )
+                }
             }
         }
     }

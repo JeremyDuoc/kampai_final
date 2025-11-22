@@ -32,9 +32,11 @@ import com.example.kampai.ui.theme.judge.JudgeGameScreen
 import com.example.kampai.ui.theme.likely.MostLikelyScreen
 import com.example.kampai.ui.theme.staring.StaringGameScreen
 import com.example.kampai.ui.theme.partymanager.PartyManagerScreen
+import com.example.kampai.ui.theme.kingscup.KingsCupGameScreen
 import com.example.kampai.ui.theme.settings.SettingsScreen
 import com.example.kampai.ui.theme.warmup.WarmupGameScreen
 import com.example.kampai.ui.theme.ThemeManager
+import com.example.kampai.ui.theme.karaoke.KaraokeGameScreen
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -137,6 +139,14 @@ fun KampaiApp() {
             WarmupGameScreen(onBack = { navController.popBackStack() })
         }
 
+        composable("game_kingscup") {
+            KingsCupGameScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable("game_karaoke") {
+            KaraokeGameScreen(onBack = { navController.popBackStack() })
+        }
+
         composable("game_likely") {
             MostLikelyScreen(onBack = { navController.popBackStack() })
         }
@@ -173,8 +183,5 @@ fun KampaiApp() {
             JudgeGameScreen(onBack = { navController.popBackStack() })
         }
 
-        composable("game_staring") {
-            StaringGameScreen(onBack = { navController.popBackStack() })
-        }
     }
 }

@@ -8,9 +8,8 @@ import javax.inject.Inject
 
 class GameRepository @Inject constructor() {
 
-    // Lista maestra de todos los juegos
     private val allGames = listOf(
-        // --- MÁS JUGADOS (TOP 3) ---
+
         GameModel(
             id = "warmup",
             title = "PartyMix",
@@ -27,11 +26,30 @@ class GameRepository @Inject constructor() {
             color = PrimaryViolet,
             route = "culture_selection"
         ),
+
+        GameModel(
+            id = "kingscup",
+            title = "King's Cup",
+            description = "El clásico juego de cartas.",
+            iconRes = R.drawable.culture,
+            color = Color(0xFFF59E0B),
+            route = "game_kingscup"
+        ),
+
+        GameModel(
+            id = "karaoke",
+            title = "Karaoke",
+            description = "Modo Karaoke",
+            iconRes = R.drawable.culture,
+            color = Color(0xFFF59E0B),
+            route = "game_karaoke"
+        ),
+
         GameModel(
             id = "impostor",
             title = "El Impostor",
             description = "Encuentra quién miente.",
-            iconRes = R.drawable.mimic, // Usamos mimic o truth si no hay icono específico cargado
+            iconRes = R.drawable.mimic,
             color = AccentRed,
             route = "game_impostor"
         ),
@@ -56,23 +74,15 @@ class GameRepository @Inject constructor() {
         GameModel(
             id = "high_low",
             title = "Mayor o Menor",
-            description = "Adivina la carta.",
+            description = "Adivina si la carta que viene es mayor o menor.",
             iconRes = R.drawable.highlow,
             color = SecondaryPink,
             route = "game_highlow"
         ),
         GameModel(
-            id = "medusa",
-            title = "La Medusa",
-            description = "No cruces miradas.",
-            iconRes = R.drawable.medusa,
-            color = AccentCyan,
-            route = "game_medusa"
-        ),
-        GameModel(
             id = "charades",
             title = "Mímica Borracha",
-            description = "Actúa sin hablar.",
+            description = "Actúa sin hablar y los demás tienen que adivinar.",
             iconRes = R.drawable.mimic,
             color = AccentAmber,
             route = "game_charades"
@@ -80,26 +90,10 @@ class GameRepository @Inject constructor() {
         GameModel(
             id = "roulette",
             title = "Ruleta Rusa",
-            description = "La suerte decide.",
+            description = "La suerte decide. Presiona una cámara para decidir tu destino",
             iconRes = R.drawable.ruleta,
             color = AccentRed,
             route = "game_roulette"
-        ),
-        GameModel(
-            id = "judge",
-            title = "El Juez",
-            description = "Nuevas reglas.",
-            iconRes = R.drawable.juez,
-            color = AccentAmber,
-            route = "game_judge"
-        ),
-        GameModel(
-            id = "staring",
-            title = "Duelo de Miradas",
-            description = "No parpadees.",
-            iconRes = R.drawable.duelo,
-            color = PrimaryViolet,
-            route = "game_staring"
         ),
         GameModel(
             id = "most_likely",
@@ -111,13 +105,13 @@ class GameRepository @Inject constructor() {
         )
     )
 
-    // Retorna SOLO los 3 más jugados para el Home
+    // Retorna los más jugados
     fun getMostPlayedGames(): List<GameModel> {
-        return allGames.filter { it.id == "warmup" || it.id == "culture" || it.id == "impostor" }
+        return allGames.filter { it.id == "warmup" || it.id == "culture" || it.id == "impostor" || it.id == "kingscup" }
     }
 
     // Retorna EL RESTO para la pantalla de Clásicos
     fun getClassicGames(): List<GameModel> {
-        return allGames.filter { it.id != "warmup" && it.id != "culture" && it.id != "impostor" }
+        return allGames.filter { it.id != "warmup" && it.id != "culture" && it.id != "impostor" && it.id != "kingscup"}
     }
 }
