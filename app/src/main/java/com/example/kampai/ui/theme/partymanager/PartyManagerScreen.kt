@@ -1,15 +1,25 @@
 package com.example.kampai.ui.theme.partymanager
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.*
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -26,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.kampai.domain.models.AvatarEmojis
 import com.example.kampai.domain.models.Gender
 import com.example.kampai.domain.models.PlayerModel
 import com.example.kampai.ui.theme.PrimaryViolet
@@ -114,8 +125,8 @@ fun PartyManagerScreen(
         if (showAddDialog) {
             AddPlayerDialog(
                 onDismiss = { viewModel.toggleAddDialog() },
-                onConfirm = { name, gender ->
-                    viewModel.addPlayer(name, gender)
+                onConfirm = { name, gender, emoji ->
+                    viewModel.addPlayer(name, gender, emoji)
                 }
             )
         }
@@ -339,7 +350,7 @@ fun PlayerCard(
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Avatar
+            // Avatar con emoji personalizado
             Box(
                 modifier = Modifier
                     .size(56.dp)
@@ -355,7 +366,7 @@ fun PlayerCard(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = player.gender.getEmoji(),
+                    text = player.getDisplayEmoji(),
                     fontSize = 32.sp
                 )
             }
@@ -399,20 +410,25 @@ fun PlayerCard(
 @Composable
 fun AddPlayerDialog(
     onDismiss: () -> Unit,
-    onConfirm: (String, Gender) -> Unit
+    onConfirm: (String, Gender, String) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
     var selectedGender by remember { mutableStateOf(Gender.MALE) }
+    var selectedEmoji by remember { mutableStateOf(AvatarEmojis.getRandomEmoji()) }
+    var showEmojiPicker by remember { mutableStateOf(false) }
 
     Dialog(onDismissRequest = onDismiss) {
         Card(
             shape = RoundedCornerShape(28.dp),
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surface
-            )
+            ),
+            modifier = Modifier.fillMaxWidth(0.95f)
         ) {
             Column(
-                modifier = Modifier.padding(24.dp),
+                modifier = Modifier
+                    .padding(24.dp)
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
@@ -466,6 +482,24 @@ fun AddPlayerDialog(
                     }
                 }
 
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Selector de Avatar
+                Text(
+                    text = "Avatar",
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.Start)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                AvatarSelector(
+                    selectedEmoji = selectedEmoji,
+                    onEmojiSelected = { selectedEmoji = it },
+                    showPicker = showEmojiPicker,
+                    onTogglePicker = { showEmojiPicker = !showEmojiPicker }
+                )
+
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Botones
@@ -486,7 +520,7 @@ fun AddPlayerDialog(
                     Button(
                         onClick = {
                             if (name.isNotBlank()) {
-                                onConfirm(name, selectedGender)
+                                onConfirm(name, selectedGender, selectedEmoji)
                             }
                         },
                         modifier = Modifier.weight(1f),
@@ -500,6 +534,173 @@ fun AddPlayerDialog(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun AvatarSelector(
+    selectedEmoji: String,
+    onEmojiSelected: (String) -> Unit,
+    showPicker: Boolean,
+    onTogglePicker: () -> Unit
+) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        // Botón para mostrar el emoji seleccionado
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClick = onTogglePicker),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White.copy(alpha = 0.1f)
+            )
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = selectedEmoji,
+                        fontSize = 40.sp
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Column {
+                        Text(
+                            text = "Avatar seleccionado",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.Gray
+                        )
+                        Text(
+                            text = "Toca para cambiar",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.7f)
+                        )
+                    }
+                }
+                Text(
+                    text = if (showPicker) "▲" else "▼",
+                    color = Color.White
+                )
+            }
+        }
+
+        // Grid de emojis
+        AnimatedVisibility(
+            visible = showPicker,
+            enter = expandVertically() + fadeIn(),
+            exit = shrinkVertically() + fadeOut()
+        ) {
+            Column(modifier = Modifier.padding(top = 8.dp)) {
+                EmojiCategory(
+                    title = "🐾 Animales",
+                    emojis = AvatarEmojis.animals,
+                    selectedEmoji = selectedEmoji,
+                    onEmojiSelected = {
+                        onEmojiSelected(it)
+                        onTogglePicker()
+                    }
+                )
+
+                EmojiCategory(
+                    title = "😊 Caras",
+                    emojis = AvatarEmojis.faces,
+                    selectedEmoji = selectedEmoji,
+                    onEmojiSelected = {
+                        onEmojiSelected(it)
+                        onTogglePicker()
+                    }
+                )
+
+                EmojiCategory(
+                    title = "🧙 Fantasía",
+                    emojis = AvatarEmojis.fantasy,
+                    selectedEmoji = selectedEmoji,
+                    onEmojiSelected = {
+                        onEmojiSelected(it)
+                        onTogglePicker()
+                    }
+                )
+
+                EmojiCategory(
+                    title = "⚽ Deportes",
+                    emojis = AvatarEmojis.sports,
+                    selectedEmoji = selectedEmoji,
+                    onEmojiSelected = {
+                        onEmojiSelected(it)
+                        onTogglePicker()
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun EmojiCategory(
+    title: String,
+    emojis: List<String>,
+    selectedEmoji: String,
+    onEmojiSelected: (String) -> Unit
+) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontWeight = FontWeight.Bold
+            ),
+            color = PrimaryViolet,
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
+
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(6),
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(max = 200.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            items(emojis) { emoji ->
+                EmojiButton(
+                    emoji = emoji,
+                    isSelected = emoji == selectedEmoji,
+                    onClick = { onEmojiSelected(emoji) }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun EmojiButton(
+    emoji: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .size(48.dp)
+            .clip(CircleShape)
+            .background(
+                if (isSelected) PrimaryViolet.copy(alpha = 0.3f)
+                else Color.White.copy(alpha = 0.05f)
+            )
+            .border(
+                width = if (isSelected) 2.dp else 0.dp,
+                color = PrimaryViolet,
+                shape = CircleShape
+            )
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = emoji,
+            fontSize = 28.sp
+        )
     }
 }
 

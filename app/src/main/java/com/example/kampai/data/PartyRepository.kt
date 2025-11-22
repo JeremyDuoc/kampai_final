@@ -17,17 +17,27 @@ class PartyRepository @Inject constructor(
     private val gson = Gson()
 
     fun savePlayers(players: List<PlayerModel>) {
-        val json = gson.toJson(players)
-        sharedPreferences.edit().putString("saved_players", json).apply()
+        try {
+            val json = gson.toJson(players)
+            sharedPreferences.edit().putString("saved_players", json).apply()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun getPlayers(): List<PlayerModel> {
-        val json = sharedPreferences.getString("saved_players", null) ?: return emptyList()
-
-        val type = object : TypeToken<List<PlayerModel>>() {}.type
         return try {
-            gson.fromJson(json, type)
+            val json = sharedPreferences.getString("saved_players", null)
+            if (json.isNullOrEmpty()) {
+                emptyList()
+            } else {
+                val type = object : TypeToken<List<PlayerModel>>() {}.type
+                gson.fromJson(json, type) ?: emptyList()
+            }
         } catch (e: Exception) {
+            e.printStackTrace()
+            // Si hay error al deserializar, limpiar y devolver lista vacía
+            sharedPreferences.edit().remove("saved_players").apply()
             emptyList()
         }
     }

@@ -360,7 +360,7 @@ fun PlayerDuelChip(player: PlayerModel) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = player.gender.getEmoji(),
+                text = player.getDisplayEmoji(),
                 fontSize = 32.sp
             )
         }
@@ -777,7 +777,7 @@ fun PlayerCountdownChip(player: PlayerModel) {
                     .background(player.getAvatarColor().copy(alpha = 0.6f)),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = player.gender.getEmoji(), fontSize = 28.sp)
+                Text(text = player.getDisplayEmoji(), fontSize = 28.sp)
             }
             Spacer(modifier = Modifier.height(8.dp))
             Text(

@@ -25,11 +25,51 @@ enum class Gender {
     }
 }
 
+// NUEVO: Lista de avatares disponibles
+object AvatarEmojis {
+    val animals = listOf(
+        "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼",
+        "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🐔",
+        "🐧", "🐦", "🐤", "🦆", "🦅", "🦉", "🦇", "🐺",
+        "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐞",
+        "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦐",
+        "🦞", "🦀", "🐡", "🐠", "🐟", "🐬", "🐳", "🐋",
+        "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🦧", "🐘",
+        "🦛", "🦏", "🐪", "🐫", "🦒", "🦘", "🦬", "🐃"
+    )
+
+    val faces = listOf(
+        "😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣",
+        "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰",
+        "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜",
+        "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "😏",
+        "😒", "😞", "😔", "😟", "😕", "🙁", "😣", "😖",
+        "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡"
+    )
+
+    val fantasy = listOf(
+        "👽", "👾", "🤖", "👻", "💀", "☠️", "👹", "👺",
+        "🎃", "😈", "👿", "🧙", "🧚", "🧛", "🧜", "🧝",
+        "🧞", "🧟", "🦸", "🦹", "🧑‍🎄", "🧌"
+    )
+
+    val sports = listOf(
+        "⚽", "🏀", "🏈", "⚾", "🥎", "🎾", "🏐", "🏉",
+        "🥏", "🎱", "🪀", "🏓", "🏸", "🏒", "🏑", "🥍",
+        "🏏", "🪃", "🥅", "⛳", "🪁", "🏹", "🎣", "🤿"
+    )
+
+    fun getAllEmojis() = animals + faces + fantasy + sports
+
+    fun getRandomEmoji() = getAllEmojis().random()
+}
+
 data class PlayerModel(
     val id: String,
     val name: String,
     val gender: Gender,
-    val colorIndex: Int = 0
+    val colorIndex: Int = 0,
+    val avatarEmoji: String = AvatarEmojis.getRandomEmoji()
 ) {
     companion object {
         private val avatarColors = listOf(
@@ -51,4 +91,7 @@ data class PlayerModel(
     }
 
     fun getAvatarColor(): Color = getColorForIndex(colorIndex)
+
+    // Método para obtener el emoji del avatar
+    fun getDisplayEmoji(): String = avatarEmoji
 }

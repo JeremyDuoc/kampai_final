@@ -336,7 +336,7 @@ fun SelectionContent(
                         modifier = Modifier.size(50.dp).clip(CircleShape).background(player.getAvatarColor().copy(alpha = 0.7f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = player.gender.getEmoji(), fontSize = 28.sp)
+                        Text(text = player.getDisplayEmoji(), fontSize = 28.sp)
                     }
                     Spacer(modifier = Modifier.width(16.dp))
                     Column {
@@ -627,7 +627,7 @@ fun ResultContent(
                             .background(player.getAvatarColor().copy(alpha = 0.7f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = player.gender.getEmoji(), fontSize = 28.sp)
+                        Text(text = player.getDisplayEmoji(), fontSize = 28.sp)
                     }
 
                     Spacer(modifier = Modifier.width(16.dp))

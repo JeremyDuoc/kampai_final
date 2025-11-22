@@ -626,7 +626,7 @@ fun EventDialog(
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Text(
-                                        text = event.selectedPlayer.gender.getEmoji(),
+                                        text = event.selectedPlayer.getDisplayEmoji(),
                                         fontSize = 28.sp
                                     )
                                 }

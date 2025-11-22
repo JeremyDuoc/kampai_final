@@ -694,7 +694,7 @@ fun PlayerVoteCard(
                     ),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = player.gender.getEmoji(), fontSize = 32.sp)
+                Text(text = player.getDisplayEmoji(), fontSize = 32.sp)
             }
 
             Spacer(modifier = Modifier.width(16.dp))
