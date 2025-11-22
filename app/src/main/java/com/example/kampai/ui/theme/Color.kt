@@ -15,15 +15,20 @@ val TextWhiteDark = Color(0xFFF0F8FF)
 val TextGrayDark = Color(0xFF94A3B8)
 
 // ============ COLORES CLAROS - MEJORADOS PARA LEGIBILIDAD ============
-val PrimaryVioletLight = Color(0xFF5B2670)  // Violeta oscuro para buen contraste
-val SecondaryPinkLight = Color(0xFFC20080)  // Rosa oscuro saturado
-val BackgroundLightMode = Color(0xFFF5F0FA) // Fondo ligeramente violáceo
-val SurfaceLightMode = Color(0xFFFFFFFF)    // Blanco puro
-val AccentCyanLight = Color(0xFF0077A8)     // Cyan oscuro
-val AccentRedLight = Color(0xFFD32F2F)      // Rojo oscuro
-val AccentAmberLight = Color(0xFFD87F1A)    // Ámbar oscuro
-val TextBlackLight = Color(0xFF1A1A1A)      // Negro real
-val TextGrayLight = Color(0xFF424242)       // Gris oscuro para buen contraste
+val PrimaryVioletLight = Color(0xFF5B2670)      // Violeta oscuro
+val SecondaryPinkLight = Color(0xFFC20080)      // Rosa oscuro saturado
+val BackgroundLightMode = Color(0xFFF8F5FB)     // Fondo ligeramente violáceo
+val SurfaceLightMode = Color(0xFFFFFFFF)        // Blanco puro
+val AccentCyanLight = Color(0xFF0077A8)         // Cyan oscuro
+val AccentRedLight = Color(0xFFD32F2F)          // Rojo oscuro
+val AccentAmberLight = Color(0xFFD87F1A)        // Ámbar oscuro
+val TextBlackLight = Color(0xFF1A1A1A)          // Negro real
+val TextGrayLight = Color(0xFF424242)           // Gris oscuro
+
+// ============ COLORES ADICIONALES PARA MODO CLARO ============
+val AccentGreenLight = Color(0xFF0B7A1A)        // Verde oscuro
+val AccentBlueLight = Color(0xFF1A47A1)         // Azul oscuro
+val TextLightSecondary = Color(0xFF616161)      // Gris secundario
 
 // ============ GRADIENTES OSCUROS ============
 val BombGradientDark = Brush.verticalGradient(
@@ -52,17 +57,17 @@ val VioletGradientDark = Brush.horizontalGradient(
 // ============ GRADIENTES CLAROS - MEJORADOS ============
 val BombGradientLight = Brush.verticalGradient(
     colors = listOf(
-        Color(0xFFE53935),
-        Color(0xFFD32F2F),
-        Color(0xFFC62828)
+        Color(0xFFC62828),
+        Color(0xFFB71C1C),
+        Color(0xFF8B0000)
     )
 )
 
 val MedusaGradientLight = Brush.verticalGradient(
     colors = listOf(
-        Color(0xFF0277BD),
-        Color(0xFF0266A1),
-        Color(0xFF01579B)
+        Color(0xFF004B87),
+        Color(0xFF006BA3),
+        Color(0xFF0077B6)
     )
 )
 
@@ -74,7 +79,6 @@ val VioletGradientLight = Brush.horizontalGradient(
 )
 
 // ============ NOMBRES CORTOS PARA COMPATIBILIDAD ============
-// (Mantienen la compatibilidad con tu código existente)
 val PrimaryViolet = PrimaryVioletDark
 val SecondaryPink = SecondaryPinkDark
 val BackgroundDark = BackgroundDarkMode

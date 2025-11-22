@@ -26,8 +26,14 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             val emoji: String,
             val color: Color,
             val instruction: String,
-            val penaltyDrinks: Int = 2
+            val penaltyDrinks: Int = 2,
+            val giftPhase: GiftPhase? = null
         ) : WarmupAction()
+    }
+
+    enum class GiftPhase {
+        RAISE_HAND,
+        REVEAL
     }
 
     enum class EventType {
@@ -448,23 +454,27 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     private fun generateRandomEvent(): WarmupAction {
         val eventDef = events.random()
 
-        // 1. Inicializamos variables
         var selectedPlayer: PlayerModel? = null
         var finalDescription = eventDef.descriptions.random()
+        var giftPhase: GiftPhase? = null
 
-        // 2. Eventos Grupales (Sin jugador seleccionado en tarjeta principal)
         val groupEvents = listOf(
             EventType.MOST_LIKELY,
             EventType.MEDUSA,
             EventType.VOTING,
             EventType.SELFIE,
             EventType.ICE_PASS,
-            EventType.GIFT // El regalo es para quien levantó la mano, no seleccionado por app
+            EventType.GIFT
         )
 
         // Si NO es grupal, seleccionamos un jugador base
         if (eventDef.type !in groupEvents) {
             selectedPlayer = eventPlayers.random()
+        }
+
+        if (eventDef.type == EventType.GIFT) {
+            giftPhase = GiftPhase.RAISE_HAND
+            finalDescription = "¡Es hora de abrir la caja misteriosa!"
         }
 
         // 3. Lógica Especial: PIEDRA PAPEL O TIJERA (Hombre vs Mujer preferentemente)
@@ -500,18 +510,62 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             emoji = eventDef.emoji,
             color = eventDef.color,
             instruction = eventDef.instruction,
-            penaltyDrinks = 2
+            penaltyDrinks = 2,
+            giftPhase = giftPhase
         )
     }
 
     fun acceptChallenge() {
-        // El jugador aceptó el reto - se espera que lo complete
         nextAction()
     }
 
     fun rejectChallenge() {
-        // El jugador rechazó - penalización de 2 tragos
         nextAction()
+    }
+
+    fun revealGift() {
+        val currentState = _gameState.value
+        if (currentState is GameState.ShowingEvent &&
+            currentState.event.eventType == EventType.GIFT &&
+            currentState.event.giftPhase == GiftPhase.RAISE_HAND) {
+
+            // Seleccionar un premio/castigo aleatorioF
+            val giftDescriptions = listOf(
+                // POSITIVAS
+                "¡PREMIO! Puedes regalar 3 tragos a quien quieras.",
+                "¡SALVACIÓN! Comodín para no cumplir un reto futuro.",
+                "¡DJ! Eliges la música por los próximos 10 minutos.",
+                "¡INMUNE! Nadie te puede mandar a beber por 2 rondas.",
+                "¡VENGANZA! Elige a alguien para que se acabe su bebida.",
+                "¡REY! Todos deben tratarte de 'Usted' hasta tu próximo turno.",
+                "¡MAESTRO! Puedes cambiar una regla del juego ahora mismo.",
+                "¡SUERTE! No bebes nada en esta ronda.",
+                "¡DEDO MÁGICO! A quien señales debe beber (un uso).",
+                "¡INTERCAMBIO! Cambia de lugar con quien quieras.",
+
+                // NEGATIVAS
+                "¡CASTIGO! Bebes el doble en tu próximo turno.",
+                "¡MALA SUERTE! Shot de tequila (o lo más fuerte que haya).",
+                "¡FITNESS! Haz 10 flexiones ahora mismo.",
+                "¡KARAOKE! Canta el estribillo de una canción a capela.",
+                "¡MAYORDOMO! Debes servirle el trago a los demás por 2 rondas.",
+                "¡ESTATUA! Quédate congelado hasta tu próximo turno.",
+                "¡SIN MANOS! Debes beber tu próximo trago sin manos.",
+                "¡EXILIADO! Ve al rincón por 1 minuto.",
+                "¡BAILARÍN! Baila sin música por 30 segundos.",
+                "¡FONDO! Termina tu vaso ahora mismo."
+            )
+
+            val selectedGift = giftDescriptions.random()
+
+            val updatedEvent = currentState.event.copy(
+                giftPhase = GiftPhase.REVEAL,
+                description = selectedGift,
+                instruction = "¡Este es tu destino!"
+            )
+
+            _gameState.value = GameState.ShowingEvent(updatedEvent)
+        }
     }
 
     fun reset() {

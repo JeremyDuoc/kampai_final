@@ -483,6 +483,7 @@ fun EventDialog(
     onReject: () -> Unit,
     screenWidth: androidx.compose.ui.unit.Dp
 ) {
+    val viewModel: WarmupViewModel = hiltViewModel()
     var showDialog by remember { mutableStateOf(true) }
 
     if (showDialog) {
@@ -499,6 +500,10 @@ fun EventDialog(
             val titleSize = (screenWidth * 0.055f).value.coerceIn(18f, 26f).sp
             val bodySize = (screenWidth * 0.045f).value.coerceIn(16f, 22f).sp
             val labelSize = (screenWidth * 0.03f).value.coerceIn(11f, 14f).sp
+
+            // Detectar si es el evento Gift y en qué fase está
+            val isGiftEvent = event.eventType == WarmupViewModel.EventType.GIFT
+            val giftPhase = event.giftPhase
 
             Card(
                 modifier = Modifier
@@ -533,23 +538,25 @@ fun EventDialog(
                         .padding(dialogPadding * 1.2f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // Botón cerrar
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        IconButton(
-                            onClick = {
-                                showDialog = false
-                                onReject()
-                            },
-                            modifier = Modifier
-                                .align(Alignment.TopEnd)
-                                .size(36.dp)
-                                .background(Color.White.copy(alpha = 0.1f), CircleShape)
-                        ) {
-                            Icon(
-                                Icons.Filled.Close,
-                                contentDescription = "Cerrar",
-                                tint = Color.White.copy(alpha = 0.7f)
-                            )
+                    // Botón cerrar (solo visible en fase REVEAL o eventos no-Gift)
+                    if (!isGiftEvent || giftPhase == WarmupViewModel.GiftPhase.REVEAL) {
+                        Box(modifier = Modifier.fillMaxWidth()) {
+                            IconButton(
+                                onClick = {
+                                    showDialog = false
+                                    onReject()
+                                },
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .size(36.dp)
+                                    .background(Color.White.copy(alpha = 0.1f), CircleShape)
+                            ) {
+                                Icon(
+                                    Icons.Filled.Close,
+                                    contentDescription = "Cerrar",
+                                    tint = Color.White.copy(alpha = 0.7f)
+                                )
+                            }
                         }
                     }
 
@@ -579,7 +586,11 @@ fun EventDialog(
                         color = event.color.copy(alpha = 0.3f)
                     ) {
                         Text(
-                            text = "¡EVENTO ESPECIAL!",
+                            text = if (isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND) {
+                                "¡PREPARACIÓN!"
+                            } else {
+                                "¡EVENTO ESPECIAL!"
+                            },
                             fontSize = labelSize,
                             fontWeight = FontWeight.Black,
                             letterSpacing = 1.5.sp,
@@ -601,8 +612,9 @@ fun EventDialog(
 
                     Spacer(modifier = Modifier.height(dialogPadding))
 
-                    // Jugador seleccionado
-                    if (event.selectedPlayer != null) {
+                    // ⬇️ MOSTRAR JUGADOR SELECCIONADO (para eventos no grupales, excepto Gift en fase RAISE_HAND) ⬇️
+                    if (event.selectedPlayer != null &&
+                        !(isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND)) {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(20.dp),
@@ -652,7 +664,7 @@ fun EventDialog(
                         Spacer(modifier = Modifier.height(dialogPadding))
                     }
 
-                    // Descripción
+                    // Descripción (varía según la fase)
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         shape = RoundedCornerShape(20.dp),
@@ -661,7 +673,11 @@ fun EventDialog(
                         )
                     ) {
                         Text(
-                            text = event.description,
+                            text = if (isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND) {
+                                "¡Todos los que quieran un REGALO levanten la mano AHORA!"
+                            } else {
+                                event.description
+                            },
                             fontSize = bodySize,
                             fontWeight = FontWeight.Bold,
                             lineHeight = (bodySize.value * 1.4f).sp,
@@ -673,9 +689,13 @@ fun EventDialog(
 
                     Spacer(modifier = Modifier.height(dialogPadding * 0.75f))
 
-                    // Instrucción
+                    // Instrucción (varía según la fase)
                     Text(
-                        text = event.instruction,
+                        text = if (isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND) {
+                            "El primero en levantar la mano recibirá algo especial..."
+                        } else {
+                            event.instruction
+                        },
                         fontSize = (bodySize.value * 0.8f).sp,
                         color = Color.Gray,
                         textAlign = TextAlign.Center,
@@ -684,38 +704,39 @@ fun EventDialog(
 
                     Spacer(modifier = Modifier.height(dialogPadding * 1.5f))
 
-                    // Botones
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
+                    // Botones - varía según el tipo de evento y fase
+                    if (isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.RAISE_HAND) {
+                        // Fase 1: Solo botón "Continuar" para revelar el regalo
                         Button(
                             onClick = {
-                                showDialog = false
-                                onReject()
+                                viewModel.revealGift()
                             },
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color.Red.copy(alpha = 0.8f)
+                                containerColor = event.color
                             ),
                             modifier = Modifier
-                                .weight(1f)
+                                .fillMaxWidth()
                                 .height((screenWidth * 0.14f).coerceIn(52.dp, 64.dp)),
                             shape = RoundedCornerShape(16.dp)
                         ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
                                 Text(
-                                    "Rechazar",
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = (bodySize.value * 0.7f).sp
+                                    "🎁",
+                                    fontSize = bodySize * 1.2f
                                 )
+                                Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    "-2 tragos",
-                                    fontSize = (bodySize.value * 0.55f).sp,
-                                    color = Color.White.copy(alpha = 0.8f)
+                                    "Revelar Regalo",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = (bodySize.value * 0.8f).sp
                                 )
                             }
                         }
-
+                    } else if (isGiftEvent && giftPhase == WarmupViewModel.GiftPhase.REVEAL) {
+                        // Fase 2: Solo botón para cerrar y continuar
                         Button(
                             onClick = {
                                 showDialog = false
@@ -725,21 +746,74 @@ fun EventDialog(
                                 containerColor = event.color
                             ),
                             modifier = Modifier
-                                .weight(1f)
+                                .fillMaxWidth()
                                 .height((screenWidth * 0.14f).coerceIn(52.dp, 64.dp)),
                             shape = RoundedCornerShape(16.dp)
                         ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    "Aceptar",
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = (bodySize.value * 0.7f).sp
-                                )
-                                Text(
-                                    "Reto",
-                                    fontSize = (bodySize.value * 0.55f).sp,
-                                    color = Color.White.copy(alpha = 0.8f)
-                                )
+                            Text(
+                                "Continuar",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = (bodySize.value * 0.8f).sp
+                            )
+                        }
+                    } else {
+                        // Otros eventos: botones normales de Aceptar/Rechazar
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Button(
+                                onClick = {
+                                    showDialog = false
+                                    onReject()
+                                },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color.Red.copy(alpha = 0.8f)
+                                ),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height((screenWidth * 0.14f).coerceIn(52.dp, 64.dp)),
+                                shape = RoundedCornerShape(16.dp)
+                            ) {
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Text(
+                                        "Rechazar",
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = (bodySize.value * 0.7f).sp
+                                    )
+                                    Text(
+                                        "-2 tragos",
+                                        fontSize = (bodySize.value * 0.55f).sp,
+                                        color = Color.White.copy(alpha = 0.8f)
+                                    )
+                                }
+                            }
+
+                            Button(
+                                onClick = {
+                                    showDialog = false
+                                    onAccept()
+                                },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = event.color
+                                ),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height((screenWidth * 0.14f).coerceIn(52.dp, 64.dp)),
+                                shape = RoundedCornerShape(16.dp)
+                            ) {
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Text(
+                                        "Aceptar",
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = (bodySize.value * 0.7f).sp
+                                    )
+                                    Text(
+                                        "Reto",
+                                        fontSize = (bodySize.value * 0.55f).sp,
+                                        color = Color.White.copy(alpha = 0.8f)
+                                    )
+                                }
                             }
                         }
                     }

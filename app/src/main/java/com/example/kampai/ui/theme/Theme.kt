@@ -19,19 +19,28 @@ private val DarkColorScheme = darkColorScheme(
     onPrimary = TextWhiteDark,
     onSecondary = TextWhiteDark,
     onBackground = TextWhiteDark,
-    onSurface = TextWhiteDark
+    onSurface = TextWhiteDark,
+    error = AccentRedDark,
+    onError = Color.White
 )
 
-// ========== ESQUEMA DE COLORES CLAROS MEJORADO ==========
+// ========== ESQUEMA DE COLORES CLAROS - TOTALMENTE REVISADO ==========
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryVioletLight,
     secondary = SecondaryPinkLight,
+    tertiary = AccentCyanLight,
     background = BackgroundLightMode,
     surface = SurfaceLightMode,
-    onPrimary = Color(0xFFFFFFFF),      // Texto blanco sobre primario
-    onSecondary = Color(0xFFFFFFFF),    // Texto blanco sobre secundario
-    onBackground = TextBlackLight,      // Texto negro sobre fondo claro
-    onSurface = TextBlackLight          // Texto negro sobre superficie
+    onPrimary = Color.White,
+    onSecondary = Color.White,
+    onTertiary = Color.White,
+    onBackground = TextBlackLight,
+    onSurface = TextBlackLight,
+    onSurfaceVariant = TextLightSecondary,
+    error = AccentRedLight,
+    onError = Color.White,
+    outline = TextGrayLight,
+    outlineVariant = Color(0xFFE0E0E0)
 )
 
 @Composable

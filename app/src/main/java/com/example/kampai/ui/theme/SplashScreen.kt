@@ -93,7 +93,7 @@ fun SplashScreen(navController: NavController) {
             // TEXTO DE CARGA
             Text(
                 text = "Preparense para beber...",
-                color = Color.White.copy(alpha = 0.7f),
+                color = MaterialTheme.colorScheme.outline,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.alpha(alpha.value)
