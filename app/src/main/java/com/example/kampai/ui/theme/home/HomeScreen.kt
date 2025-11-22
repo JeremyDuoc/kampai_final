@@ -19,11 +19,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock // Faltaba este
 import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.WineBar // Faltaba este
 import androidx.compose.material3.Card // Faltaba este
 import androidx.compose.material3.CardDefaults // Faltaba este
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -58,7 +60,8 @@ fun HomeScreen(
     partyViewModel: PartyManagerViewModel = hiltViewModel(),
     onGameSelected: (String) -> Unit,
     onNavigateToClassics: () -> Unit,
-    onPartyManager: () -> Unit
+    onPartyManager: () -> Unit,
+    onNavigateToSettings: () -> Unit  // ← NUEVO
 ) {
     val mostPlayedGames by viewModel.mostPlayedGames.collectAsState()
     val players by partyViewModel.players.collectAsState()
@@ -78,7 +81,10 @@ fun HomeScreen(
                 .verticalScroll(scrollState)
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
-            HeaderSection(playerCount = players.size)
+            HeaderSection(
+                playerCount = players.size,
+                onSettingsClick = onNavigateToSettings  // ← PASA EL CALLBACK
+            )
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -286,7 +292,7 @@ fun AnimatedBackground() {
 }
 
 @Composable
-fun HeaderSection(playerCount: Int) {
+fun HeaderSection(playerCount: Int, onSettingsClick: () -> Unit) {
     var isLogoVisible by remember { mutableStateOf(false) }
 
     val logoScale = animateFloatAsState(
@@ -313,32 +319,61 @@ fun HeaderSection(playerCount: Int) {
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Box(
+        // Header con Logo y Botón Settings
+        Row(
             modifier = Modifier
-                .height(140.dp)
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(24.dp))
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            PrimaryViolet.copy(alpha = 0.15f),
-                            SecondaryPink.copy(alpha = 0.15f)
-                        )
-                    )
-                )
-                .padding(16.dp),
-            contentAlignment = Alignment.Center
+                .padding(horizontal = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo_kampai),
-                contentDescription = "Logo Kampai",
+            // Espacio vacío (balance visual)
+            Spacer(modifier = Modifier.size(48.dp))
+
+            // Logo en el centro
+            Box(
                 modifier = Modifier
                     .height(100.dp)
-                    .fillMaxWidth()
-                    .scale(logoScale.value)
-                    .graphicsLayer { alpha = logoAlpha.value },
-                contentScale = ContentScale.Fit
-            )
+                    .weight(1f)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                PrimaryViolet.copy(alpha = 0.15f),
+                                SecondaryPink.copy(alpha = 0.15f)
+                            )
+                        )
+                    )
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.logo_kampai),
+                    contentDescription = "Logo Kampai",
+                    modifier = Modifier
+                        .height(80.dp)
+                        .fillMaxWidth()
+                        .scale(logoScale.value)
+                        .graphicsLayer { alpha = logoAlpha.value },
+                    contentScale = ContentScale.Fit
+                )
+            }
+
+            // Botón Configuración (derecha)
+            IconButton(
+                onClick = onSettingsClick,
+                modifier = Modifier
+                    .size(48.dp)
+                    .background(PrimaryViolet.copy(alpha = 0.2f), CircleShape)
+                    .border(2.dp, PrimaryViolet.copy(alpha = 0.5f), CircleShape)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    contentDescription = "Configuración",
+                    tint = PrimaryViolet,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
