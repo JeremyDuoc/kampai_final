@@ -9,6 +9,8 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -32,14 +34,21 @@ import com.example.kampai.ui.theme.staring.StaringGameScreen
 import com.example.kampai.ui.theme.partymanager.PartyManagerScreen
 import com.example.kampai.ui.theme.settings.SettingsScreen
 import com.example.kampai.ui.theme.warmup.WarmupGameScreen
+import com.example.kampai.ui.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var themeManager: ThemeManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            KampaiTheme {
+            val isDarkMode by themeManager.isDarkMode.collectAsState(initial = true)
+
+            KampaiTheme(isDarkMode = isDarkMode) {
                 KampaiApp()
             }
         }
@@ -70,7 +79,6 @@ fun KampaiApp() {
             SplashScreen(navController = navController)
         }
 
-        // HOME SCREEN - CON TODOS LOS PARÁMETROS
         composable("home") {
             HomeScreen(
                 onGameSelected = { route ->
@@ -88,12 +96,10 @@ fun KampaiApp() {
             )
         }
 
-        // SETTINGS SCREEN
         composable("settings") {
             SettingsScreen(onBack = { navController.popBackStack() })
         }
 
-        // CLASSICS SCREEN
         composable("classics_screen") {
             ClassicsScreen(
                 onGameSelected = { route ->
@@ -105,14 +111,12 @@ fun KampaiApp() {
             )
         }
 
-        // PARTY MANAGER SCREEN
         composable("party_manager") {
             PartyManagerScreen(
                 onBack = { navController.popBackStack() }
             )
         }
 
-        // CULTURE SELECTION SCREEN
         composable("culture_selection") {
             CultureSelectionScreen(
                 onNavigateToBomb = { navController.navigate("game_bomb") },
@@ -120,8 +124,6 @@ fun KampaiApp() {
                 onBack = { navController.popBackStack() }
             )
         }
-
-        // ========== GAME SCREENS ==========
 
         composable("game_bomb") {
             BombGameScreen(onBack = { navController.popBackStack() })

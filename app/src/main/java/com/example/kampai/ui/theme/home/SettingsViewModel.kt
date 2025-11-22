@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.ui.theme.ThemeManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val themeManager: ThemeManager
 ) : ViewModel() {
 
     enum class Language {
@@ -34,14 +36,33 @@ class SettingsViewModel @Inject constructor(
     private val _soundEnabled = MutableStateFlow(true)
     val soundEnabled: StateFlow<Boolean> = _soundEnabled.asStateFlow()
 
+    private val _isDarkMode = MutableStateFlow(true)
+    val isDarkMode: StateFlow<Boolean> = _isDarkMode.asStateFlow()
+
     private val _showSuggestionsDialog = MutableStateFlow(false)
     val showSuggestionsDialog: StateFlow<Boolean> = _showSuggestionsDialog.asStateFlow()
 
     private val _showBugReportDialog = MutableStateFlow(false)
     val showBugReportDialog: StateFlow<Boolean> = _showBugReportDialog.asStateFlow()
 
+    init {
+        // Cargar el modo actual
+        viewModelScope.launch {
+            themeManager.isDarkMode.collect { isDark ->
+                _isDarkMode.value = isDark
+            }
+        }
+    }
+
     fun toggleSound() {
         _soundEnabled.value = !_soundEnabled.value
+    }
+
+    fun toggleDarkMode(isDark: Boolean) {
+        viewModelScope.launch {
+            themeManager.setDarkMode(isDark)
+            _isDarkMode.value = isDark
+        }
     }
 
     fun showLanguageDialog() {
@@ -62,11 +83,7 @@ class SettingsViewModel @Inject constructor(
 
     fun sendSuggestion(suggestion: String) {
         viewModelScope.launch {
-            // Opción 1: Enviar por EMAIL
             sendEmailSuggestion(suggestion)
-
-            // Opción 2 (Alternativa): Enviar por Firebase/API
-            // sendToBackend(suggestion)
         }
     }
 
@@ -82,6 +99,7 @@ class SettingsViewModel @Inject constructor(
             Idioma: ${_language.value.getDisplayName()}
             Dispositivo: Android
             Sonido: ${if (_soundEnabled.value) "Habilitado" else "Deshabilitado"}
+            Tema: ${if (_isDarkMode.value) "Oscuro" else "Claro"}
         """.trimIndent()
 
         val intent = Intent(Intent.ACTION_SEND).apply {
@@ -111,6 +129,7 @@ class SettingsViewModel @Inject constructor(
                 Dispositivo: Android
                 Versión: 1.0.0
                 Idioma: ${_language.value.getDisplayName()}
+                Tema: ${if (_isDarkMode.value) "Oscuro" else "Claro"}
             """.trimIndent()
 
             val intent = Intent(Intent.ACTION_SEND).apply {

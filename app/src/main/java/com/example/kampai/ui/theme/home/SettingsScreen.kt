@@ -39,6 +39,7 @@ fun SettingsScreen(
 ) {
     val language by viewModel.language.collectAsState()
     val soundEnabled by viewModel.soundEnabled.collectAsState()
+    val isDarkMode by viewModel.isDarkMode.collectAsState()
     val showSuggestionsDialog by viewModel.showSuggestionsDialog.collectAsState()
     val appVersion = "1.0.0"
 
@@ -68,10 +69,6 @@ fun SettingsScreen(
             ) {
                 // SECCIÓN: PREFERENCIAS
                 item {
-                    SectionTitle("⚙️ PREFERENCIAS")
-                }
-
-                item {
                     SettingItem(
                         icon = "🌐",
                         title = "Idioma",
@@ -85,6 +82,13 @@ fun SettingsScreen(
                     SoundSettingItem(
                         isEnabled = soundEnabled,
                         onToggle = { viewModel.toggleSound() }
+                    )
+                }
+
+                item {
+                    ThemeSettingItem(
+                        isDarkMode = isDarkMode,
+                        onToggle = { viewModel.toggleDarkMode(it) }
                     )
                 }
 
@@ -184,6 +188,74 @@ fun SettingsScreen(
         }
     }
 }
+
+@Composable
+fun ThemeSettingItem(
+    isDarkMode: Boolean,
+    onToggle: (Boolean) -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(
+                            MaterialTheme.colorScheme.surface,
+                            Color(0xFF7C3AED).copy(alpha = 0.1f)
+                        )
+                    )
+                )
+                .border(
+                    width = 2.dp,
+                    color = Color(0xFF7C3AED).copy(alpha = 0.3f),
+                    shape = RoundedCornerShape(20.dp)
+                )
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(text = if (isDarkMode) "🌙" else "☀️", fontSize = 32.sp)
+                Spacer(modifier = Modifier.width(16.dp))
+                Column {
+                    Text(
+                        text = "Tema",
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.White
+                    )
+                    Text(
+                        text = if (isDarkMode) "Modo Oscuro" else "Modo Claro",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.Gray
+                    )
+                }
+            }
+
+            Switch(
+                checked = isDarkMode,
+                onCheckedChange = { onToggle(it) },
+                modifier = Modifier.scale(1.2f),
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = Color(0xFF7C3AED),
+                    checkedTrackColor = Color(0xFF7C3AED).copy(alpha = 0.5f),
+                    uncheckedThumbColor = Color(0xFFF59E0B),
+                    uncheckedTrackColor = Color(0xFFF59E0B).copy(alpha = 0.5f)
+                )
+            )
+        }
+    }
+}
+
 
 @Composable
 fun SettingsBackground() {
