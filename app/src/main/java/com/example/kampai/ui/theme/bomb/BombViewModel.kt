@@ -37,6 +37,7 @@ class BombViewModel @Inject constructor(
 
     private var timerJob: Job? = null
 
+    // Categorías expandidas y más interesantes
     private val categories = listOf(
         "Marcas de Coches",
         "Pokémones",
@@ -47,19 +48,42 @@ class BombViewModel @Inject constructor(
         "Partes del Cuerpo",
         "Palabras que rimen con 'RON'",
         "Superhéroes Marvel",
-        "Cosas que encuentras en un baño",
+        "Cosas en un baño",
         "Razas de Perros",
         "Equipos de Fútbol",
-        "Nombres que empiecen con 'A'",
-        "Frutas",
+        "Nombres con 'A'",
+        "Frutas Tropicales",
         "Países de América",
         "Instrumentos Musicales",
         "Colores en inglés",
-        "Películas de Terror"
+        "Películas de Terror",
+        "Marcas de Ropa",
+        "Aplicaciones del móvil",
+        "Emojis populares",
+        "Canciones de Reggaeton",
+        "Videojuegos famosos",
+        "Redes Sociales",
+        "Tipos de Queso",
+        "Marcas de Comida Rápida",
+        "Series de Netflix",
+        "Artistas de Trap",
+        "Cosas en una cocina",
+        "Modelos de iPhone",
+        "Palabras con 'Q'",
+        "Cócteles famosos",
+        "Países de Asia",
+        "Marcas de Zapatillas",
+        "Postres típicos",
+        "Herramientas de trabajo",
+        "Animales marinos",
+        "Planetas del Sistema Solar",
+        "Géneros musicales",
+        "Tipos de Pasta"
     )
 
     fun startGame() {
-        val duration = Random.nextInt(10, 25)
+        // Tiempo aleatorio más dinámico (entre 30 y 61 segundos)
+        val duration = Random.nextInt(30, 61)
         _category.value = categories.random()
         _timeLeft.value = duration
         _uiState.value = GameState.Playing
@@ -67,32 +91,37 @@ class BombViewModel @Inject constructor(
         timerJob?.cancel()
         timerJob = viewModelScope.launch {
             while (_timeLeft.value > 0) {
-                // Calcular velocidad del sonido según tiempo restante
+                // Velocidad del sonido aumenta con la urgencia
                 val soundSpeed = when {
-                    _timeLeft.value <= 3 -> 300L
-                    _timeLeft.value <= 5 -> 500L
-                    _timeLeft.value <= 10 -> 800L
-                    else -> 1000L
+                    _timeLeft.value <= 3 -> 250L   // Muy rápido
+                    _timeLeft.value <= 5 -> 450L   // Rápido
+                    _timeLeft.value <= 10 -> 700L  // Medio
+                    _timeLeft.value <= 15 -> 900L  // Normal
+                    else -> 1100L                  // Lento
                 }
 
                 try {
-                    Log.d("KampaiSound", "Reproduciendo tic_tac - Tiempo: ${_timeLeft.value}")
+                    Log.d("KampaiBomb", "Tic-tac - Tiempo: ${_timeLeft.value}s")
                     soundManager.playSound(R.raw.tic_tac)
                 } catch (e: Exception) {
-                    Log.e("KampaiSound", "Error reproduciendo sonido: ${e.message}")
+                    Log.e("KampaiBomb", "Error reproduciendo sonido: ${e.message}")
                 }
 
                 delay(soundSpeed)
                 _timeLeft.value -= 1
             }
 
-            // Explota
+            // ¡EXPLOSIÓN!
             _uiState.value = GameState.Exploded
             try {
+                Log.d("KampaiBomb", "💥 ¡EXPLOSIÓN!")
                 soundManager.playSound(R.raw.explosion)
             } catch (e: Exception) {
-                Log.e("KampaiSound", "Error en explosión: ${e.message}")
+                Log.e("KampaiBomb", "Error en explosión: ${e.message}")
             }
+
+            // Efecto de vibración adicional (pequeño delay para impacto)
+            delay(100)
         }
     }
 
@@ -101,6 +130,7 @@ class BombViewModel @Inject constructor(
         soundManager.stopSound()
         _uiState.value = GameState.Idle
         _timeLeft.value = 0
+        _category.value = ""
     }
 
     override fun onCleared() {

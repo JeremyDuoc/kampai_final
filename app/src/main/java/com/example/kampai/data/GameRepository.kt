@@ -44,6 +44,15 @@ class GameRepository @Inject constructor() {
             color = Color(0xFFF59E0B),
             route = "game_karaoke"
         ),
+        GameModel(
+            id = "card_game",
+            title = "Juego de Cartas",
+            description = "Multijugador local tipo UNO",
+            iconRes = R.drawable.culture, // Necesitas este drawable
+            color = Color(0xFFE53935),
+            route = "card_game"
+        ),
+
 
         GameModel(
             id = "impostor",

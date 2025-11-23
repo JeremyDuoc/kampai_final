@@ -1,5 +1,6 @@
 package com.example.kampai
 
+import android.content.Intent // <--- IMPORTANTE: Añadido
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,35 +9,43 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext // <--- IMPORTANTE: Añadido
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kampai.cardgame.ui.CardGameActivity
 import com.example.kampai.ui.theme.KampaiTheme
 import com.example.kampai.ui.theme.SplashScreen
-import com.example.kampai.ui.theme.home.HomeScreen
-import com.example.kampai.ui.theme.culture.CultureSelectionScreen
-import com.example.kampai.ui.theme.bomb.BombGameScreen
-import com.example.kampai.ui.theme.never.NeverGameScreen
-import com.example.kampai.ui.theme.truth.TruthGameScreen
-import com.example.kampai.ui.theme.culture.CultureGameScreen
-import com.example.kampai.ui.theme.highlow.HighLowGameScreen
-import com.example.kampai.ui.theme.medusa.MedusaGameScreen
-import com.example.kampai.ui.theme.charades.CharadesGameScreen
-import com.example.kampai.ui.theme.home.ClassicsScreen
-import com.example.kampai.ui.theme.impostor.ImpostorGameScreen
-import com.example.kampai.ui.theme.roulette.RouletteGameScreen
-import com.example.kampai.ui.theme.judge.JudgeGameScreen
-import com.example.kampai.ui.theme.likely.MostLikelyScreen
-import com.example.kampai.ui.theme.staring.StaringGameScreen
-import com.example.kampai.ui.theme.partymanager.PartyManagerScreen
-import com.example.kampai.ui.theme.kingscup.KingsCupGameScreen
-import com.example.kampai.ui.theme.settings.SettingsScreen
-import com.example.kampai.ui.theme.warmup.WarmupGameScreen
 import com.example.kampai.ui.theme.ThemeManager
+import com.example.kampai.ui.theme.bomb.BombGameScreen
+import com.example.kampai.ui.theme.charades.CharadesGameScreen
+import com.example.kampai.ui.theme.culture.CultureGameScreen
+import com.example.kampai.ui.theme.culture.CultureSelectionScreen
+import com.example.kampai.ui.theme.highlow.HighLowGameScreen
+import com.example.kampai.ui.theme.home.ClassicsScreen
+import com.example.kampai.ui.theme.home.HomeScreen
+import com.example.kampai.ui.theme.impostor.ImpostorGameScreen
+import com.example.kampai.ui.theme.judge.JudgeGameScreen
 import com.example.kampai.ui.theme.karaoke.KaraokeGameScreen
+import com.example.kampai.ui.theme.kingscup.KingsCupGameScreen
+import com.example.kampai.ui.theme.likely.MostLikelyScreen
+import com.example.kampai.ui.theme.medusa.MedusaGameScreen
+import com.example.kampai.ui.theme.never.NeverGameScreen
+import com.example.kampai.ui.theme.partymanager.PartyManagerScreen
+import com.example.kampai.ui.theme.roulette.RouletteGameScreen
+import com.example.kampai.ui.theme.settings.SettingsScreen
+import com.example.kampai.ui.theme.staring.StaringGameScreen
+import com.example.kampai.ui.theme.truth.TruthGameScreen
+import com.example.kampai.ui.theme.warmup.WarmupGameScreen
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -119,6 +128,21 @@ fun KampaiApp() {
             )
         }
 
+        // --- CORRECCIÓN AQUÍ ---
+        composable("card_game") {
+            val context = LocalContext.current
+
+            LaunchedEffect(Unit) {
+                val intent = Intent(context, CardGameActivity::class.java)
+                context.startActivity(intent)
+                navController.popBackStack()
+            }
+
+            // Fondo negro temporal mientras carga la actividad
+            Box(modifier = Modifier.fillMaxSize().background(Color.Black))
+        }
+        // -----------------------
+
         composable("culture_selection") {
             CultureSelectionScreen(
                 onNavigateToBomb = { navController.navigate("game_bomb") },
@@ -183,5 +207,8 @@ fun KampaiApp() {
             JudgeGameScreen(onBack = { navController.popBackStack() })
         }
 
+        composable("game_staring") {
+            StaringGameScreen(onBack = { navController.popBackStack() })
+        }
     }
 }
