@@ -92,7 +92,7 @@ fun HomeScreen(
             Text(
                 text = "🔥 Más Jugados",
                 style = MaterialTheme.typography.titleLarge,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
@@ -112,7 +112,7 @@ fun HomeScreen(
             Text(
                 text = "📂 Categorías",
                 style = MaterialTheme.typography.titleLarge,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
@@ -165,7 +165,7 @@ fun HomeScreen(
                 Icon(
                     imageVector = Icons.Filled.People,
                     contentDescription = "Gestionar Jugadores",
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(32.dp)
                 )
                 if (players.isNotEmpty()) {
@@ -173,7 +173,7 @@ fun HomeScreen(
                         text = "${players.size}",
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
@@ -225,7 +225,7 @@ fun CategoryCard(
                     Text(
                         text = subtitle,
                         fontSize = 10.sp,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -384,7 +384,7 @@ fun HeaderSection(playerCount: Int, onSettingsClick: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 0.5.sp
             ),
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.graphicsLayer { alpha = logoAlpha.value }
         )
 
@@ -552,7 +552,7 @@ fun AnimatedGameCard(
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 20.sp
                     ),
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(
@@ -586,7 +586,7 @@ fun AnimatedGameCard(
                 Icon(
                     imageVector = Icons.Filled.PlayArrow,
                     contentDescription = "Play",
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(28.dp)
                 )
             }

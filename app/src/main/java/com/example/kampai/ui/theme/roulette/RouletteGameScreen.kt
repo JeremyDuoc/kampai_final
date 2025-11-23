@@ -201,7 +201,7 @@ fun RouletteHeader(
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Column(
@@ -219,7 +219,7 @@ fun RouletteHeader(
             Text(
                 text = "$chambersRevealed/6 cámaras disparadas",
                 style = MaterialTheme.typography.labelMedium,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
@@ -531,7 +531,7 @@ fun TensionMeter(tensionLevel: Float) {
                 letterSpacing = 2.sp,
                 fontWeight = FontWeight.Bold
             ),
-            color = Color.Gray
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -639,7 +639,7 @@ fun ActionButton(
                 Icon(
                     imageVector = Icons.Filled.Refresh,
                     contentDescription = null,
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(

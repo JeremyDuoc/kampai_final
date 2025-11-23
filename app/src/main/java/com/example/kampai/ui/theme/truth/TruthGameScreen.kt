@@ -203,7 +203,7 @@ fun TruthDareHeader(
                     .size(48.dp)
                     .background(Color.White.copy(alpha = 0.1f), CircleShape)
             ) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
             }
 
             Column(
@@ -223,7 +223,7 @@ fun TruthDareHeader(
                     style = MaterialTheme.typography.labelMedium.copy(
                         letterSpacing = 1.sp
                     ),
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -299,7 +299,7 @@ fun StatCard(
                 Text(
                     text = label,
                     style = MaterialTheme.typography.bodySmall,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -340,7 +340,7 @@ fun SelectionContent(
                     }
                     Spacer(modifier = Modifier.width(16.dp))
                     Column {
-                        Text(text = "Turno de:", style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+                        Text(text = "Turno de:", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Text(text = player.name, style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold), color = Color.White)
                     }
                 }
@@ -637,7 +637,7 @@ fun ResultContent(
                         Text(
                             text = "Turno de:",
                             style = MaterialTheme.typography.labelSmall,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
                             text = player.name,

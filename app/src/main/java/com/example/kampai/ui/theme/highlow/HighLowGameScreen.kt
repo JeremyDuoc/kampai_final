@@ -221,7 +221,7 @@ fun HighLowHeader(
                 Icon(
                     Icons.Filled.ArrowBack,
                     contentDescription = "Atrás",
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(iconSize * 0.5f)
                 )
             }
@@ -283,7 +283,7 @@ fun InstructionBadge(text: String, screenWidth: androidx.compose.ui.unit.Dp) {
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.1f)
+            containerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
         ),
         modifier = Modifier.scale(scale)
     ) {
@@ -291,7 +291,7 @@ fun InstructionBadge(text: String, screenWidth: androidx.compose.ui.unit.Dp) {
             text = text,
             fontSize = fontSize,
             fontWeight = FontWeight.Bold,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
             textAlign = TextAlign.Center
         )
@@ -321,7 +321,7 @@ fun CardsSection(
             fontSize = (screenWidth * 0.03f).value.coerceIn(10f, 14f).sp,
             fontWeight = FontWeight.Bold,
             letterSpacing = 1.sp,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(bottom = 12.dp)
         )
 
@@ -354,7 +354,7 @@ fun CardsSection(
             fontSize = (screenWidth * 0.03f).value.coerceIn(10f, 14f).sp,
             fontWeight = FontWeight.Bold,
             letterSpacing = 1.sp,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(bottom = 12.dp)
         )
 
@@ -523,7 +523,7 @@ fun AnimatedArrow(
             text = "?",
             fontSize = arrowSize,
             fontWeight = FontWeight.Black,
-            color = Color.Gray.copy(alpha = 0.5f)
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
         )
     }
 }

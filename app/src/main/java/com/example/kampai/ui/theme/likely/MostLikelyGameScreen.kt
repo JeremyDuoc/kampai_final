@@ -217,7 +217,7 @@ fun MostLikelyHeader(
                 Icon(
                     Icons.Filled.ArrowBack,
                     contentDescription = "Atrás",
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(iconSize * 0.5f)
                 )
             }
@@ -235,7 +235,7 @@ fun MostLikelyHeader(
                 Text(
                     text = "Votación grupal",
                     fontSize = (titleSize.value * 0.5f).sp,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 

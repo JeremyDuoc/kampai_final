@@ -66,7 +66,7 @@ fun CultureSelectionScreen(
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.graphicsLayer {
                     alpha = if (showContent) 1f else 0f
                 }
@@ -77,7 +77,7 @@ fun CultureSelectionScreen(
             Text(
                 text = "Elige tu nivel de adrenalina",
                 style = MaterialTheme.typography.bodyLarge,
-                color = Color.Gray,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.graphicsLayer {
                     alpha = if (showContent) 1f else 0f
                 }
@@ -191,7 +191,7 @@ fun AnimatedHeader(onBack: () -> Unit, showContent: Boolean) {
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Text(
@@ -340,7 +340,7 @@ fun AnimatedModeCard(
                         style = MaterialTheme.typography.headlineSmall.copy(
                             fontWeight = FontWeight.ExtraBold
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                 }
 
@@ -372,7 +372,7 @@ fun AnimatedModeCard(
                         Text(
                             text = point,
                             style = MaterialTheme.typography.bodyMedium,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }

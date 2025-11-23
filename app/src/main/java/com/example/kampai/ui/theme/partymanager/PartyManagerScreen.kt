@@ -109,14 +109,14 @@ fun PartyManagerScreen(
                 Icon(
                     imageVector = Icons.Filled.Add,
                     contentDescription = null,
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = "Agregar Jugador",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -198,7 +198,7 @@ fun PartyHeader(
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Column(
@@ -216,7 +216,7 @@ fun PartyHeader(
             Text(
                 text = "$playerCount jugador${if (playerCount != 1) "es" else ""}",
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
@@ -273,7 +273,7 @@ fun EmptyPartyState(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineMedium.copy(
                 fontWeight = FontWeight.Bold
             ),
-            color = Color.White
+            color = MaterialTheme.colorScheme.onSurface
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -281,7 +281,7 @@ fun EmptyPartyState(modifier: Modifier = Modifier) {
         Text(
             text = "Agrega jugadores para comenzar la fiesta",
             style = MaterialTheme.typography.bodyLarge,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
     }
@@ -380,12 +380,12 @@ fun PlayerCard(
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     text = player.gender.getDisplayName(),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -436,7 +436,7 @@ fun AddPlayerDialog(
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 Spacer(modifier = Modifier.height(24.dp))
@@ -451,8 +451,8 @@ fun AddPlayerDialog(
                         focusedBorderColor = PrimaryViolet,
                         focusedLabelColor = PrimaryViolet,
                         cursorColor = PrimaryViolet,
-                        focusedTextColor = Color.White,
-                        unfocusedTextColor = Color.White
+                        focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                        unfocusedTextColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -462,7 +462,7 @@ fun AddPlayerDialog(
                 // Selector de género
                 Text(
                     text = "Género",
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.align(Alignment.Start)
                 )
 
@@ -487,7 +487,7 @@ fun AddPlayerDialog(
                 // Selector de Avatar
                 Text(
                     text = "Avatar",
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.align(Alignment.Start)
                 )
 
@@ -572,7 +572,7 @@ fun AvatarSelector(
                         Text(
                             text = "Avatar seleccionado",
                             style = MaterialTheme.typography.bodySmall,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
                             text = "Toca para cambiar",

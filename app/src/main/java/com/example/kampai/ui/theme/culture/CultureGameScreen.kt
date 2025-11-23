@@ -174,7 +174,7 @@ fun ClassicHeader(onBack: () -> Unit) {
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Column(
@@ -194,7 +194,7 @@ fun ClassicHeader(onBack: () -> Unit) {
                 style = MaterialTheme.typography.labelMedium.copy(
                     letterSpacing = 1.5.sp
                 ),
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -216,7 +216,7 @@ fun InstructionBadge() {
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.1f)
+            containerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
         ),
         modifier = Modifier.scale(scale)
     ) {
@@ -231,7 +231,7 @@ fun InstructionBadge() {
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -339,7 +339,7 @@ fun AnimatedCategoryCard(category: String, showCategory: Boolean) {
                         lineHeight = 44.sp
                     ),
                     textAlign = TextAlign.Center,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -351,7 +351,7 @@ fun RulesSection() {
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.08f)
+            containerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
         ),
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -364,7 +364,7 @@ fun RulesSection() {
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -409,7 +409,7 @@ fun RuleItem(number: String, text: String) {
                 style = MaterialTheme.typography.labelLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
 
@@ -466,7 +466,7 @@ fun NextCategoryButton(onClick: () -> Unit) {
             Icon(
                 imageVector = Icons.Filled.Refresh,
                 contentDescription = null,
-                tint = Color.White,
+                tint = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier
                     .size(24.dp)
                     .rotate(rotation)
@@ -476,7 +476,7 @@ fun NextCategoryButton(onClick: () -> Unit) {
                 text = "Siguiente Categoría",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }

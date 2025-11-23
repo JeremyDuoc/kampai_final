@@ -108,7 +108,7 @@ fun SplashScreen(navController: NavController) {
                     .height(6.dp)
                     .alpha(alpha.value),
                 color = PrimaryViolet,
-                trackColor = Color.White.copy(alpha = 0.1f),
+                trackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f),
                 strokeCap = StrokeCap.Round
             )
         }
@@ -116,7 +116,7 @@ fun SplashScreen(navController: NavController) {
         // Versión de la App (Pie de página)
         Text(
             text = "v1.0",
-            color = Color.White.copy(alpha = 0.3f),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
             fontSize = 12.sp,
             modifier = Modifier
                 .align(Alignment.BottomCenter)

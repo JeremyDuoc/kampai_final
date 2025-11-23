@@ -173,7 +173,7 @@ fun ImpostorHeader(onBack: () -> Unit) {
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Column(
@@ -191,7 +191,7 @@ fun ImpostorHeader(onBack: () -> Unit) {
             Text(
                 text = "Encuentra al impostor",
                 style = MaterialTheme.typography.labelMedium,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -245,7 +245,7 @@ fun SetupContent(playerCount: Int, onStart: () -> Unit) {
                 Text(
                     text = "• Todos reciben una palabra secreta\n• Excepto el impostor que no la conoce\n• Den pistas sin decir la palabra\n• El impostor debe fingir que sabe\n• Voten quién es el impostor",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Start,
                     lineHeight = 24.sp
                 )
@@ -317,7 +317,7 @@ fun ShowingWordContent(
         Text(
             text = "Jugador ${currentIndex + 1} de $totalPlayers",
             style = MaterialTheme.typography.labelLarge.copy(letterSpacing = 1.sp),
-            color = Color.Gray
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -461,7 +461,7 @@ fun ShowingWordContent(
                             Text(
                                 text = "No conoces la palabra\n¡Finge que sí!",
                                 style = MaterialTheme.typography.bodyLarge,
-                                color = Color.Gray,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
                             )
                         } else {
@@ -478,7 +478,7 @@ fun ShowingWordContent(
                             Text(
                                 text = "Esta es la palabra secreta",
                                 style = MaterialTheme.typography.bodyLarge,
-                                color = Color.Gray,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -554,7 +554,7 @@ fun GivingCluesContent(onStartVoting: () -> Unit) {
                 Text(
                     text = "• Den pistas por turnos\n• No digan la palabra directamente\n• El impostor debe fingir conocerla\n• Observen quién parece sospechoso",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Start,
                     lineHeight = 24.sp
                 )
@@ -608,7 +608,7 @@ fun VotingContent(
         Text(
             text = "Votos totales: $totalVotes",
             style = MaterialTheme.typography.bodyLarge,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -710,7 +710,7 @@ fun PlayerVoteCard(
                 Text(
                     text = "$votes voto${if (votes != 1) "s" else ""}",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -791,7 +791,7 @@ fun ResultsContent(
                 Text(
                     text = "El impostor era:",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -832,7 +832,7 @@ fun ResultsContent(
                 Text(
                     text = "La palabra era:",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))

@@ -229,7 +229,7 @@ fun KaraokeHeader(
                 Icon(
                     Icons.Filled.ArrowBack,
                     contentDescription = "Atrás",
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(iconSize * 0.5f)
                 )
             }
@@ -247,7 +247,7 @@ fun KaraokeHeader(
                 Text(
                     text = "¡Canta o bebe!",
                     fontSize = (titleSize.value * 0.5f).sp,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -515,7 +515,7 @@ fun SingerCard(
                 Text(
                     text = "¡Es tu turno!",
                     fontSize = (fontSize.value * 0.7f).sp,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
                     text = singer.name,
@@ -670,7 +670,7 @@ fun SongCard(
                 Text(
                     text = song.artist,
                     fontSize = bodySize,
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
 
@@ -730,7 +730,7 @@ fun VotingContent(
         Text(
             text = "¿${singer.name} lo hizo bien?",
             fontSize = bodySize,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
 
@@ -1146,7 +1146,7 @@ fun VoteResultCounter(
         Text(
             text = label,
             fontSize = 12.sp,
-            color = Color.Gray
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }
@@ -1173,7 +1173,7 @@ fun ResponsiveButton(
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent,
-            disabledContainerColor = Color.Gray.copy(alpha = 0.3f)
+            disabledContainerColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
         ),
         modifier = Modifier
             .fillMaxWidth()

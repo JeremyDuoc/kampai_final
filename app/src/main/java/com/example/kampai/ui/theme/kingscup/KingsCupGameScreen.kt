@@ -217,7 +217,7 @@ fun GameStatsHeader(
                     .size(iconSize)
                     .background(Color.White.copy(alpha = 0.1f), CircleShape)
             ) {
-                Icon(Icons.Filled.ArrowBack, "Atrás", tint = Color.White)
+                Icon(Icons.Filled.ArrowBack, "Atrás", tint = MaterialTheme.colorScheme.onSurface)
             }
 
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -231,7 +231,7 @@ fun GameStatsHeader(
                 Text(
                     text = "$cardsRemaining cartas restantes",
                     fontSize = 12.sp,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -260,7 +260,7 @@ fun GameStatsHeader(
             ) {
                 Text(
                     text = "Nivel del Vaso Central",
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -273,7 +273,7 @@ fun GameStatsHeader(
                     )
                     Text(
                         text = "/4 👑",
-                        color = Color.Gray,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontSize = 12.sp
                     )
                 }
@@ -508,14 +508,14 @@ fun CurrentPlayerCard(
                 Text(
                     text = "Es el turno de",
                     fontSize = 12.sp,
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontWeight = FontWeight.Medium
                 )
                 Text(
                     text = player.name,
                     fontSize = fontSize,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -947,7 +947,7 @@ fun KingsCupRuleItem(emoji: String, title: String, description: String, fontSize
         Spacer(modifier = Modifier.width(12.dp))
         Column {
             Text(text = title, fontSize = fontSize, fontWeight = FontWeight.Bold, color = AccentAmber)
-            Text(text = description, fontSize = fontSize * 0.9f, color = Color.Gray, lineHeight = fontSize * 1.3f)
+            Text(text = description, fontSize = fontSize * 0.9f, color = MaterialTheme.colorScheme.onSurfaceVariant, lineHeight = fontSize * 1.3f)
         }
     }
 }

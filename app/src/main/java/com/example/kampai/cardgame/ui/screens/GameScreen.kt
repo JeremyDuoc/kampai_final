@@ -883,7 +883,7 @@ private fun ErrorSnackbar(
                 Icon(
                     imageVector = Icons.Filled.Warning,
                     contentDescription = null,
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     text = message,

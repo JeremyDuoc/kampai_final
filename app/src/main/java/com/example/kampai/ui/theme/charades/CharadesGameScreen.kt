@@ -183,7 +183,7 @@ fun CharadesHeader(
                 .size(48.dp)
                 .background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Column(
@@ -285,7 +285,7 @@ fun IdleContent(
                     style = MaterialTheme.typography.headlineMedium.copy(
                         fontWeight = FontWeight.Black
                     ),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onSurface,
                     textAlign = TextAlign.Center
                 )
 
@@ -294,7 +294,7 @@ fun IdleContent(
                 Text(
                     text = "• Actúa sin hablar\n• Tu equipo debe adivinar\n• Cada palabra cuenta\n• ¡No uses las manos mal!",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Start,
                     lineHeight = 24.sp
                 )
@@ -331,7 +331,7 @@ fun DifficultySelector(
                 letterSpacing = 2.sp,
                 fontWeight = FontWeight.Bold
             ),
-            color = Color.Gray
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -475,7 +475,7 @@ fun StartButton(onClick: () -> Unit) {
                 text = "¡Empezar!",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -507,7 +507,7 @@ fun PlayingContent(
         Card(
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White.copy(alpha = 0.08f)
+                containerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
             )
         ) {
             Row(
@@ -521,7 +521,7 @@ fun PlayingContent(
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -608,7 +608,7 @@ fun CircularTimer(time: Int, difficulty: CharadesViewModel.Difficulty) {
                     fontWeight = FontWeight.Black,
                     fontSize = 72.sp
                 ),
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -685,7 +685,7 @@ fun WordCard(word: String, time: Int) {
                         lineHeight = 44.sp
                     ),
                     textAlign = TextAlign.Center,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -759,7 +759,7 @@ fun ActionButton(
                 text = label,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -813,7 +813,7 @@ fun FinishedContent(
                 fontWeight = FontWeight.Black,
                 fontSize = 36.sp
             ),
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center
         )
 
@@ -835,7 +835,7 @@ fun FinishedContent(
                 Text(
                     text = "Puntuación Final",
                     style = MaterialTheme.typography.titleLarge,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -861,7 +861,7 @@ fun FinishedContent(
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onSurface,
                     textAlign = TextAlign.Center
                 )
             }
@@ -900,14 +900,14 @@ fun FinishedContent(
                 Icon(
                     imageVector = Icons.Filled.Refresh,
                     contentDescription = null,
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(
                     text = "Jugar de Nuevo",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }

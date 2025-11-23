@@ -258,7 +258,7 @@ fun NeverHeader(
             Icon(
                 Icons.Filled.ArrowBack,
                 contentDescription = "Atrás",
-                tint = Color.White,
+                tint = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.size(iconSize * 0.5f)
             )
         }
@@ -276,7 +276,7 @@ fun NeverHeader(
             Text(
                 text = "Pregunta #$questionNumber",
                 fontSize = (titleSize.value * 0.5f).sp,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
@@ -312,7 +312,7 @@ fun InstructionBadge() {
 
     Surface(
         shape = RoundedCornerShape(20.dp),
-        color = Color.White.copy(alpha = 0.08f),
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f),
         modifier = Modifier.padding(vertical = 8.dp)
     ) {
         Row(
@@ -330,7 +330,7 @@ fun InstructionBadge() {
                 text = "Si lo hiciste, bebes",
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
@@ -489,7 +489,7 @@ fun QuestionCard(
                         fontWeight = FontWeight.Black,
                         lineHeight = (questionSize.value * 1.3f).sp,
                         textAlign = TextAlign.Center,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
 
                     Spacer(modifier = Modifier.height(32.dp))
@@ -533,20 +533,20 @@ fun SwipeHint() {
         Text(
             text = "←",
             fontSize = 20.sp,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.offset(x = (-offsetX).dp)
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = "Desliza para siguiente",
             fontSize = 12.sp,
-            color = Color.White.copy(alpha = 0.7f)
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = "→",
             fontSize = 20.sp,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.offset(x = offsetX.dp)
         )
     }
@@ -580,14 +580,14 @@ fun SwipeIndicator(offsetX: Float) {
                     Text(
                         text = if (offsetX > 0) "→" else "←",
                         fontSize = 24.sp,
-                        color = Color.White.copy(alpha = indicatorAlpha)
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = indicatorAlpha)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = if (swipeProgress >= 1f) "¡Suelta!" else "Siguiente...",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White.copy(alpha = indicatorAlpha)
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = indicatorAlpha)
                     )
                 }
             }
@@ -648,7 +648,7 @@ fun NextButton(
                         text = "Siguiente",
                         fontSize = fontSize,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
@@ -658,7 +658,7 @@ fun NextButton(
                 } else {
                     CircularProgressIndicator(
                         modifier = Modifier.size(24.dp),
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onSurface,
                         strokeWidth = 3.dp
                     )
                 }

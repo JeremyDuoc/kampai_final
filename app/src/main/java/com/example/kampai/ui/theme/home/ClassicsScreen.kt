@@ -40,7 +40,7 @@ fun ClassicsScreen(
             // Header simple con botón atrás
             Row(verticalAlignment = Alignment.CenterVertically) {
                 IconButton(onClick = onBack) {
-                    Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+                    Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
                 }
                 Text(
                     text = "Juegos Clásicos",

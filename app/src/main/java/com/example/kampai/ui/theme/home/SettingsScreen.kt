@@ -231,12 +231,12 @@ fun ThemeSettingItem(
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
                         text = if (isDarkMode) "Modo Oscuro" else "Modo Claro",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -324,7 +324,7 @@ fun SettingsHeader(onBack: () -> Unit) {
                     .size(48.dp)
                     .background(Color.White.copy(alpha = 0.1f), CircleShape)
             ) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = Color.White)
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
             }
 
             Column(
@@ -406,12 +406,12 @@ fun SettingItem(
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
                         text = subtitle,
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -480,12 +480,12 @@ fun SoundSettingItem(
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
                         text = "Efectos de sonido del juego",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -527,7 +527,7 @@ fun InfoItem(
                 )
                 .border(
                     width = 1.dp,
-                    color = Color.White.copy(alpha = 0.2f),
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
                     shape = RoundedCornerShape(20.dp)
                 )
                 .padding(16.dp),
@@ -542,7 +542,7 @@ fun InfoItem(
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
 
@@ -551,7 +551,7 @@ fun InfoItem(
                 style = MaterialTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -603,12 +603,12 @@ fun ActionItem(
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
                         text = subtitle,
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -669,7 +669,7 @@ fun SuggestionsDialog(
                         style = MaterialTheme.typography.headlineMedium.copy(
                             fontWeight = FontWeight.Black
                         ),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onSurface
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -677,7 +677,7 @@ fun SuggestionsDialog(
                     Text(
                         text = "Cuéntanos tu idea para mejorar Kampai",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color.Gray,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
 
@@ -689,7 +689,7 @@ fun SuggestionsDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(150.dp),
-                        placeholder = { Text("Escribe tu sugerencia aquí...", color = Color.Gray) },
+                        placeholder = { Text("Escribe tu sugerencia aquí...", color = MaterialTheme.colorScheme.onSurfaceVariant) },
                         shape = RoundedCornerShape(16.dp),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = PrimaryViolet,
