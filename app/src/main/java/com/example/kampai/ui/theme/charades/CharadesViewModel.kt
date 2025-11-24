@@ -1,8 +1,11 @@
 package com.example.kampai.ui.theme.charades
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,37 +15,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CharadesViewModel @Inject constructor() : ViewModel() {
+class CharadesViewModel @Inject constructor(
+    @ApplicationContext private val context: Context
+) : ViewModel() {
 
-    enum class Difficulty(val displayName: String, val timeSeconds: Int, val pointsPerCorrect: Int) {
-        EASY("Fácil", 60, 1),
-        MEDIUM("Normal", 45, 2),
-        HARD("Difícil", 30, 3)
+    // Modificado: Ahora nameRes es Int para traducción
+    enum class Difficulty(val nameRes: Int, val timeSeconds: Int, val pointsPerCorrect: Int) {
+        EASY(R.string.charades_diff_easy, 60, 1),
+        MEDIUM(R.string.charades_diff_medium, 45, 2),
+        HARD(R.string.charades_diff_hard, 30, 3)
     }
 
-    private val wordsEasy = listOf(
-        "Dormir", "Comer Pizza", "Bailar", "Nadar", "Correr",
-        "Cantar", "Llorar", "Reír", "Bostezar", "Estornudar",
-        "Beber Agua", "Caminar", "Saltar", "Aplaudir", "Silbar"
-    )
-
-    private val wordsMedium = listOf(
-        "Borracho", "T-Rex", "Caminar sobre fuego", "Bailar Salsa",
-        "Enhebrar una aguja", "Pelea de gallos", "Surfear",
-        "Cambiar un pañal", "Astronauta", "Zombie",
-        "Malabarista", "Mimo", "Superhéroe volando", "Planchar ropa",
-        "Pescar", "Escalador", "DJ en concierto"
-    )
-
-    private val wordsHard = listOf(
-        "Canguro boxeador", "Peluquero cortando pelo invisible",
-        "Robot sin batería", "Pingüino patinando", "Estatua cobrando vida",
-        "Ninja en misión secreta", "Samurái meditando",
-        "Vampiro con dolor de muelas", "Fantasma asustado",
-        "Extraterrestre perdido", "Mago fallando truco",
-        "Equilibrista en cuerda floja", "Sonámbulo", "Hipnotizador",
-        "Contorsionista", "Ventrílocuo"
-    )
+    // Cargamos las listas desde XML
+    private val wordsEasy = context.resources.getStringArray(R.array.charades_easy_list).toList()
+    private val wordsMedium = context.resources.getStringArray(R.array.charades_medium_list).toList()
+    private val wordsHard = context.resources.getStringArray(R.array.charades_hard_list).toList()
 
     private val _gameState = MutableStateFlow<GameState>(GameState.Idle)
     val gameState: StateFlow<GameState> = _gameState.asStateFlow()
@@ -102,10 +89,9 @@ class CharadesViewModel @Inject constructor() : ViewModel() {
             Difficulty.HARD -> wordsHard
         }.filter { it !in usedWords }
 
-        // Si se acabaron las palabras, reiniciar pool
         if (availableWords.isEmpty()) {
             usedWords.clear()
-            return getRandomWord()
+            return getRandomWord() // Recursión segura si se reinicia
         }
 
         val word = availableWords.random()
@@ -116,26 +102,19 @@ class CharadesViewModel @Inject constructor() : ViewModel() {
     fun gotIt() {
         if (_gameState.value != GameState.Playing) return
 
-        // Sumar puntos según dificultad
         _score.value += _currentDifficulty.value.pointsPerCorrect
 
-        // Bonus por tiempo rápido (si queda más del 70% del tiempo)
         val timeThreshold = (_currentDifficulty.value.timeSeconds * 0.7).toInt()
         if (_timeLeft.value > timeThreshold) {
-            _score.value += 1 // Punto bonus
+            _score.value += 1
         }
 
-        // Siguiente palabra
         _currentWord.value = getRandomWord()
     }
 
     fun skip() {
         if (_gameState.value != GameState.Playing) return
-
-        // Penalización por pasar (-1 punto, mínimo 0)
         _score.value = (_score.value - 1).coerceAtLeast(0)
-
-        // Siguiente palabra
         _currentWord.value = getRandomWord()
     }
 

@@ -2,6 +2,7 @@ package com.example.kampai.ui.theme.truth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.R // Importar R
 import com.example.kampai.domain.models.PlayerModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,8 @@ class TruthViewModel @Inject constructor() : ViewModel() {
 
     sealed class GameState {
         object Selection : GameState()
-        data class Result(val type: Type, val text: String, val player: PlayerModel?) : GameState()
+        // Cambiamos text: String por textRes: Int
+        data class Result(val type: Type, val textRes: Int, val player: PlayerModel?) : GameState()
     }
 
     enum class Type { TRUTH, DARE }
@@ -34,55 +36,23 @@ class TruthViewModel @Inject constructor() : ViewModel() {
     private val _currentPlayer = MutableStateFlow<PlayerModel?>(null)
     val currentPlayer: StateFlow<PlayerModel?> = _currentPlayer.asStateFlow()
 
+    // LISTAS DE RECURSOS (INT)
     private val truths = listOf(
-        "¿Cuál es tu peor hábito?",
-        "¿Quién te cae mal de esta habitación?",
-        "¿Cuál es tu mayor miedo irracional?",
-        "¿Qué es lo más vergonzoso que has buscado en Google?",
-        "¿Te arrepientes de algún beso?",
-        "¿Has mentido sobre tu edad para algo?",
-        "¿Cuál es tu secreto más oscuro?",
-        "¿A quién de aquí besarías si tuvieras que hacerlo?",
-        "¿Has espiado el celular de alguien?",
-        "¿Cuál es la mentira más grande que has dicho?",
-        "¿Has fingido estar enfermo para no ir a algo?",
-        "¿Qué es lo más embarazoso que te ha pasado en una cita?",
-        "¿Has robado algo alguna vez?",
-        "¿Cuál es tu crush secreto actual?",
-        "¿Has hecho trampa en un examen?",
-        "¿Cuál es tu mayor inseguridad física?",
-        "¿Has llorado por alguien de este grupo?",
-        "¿Cuál es el peor regalo que has recibido?",
-        "¿Has acosado a alguien en redes sociales?",
-        "¿Qué es lo peor que has hecho borracho?"
+        R.string.truth_1, R.string.truth_2, R.string.truth_3, R.string.truth_4,
+        R.string.truth_5, R.string.truth_6, R.string.truth_7, R.string.truth_8,
+        R.string.truth_9, R.string.truth_10, R.string.truth_11, R.string.truth_12,
+        R.string.truth_13, R.string.truth_14, R.string.truth_15, R.string.truth_16,
+        R.string.truth_17, R.string.truth_18, R.string.truth_19, R.string.truth_20
     ).shuffled().toMutableList()
 
     private val dares = listOf(
-        "Haz 10 sentadillas mientras bebes.",
-        "Deja que el grupo envíe un mensaje a quien quieran desde tu móvil.",
-        "Imita a alguien del grupo hasta que adivinen quién es.",
-        "Bebe un trago sin usar las manos.",
-        "Habla con acento extranjero las próximas 3 rondas.",
-        "Baila sin música durante 30 segundos.",
-        "Permite que alguien revise tu galería de fotos por 1 minuto.",
-        "Come algo mezclado que el grupo decida.",
-        "Haz una llamada a un contacto random y canta una canción.",
-        "Intercambia una prenda con alguien del grupo.",
-        "Haz 20 flexiones o bebe 2 shots.",
-        "Confiesa tu última búsqueda de Google en voz alta.",
-        "Deja que alguien te maquille o te peine.",
-        "Mantén un hielo en la boca hasta que se derrita.",
-        "Imita tu animal favorito por 1 minuto.",
-        "Permite que alguien publique una historia en tu Instagram.",
-        "Haz un piropo a cada persona del grupo.",
-        "Actúa como mesero y sirve a todos por 10 minutos.",
-        "Haz beatbox durante 30 segundos.",
-        "Lame el cuello de la persona a tu derecha.",
-        "Cuenta un chiste. Si nadie se ríe, bebes doble.",
-        "Habla solo en tercera persona hasta tu próximo turno.",
-        "Permite que te hagan cosquillas por 30 segundos sin reírte.",
-        "Haz una sesión de fotos vergonzosa que el grupo dirija.",
-        "Camina en cuatro patas hasta tu próximo turno."
+        R.string.dare_1, R.string.dare_2, R.string.dare_3, R.string.dare_4,
+        R.string.dare_5, R.string.dare_6, R.string.dare_7, R.string.dare_8,
+        R.string.dare_9, R.string.dare_10, R.string.dare_11, R.string.dare_12,
+        R.string.dare_13, R.string.dare_14, R.string.dare_15, R.string.dare_16,
+        R.string.dare_17, R.string.dare_18, R.string.dare_19, R.string.dare_20,
+        R.string.dare_21, R.string.dare_22, R.string.dare_23, R.string.dare_24,
+        R.string.dare_25
     ).shuffled().toMutableList()
 
     private var truthIndex = 0
@@ -97,29 +67,28 @@ class TruthViewModel @Inject constructor() : ViewModel() {
 
     fun pickTruth() {
         viewModelScope.launch {
-            val truth = truths[truthIndex]
+            val truthRes = truths[truthIndex]
             truthIndex = (truthIndex + 1) % truths.size
             if (truthIndex == 0) truths.shuffle()
 
             _truthCount.value += 1
-            _uiState.value = GameState.Result(Type.TRUTH, truth, _currentPlayer.value)
+            _uiState.value = GameState.Result(Type.TRUTH, truthRes, _currentPlayer.value)
         }
     }
 
     fun pickDare() {
         viewModelScope.launch {
-            val dare = dares[dareIndex]
+            val dareRes = dares[dareIndex]
             dareIndex = (dareIndex + 1) % dares.size
             if (dareIndex == 0) dares.shuffle()
 
             _dareCount.value += 1
-            _uiState.value = GameState.Result(Type.DARE, dare, _currentPlayer.value)
+            _uiState.value = GameState.Result(Type.DARE, dareRes, _currentPlayer.value)
         }
     }
 
     fun reset() {
         viewModelScope.launch {
-            // Al reiniciar (Siguiente turno), elegimos al NUEVO jugador aquí
             if (_players.value.isNotEmpty()) {
                 _currentPlayer.value = _players.value.random()
             }

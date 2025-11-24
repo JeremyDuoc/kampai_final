@@ -3,6 +3,8 @@ package com.example.kampai.ui.theme.settings
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kampai.ui.theme.ThemeManager
@@ -20,8 +22,10 @@ class SettingsViewModel @Inject constructor(
     private val themeManager: ThemeManager
 ) : ViewModel() {
 
-    enum class Language {
-        SPANISH, ENGLISH, PORTUGUESE;
+    enum class Language(val code: String) {
+        SPANISH("es"),
+        ENGLISH("en"),
+        PORTUGUESE("pt");
 
         fun getDisplayName(): String = when (this) {
             SPANISH -> "Español 🇪🇸"
@@ -45,18 +49,38 @@ class SettingsViewModel @Inject constructor(
     private val _showBugReportDialog = MutableStateFlow(false)
     val showBugReportDialog: StateFlow<Boolean> = _showBugReportDialog.asStateFlow()
 
+    private val _showLanguageDialog = MutableStateFlow(false)
+    val showLanguageDialog: StateFlow<Boolean> = _showLanguageDialog.asStateFlow()
+
     init {
-        // Cargar el modo actual
         viewModelScope.launch {
             themeManager.isDarkMode.collect { isDark ->
                 _isDarkMode.value = isDark
             }
         }
+
+        val currentLocales = AppCompatDelegate.getApplicationLocales()
+        if (!currentLocales.isEmpty) {
+            val tag = currentLocales[0]?.language
+            _language.value = when (tag) {
+                "en" -> Language.ENGLISH
+                "pt" -> Language.PORTUGUESE
+                else -> Language.SPANISH
+            }
+        }
     }
 
-    fun toggleSound() {
-        _soundEnabled.value = !_soundEnabled.value
+    fun changeLanguage(newLanguage: Language) {
+        val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(newLanguage.code)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+        _language.value = newLanguage
+        hideLanguageDialog()
     }
+
+    fun showLanguageDialog() { _showLanguageDialog.value = true }
+    fun hideLanguageDialog() { _showLanguageDialog.value = false }
+
+    fun toggleSound() { _soundEnabled.value = !_soundEnabled.value }
 
     fun toggleDarkMode(isDark: Boolean) {
         viewModelScope.launch {
@@ -65,107 +89,111 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    fun showLanguageDialog() {
-        // Aquí podrías mostrar un diálogo de selección de idioma
-    }
+    fun showSuggestionsDialog() { _showSuggestionsDialog.value = true }
+    fun hideSuggestionsDialog() { _showSuggestionsDialog.value = false }
 
-    fun showSuggestionsDialog() {
-        _showSuggestionsDialog.value = true
-    }
+    fun showBugReportDialog() { _showBugReportDialog.value = true }
+    fun hideBugReportDialog() { _showBugReportDialog.value = false }
 
-    fun hideSuggestionsDialog() {
-        _showSuggestionsDialog.value = false
-    }
-
-    fun showBugReportDialog() {
-        _showBugReportDialog.value = true
-    }
-
+    // --- LÓGICA DE EMAIL (SUGERENCIAS) ---
     fun sendSuggestion(suggestion: String) {
         viewModelScope.launch {
-            sendEmailSuggestion(suggestion)
+            sendEmail(
+                subject = "Sugerencia Kampai - Android",
+                body = """
+                    💡 Sugerencia:
+                    $suggestion
+                    
+                    ---
+                    Idioma: ${_language.value.code}
+                    Versión App: 1.0.0
+                """.trimIndent()
+            )
         }
+        hideSuggestionsDialog()
     }
 
-    private fun sendEmailSuggestion(suggestion: String) {
-        val email = "kampai.drinks@gmail.com"
-        val subject = "Sugerencia de Kampai - v1.0.0"
-        val body = """
-            📱 Sugerencia de Usuario:
-            
-            $suggestion
-            
-            ---
-            Idioma: ${_language.value.getDisplayName()}
-            Dispositivo: Android
-            Sonido: ${if (_soundEnabled.value) "Habilitado" else "Deshabilitado"}
-            Tema: ${if (_isDarkMode.value) "Oscuro" else "Claro"}
-        """.trimIndent()
+    // --- LÓGICA DE EMAIL (REPORTAR ERROR) ---
+    fun sendBugReport(bugDescription: String) {
+        viewModelScope.launch {
+            sendEmail(
+                subject = "Reporte de Error Kampai - Android",
+                body = """
+                    🐛 Descripción del error:
+                    $bugDescription
+                    
+                    ---
+                    Dispositivo: ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}
+                    Android SDK: ${android.os.Build.VERSION.SDK_INT}
+                    Idioma: ${_language.value.code}
+                """.trimIndent()
+            )
+        }
+        hideBugReportDialog()
+    }
 
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            type = "message/rfc822"
+    private fun sendEmail(subject: String, body: String) {
+        val email = "game.kampai@gmail.com"
+
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
             putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, body)
         }
 
         try {
-            context.startActivity(Intent.createChooser(intent, "Enviar sugerencia"))
+            val chooser = Intent.createChooser(intent, "Enviar email...")
+            chooser.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(chooser)
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun sendBugReport(bugDescription: String) {
-        viewModelScope.launch {
-            val email = "game.kampai@gmail.com"
-            val subject = "🐛 Reporte de Error - Kampai v1.0.0"
-            val body = """
-                🐛 Reporte de Error:
-                
-                $bugDescription
-                
-                ---
-                Dispositivo: Android
-                Versión: 1.0.0
-                Idioma: ${_language.value.getDisplayName()}
-                Tema: ${if (_isDarkMode.value) "Oscuro" else "Claro"}
-            """.trimIndent()
-
-            val intent = Intent(Intent.ACTION_SEND).apply {
-                type = "message/rfc822"
-                putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-                putExtra(Intent.EXTRA_SUBJECT, subject)
-                putExtra(Intent.EXTRA_TEXT, body)
-            }
-
-            try {
-                context.startActivity(Intent.createChooser(intent, "Reportar error"))
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+    // --- LÓGICA DE GOOGLE PLAY (CALIFICAR) ---
+    fun openPlayStore() {
+        val packageName = context.packageName
+        try {
+            // Intenta abrir la app de Play Store directamente
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            // Si falla (ej. emulador), abre en el navegador
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName"))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
         }
     }
 
+    // --- LÓGICA DE LEGAL ---
+
     fun openPrivacyPolicy() {
-        openUrl("https://ejemplo.com/privacy")
+        // Prueba primero con Google.com para descartar problemas de tu documento
+        openUrl("https://docs.google.com/document/d/e/2PACX-1vQiV8arDJFrRFH5kqN5B6NZi6DJBGe2d80hQVqo2a6QaP5efZtm9koSmdF0wK11VjBWcT8YDUoHnk3-/pub")
     }
 
     fun openTermsOfService() {
-        openUrl("https://ejemplo.com/terms")
+        openUrl("https://docs.google.com/document/d/e/2PACX-1vSaQ6bBOKcAhlV36i5QM_BaLKmIrcdqwqdUztcaETOVL61jXepWGk3Ia7JN7hSheeOhzKaC2eX34uvT/pub")
     }
 
-    fun openPlayStore() {
-        val playStoreUrl = "https://play.google.com/store/apps/details?id=com.example.kampai"
-        openUrl(playStoreUrl)
-    }
-
-    private fun openUrl(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    private fun openUrl(rawUrl: String) { //No funcionan las URL
         try {
+            val cleanUrl = rawUrl.replace("\\s".toRegex(), "")
+
+            android.util.Log.d("KAMPAI_DEBUG", "Intentando abrir URL: '$cleanUrl'")
+
+            val uri = Uri.parse(cleanUrl)
+
+            val intent = Intent(Intent.ACTION_VIEW, uri).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+
             context.startActivity(intent)
         } catch (e: Exception) {
             e.printStackTrace()
+            android.util.Log.e("KAMPAI_ERROR", "Error abriendo URL: ${e.message}")
         }
     }
 }

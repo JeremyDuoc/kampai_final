@@ -3,9 +3,11 @@ package com.example.kampai.ui.theme.partymanager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kampai.data.PartyRepository
+import com.example.kampai.domain.models.Attraction
 import com.example.kampai.domain.models.AvatarEmojis
 import com.example.kampai.domain.models.Gender
 import com.example.kampai.domain.models.PlayerModel
+import com.example.kampai.domain.models.Vibe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -34,20 +36,16 @@ class PartyManagerViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val savedPlayers = repository.getPlayers()
-                // Migrar jugadores antiguos sin emoji
+                // Migración simple si faltan datos
                 val migratedPlayers = savedPlayers.map { player ->
-                    if (player.avatarEmoji.isEmpty() || player.avatarEmoji == "🐶") {
+                    if (player.avatarEmoji.isEmpty()) {
                         player.copy(avatarEmoji = AvatarEmojis.getRandomEmoji())
                     } else {
                         player
                     }
                 }
                 _players.value = migratedPlayers
-
-                // Si hubo migración, guardar los cambios
-                if (migratedPlayers != savedPlayers) {
-                    repository.savePlayers(migratedPlayers)
-                }
+                if (migratedPlayers != savedPlayers) repository.savePlayers(migratedPlayers)
             } catch (e: Exception) {
                 e.printStackTrace()
                 _players.value = emptyList()
@@ -59,7 +57,14 @@ class PartyManagerViewModel @Inject constructor(
         _showAddDialog.update { !it }
     }
 
-    fun addPlayer(name: String, gender: Gender, avatarEmoji: String) {
+    // FUNCIÓN ACTUALIZADA: Ahora recibe Attraction y Vibe
+    fun addPlayer(
+        name: String,
+        gender: Gender,
+        avatarEmoji: String,
+        attraction: Attraction,
+        vibe: Vibe
+    ) {
         viewModelScope.launch {
             try {
                 val trimmedName = name.trim()
@@ -72,7 +77,9 @@ class PartyManagerViewModel @Inject constructor(
                     name = trimmedName,
                     gender = gender,
                     colorIndex = nextColorIndex,
-                    avatarEmoji = avatarEmoji
+                    avatarEmoji = avatarEmoji,
+                    attraction = attraction, // Nuevo
+                    vibe = vibe            // Nuevo
                 )
 
                 val updatedList = _players.value + newPlayer
@@ -99,13 +106,9 @@ class PartyManagerViewModel @Inject constructor(
 
     fun clearAllPlayers() {
         viewModelScope.launch {
-            try {
-                val empty = emptyList<PlayerModel>()
-                _players.value = empty
-                repository.savePlayers(empty)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+            val empty = emptyList<PlayerModel>()
+            _players.value = empty
+            repository.savePlayers(empty)
         }
     }
 }

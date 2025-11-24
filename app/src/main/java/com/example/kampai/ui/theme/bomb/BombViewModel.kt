@@ -1,11 +1,13 @@
 package com.example.kampai.ui.theme.bomb
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kampai.utils.SoundManager
 import com.example.kampai.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,6 +19,7 @@ import kotlin.random.Random
 
 @HiltViewModel
 class BombViewModel @Inject constructor(
+    @ApplicationContext private val context: Context, // Contexto inyectado
     private val soundManager: SoundManager
 ) : ViewModel() {
 
@@ -37,49 +40,8 @@ class BombViewModel @Inject constructor(
 
     private var timerJob: Job? = null
 
-    // Categorías expandidas y más interesantes
-    private val categories = listOf(
-        "Marcas de Coches",
-        "Pokémones",
-        "Capitales de Europa",
-        "Marcas de Cerveza",
-        "Ingredientes de Pizza",
-        "Películas Disney",
-        "Partes del Cuerpo",
-        "Palabras que rimen con 'RON'",
-        "Superhéroes Marvel",
-        "Cosas en un baño",
-        "Razas de Perros",
-        "Equipos de Fútbol",
-        "Nombres con 'A'",
-        "Frutas Tropicales",
-        "Países de América",
-        "Instrumentos Musicales",
-        "Colores en inglés",
-        "Películas de Terror",
-        "Marcas de Ropa",
-        "Aplicaciones del móvil",
-        "Emojis populares",
-        "Canciones de Reggaeton",
-        "Videojuegos famosos",
-        "Redes Sociales",
-        "Tipos de Queso",
-        "Marcas de Comida Rápida",
-        "Series de Netflix",
-        "Artistas de Trap",
-        "Cosas en una cocina",
-        "Modelos de iPhone",
-        "Palabras con 'Q'",
-        "Cócteles famosos",
-        "Países de Asia",
-        "Marcas de Zapatillas",
-        "Postres típicos",
-        "Herramientas de trabajo",
-        "Animales marinos",
-        "Planetas del Sistema Solar",
-        "Géneros musicales",
-        "Tipos de Pasta"
-    )
+    // Cargamos las categorías desde strings.xml
+    private val categories = context.resources.getStringArray(R.array.bomb_categories_list).toList()
 
     fun startGame() {
         // Tiempo aleatorio más dinámico (entre 30 y 61 segundos)

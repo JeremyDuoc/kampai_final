@@ -2,6 +2,7 @@ package com.example.kampai.ui.theme.roulette
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.R // Importar recursos
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,15 +14,15 @@ import javax.inject.Inject
 @HiltViewModel
 class RouletteViewModel @Inject constructor() : ViewModel() {
 
-    // Representa el estado de las 6 cámaras: true = disparada, false = segura, null = sin abrir
     private val _chambers = MutableStateFlow<List<Boolean?>>(List(6) { null })
     val chambers: StateFlow<List<Boolean?>> = _chambers.asStateFlow()
 
     private val _gameOver = MutableStateFlow(false)
     val gameOver: StateFlow<Boolean> = _gameOver.asStateFlow()
 
-    private val _message = MutableStateFlow("¿Te atreves a jugar?")
-    val message: StateFlow<String> = _message.asStateFlow()
+    // CAMBIO: Ahora guardamos el ID del recurso (Int), no el texto
+    private val _messageRes = MutableStateFlow(R.string.roulette_msg_start)
+    val messageRes: StateFlow<Int> = _messageRes.asStateFlow()
 
     private val _isSpinning = MutableStateFlow(false)
     val isSpinning: StateFlow<Boolean> = _isSpinning.asStateFlow()
@@ -43,44 +44,37 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
         if (_gameOver.value || _chambers.value[index] != null || _isSpinning.value) return
 
         viewModelScope.launch {
-            // Animación de giro del tambor
             spinCylinder()
-
-            delay(800) // Esperar a que termine el giro
+            delay(800)
 
             val currentList = _chambers.value.toMutableList()
 
             if (index == bulletIndex) {
-                // ¡BANG! - Efecto dramático
+                // ¡BANG!
                 currentList[index] = true
                 _chambers.value = currentList
-
                 delay(200)
 
-                _message.value = "💥 ¡BANG! ¡TE TOCÓ BEBER! 🍺"
+                _messageRes.value = R.string.roulette_msg_bang
                 _gameOver.value = true
                 _tensionLevel.value = 1f
-
-                // Efecto de explosión (giro adicional)
                 explosionEffect()
             } else {
                 // Click (Seguro)
                 currentList[index] = false
                 _chambers.value = currentList
                 clickedCount++
-
                 delay(100)
 
-                // Actualizar nivel de tensión
                 updateTensionLevel()
 
-                // Mensaje basado en la tensión
-                _message.value = when {
-                    clickedCount >= 5 -> "😰 ¡UNA MÁS Y ESTÁS MUERTO!"
-                    clickedCount >= 4 -> "😱 ¡LA SUERTE NO DURARÁ MUCHO!"
-                    clickedCount >= 3 -> "😬 Esto se pone tenso..."
-                    clickedCount >= 2 -> "😅 Salvado por ahora..."
-                    else -> "✓ Click... Pasaste esta vez"
+                // Mensajes progresivos usando IDs
+                _messageRes.value = when {
+                    clickedCount >= 5 -> R.string.roulette_msg_safe_5
+                    clickedCount >= 4 -> R.string.roulette_msg_safe_4
+                    clickedCount >= 3 -> R.string.roulette_msg_safe_3
+                    clickedCount >= 2 -> R.string.roulette_msg_safe_2
+                    else -> R.string.roulette_msg_safe_1
                 }
             }
         }
@@ -88,24 +82,20 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
 
     private suspend fun spinCylinder() {
         _isSpinning.value = true
-
-        // Giro rápido del tambor (360 grados * 3 vueltas)
         val targetRotation = _currentRotation.value + 1080f + (Math.random() * 360f).toFloat()
         val duration = 800L
         val steps = 40
         val stepDelay = duration / steps
         val rotationPerStep = (targetRotation - _currentRotation.value) / steps
 
-        repeat(steps) { step ->
+        repeat(steps) {
             _currentRotation.value += rotationPerStep
             delay(stepDelay)
         }
-
         _isSpinning.value = false
     }
 
     private suspend fun explosionEffect() {
-        // Giro dramático al explotar
         repeat(3) {
             _currentRotation.value += 30f
             delay(50)
@@ -115,7 +105,6 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
     }
 
     private fun updateTensionLevel() {
-        // Calcular tensión basada en cuántas cámaras quedan
         val chambersLeft = 6 - clickedCount
         _tensionLevel.value = when (chambersLeft) {
             6 -> 0f
@@ -131,8 +120,6 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
     fun resetGame() {
         viewModelScope.launch {
             _isSpinning.value = true
-
-            // Giro inicial al resetear (más dramático)
             val initialRotation = (Math.random() * 360f).toFloat()
             val duration = 1200L
             val steps = 50
@@ -144,14 +131,12 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
                 delay(stepDelay)
             }
 
-            // Resetear estado
             bulletIndex = (0..5).random()
             _chambers.value = List(6) { null }
             _gameOver.value = false
-            _message.value = "¿Te atreves a jugar?"
+            _messageRes.value = R.string.roulette_msg_start
             _tensionLevel.value = 0f
             clickedCount = 0
-
             _isSpinning.value = false
         }
     }

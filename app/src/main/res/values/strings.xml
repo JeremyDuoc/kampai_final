@@ -1,3 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kampai</string>
+x
+    <string name="splash_loading">Preparense para beber...</string>
+    <string name="splash_version">v1.0</string>
+
+    <string name="content_desc_logo">Logo Kampai</string>
+    <string name="content_desc_settings">Configuración</string>
+    <string name="content_desc_manage_players">Gestionar Jugadores</string>
+    <string name="content_desc_play">Jugar</string>
+    <string name="content_desc_icon">Icono</string>
+
+    <string name="home_welcome">Elige tu juego favorito</string>
+    <string name="home_party_subtitle">🍻 La fiesta comienza ahora</string>
+
+    <plurals name="home_player_count_plural">
+        <item quantity="one">🍻 %d jugador en la party</item>
+        <item quantity="other">🍻 %d jugadores en la party</item>
+    </plurals>
+
+    <string name="home_most_played">🔥 Más Jugados</string>
+    <string name="home_categories">📂 Categorías</string>
+    <string name="home_classics">Clásicos</string>
+    <string name="home_hot_plus18">+18 Hot</string>
+    <string name="home_hot_coming_soon">(Próximamente)</string>
+    <string name="home_hot_message">Versión Premium próximamente 🔥</string>
+
+    <string name="settings_title">⚙️ Configuración</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_language_select">Selecciona tu idioma preferido</string>
+    <string name="settings_spanish">Español 🇪🇸</string>
+    <string name="settings_english">English 🇺🇸</string>
+    <string name="settings_sound">Sonido</string>
+    <string name="settings_sound_effects">Efectos de sonido del juego</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_dark_mode">Modo Oscuro</string>
+    <string name="settings_light_mode">Modo Claro</string>
+    <string name="settings_version">Versión</string>
+    <string name="settings_platform">Plataforma</string>
+    <string name="settings_android">Android</string>
+    <string name="settings_information">ℹ️ INFORMACIÓN</string>
+    <string name="settings_support">💬 SOPORTE Y FEEDBACK</string>
+    <string name="settings_suggest">Enviar Sugerencia</string>
+    <string name="settings_suggest_desc">Comparte tus ideas para mejorar</string>
+    <string name="settings_bug">Reportar Error</string>
+    <string name="settings_bug_desc">Si encuentras un problema, cuéntanos</string>
+    <string name="settings_rate">Calificar App</string>
+    <string name="settings_rate_desc">Ayuda a otros a descubrirnos</string>
+    <string name="settings_legal">⚖️ LEGAL</string>
+    <string name="settings_terms">Términos de Servicio</string>
+    <string name="settings_terms_desc">Lee nuestros términos</string>
+    <string name="settings_privacy">Privacidad</string>
+    <string name="settings_privacy_desc">Cómo protegemos tus datos</string>
+
+
+    <string name="back">Atrás</string>
+    <string name="next">Siguiente</string>
+    <string name="skip">Pasar</string>
+    <string name="close">Cerrar</string>
+    <string name="delete">Eliminar</string>
+    <string name="add">Agregar</string>
+
+    <string name="game_title_warmup">PartyMix</string>
+    <string name="game_desc_warmup">Eventos aleatorios y retos rápidos.</string>
+
+    <string name="game_title_culture">Cultura Chupística</string>
+    <string name="game_desc_culture">Modo Clásico o Bomba.</string>
+
+    <string name="game_title_kingscup">King\'s Cup</string>
+    <string name="game_desc_kingscup">El clásico juego de cartas.</string>
+
+    <string name="game_title_karaoke">Karaoke</string>
+    <string name="game_desc_karaoke">Modo Karaoke</string>
+
+    <string name="game_title_cardgame">Juego de Cartas</string>
+    <string name="game_desc_cardgame">Multijugador local tipo UNO</string>
+
+    <string name="game_title_impostor">El Impostor</string>
+    <string name="game_desc_impostor">Encuentra quién miente.</string>
+
+    <string name="game_title_never">Yo Nunca Nunca</string>
+    <string name="game_desc_never">Si lo has hecho, bebes.</string>
+
+    <string name="game_title_truth">Verdad o Reto</string>
+    <string name="game_desc_truth">¿Te atreves o confiesas?</string>
+
+    <string name="game_title_highlow">Mayor o Menor</string>
+    <string name="game_desc_highlow">Adivina si la carta es mayor o menor.</string>
+
+    <string name="game_title_charades">Mímica Borracha</string>
+    <string name="game_desc_charades">Actúa sin hablar y que adivinen.</string>
+
+    <string name="game_title_roulette">Ruleta Rusa</string>
+    <string name="game_desc_roulette">La suerte decide tu destino.</string>
+
+    <string name="game_title_likely">¿Quién es más probable?</string>
+    <string name="game_desc_likely">Votación grupal.</string>
+
+    <string name="warmup_screen_title">🔥 PartyMix</string>
+    <string name="warmup_screen_subtitle">Eventos aleatorios</string>
+    <string name="warmup_mode_title">Modo PartyMix</string>
+    <string name="warmup_mode_desc">Diferentes rondas con frases y eventos aleatorios. ¡Un jugador será seleccionado para cada reto!</string>
+    <string name="warmup_feature_1">✨ ¡Eventos sorpresa! No olvides añadir jugadores al grupo.</string>
+    <string name="warmup_feature_2">🎲 Jugadores aleatorios</string>
+    <string name="warmup_feature_3">🔥 Retos intensos</string>
+    <string name="warmup_start_btn">🔥 Comenzar Party</string>
+    <string name="warmup_rules_btn">Ver Reglas</string>
+    <string name="warmup_round_fmt">Ronda %1$d/%2$d</string>
+    <string name="warmup_next_btn">Siguiente →</string>
+    <string name="warmup_finished_title">¡PartyMix\nCompletado!</string>
+    <string name="warmup_finished_subtitle">¡Esperamos que la hayan pasado increíble!</string>
+    <string name="warmup_back_home_btn">🔄 Volver al Inicio</string>
+
+    <string name="event_label_special">¡EVENTO ESPECIAL!</string>
+    <string name="event_label_prep">¡PREPARACIÓN!</string>
+    <string name="event_player_selected_label">Jugador seleccionado:</string>
+    <string name="event_btn_reject">Rechazar</string>
+    <string name="event_btn_reject_sub">-2 tragos</string>
+    <string name="event_btn_accept">Aceptar</string>
+    <string name="event_btn_accept_sub">Reto</string>
+    <string name="event_btn_reveal">Revelar Regalo</string>
+    <string name="event_btn_continue">Continuar</string>
+
+    <string name="rules_title">📜 Reglas del Juego</string>
+    <string name="rules_understood">¡Entendido!</string>
+    <string name="rule_1_title">Instrucciones</string>
+    <string name="rule_1_desc">Sigue las instrucciones de cada tarjeta y dale a siguiente.</string>
+    <string name="rule_2_title">Eventos</string>
+    <string name="rule_2_desc">Aparecerán eventos aleatorios. ¡Añade jugadores para activarlos!</string>
+    <string name="rule_3_title">Turnos</string>
+    <string name="rule_3_desc">Respeta el turno del compañero asignado.</string>
+    <string name="rule_4_title">Hidratación</string>
+    <string name="rule_4_desc">Recuerda beber agua y jugar con responsabilidad.</string>
+
+    <string name="evt_title_shots">RETO DE SHOTS</string>
+    <string name="evt_title_speed">PRUEBA DE VELOCIDAD</string>
+    <string name="evt_title_challenge">RETO DE VALENTÍA</string>
+    <string name="evt_title_rps">PIEDRA, PAPEL O TIJERA</string>
+    <string name="evt_title_tongue">TRABALENGUAS</string>
+    <string name="evt_title_staring">DUELO DE MIRADAS</string>
+    <string name="evt_title_judge">EL JUEZ</string>
+    <string name="evt_title_gift">CAJA MISTERIOSA</string>
+    <string name="evt_title_ice">EL HIELO</string>
+    <string name="evt_title_selfie">MOMENTO SELFIE</string>
+    <string name="evt_title_dance">BATALLA DE BAILE</string>
+    <string name="evt_title_likely">QUIÉN ES MÁS PROBABLE</string>
+    <string name="evt_title_medusa">LA MEDUSA</string>
+    <string name="evt_title_mimic">DUELO DE MÍMICA</string>
+
+    <string name="evt_inst_shots">Completa el reto o bebe 2 tragos extra.</string>
+    <string name="evt_inst_speed">¡Rápido! Si no lo logras, bebes 2 tragos.</string>
+    <string name="evt_inst_challenge">¿Te atreves? Si no, bebe 2 tragos.</string>
+    <string name="evt_inst_rps">Si el HOMBRE gana, las mujeres beben. Si la MUJER gana, los hombres beben.</string>
+    <string name="evt_inst_tongue">Dilo rápido. Si fallas: 2 shots. Si lo logras: repartes 3.</string>
+    <string name="evt_inst_staring">Mírense fijamente. El primero en pestañear o reírse: BEBE.</string>
+    <string name="evt_inst_judge">Quien rompa tu regla, bebe. (Dura hasta que salga otro Juez).</string>
+    <string name="evt_inst_gift_prep">El primero en levantar la mano recibirá algo especial...</string>
+    <string name="evt_inst_gift_reveal">¡Este es tu destino!</string>
+    <string name="evt_inst_ice">Si se te cae o no te animas: SHOT.</string>
+    <string name="evt_inst_selfie">Tómense la foto y súbanla. El que tomó la foto elige quién bebe.</string>
+    <string name="evt_inst_dance">¡Muéstrate! Si no bailas, bebes 2 tragos.</string>
+    <string name="evt_inst_likely">A la cuenta de 3, todos señalan a alguien. El más señalado BEBE.</string>
+    <string name="evt_inst_medusa">Cuenten hasta 3 y miren a alguien. Si cruzas miradas: ¡AMBOS BEBEN!</string>
+    <string name="evt_inst_mimic">Los demás adivinan. Si nadie adivina en 30s, BEBES.</string>
+
+    <string name="evt_desc_shot_1">debe beber 2 shots agachado</string>
+    <string name="evt_desc_shot_2">debe beber 1 shot sin usar las manos</string>
+    <string name="evt_desc_speed_1">debe nombrar 5 países en 10 segundos</string>
+    <string name="evt_desc_speed_2">debe decir 10 palabras que rimen con \'ON\'</string>
+    <string name="evt_desc_challenge_1">debe hacer 15 sentadillas mientras bebe</string>
+    <string name="evt_desc_challenge_2">debe cantar una canción en voz alta</string>
+
+    <string name="evt_desc_rps_mix">VS %1$s\n¡Duelo de sexos!</string>
+    <string name="evt_desc_rps_random">VS %1$s\n¡A muerte!</string>
+    <string name="evt_desc_staring">Te enfrentas a...\n👉 %1$s 👈\n\n¡No pestañees!</string>
+
+    <string name="evt_desc_judge">Crea una regla. Ej: Nadie puede decir \'SI\' o \'NO\'.</string>
+    <string name="evt_desc_ice">Pasen un hielo boca a boca por toda la ronda.</string>
+    <string name="evt_desc_selfie">¡Foto grupal ahora mismo!</string>
+    <string name="evt_desc_medusa">Todos agachan la cabeza...</string>
+    <string name="evt_desc_gift_prep">¡Todos los que quieran un REGALO levanten la mano AHORA!</string>
+
+    <string name="gift_pos_1">¡PREMIO! Regala 3 tragos.</string>
+    <string name="gift_pos_2">¡SALVACIÓN! Comodín para no cumplir un reto.</string>
+    <string name="gift_neg_1">¡CASTIGO! Bebes el doble.</string>
+    <string name="gift_neg_2">¡FONDO! Termina tu vaso ahora.</string>
+
+    <string name="ph_men_drink">¡TODOS LOS HOMBRES BEBEN!</string>
+    <string name="ph_women_drink">¡TODAS LAS MUJERES BEBEN!</string>
+    <string name="ph_last_stand">El último en ponerse de pie: 2 SHOTS</string>
+    <string name="ph_floor_touch">El último en tocar el suelo: BEBE</string>
+    <string name="ph_youngest_distribute">El más joven: DISTRIBUYE 3 TRAGOS</string>
+    <string name="ph_everyone_drinks">¡TODOS BEBEN!</string>
+    <string name="ph_tallest">El más alto: ELIGE QUIEN BEBE</string>
+    <string name="ph_singles">Los solteros: BEBEN</string>
+    <string name="ph_couples">Los comprometidos: BEBEN</string>
+    <string name="ph_phone_addict">Los que tienen el celular en la mano: BEBEN</string>
+    <string name="ph_colors_black">Los que están de negro: BEBEN</string>
+    <string name="ph_colors_white">Los que están de blanco: BEBEN</string>
+    <string name="ph_never_have_u">Si tu nombre lleva una U: BEBES</string>
+    <string name="ph_smoke">Si fumas: BEBE UN TRAGO LARGO</string>
+    <string name="ph_gym">Si vas al gym: BEBES. Si no: TAMBIÉN</string>
+    <string name="ph_vote_laugh">Voten al que más ríe: BEBE</string>
+    <string name="ph_vote_shy">Voten al más tímido: BEBE</string>
+    <string name="ph_action_battery">El que tenga menos batería: BEBE</string>
+    <string name="ph_no_explain">Muestra la última foto de tu galería (Sin explicaciones)</string>
+    <string name="ph_hug">Ronda de Abrazos: Abraza a la persona de tu izquierda</string>
+
+    <string name="truth_game_title">🎭 Verdad o Reto</string>
+    <string name="truth_game_subtitle">¿Te atreves?</string>
+    <string name="truth_stat_truth">Verdades</string>
+    <string name="truth_stat_dare">Retos</string>
+    <string name="truth_turn_label">Turno de:</string>
+    <string name="truth_choose_label">¿Qué eliges?</string>
+    <string name="truth_btn_truth">VERDAD</string>
+    <string name="truth_btn_dare">RETO</string>
+    <string name="truth_result_truth">VERDAD</string>
+    <string name="truth_result_dare">RETO</string>
+    <string name="truth_btn_back">Volver a Elegir</string>
+
+    <string name="truth_1">¿Cuál es tu peor hábito?</string>
+    <string name="truth_2">¿Quién te cae mal de esta habitación?</string>
+    <string name="truth_3">¿Cuál es tu mayor miedo irracional?</string>
+    <string name="truth_4">¿Qué es lo más vergonzoso que has buscado en Google?</string>
+    <string name="truth_5">¿Te arrepientes de algún beso?</string>
+    <string name="truth_6">¿Has mentido sobre tu edad para algo?</string>
+    <string name="truth_7">¿Cuál es tu secreto más oscuro?</string>
+    <string name="truth_8">¿A quién de aquí besarías si tuvieras que hacerlo?</string>
+    <string name="truth_9">¿Has espiado el celular de alguien?</string>
+    <string name="truth_10">¿Cuál es la mentira más grande que has dicho?</string>
+    <string name="truth_11">¿Has fingido estar enfermo para no ir a algo?</string>
+    <string name="truth_12">¿Qué es lo más embarazoso que te ha pasado en una cita?</string>
+    <string name="truth_13">¿Has robado algo alguna vez?</string>
+    <string name="truth_14">¿Cuál es tu crush secreto actual?</string>
+    <string name="truth_15">¿Has hecho trampa en un examen?</string>
+    <string name="truth_16">¿Cuál es tu mayor inseguridad física?</string>
+    <string name="truth_17">¿Has llorado por alguien de este grupo?</string>
+    <string name="truth_18">¿Cuál es el peor regalo que has recibido?</string>
+    <string name="truth_19">¿Has acosado a alguien en redes sociales?</string>
+    <string name="truth_20">¿Qué es lo peor que has hecho borracho?</string>
+
+    <string name="dare_1">Haz 10 sentadillas mientras bebes.</string>
+    <string name="dare_2">Deja que el grupo envíe un mensaje a quien quieran desde tu móvil.</string>
+    <string name="dare_3">Imita a alguien del grupo hasta que adivinen quién es.</string>
+    <string name="dare_4">Bebe un trago sin usar las manos.</string>
+    <string name="dare_5">Habla con acento extranjero las próximas 3 rondas.</string>
+    <string name="dare_6">Baila sin música durante 30 segundos.</string>
+    <string name="dare_7">Permite que alguien revise tu galería de fotos por 1 minuto.</string>
+    <string name="dare_8">Come algo mezclado que el grupo decida.</string>
+    <string name="dare_9">Haz una llamada a un contacto random y canta una canción.</string>
+    <string name="dare_10">Intercambia una prenda con alguien del grupo.</string>
+    <string name="dare_11">Haz 20 flexiones o bebe 2 shots.</string>
+    <string name="dare_12">Confiesa tu última búsqueda de Google en voz alta.</string>
+    <string name="dare_13">Deja que alguien te maquille o te peine.</string>
+    <string name="dare_14">Mantén un hielo en la boca hasta que se derrita.</string>
+    <string name="dare_15">Imita tu animal favorito por 1 minuto.</string>
+    <string name="dare_16">Permite que alguien publique una historia en tu Instagram.</string>
+    <string name="dare_17">Haz un piropo a cada persona del grupo.</string>
+    <string name="dare_18">Actúa como mesero y sirve a todos por 10 minutos.</string>
+    <string name="dare_19">Haz beatbox durante 30 segundos.</string>
+    <string name="dare_20">Lame el cuello de la persona a tu derecha.</string>
+    <string name="dare_21">Cuenta un chiste. Si nadie se ríe, bebes doble.</string>
+    <string name="dare_22">Habla solo en tercera persona hasta tu próximo turno.</string>
+    <string name="dare_23">Permite que te hagan cosquillas por 30 segundos sin reírte.</string>
+    <string name="dare_24">Haz una sesión de fotos vergonzosa que el grupo dirija.</string>
+    <string name="dare_25">Camina en cuatro patas hasta tu próximo turno.</string>
+
+    <string name="kings_game_title">KING\'S CUP</string>
+    <string name="kings_cards_remaining">%d cartas restantes</string>
+    <string name="kings_cup_level">Nivel del Vaso Central</string>
+    <string name="kings_cup_status">/4 👑</string>
+    <string name="kings_drawing">Sacando carta...</string>
+    <string name="kings_btn_draw">Sacar Carta</string>
+    <string name="kings_btn_guide">Ver Guía de Cartas</string>
+    <string name="kings_btn_next">Siguiente Turno →</string>
+    <string name="kings_game_over_title">¡Juego\nTerminado!</string>
+    <string name="kings_game_over_king">¡Cuarto Rey!\n¡BEBE EL VASO!</string>
+    <string name="kings_btn_new_game">🔄 Nueva Partida</string>
+    <string name="kings_guide_title">📜 Guía de Cartas</string>
+    <string name="kings_guide_objective">Objetivo: Evitar sacar el 4º Rey.</string>
+
+    <string name="card_ace_title">As - Cascada</string>
+    <string name="card_2_title">Dos - Tú</string>
+    <string name="card_3_title">Tres - Yo</string>
+    <string name="card_4_title">Cuatro - Chicas</string>
+    <string name="card_5_title">Cinco - Pulgar</string>
+    <string name="card_6_title">Seis - Chicos</string>
+    <string name="card_7_title">Siete - Cielo</string>
+    <string name="card_8_title">Ocho - Compañero</string>
+    <string name="card_9_title">Nueve - Rima</string>
+    <string name="card_10_title">Diez - Categoría</string>
+    <string name="card_j_title">Jota - Regla</string>
+    <string name="card_q_title">Reina - Pregunta</string>
+    <string name="card_k_title">Rey</string>
+
+    <string name="card_ace_desc">Todos beben hasta que el que sacó pare.</string>
+    <string name="card_2_desc">Elige a alguien para beber.</string>
+    <string name="card_3_desc">Quien sacó la carta bebe.</string>
+    <string name="card_4_desc">Todas las mujeres beben.</string>
+    <string name="card_5_desc">Último en poner pulgar en mesa bebe.</string>
+    <string name="card_6_desc">Todos los hombres beben.</string>
+    <string name="card_7_desc">Último en levantar la mano bebe.</string>
+    <string name="card_8_desc">Elige un compañero de bebida.</string>
+    <string name="card_9_desc">Di una palabra, rimen hasta fallar.</string>
+    <string name="card_10_desc">Di una categoría, nombren hasta fallar.</string>
+    <string name="card_j_desc">Crea una regla nueva.</string>
+    <string name="card_q_desc">Haces preguntas, quien responda bebe.</string>
+    <string name="card_k_desc">Ver instrucciones especiales.</string>
+
+    <string name="king_1_desc">1º Rey: Elige QUÉ lleva el vaso.\nPrepara la mezcla del trago central.</string>
+    <string name="king_2_desc">2º Rey: Elige DÓNDE se bebe.\nEj: Parado en la mesa, bajo la mesa, en el baño...</string>
+    <string name="king_3_desc">3º Rey: Elige CÓMO se bebe.\nEj: Agachado, sin manos, haciendo el pino...</string>
+    <string name="king_4_desc">4º Rey: ¡MALA SUERTE!\nDebes beberte todo el vaso central cumpliendo las reglas anteriores.</string>
+    <string name="king_extra_desc">Rey Extra: Bebe un trago.</string>
+
+    <string name="guide_ace">Todos beben hasta que el que sacó la carta se detenga.</string>
+    <string name="guide_2">Elige a una persona para que beba.</string>
+    <string name="guide_3">Tú bebes.</string>
+    <string name="guide_4">Todas las mujeres beben.</string>
+    <string name="guide_5">Pon tu pulgar en la mesa. El último en hacerlo bebe.</string>
+    <string name="guide_6">Todos los hombres beben.</string>
+    <string name="guide_7">Levanta la mano. El último en hacerlo bebe.</string>
+    <string name="guide_8">Elige a alguien. Cada vez que tú bebas, él/ella también bebe.</string>
+    <string name="guide_9">Di una palabra. Todos deben decir una rima. El que falle o repita, bebe.</string>
+    <string name="guide_10">Ej: Marcas de coches. El que se quede en blanco, bebe.</string>
+    <string name="guide_j">Inventa una regla (ej: beber con la zurda). Quien la rompa, bebe.</string>
+    <string name="guide_q">Haz preguntas a otros. Si responden \'sí\' o \'no\', beben.</string>
+    <string name="guide_k1">1º Rey: Elige QUÉ lleva el vaso central. Prepara el trago.</string>
+    <string name="guide_k2">2º Rey: Elige DÓNDE se va a beber.</string>
+    <string name="guide_k3">3º Rey: Elige CÓMO se va a beber.</string>
+    <string name="guide_k4">4º Rey: Bebe el vaso cumpliendo todo lo anterior.</string>
+
+    <string name="culture_title">Cultura Chupística</string>
+    <string name="culture_selection_title">¿Cómo quieres jugar?</string>
+    <string name="culture_selection_subtitle">Elige tu nivel de adrenalina</string>
+
+    <string name="culture_mode_classic">Modo Clásico</string>
+    <string name="culture_desc_classic">Sin presión. Piensa con calma y responde cuando estés listo.</string>
+    <string name="culture_feat_classic_1">Sin límite de tiempo</string>
+    <string name="culture_feat_classic_2">Perfecto para charlar</string>
+    <string name="culture_feat_classic_3">Menos estrés, más diversión</string>
+
+    <string name="culture_mode_bomb">Modo Bomba</string>
+    <string name="culture_desc_bomb">¡Tic-Tac! Responde rápido o la bomba explota en tus manos.</string>
+    <string name="culture_feat_bomb_1">Tiempo aleatorio limitado</string>
+    <string name="culture_feat_bomb_2">Máxima tensión</string>
+    <string name="culture_feat_bomb_3">¡Pasa el móvil rápido!</string>
+
+    <string name="culture_game_subtitle_classic">MODO CLÁSICO</string>
+    <string name="culture_instruction">Nombren en orden...</string>
+    <string name="culture_rules_title">📋 Reglas</string>
+    <string name="culture_rule_1">Digan en orden elementos de la categoría</string>
+    <string name="culture_rule_2">Sin repetir ni equivocarse</string>
+    <string name="culture_rule_3">El que falle, ¡bebe!</string>
+    <string name="culture_btn_next">Siguiente Categoría</string>
+
+    <string-array name="culture_categories_list">
+        <item>Marcas de Autos</item>
+        <item>Nombres de Países</item>
+        <item>Marcas de Cerveza</item>
+        <item>Equipos de Fútbol</item>
+        <item>Ingredientes de Pizza</item>
+        <item>Películas de Pixar</item>
+        <item>Nombres de Mujer con M</item>
+        <item>Partes del Cuerpo Humano</item>
+        <item>Marcas de Ropa</item>
+        <item>Superhéroes de Marvel</item>
+        <item>Sabores de Helado</item>
+        <item>Capitales del Mundo</item>
+        <item>Posiciones Sexuales</item>
+        <item>Redes Sociales</item>
+        <item>Marcas de Cigarros</item>
+    </string-array>
+
+    <string name="bomb_title">LA BOMBA</string>
+    <string name="bomb_subtitle">Pasa el móvil rápido</string>
+
+    <string name="bomb_ready_title">⚠️ ¿Listo para la presión? ⚠️</string>
+    <string name="bomb_rule_1">Menciona un elemento de la categoría</string>
+    <string name="bomb_rule_2">Tiempo aleatorio: 30-60 segundos</string>
+    <string name="bomb_rule_3">¡Pasa el móvil rápido!</string>
+    <string name="bomb_rule_4">Si explota: ¡PENITENCIA!</string>
+    <string name="bomb_btn_start">🔥 ENCENDER MECHA</string>
+
+    <string name="bomb_badge_label">MENCIONA UN...</string>
+    <string name="bomb_urgent_high">¡¡RÁPIDO!!</string>
+    <string name="bomb_urgent_med">¡APÚRATE!</string>
+    <string name="bomb_urgent_low">Date prisa...</string>
+
+    <string name="bomb_boom_title">¡BOOM!</string>
+    <string name="bomb_exploded_title">¡TE EXPLOTÓ!</string>
+    <string name="bomb_drink_command">¡BEBE!</string>
+    <string name="bomb_failed_msg">Fallaste bajo presión</string>
+    <string name="bomb_btn_retry">🔄 Reintentar</string>
+
+    <string-array name="bomb_categories_list">
+        <item>Marcas de Autos</item>
+        <item>Pokémones</item>
+        <item>Capitales de Europa</item>
+        <item>Marcas de Cerveza</item>
+        <item>Ingredientes de Pizza</item>
+        <item>Películas Disney</item>
+        <item>Partes del Cuerpo</item>
+        <item>Palabras que rimen con \'RON\'</item>
+        <item>Superhéroes Marvel</item>
+        <item>Cosas en un baño</item>
+        <item>Razas de Perros</item>
+        <item>Equipos de Fútbol</item>
+        <item>Nombres con \'A\'</item>
+        <item>Frutas Tropicales</item>
+        <item>Países de América</item>
+        <item>Instrumentos Musicales</item>
+        <item>Colores en inglés</item>
+        <item>Películas de Terror</item>
+        <item>Marcas de Ropa</item>
+        <item>Aplicaciones del móvil</item>
+        <item>Emojis populares</item>
+        <item>Canciones de Reggaeton</item>
+        <item>Videojuegos famosos</item>
+        <item>Redes Sociales</item>
+        <item>Tipos de Queso</item>
+        <item>Marcas de Comida Rápida</item>
+        <item>Series de Netflix</item>
+        <item>Artistas de Trap</item>
+        <item>Cosas en una cocina</item>
+        <item>Modelos de iPhone</item>
+        <item>Palabras con \'Q\'</item>
+        <item>Cócteles famosos</item>
+        <item>Países de Asia</item>
+        <item>Marcas de Zapatillas</item>
+        <item>Postres típicos</item>
+        <item>Herramientas de trabajo</item>
+        <item>Animales marinos</item>
+        <item>Planetas del Sistema Solar</item>
+        <item>Géneros musicales</item>
+        <item>Tipos de Pasta</item>
+    </string-array>
+
+    <string name="never_game_title">🤫 Yo Nunca Nunca</string>
+    <string name="never_question_number">Pregunta #%d</string>
+    <string name="never_instruction">Si lo hiciste, bebes</string>
+    <string name="never_swipe_hint">Desliza para siguiente</string>
+    <string name="never_swipe_release">¡Suelta!</string>
+    <string name="never_swipe_dragging">Siguiente...</string>
+    <string name="never_btn_next">Siguiente</string>
+
+    <string-array name="never_questions_list">
+        <item>Yo nunca he sido arrestado.</item>
+        <item>Yo nunca he besado a alguien en esta habitación.</item>
+        <item>Yo nunca he tenido una relación abierta.</item>
+        <item>Yo nunca he mentido para faltar al trabajo/clases.</item>
+        <item>Yo nunca he revisado el teléfono de mi pareja.</item>
+        <item>Yo nunca he tenido sexo en un lugar público.</item>
+        <item>Yo nunca he robado algo de una tienda.</item>
+        <item>Yo nunca he usado una app de citas.</item>
+        <item>Yo nunca he tenido un sueño erótico con alguien de aquí.</item>
+        <item>Yo nunca he vomitado por beber demasiado.</item>
+        <item>Yo nunca he enviado un nude.</item>
+        <item>Yo nunca he tenido un amigo con derechos.</item>
+        <item>Yo nunca he fingido un orgasmo.</item>
+        <item>Yo nunca he stalkeado a mi ex en redes sociales.</item>
+        <item>Yo nunca he hecho un trío.</item>
+        <item>Yo nunca he conducido borracho.</item>
+        <item>Yo nunca he tenido una cita a ciegas.</item>
+        <item>Yo nunca he olvidado el nombre de alguien mientras lo hacíamos.</item>
+        <item>Yo nunca he sido infiel.</item>
+        <item>Yo nunca he nadado desnudo.</item>
+        <item>Yo nunca he tenido sexo en un coche.</item>
+        <item>Yo nunca he mentido en el juego de Yo Nunca.</item>
+        <item>Yo nunca he enviado un mensaje borracho del que me arrepienta.</item>
+        <item>Yo nunca he besado a más de una persona en una noche.</item>
+        <item>Yo nunca he tenido sexo en la playa.</item>
+        <item>Yo nunca he sido expulsado de un bar/discoteca.</item>
+        <item>Yo nunca he tenido una fantasía con un profesor.</item>
+        <item>Yo nunca he usado juguetes sexuales.</item>
+        <item>Yo nunca he hecho ghosting a alguien.</item>
+        <item>Yo nunca he ligado con un policía para evitar una multa.</item>
+    </string-array>
+
+    <string name="impostor_title">🕵️ El Impostor</string>
+    <string name="impostor_subtitle">Encuentra al mentiroso</string>
+
+    <string name="impostor_setup_title">¿Quién es el Impostor?</string>
+    <string name="impostor_rules_bullet">• Todos reciben una palabra secreta\n• Excepto el impostor que no la conoce\n• Den pistas sin decir la palabra\n• El impostor debe fingir que sabe\n• Voten quién es el impostor</string>
+    <string name="impostor_warn_players">⚠️ Se necesitan al menos 3 jugadores</string>
+    <string name="impostor_ready_players">✓ %d jugadores listos</string>
+    <string name="impostor_btn_start">Iniciar Juego</string>
+
+    <string name="impostor_player_counter">Jugador %1$d de %2$d</string>
+    <string name="impostor_card_locked_title">Toca para ver\ntu palabra</string>
+    <string name="impostor_btn_reveal">Ver mi palabra</string>
+
+    <string name="impostor_role_impostor">¡ERES EL IMPOSTOR!</string>
+    <string name="impostor_role_desc_impostor">No conoces la palabra\n¡Finge que sí!</string>
+
+    <string name="impostor_role_desc_crew">Esta es la palabra secreta</string>
+
+    <string name="impostor_btn_next_player">Siguiente Jugador</string>
+    <string name="impostor_btn_start_round">Comenzar Ronda</string>
+
+    <string name="impostor_clues_title">Ronda de Pistas</string>
+    <string name="impostor_clues_desc">• Den pistas por turnos\n• No digan la palabra directamente\n• El impostor debe fingir conocerla\n• Observen quién parece sospechoso</string>
+    <string name="impostor_btn_vote">Iniciar Votación</string>
+
+    <string name="impostor_vote_title">¿Quién es el impostor?</string>
+    <string name="impostor_vote_count">Votos totales: %d</string>
+    <string name="impostor_vote_plural">%d votos</string>
+    <string name="impostor_btn_results">Ver Resultados</string>
+
+    <string name="impostor_res_win">¡El Impostor Ganó!</string>
+    <string name="impostor_res_caught">¡Atraparon al Impostor!</string>
+    <string name="impostor_res_who_was">El impostor era:</string>
+    <string name="impostor_res_word_was">La palabra era:</string>
+    <string name="impostor_res_msg_win">¡Todos beben excepto el impostor!</string>
+    <string name="impostor_res_msg_caught">¡El impostor bebe!</string>
+    <string name="impostor_btn_replay">Jugar de Nuevo</string>
+
+    <string-array name="impostor_words_list">
+        <item>Pizza</item> <item>Sushi</item> <item>Hamburguesa</item> <item>Tacos</item> <item>Chocolate</item>
+        <item>Cerveza</item> <item>Vino</item> <item>Café</item> <item>Tequila</item> <item>Leche</item>
+        <item>Playa</item> <item>Montaña</item> <item>Cine</item> <item>Hospital</item> <item>Escuela</item>
+        <item>Gimnasio</item> <item>Cementerio</item> <item>Zoológico</item> <item>Aeropuerto</item> <item>Biblioteca</item>
+        <item>Perro</item> <item>Gato</item> <item>León</item> <item>Tiburón</item> <item>Dinosaurio</item>
+        <item>Dragón</item> <item>Unicornio</item> <item>Pingüino</item> <item>Serpiente</item> <item>Araña</item>
+        <item>Fútbol</item> <item>Tenis</item> <item>Boxeo</item> <item>Ajedrez</item> <item>Videojuegos</item>
+        <item>Guitarra</item> <item>Piano</item> <item>Batería</item> <item>Micrófono</item> <item>Audífonos</item>
+        <item>Coche</item> <item>Avión</item> <item>Barco</item> <item>Bicicleta</item> <item>Helicóptero</item>
+        <item>Médico</item> <item>Policía</item> <item>Bombero</item> <item>Payaso</item> <item>Pirata</item>
+        <item>Ninja</item> <item>Vampiro</item> <item>Zombi</item> <item>Astronauta</item> <item>Mago</item>
+        <item>Harry Potter</item> <item>Batman</item> <item>Spiderman</item> <item>Goku</item> <item>Barbie</item>
+        <item>Messi</item> <item>Cristiano Ronaldo</item> <item>Shakira</item> <item>Bad Bunny</item> <item>La Roca</item>
+        <item>Facebook</item> <item>Instagram</item> <item>TikTok</item> <item>Netflix</item> <item>WhatsApp</item>
+        <item>iPhone</item> <item>Laptop</item> <item>Televisión</item> <item>Reloj</item> <item>Cámara</item>
+        <item>Zapatos</item> <item>Ropa Interior</item> <item>Lentes</item> <item>Sombrero</item> <item>Maquillaje</item>
+        <item>Amor</item> <item>Dinero</item> <item>Fantasma</item> <item>Alienígena</item> <item>Coronavirus</item>
+        <item>Titanic</item> <item>Star Wars</item> <item>Avengers</item> <item>Disney</item> <item>Mickey Mouse</item>
+    </string-array>
+
+    <string name="highlow_title">🎴 Mayor o Menor</string>
+    <string name="highlow_streak_fmt">Racha: %d 🔥</string>
+    <string name="highlow_instruction">¿La próxima es Mayor o Menor?</string>
+
+    <string name="highlow_label_current">CARTA ACTUAL</string>
+    <string name="highlow_label_next">PRÓXIMA CARTA</string>
+    <string name="highlow_label_result">RESULTADO</string>
+
+    <string name="highlow_btn_lower">MENOR</string>
+    <string name="highlow_btn_higher">MAYOR</string>
+    <string name="highlow_btn_next">Siguiente Ronda →</string>
+
+    <string name="highlow_result_correct">¡CORRECTO! Era %s 🎉</string>
+    <string name="highlow_result_wrong">¡INCORRECTO! Era %s 😢\n¡BEBE!</string>
+
+    <string name="charades_title">🎭 Mímica Borracha</string>
+    <string name="charades_score_fmt">🏆 Score: %d</string>
+    <string name="charades_ready_title">¿Listo para actuar?</string>
+    <string name="charades_ready_desc">• Actúa sin hablar\n• Tu equipo debe adivinar\n• Cada palabra cuenta\n• ¡No uses las manos mal!</string>
+    <string name="charades_difficulty_label">DIFICULTAD</string>
+    <string name="charades_btn_start">¡Empezar!</string>
+    <string name="charades_instruction_mute">Actúa sin hablar</string>
+    <string name="charades_btn_skip">Pasar</string>
+    <string name="charades_btn_correct">¡Correcto!</string>
+
+    <string name="charades_diff_easy">Previa</string> <string name="charades_diff_medium">Fiesta</string> <string name="charades_diff_hard">After</string>  <string name="charades_time_up">¡Tiempo terminado!</string>
+    <string name="charades_final_score">Puntuación Final</string>
+    <string name="charades_result_expert">¡Actores profesionales! 🌟</string>
+    <string name="charades_result_good">¡Excelente trabajo! 🎭</string>
+    <string name="charades_result_ok">¡Buen intento! 👏</string>
+    <string name="charades_result_bad">¡A beber más para soltarse! 🍺</string>
+    <string name="charades_btn_replay">Jugar de Nuevo</string>
+
+    <string-array name="charades_easy_list">
+        <item>Hacer un shot</item>
+        <item>Sacar una selfie</item>
+        <item>Barman</item>
+        <item>DJ</item>
+        <item>Borracho</item>
+        <item>Resaca</item>
+        <item>Portero de discoteca</item>
+        <item>Cantar Karaoke</item>
+        <item>Bailar Reggaeton</item>
+        <item>Ligar</item>
+        <item>Pedir la cuenta</item>
+        <item>Brindar</item>
+        <item>Caerse al suelo</item>
+        <item>Fumar</item>
+        <item>Abrir una cerveza</item>
+    </string-array>
+
+    <string-array name="charades_medium_list">
+        <item>Mandar audio borracho</item>
+        <item>Perreo hasta el suelo</item>
+        <item>Perder el celular</item>
+        <item>Vomitar en el baño</item>
+        <item>Pedir un Uber</item>
+        <item>Bailar sobre la mesa</item>
+        <item>Hacer el cuatro (test de alcoholemia)</item>
+        <item>Robar un vaso</item>
+        <item>Dormirse en el sofá</item>
+        <item>Pelea de borrachos</item>
+        <item>Llorar por el ex</item>
+        <item>Hacer fondo blanco</item>
+        <item>Colarse en la fila</item>
+        <item>Perder la dignidad</item>
+        <item>Pole Dance</item>
+    </string-array>
+
+    <string-array name="charades_hard_list">
+        <item>Intentar abrir la puerta borracho</item>
+        <item>Aguantar las ganas de vomitar</item>
+        <item>Ligar con el barman para trago gratis</item>
+        <item>Explicarle algo a la policía</item>
+        <item>Caminar con tacones borracha</item>
+        <item>Buscar el baño desesperadamente</item>
+        <item>Despertar sin saber dónde estás</item>
+        <item>Comer kebab a las 6 AM</item>
+        <item>Intentar desbloquear el celular con la cara</item>
+        <item>Hacerse el sobrio frente a tus padres</item>
+        <item>Perder un zapato en la fiesta</item>
+        <item>Robar el micrófono del DJ</item>
+        <item>Dormir abrazado al inodoro</item>
+        <item>Escribirle a tu ex y arrepentirse</item>
+        <item>Ser echado del boliche</item>
+    </string-array>
+
+    <string name="disclaimer_title">⚠️ Aviso Importante</string>
+    <string name="disclaimer_text_1">Esta aplicación es un juego para fines de entretenimiento exclusivamente.</string>
+    <string name="disclaimer_bullet_1">• Debes ser mayor de edad legal en tu país para consumir alcohol.</string>
+    <string name="disclaimer_bullet_2">• Kampai no promueve el abuso del alcohol.</string>
+    <string name="disclaimer_bullet_3">• Nunca bebas y conduzcas.</string>
+    <string name="disclaimer_text_2">Juega con responsabilidad y cuida a tus amigos.</string>
+    <string name="disclaimer_btn_accept">Acepto y soy mayor de edad</string>
+
+    <string name="roulette_title">🔫 Ruleta Rusa</string>
+    <string name="roulette_shots_fired">%d/6 cámaras disparadas</string>
+    <string name="roulette_btn_spin">Girar Tambor</string>
+    <string name="roulette_status_spinning">🔄 Girando...</string>
+    <string name="roulette_status_pick">👆 Toca una cámara</string>
+
+    <string name="roulette_tension_label">TENSIÓN</string>
+    <string name="roulette_tension_calm">😌 TRANQUILO</string>
+    <string name="roulette_tension_tense">😰 TENSO</string>
+    <string name="roulette_tension_danger">⚠️ CUIDADO</string>
+    <string name="roulette_tension_extreme">🔥 MUY PELIGROSO</string>
+
+    <string name="roulette_msg_start">¿Te atreves a jugar?</string>
+    <string name="roulette_msg_safe_1">✓ Click... Pasaste esta vez</string>
+    <string name="roulette_msg_safe_2">😅 Salvado por ahora...</string>
+    <string name="roulette_msg_safe_3">😬 Esto se pone tenso...</string>
+    <string name="roulette_msg_safe_4">😱 ¡LA SUERTE NO DURARÁ!</string>
+    <string name="roulette_msg_safe_5">😰 ¡UNA MÁS Y ESTÁS MUERTO!</string>
+    <string name="roulette_msg_bang">💥 ¡BANG! ¡TE TOCÓ BEBER! 🍺</string>
+
+    <string name="likely_title">👉 ¿Quién es más probable?</string>
+    <string name="likely_subtitle">Votación grupal</string>
+    <string name="likely_instruction_badge">A la cuenta de 3, señalen...</string>
+    <string name="likely_btn_next">Siguiente Pregunta</string>
+
+    <string name="likely_rules_title">📋 Cómo jugar</string>
+    <string name="likely_rule_1">Lean la pregunta en voz alta</string>
+    <string name="likely_rule_2">Cuenten: 3... 2... 1... ¡YA!</string>
+    <string name="likely_rule_3">Todos señalan a alguien al mismo tiempo</string>
+    <string name="likely_rule_4">La persona más señalada BEBE 🍺</string>
+
+    <string-array name="likely_questions_list">
+        <item>...que termine vomitando esta noche.</item>
+        <item>...que llame a su ex borracho/a.</item>
+        <item>...que pierda su celular hoy.</item>
+        <item>...que se despierte en otra ciudad mañana.</item>
+        <item>...que se desnude si bebe demasiado.</item>
+        <item>...que tenga sexo en un lugar público.</item>
+        <item>...que se pelee con un guardia de seguridad.</item>
+        <item>...que se case por dinero.</item>
+        <item>...que se una a una secta accidentalmente.</item>
+        <item>...que bese a alguien feo por lástima.</item>
+        <item>...que se caiga bailando.</item>
+        <item>...que termine en la cárcel.</item>
+        <item>...que se haga un tatuaje del que se arrepienta.</item>
+        <item>...que finja estar sobrio y falle miserablemente.</item>
+        <item>...que robe un vaso del bar.</item>
+        <item>...que llore en medio de la fiesta.</item>
+        <item>...que se duerma en el baño.</item>
+        <item>...que ligue con el/la novio/a de un amigo.</item>
+        <item>...que salga en las noticias por algo estúpido.</item>
+        <item>...que gaste todo su sueldo en una noche.</item>
+        <item>...que tenga un OnlyFans secreto.</item>
+        <item>...que se olvide de dónde vive.</item>
+        <item>...que proponga un trío.</item>
+        <item>...que abandone a sus amigos por un ligue.</item>
+        <item>...que coma comida del suelo.</item>
+    </string-array>
+
+    <string name="party_manager_title">🎉 La Party</string>
+    <string name="party_players_count">%d jugadores</string>
+    <string name="party_players_count_one">%d jugador</string>
+    <string name="party_btn_add_player">Agregar Jugador</string>
+    <string name="party_empty_title">No hay jugadores</string>
+    <string name="party_empty_subtitle">Agrega jugadores para comenzar la fiesta</string>
+
+    <string name="party_turn_of">Turno de:</string>
+
+    <string name="party_dialog_title">Agregar Jugador</string>
+    <string name="party_input_name">Nombre</string>
+    <string name="party_label_gender">Género</string>
+    <string name="party_label_avatar">Avatar</string>
+    <string name="party_avatar_selected">Avatar seleccionado</string>
+    <string name="party_avatar_change">Toca para cambiar</string>
+    <string name="party_btn_cancel">Cancelar</string>
+    <string name="party_btn_add">Agregar</string>
+
+    <string name="gender_male">Hombre</string>
+    <string name="gender_female">Mujer</string>
+    <string name="gender_other">Otro</string>
+
+    <string name="avatar_cat_animals">🐾 Animales</string>
+    <string name="avatar_cat_faces">😊 Caras</string>
+    <string name="avatar_cat_fantasy">🧙 Fantasía</string>
+    <string name="avatar_cat_sports">⚽ Deportes</string>
+
+    <string name="classics_screen_title">Juegos Clásicos</string>
+    <string name="party_cancel">Cancelar</string>
+
+    <string name="create_title">Crear Reto</string>
+    <string name="create_subtitle">Escribe tu propia carta</string>
+    <string name="create_hint">Escribe el reto aquí... Ej: {A} debe besar a {B}...</string>
+    <string name="create_label_intensity">INTENSIDAD</string>
+    <string name="create_label_target">OBJETIVO</string>
+    <string name="create_btn_save">Guardar Carta</string>
+    <string name="create_msg_success">¡Carta guardada en el mazo!</string>
+    <string name="create_preview">VISTA PREVIA</string>
+
+    <string name="intensity_soft">Suave</string>
+    <string name="intensity_medium">Tenso</string>
+    <string name="intensity_hot">Hot</string>
+    <string name="intensity_extreme">Extremo</string>
+
+    <string name="target_solo">Solo</string>
+    <string name="target_couple">Pareja</string>
+    <string name="target_group">Grupo</string>
+    <string name="game_title_hot">AfterDark</string>
+    <string name="game_desc_hot">Modo picante para parejas y grupos. +18</string>
+
+    <string name="party_label_attraction">Le gustan:</string>
+    <string name="party_label_vibe">Personalidad:</string>
+
+    <string name="attr_men">Hombres</string>
+    <string name="attr_women">Mujeres</string>
+    <string name="attr_both">Ambos</string>
+    <string name="attr_none">Nadie</string>
+
+    <string name="vibe_shy">Tímido</string>
+    <string name="vibe_bold">Atrevido</string>
+    <string name="vibe_crazy">Loco</string>
+
+
+
 </resources>

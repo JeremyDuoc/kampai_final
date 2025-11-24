@@ -1,15 +1,20 @@
 package com.example.kampai.ui.theme.impostor
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.kampai.R
 import com.example.kampai.domain.models.PlayerModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class ImpostorViewModel @Inject constructor() : ViewModel() {
+class ImpostorViewModel @Inject constructor(
+    @ApplicationContext private val context: Context
+) : ViewModel() {
 
     sealed class GameState {
         object Setup : GameState()
@@ -19,13 +24,8 @@ class ImpostorViewModel @Inject constructor() : ViewModel() {
         data class Results(val impostorWon: Boolean, val impostor: PlayerModel, val realWord: String) : GameState()
     }
 
-    private val words = listOf(
-        "Pizza", "Playa", "Guitarra", "Fútbol", "Cerveza",
-        "Montaña", "Café", "Libro", "Celular", "Coche",
-        "Perro", "Sol", "Avión", "Zapato", "Concierto",
-        "Fiesta", "Restaurante", "Cine", "Bicicleta", "Reloj",
-        "Botella", "Micrófono", "Computadora", "Cama", "Lluvia"
-    )
+    // Cargar lista gigante desde recursos
+    private val words = context.resources.getStringArray(R.array.impostor_words_list).toList()
 
     private val _gameState = MutableStateFlow<GameState>(GameState.Setup)
     val gameState: StateFlow<GameState> = _gameState.asStateFlow()
@@ -48,7 +48,6 @@ class ImpostorViewModel @Inject constructor() : ViewModel() {
 
     fun startGame() {
         if (_players.value.size < 3) {
-            // No se puede jugar con menos de 3 jugadores
             return
         }
 

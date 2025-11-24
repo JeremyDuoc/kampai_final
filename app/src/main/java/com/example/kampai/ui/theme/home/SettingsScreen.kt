@@ -1,13 +1,11 @@
 package com.example.kampai.ui.theme.settings
 
-import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -21,16 +19,17 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.kampai.R
 import com.example.kampai.ui.theme.AccentAmber
 import com.example.kampai.ui.theme.PrimaryViolet
 import com.example.kampai.ui.theme.SecondaryPink
-import kotlinx.coroutines.delay
 
 @Composable
 fun SettingsScreen(
@@ -41,14 +40,15 @@ fun SettingsScreen(
     val soundEnabled by viewModel.soundEnabled.collectAsState()
     val isDarkMode by viewModel.isDarkMode.collectAsState()
     val showSuggestionsDialog by viewModel.showSuggestionsDialog.collectAsState()
-    val appVersion = "1.0.0"
+    val showLanguageDialog by viewModel.showLanguageDialog.collectAsState()
+
+    val appVersion = stringResource(R.string.splash_version)
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Fondo decorativo
         SettingsBackground()
 
         Column(
@@ -56,10 +56,8 @@ fun SettingsScreen(
                 .fillMaxSize()
                 .padding(0.dp)
         ) {
-            // Header
             SettingsHeader(onBack = onBack)
 
-            // Contenido scrolleable
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)
@@ -71,8 +69,8 @@ fun SettingsScreen(
                 item {
                     SettingItem(
                         icon = "🌐",
-                        title = "Idioma",
-                        subtitle = "Selecciona tu idioma preferido",
+                        title = stringResource(R.string.settings_language),
+                        subtitle = stringResource(R.string.settings_language_select),
                         value = language.getDisplayName(),
                         onClick = { viewModel.showLanguageDialog() }
                     )
@@ -95,13 +93,13 @@ fun SettingsScreen(
                 // SECCIÓN: INFORMACIÓN
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
-                    SectionTitle("ℹ️ INFORMACIÓN")
+                    SectionTitle(stringResource(R.string.settings_information))
                 }
 
                 item {
                     InfoItem(
                         icon = "🎮",
-                        title = "Versión",
+                        title = stringResource(R.string.settings_version),
                         value = appVersion
                     )
                 }
@@ -109,22 +107,22 @@ fun SettingsScreen(
                 item {
                     InfoItem(
                         icon = "📱",
-                        title = "Plataforma",
-                        value = "Android"
+                        title = stringResource(R.string.settings_platform),
+                        value = stringResource(R.string.settings_android)
                     )
                 }
 
                 // SECCIÓN: SOPORTE
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
-                    SectionTitle("💬 SOPORTE Y FEEDBACK")
+                    SectionTitle(stringResource(R.string.settings_support))
                 }
 
                 item {
                     ActionItem(
                         icon = "💡",
-                        title = "Enviar Sugerencia",
-                        subtitle = "Comparte tus ideas para mejorar",
+                        title = stringResource(R.string.settings_suggest),
+                        subtitle = stringResource(R.string.settings_suggest_desc),
                         onClick = { viewModel.showSuggestionsDialog() }
                     )
                 }
@@ -132,8 +130,8 @@ fun SettingsScreen(
                 item {
                     ActionItem(
                         icon = "🐛",
-                        title = "Reportar Error",
-                        subtitle = "Si encuentras un problema, cuéntanos",
+                        title = stringResource(R.string.settings_bug),
+                        subtitle = stringResource(R.string.settings_bug_desc),
                         onClick = { viewModel.showBugReportDialog() }
                     )
                 }
@@ -141,33 +139,33 @@ fun SettingsScreen(
                 item {
                     ActionItem(
                         icon = "⭐",
-                        title = "Calificar App",
-                        subtitle = "Ayuda a otros a descubrirnos",
-                        onClick = { /* Abrir Play Store */ }
+                        title = stringResource(R.string.settings_rate),
+                        subtitle = stringResource(R.string.settings_rate_desc),
+                        onClick = { viewModel.openPlayStore() }
                     )
                 }
 
                 // SECCIÓN: LEGAL
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
-                    SectionTitle("⚖️ LEGAL")
+                    SectionTitle(stringResource(R.string.settings_legal))
                 }
 
                 item {
                     ActionItem(
                         icon = "📜",
-                        title = "Términos de Servicio",
-                        subtitle = "Lee nuestros términos",
-                        onClick = { /* Abrir URL */ }
+                        title = stringResource(R.string.settings_terms),
+                        subtitle = stringResource(R.string.settings_terms_desc),
+                        onClick = { viewModel.openTermsOfService() }
                     )
                 }
 
                 item {
                     ActionItem(
                         icon = "🔒",
-                        title = "Privacidad",
-                        subtitle = "Cómo protegemos tus datos",
-                        onClick = { /* Abrir URL */ }
+                        title = stringResource(R.string.settings_privacy),
+                        subtitle = stringResource(R.string.settings_privacy_desc),
+                        onClick = { viewModel.openPrivacyPolicy() }
                     )
                 }
 
@@ -177,14 +175,112 @@ fun SettingsScreen(
             }
         }
 
-        // Diálogos
+        // --- DIÁLOGOS ---
+
         if (showSuggestionsDialog) {
             SuggestionsDialog(
                 onDismiss = { viewModel.hideSuggestionsDialog() },
                 onSend = { suggestion ->
                     viewModel.sendSuggestion(suggestion)
+                    viewModel.hideSuggestionsDialog()
                 }
             )
+        }
+
+        if (showLanguageDialog) {
+            LanguageDialog(
+                currentLanguage = language,
+                onDismiss = { viewModel.hideLanguageDialog() },
+                onLanguageSelected = { viewModel.changeLanguage(it) }
+            )
+        }
+    }
+}
+
+// --- COMPOSABLES AUXILIARES ---
+
+@Composable
+fun LanguageDialog(
+    currentLanguage: SettingsViewModel.Language,
+    onDismiss: () -> Unit,
+    onLanguageSelected: (SettingsViewModel.Language) -> Unit
+) {
+    Dialog(onDismissRequest = onDismiss) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth(0.9f)
+                .shadow(16.dp, RoundedCornerShape(24.dp)),
+            shape = RoundedCornerShape(24.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.surface,
+                                PrimaryViolet.copy(alpha = 0.1f)
+                            )
+                        )
+                    )
+                    .border(2.dp, PrimaryViolet.copy(alpha = 0.3f), RoundedCornerShape(24.dp))
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(R.string.settings_language),
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                SettingsViewModel.Language.values().forEach { language ->
+                    val isSelected = language == currentLanguage
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(
+                                if (isSelected) PrimaryViolet.copy(alpha = 0.15f)
+                                else Color.Transparent
+                            )
+                            .clickable { onLanguageSelected(language) }
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = language.getDisplayName(),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                            ),
+                            color = if (isSelected) PrimaryViolet else MaterialTheme.colorScheme.onSurface
+                        )
+
+                        if (isSelected) {
+                            Icon(
+                                imageVector = Icons.Filled.Check,
+                                contentDescription = null,
+                                tint = PrimaryViolet
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Button(
+                    onClick = onDismiss,
+                    colors = ButtonDefaults.buttonColors(containerColor = PrimaryViolet),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.party_cancel))
+                }
+            }
         }
     }
 }
@@ -227,14 +323,14 @@ fun ThemeSettingItem(
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
                     Text(
-                        text = "Tema",
+                        text = stringResource(R.string.settings_theme),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = if (isDarkMode) "Modo Oscuro" else "Modo Claro",
+                        text = if (isDarkMode) stringResource(R.string.settings_dark_mode) else stringResource(R.string.settings_light_mode),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -255,7 +351,6 @@ fun ThemeSettingItem(
         }
     }
 }
-
 
 @Composable
 fun SettingsBackground() {
@@ -324,7 +419,11 @@ fun SettingsHeader(onBack: () -> Unit) {
                     .size(48.dp)
                     .background(Color.White.copy(alpha = 0.1f), CircleShape)
             ) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
+                Icon(
+                    Icons.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.back),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
             }
 
             Column(
@@ -332,7 +431,7 @@ fun SettingsHeader(onBack: () -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "⚙️ Configuración",
+                    text = stringResource(R.string.settings_title),
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Black,
                         fontSize = 22.sp
@@ -476,14 +575,14 @@ fun SoundSettingItem(
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
                     Text(
-                        text = "Sonido",
+                        text = stringResource(R.string.settings_sound),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = "Efectos de sonido del juego",
+                        text = stringResource(R.string.settings_sound_effects),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -629,118 +728,107 @@ fun SuggestionsDialog(
     onSend: (String) -> Unit
 ) {
     var suggestion by remember { mutableStateOf("") }
-    var isVisible by remember { mutableStateOf(true) }
 
-    if (isVisible) {
-        Dialog(
-            onDismissRequest = {
-                isVisible = false
-                onDismiss()
-            }
+    Dialog(
+        onDismissRequest = onDismiss
+    ) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth(0.92f)
+                .shadow(32.dp, RoundedCornerShape(28.dp)),
+            shape = RoundedCornerShape(28.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.Transparent)
         ) {
-            Card(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(0.92f)
-                    .shadow(32.dp, RoundedCornerShape(28.dp)),
-                shape = RoundedCornerShape(28.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.Transparent)
+                    .fillMaxWidth()
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.surface,
+                                PrimaryViolet.copy(alpha = 0.15f)
+                            )
+                        )
+                    )
+                    .border(
+                        width = 3.dp,
+                        color = PrimaryViolet.copy(alpha = 0.5f),
+                        shape = RoundedCornerShape(28.dp)
+                    )
+                    .padding(28.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(
+                Text(
+                    text = "💡 " + stringResource(R.string.settings_suggest),
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        fontWeight = FontWeight.Black
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = stringResource(R.string.settings_suggest_desc),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                OutlinedTextField(
+                    value = suggestion,
+                    onValueChange = { suggestion = it },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    MaterialTheme.colorScheme.surface,
-                                    PrimaryViolet.copy(alpha = 0.15f)
-                                )
-                            )
-                        )
-                        .border(
-                            width = 3.dp,
-                            color = PrimaryViolet.copy(alpha = 0.5f),
-                            shape = RoundedCornerShape(28.dp)
-                        )
-                        .padding(28.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                        .height(150.dp),
+                    placeholder = { Text(stringResource(R.string.settings_suggest_desc), color = MaterialTheme.colorScheme.onSurfaceVariant) },
+                    shape = RoundedCornerShape(16.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = PrimaryViolet,
+                        unfocusedBorderColor = PrimaryViolet.copy(alpha = 0.3f),
+                        focusedTextColor = Color.White,
+                        unfocusedTextColor = Color.White
+                    ),
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        fontWeight = FontWeight.Normal
+                    )
+                )
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Text(
-                        text = "💡 Sugerencias",
-                        style = MaterialTheme.typography.headlineMedium.copy(
-                            fontWeight = FontWeight.Black
-                        ),
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    Text(
-                        text = "Cuéntanos tu idea para mejorar Kampai",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center
-                    )
-
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    OutlinedTextField(
-                        value = suggestion,
-                        onValueChange = { suggestion = it },
+                    OutlinedButton(
+                        onClick = onDismiss,
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(150.dp),
-                        placeholder = { Text("Escribe tu sugerencia aquí...", color = MaterialTheme.colorScheme.onSurfaceVariant) },
-                        shape = RoundedCornerShape(16.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = PrimaryViolet,
-                            unfocusedBorderColor = PrimaryViolet.copy(alpha = 0.3f),
-                            focusedTextColor = Color.White,
-                            unfocusedTextColor = Color.White
-                        ),
-                        textStyle = MaterialTheme.typography.bodyMedium.copy(
-                            fontWeight = FontWeight.Normal
+                            .weight(1f)
+                            .height(48.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = Color.White
                         )
-                    )
-
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        OutlinedButton(
-                            onClick = {
-                                isVisible = false
-                                onDismiss()
-                            },
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(48.dp),
-                            colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = Color.White
-                            )
-                        ) {
-                            Text("Cancelar", fontWeight = FontWeight.Bold)
-                        }
+                        Text(stringResource(R.string.party_cancel), fontWeight = FontWeight.Bold)
+                    }
 
-                        Button(
-                            onClick = {
-                                if (suggestion.isNotBlank()) {
-                                    onSend(suggestion)
-                                    isVisible = false
-                                    onDismiss()
-                                }
-                            },
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(48.dp),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = PrimaryViolet
-                            ),
-                            enabled = suggestion.isNotBlank()
-                        ) {
-                            Text("Enviar 📧", fontWeight = FontWeight.Bold)
-                        }
+                    Button(
+                        onClick = {
+                            if (suggestion.isNotBlank()) {
+                                onSend(suggestion)
+                            }
+                        },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = PrimaryViolet
+                        ),
+                        enabled = suggestion.isNotBlank()
+                    ) {
+                        Text("Enviar 📧", fontWeight = FontWeight.Bold)
                     }
                 }
             }

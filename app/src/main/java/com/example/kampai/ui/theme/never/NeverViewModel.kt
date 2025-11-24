@@ -1,9 +1,11 @@
 package com.example.kampai.ui.theme.never
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kampai.data.GameContent
+import com.example.kampai.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,9 +14,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NeverViewModel @Inject constructor() : ViewModel() {
+class NeverViewModel @Inject constructor(
+    @ApplicationContext private val context: Context // Inyectamos contexto
+) : ViewModel() {
 
-    private val allQuestions = GameContent.neverQuestions.shuffled().toMutableList()
+    // Cargamos las preguntas desde el XML (se traduce solo)
+    private val allQuestions = context.resources.getStringArray(R.array.never_questions_list)
+        .toList()
+        .shuffled()
+        .toMutableList()
+
     private var currentIndex = 0
 
     private val _currentQuestion = MutableStateFlow(allQuestions.firstOrNull() ?: "")

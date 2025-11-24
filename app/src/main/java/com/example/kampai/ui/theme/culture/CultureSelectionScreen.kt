@@ -21,10 +21,11 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.kampai.R
 import com.example.kampai.ui.theme.AccentRed
 import com.example.kampai.ui.theme.PrimaryViolet
 import kotlinx.coroutines.delay
@@ -47,7 +48,6 @@ fun CultureSelectionScreen(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Fondo animado
         AnimatedSelectionBackground()
 
         Column(
@@ -56,44 +56,39 @@ fun CultureSelectionScreen(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Header
             AnimatedHeader(onBack = onBack, showContent = showContent)
 
             Spacer(modifier = Modifier.height(60.dp))
 
             Text(
-                text = "¿Cómo quieres jugar?",
+                text = stringResource(R.string.culture_selection_title),
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.graphicsLayer {
-                    alpha = if (showContent) 1f else 0f
-                }
+                modifier = Modifier.graphicsLayer { alpha = if (showContent) 1f else 0f }
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Elige tu nivel de adrenalina",
+                text = stringResource(R.string.culture_selection_subtitle),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.graphicsLayer {
-                    alpha = if (showContent) 1f else 0f
-                }
+                modifier = Modifier.graphicsLayer { alpha = if (showContent) 1f else 0f }
             )
 
             Spacer(modifier = Modifier.height(40.dp))
 
             // Modo Clásico
             AnimatedModeCard(
-                title = "Modo Clásico",
+                title = stringResource(R.string.culture_mode_classic),
                 emoji = "🎯",
-                description = "Sin presión. Piensa con calma y responde cuando estés listo.",
+                description = stringResource(R.string.culture_desc_classic),
                 bulletPoints = listOf(
-                    "Sin límite de tiempo",
-                    "Perfecto para charlar",
-                    "Menos estrés, más diversión"
+                    stringResource(R.string.culture_feat_classic_1),
+                    stringResource(R.string.culture_feat_classic_2),
+                    stringResource(R.string.culture_feat_classic_3)
                 ),
                 color = PrimaryViolet,
                 onClick = onNavigateToClassic,
@@ -105,13 +100,13 @@ fun CultureSelectionScreen(
 
             // Modo Bomba
             AnimatedModeCard(
-                title = "Modo Bomba",
+                title = stringResource(R.string.culture_mode_bomb),
                 emoji = "💣",
-                description = "¡Tic-Tac! Responde rápido o la bomba explota en tus manos.",
+                description = stringResource(R.string.culture_desc_bomb),
                 bulletPoints = listOf(
-                    "Tiempo aleatorio limitado",
-                    "Máxima tensión",
-                    "¡Pasa el móvil rápido!"
+                    stringResource(R.string.culture_feat_bomb_1),
+                    stringResource(R.string.culture_feat_bomb_2),
+                    stringResource(R.string.culture_feat_bomb_3)
                 ),
                 color = AccentRed,
                 onClick = onNavigateToBomb,
@@ -125,49 +120,15 @@ fun CultureSelectionScreen(
 @Composable
 fun AnimatedSelectionBackground() {
     val infiniteTransition = rememberInfiniteTransition(label = "background")
-
     val offset by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(25000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
+        initialValue = 0f, targetValue = 360f,
+        animationSpec = infiniteRepeatable(animation = tween(25000, easing = LinearEasing), repeatMode = RepeatMode.Restart),
         label = "offset"
     )
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = (-100).dp, y = (-100).dp)
-                .size(300.dp)
-                .clip(CircleShape)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            PrimaryViolet.copy(alpha = 0.25f),
-                            Color.Transparent
-                        )
-                    )
-                )
-        )
-
-        Box(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .offset(x = 100.dp, y = 100.dp)
-                .size(350.dp)
-                .clip(CircleShape)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            AccentRed.copy(alpha = 0.2f),
-                            Color.Transparent
-                        )
-                    )
-                )
-        )
+        Box(modifier = Modifier.align(Alignment.TopStart).offset(x = (-100).dp, y = (-100).dp).size(300.dp).clip(CircleShape).background(brush = Brush.radialGradient(colors = listOf(PrimaryViolet.copy(alpha = 0.25f), Color.Transparent))))
+        Box(modifier = Modifier.align(Alignment.BottomEnd).offset(x = 100.dp, y = 100.dp).size(350.dp).clip(CircleShape).background(brush = Brush.radialGradient(colors = listOf(AccentRed.copy(alpha = 0.2f), Color.Transparent))))
     }
 }
 
@@ -179,27 +140,17 @@ fun AnimatedHeader(onBack: () -> Unit, showContent: Boolean) {
         label = "headerScale"
     )
 
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .scale(scale)
-    ) {
+    Box(modifier = Modifier.fillMaxWidth().scale(scale)) {
         IconButton(
             onClick = onBack,
-            modifier = Modifier
-                .align(Alignment.CenterStart)
-                .size(48.dp)
-                .background(Color.White.copy(alpha = 0.1f), CircleShape)
+            modifier = Modifier.align(Alignment.CenterStart).size(48.dp).background(Color.White.copy(alpha = 0.1f), CircleShape)
         ) {
-            Icon(Icons.Filled.ArrowBack, contentDescription = "Atrás", tint = MaterialTheme.colorScheme.onSurface)
+            Icon(Icons.Filled.ArrowBack, contentDescription = stringResource(R.string.back), tint = MaterialTheme.colorScheme.onSurface)
         }
 
         Text(
-            text = "Cultura Chupística",
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontWeight = FontWeight.Black,
-                fontSize = 22.sp
-            ),
+            text = stringResource(R.string.culture_title),
+            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Black, fontSize = 22.sp),
             color = PrimaryViolet,
             modifier = Modifier.align(Alignment.Center)
         )
@@ -221,36 +172,16 @@ fun AnimatedModeCard(
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
-    val offsetY by animateFloatAsState(
-        targetValue = if (isVisible) 0f else 50f,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessMediumLow
-        ),
-        label = "offsetY"
-    )
-
-    val alpha by animateFloatAsState(
-        targetValue = if (isVisible) 1f else 0f,
-        animationSpec = tween(600),
-        label = "alpha"
-    )
-
-    val scale by animateFloatAsState(
-        targetValue = if (isPressed) 0.97f else 1f,
-        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy),
-        label = "scale"
-    )
+    val offsetY by animateFloatAsState(targetValue = if (isVisible) 0f else 50f, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow), label = "offsetY")
+    val alpha by animateFloatAsState(targetValue = if (isVisible) 1f else 0f, animationSpec = tween(600), label = "alpha")
+    val scale by animateFloatAsState(targetValue = if (isPressed) 0.97f else 1f, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy), label = "scale")
 
     // Animación de pulsación para el emoji de la bomba
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
     val emojiScale by infiniteTransition.animateFloat(
         initialValue = 1f,
-        targetValue = if (title.contains("Bomba")) 1.15f else 1.05f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(if (title.contains("Bomba")) 400 else 800),
-            repeatMode = RepeatMode.Reverse
-        ),
+        targetValue = if (title.contains("Bomb") || title.contains("Bomba")) 1.15f else 1.05f,
+        animationSpec = infiniteRepeatable(animation = tween(800), repeatMode = RepeatMode.Reverse),
         label = "emojiScale"
     )
 
@@ -262,118 +193,36 @@ fun AnimatedModeCard(
     }
 
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .graphicsLayer {
-                translationY = offsetY
-                this.alpha = alpha
-                scaleX = scale
-                scaleY = scale
-            }
-            .shadow(
-                elevation = 16.dp,
-                shape = RoundedCornerShape(28.dp),
-                ambientColor = color.copy(alpha = 0.4f),
-                spotColor = color.copy(alpha = 0.4f)
-            )
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null
-            ) { onClick() },
+        modifier = Modifier.fillMaxWidth().graphicsLayer { translationY = offsetY; this.alpha = alpha; scaleX = scale; scaleY = scale }
+            .shadow(elevation = 16.dp, shape = RoundedCornerShape(28.dp), ambientColor = color.copy(alpha = 0.4f), spotColor = color.copy(alpha = 0.4f))
+            .clickable(interactionSource = interactionSource, indication = null) { onClick() },
         shape = RoundedCornerShape(28.dp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            MaterialTheme.colorScheme.surface,
-                            color.copy(alpha = 0.12f)
-                        )
-                    )
-                )
-                .border(
-                    width = 2.dp,
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            color.copy(alpha = 0.6f),
-                            color.copy(alpha = 0.2f)
-                        )
-                    ),
-                    shape = RoundedCornerShape(28.dp)
-                )
+            modifier = Modifier.fillMaxWidth().background(brush = Brush.linearGradient(colors = listOf(MaterialTheme.colorScheme.surface, color.copy(alpha = 0.12f))))
+                .border(width = 2.dp, brush = Brush.linearGradient(colors = listOf(color.copy(alpha = 0.6f), color.copy(alpha = 0.2f))), shape = RoundedCornerShape(28.dp))
                 .padding(24.dp)
         ) {
             Column {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    // Emoji animado
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
                     Box(
-                        modifier = Modifier
-                            .size(64.dp)
-                            .scale(emojiScale)
-                            .clip(CircleShape)
-                            .background(
-                                brush = Brush.radialGradient(
-                                    colors = listOf(
-                                        color.copy(alpha = 0.3f),
-                                        color.copy(alpha = 0.1f)
-                                    )
-                                )
-                            ),
+                        modifier = Modifier.size(64.dp).scale(emojiScale).clip(CircleShape).background(brush = Brush.radialGradient(colors = listOf(color.copy(alpha = 0.3f), color.copy(alpha = 0.1f)))),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(
-                            text = emoji,
-                            fontSize = 36.sp
-                        )
+                        Text(text = emoji, fontSize = 36.sp)
                     }
-
                     Spacer(modifier = Modifier.width(16.dp))
-
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.headlineSmall.copy(
-                            fontWeight = FontWeight.ExtraBold
-                        ),
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
+                    Text(text = title, style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.ExtraBold), color = MaterialTheme.colorScheme.onSurface)
                 }
-
                 Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        lineHeight = 22.sp
-                    ),
-                    color = Color.LightGray
-                )
-
+                Text(text = description, style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 22.sp), color = Color.LightGray)
                 Spacer(modifier = Modifier.height(16.dp))
-
-                // Bullet points
                 bulletPoints.forEach { point ->
-                    Row(
-                        modifier = Modifier.padding(vertical = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(6.dp)
-                                .clip(CircleShape)
-                                .background(color)
-                        )
+                    Row(modifier = Modifier.padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Box(modifier = Modifier.size(6.dp).clip(CircleShape).background(color))
                         Spacer(modifier = Modifier.width(12.dp))
-                        Text(
-                            text = point,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                        Text(text = point, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
             }

@@ -3,6 +3,7 @@ package com.example.kampai.ui.theme.kingscup
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.R // Importar R
 import com.example.kampai.domain.models.PlayerModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -15,29 +16,29 @@ import javax.inject.Inject
 @HiltViewModel
 class KingsCupViewModel @Inject constructor() : ViewModel() {
 
-    // Modificado: Ahora acepta una descripción personalizada opcional
+    // Modificado: customDescriptionRes ahora es Int? (nullable resource ID)
     data class Card(
         val value: CardValue,
         val suit: CardSuit,
         val id: String = "${value.name}_${suit.name}",
-        val customDescription: String? = null // Para las reglas dinámicas del Rey
+        val customDescriptionRes: Int? = null
     )
 
-    enum class CardValue(val display: String, val rule: String, val description: String, val emoji: String) {
-        ACE("A", "Cascada", "Todos beben hasta que el que sacó pare", "🌊"),
-        TWO("2", "Tú", "Elige a alguien para beber", "👉"),
-        THREE("3", "Yo", "Quien sacó la carta bebe", "🍺"),
-        FOUR("4", "Chicas", "Todas las mujeres beben", "👩"),
-        FIVE("5", "Pulgar", "Último en poner pulgar en mesa bebe", "👍"),
-        SIX("6", "Chicos", "Todos los hombres beben", "👨"),
-        SEVEN("7", "Cielo", "Último en levantar la mano bebe", "✋"),
-        EIGHT("8", "Compañero", "Elige un compañero de bebida", "🤝"),
-        NINE("9", "Rima", "Di una palabra, rimen hasta fallar", "🎵"),
-        TEN("10", "Categoría", "Di una categoría, nombren hasta fallar", "📋"),
-        JACK("J", "Regla", "Crea una regla nueva", "⚖️"),
-        QUEEN("Q", "Pregunta", "Haces preguntas, quien responda bebe", "❓"),
-        // La descripción por defecto del Rey es genérica, la cambiaremos dinámicamente
-        KING("K", "Rey", "Ver instrucciones especiales", "👑")
+    // Enum con Resources IDs
+    enum class CardValue(val display: String, val ruleRes: Int, val descriptionRes: Int, val emoji: String) {
+        ACE("A", R.string.card_ace_title, R.string.card_ace_desc, "🌊"),
+        TWO("2", R.string.card_2_title, R.string.card_2_desc, "👉"),
+        THREE("3", R.string.card_3_title, R.string.card_3_desc, "🍺"),
+        FOUR("4", R.string.card_4_title, R.string.card_4_desc, "👩"),
+        FIVE("5", R.string.card_5_title, R.string.card_5_desc, "👍"),
+        SIX("6", R.string.card_6_title, R.string.card_6_desc, "👨"),
+        SEVEN("7", R.string.card_7_title, R.string.card_7_desc, "✋"),
+        EIGHT("8", R.string.card_8_title, R.string.card_8_desc, "🤝"),
+        NINE("9", R.string.card_9_title, R.string.card_9_desc, "🎵"),
+        TEN("10", R.string.card_10_title, R.string.card_10_desc, "📋"),
+        JACK("J", R.string.card_j_title, R.string.card_j_desc, "⚖️"),
+        QUEEN("Q", R.string.card_q_title, R.string.card_q_desc, "❓"),
+        KING("K", R.string.card_k_title, R.string.card_k_desc, "👑")
     }
 
     enum class CardSuit(val symbol: String, val color: Color) {
@@ -119,22 +120,21 @@ class KingsCupViewModel @Inject constructor() : ViewModel() {
 
             var drawnCard = _deck.value.first()
 
-            // --- LÓGICA DE LOS REYES ---
+            // --- LÓGICA DE LOS REYES (Usando IDs) ---
             if (drawnCard.value == CardValue.KING) {
-                val currentKings = _kingsDrawn.value + 1 // Este será el rey número X
+                val currentKings = _kingsDrawn.value + 1
                 _kingsDrawn.value = currentKings
 
-                // Asignar descripción según el número de Rey
-                val kingDescription = when (currentKings) {
-                    1 -> "1º Rey: Elige QUÉ lleva el vaso.\nPrepara la mezcla del trago central."
-                    2 -> "2º Rey: Elige DÓNDE se bebe.\nEj: Parado en la mesa, bajo la mesa, en el baño..."
-                    3 -> "3º Rey: Elige CÓMO se bebe.\nEj: Agachado, sin manos, haciendo el pino..."
-                    4 -> "4º Rey: ¡MALA SUERTE!\nDebes beberte todo el vaso central cumpliendo las reglas anteriores."
-                    else -> "Rey Extra: Bebe un trago."
+                // Asignar ID de descripción según el número de Rey
+                val kingDescRes = when (currentKings) {
+                    1 -> R.string.king_1_desc
+                    2 -> R.string.king_2_desc
+                    3 -> R.string.king_3_desc
+                    4 -> R.string.king_4_desc
+                    else -> R.string.king_extra_desc
                 }
 
-                // Crear una copia de la carta con la nueva descripción
-                drawnCard = drawnCard.copy(customDescription = kingDescription)
+                drawnCard = drawnCard.copy(customDescriptionRes = kingDescRes)
             }
 
             _currentCard.value = drawnCard
@@ -145,11 +145,6 @@ class KingsCupViewModel @Inject constructor() : ViewModel() {
 
             if (_players.value.isNotEmpty()) {
                 _currentPlayerIndex.value = (_currentPlayerIndex.value + 1) % _players.value.size
-            }
-
-            if (_kingsDrawn.value == 4 && drawnCard.value == CardValue.KING) {
-                // Esperamos un poco más para que lean la penitencia final
-                // El estado Finished se manejará después de que el usuario le de a "Siguiente" o tras un delay
             }
         }
     }
