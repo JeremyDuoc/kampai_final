@@ -7,6 +7,7 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kampai.R
 import com.example.kampai.data.PartyRepository
 import com.example.kampai.data.repository.HotRepository
 import com.example.kampai.domain.models.*
@@ -29,19 +30,18 @@ class HotGameViewModel @Inject constructor(
 ) : ViewModel() {
 
     sealed class HotState {
-        object Card : HotState()        // Texto clásico
-        object Slots : HotState()       // Dados
-        object Haptic : HotState()      // Sensor Táctil
-        object Scratch : HotState()     // Raspe
-        object Heartbeat : HotState()   // Pulso
-        object LieDetector : HotState() // Detector Mentiras
-        object GyroCup : HotState()     // Copa Inestable
-        object Whisper : HotState()     // Susurrador
-        object Blow : HotState()        // Soplido
-        object RouletteWheel : HotState() // Ruleta Castigos
+        object Card : HotState()
+        object Slots : HotState()
+        object Haptic : HotState()
+        object Scratch : HotState()
+        object Heartbeat : HotState()
+        object LieDetector : HotState()
+        object GyroCup : HotState()
+        object Whisper : HotState()
+        object Blow : HotState()
+        object RouletteWheel : HotState()
     }
 
-    // ... (Variables de estado existentes: gameState, intensity, etc. SE MANTIENEN) ...
     private val _gameState = MutableStateFlow<HotState>(HotState.Card)
     val gameState: StateFlow<HotState> = _gameState.asStateFlow()
 
@@ -64,30 +64,26 @@ class HotGameViewModel @Inject constructor(
     private val _isRevealed = MutableStateFlow(false)
     val isRevealed: StateFlow<Boolean> = _isRevealed.asStateFlow()
 
-    // Jugadores
     private val _playerA = MutableStateFlow<PlayerModel?>(null)
     val playerA: StateFlow<PlayerModel?> = _playerA.asStateFlow()
     private val _playerB = MutableStateFlow<PlayerModel?>(null)
     val playerB: StateFlow<PlayerModel?> = _playerB.asStateFlow()
 
-    // Estados específicos de minijuegos
-    private val _slotAction = MutableStateFlow("GIRAR")
+    private val _slotAction = MutableStateFlow(context.getString(R.string.hot_mg_slots_btn))
     val slotAction: StateFlow<String> = _slotAction.asStateFlow()
-    private val _slotBodyPart = MutableStateFlow("GIRAR")
+    private val _slotBodyPart = MutableStateFlow(context.getString(R.string.hot_mg_slots_btn))
     val slotBodyPart: StateFlow<String> = _slotBodyPart.asStateFlow()
     private val _isSpinningSlots = MutableStateFlow(false)
     val isSpinningSlots: StateFlow<Boolean> = _isSpinningSlots.asStateFlow()
-    private val _hapticStatus = MutableStateFlow("Pulsar...")
+    private val _hapticStatus = MutableStateFlow(context.getString(R.string.hot_mg_haptic_default))
     val hapticStatus: StateFlow<String> = _hapticStatus.asStateFlow()
 
-    // Detector de mentiras
-    private val _lieResult = MutableStateFlow<Boolean?>(null) // null=analizando, true=verdad, false=mentira
+    private val _lieResult = MutableStateFlow<Boolean?>(null)
     val lieResult: StateFlow<Boolean?> = _lieResult.asStateFlow()
 
     private val _loading = MutableStateFlow(false)
     val loading: StateFlow<Boolean> = _loading.asStateFlow()
 
-    // Configuración Rondas
     private val SOFT_LIMIT = 10
     private val MEDIUM_LIMIT = 25
 
@@ -95,7 +91,6 @@ class HotGameViewModel @Inject constructor(
     private var allPlayers: List<PlayerModel> = emptyList()
     private var currentDeck: List<HotChallenge> = emptyList()
 
-    // Vibrador
     private val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val vibratorManager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
         vibratorManager.defaultVibrator
@@ -111,7 +106,6 @@ class HotGameViewModel @Inject constructor(
         }
     }
 
-    // ... (Funciones setIntensity, toggleDiabloMode, loadDeck, closeTutorial SE MANTIENEN IGUAL) ...
     fun closeTutorial() { _showTutorial.value = false }
     fun toggleDiabloMode() {
         _isDiabloMode.value = !_isDiabloMode.value
@@ -128,12 +122,11 @@ class HotGameViewModel @Inject constructor(
         }
     }
 
-    // --- LÓGICA DE SELECCIÓN DE JUEGO ---
     fun nextTurn() {
         turnCount++
         _isRevealed.value = false
-        _hapticStatus.value = "Pulsar..."
-        _lieResult.value = null // Reset detector
+        _hapticStatus.value = context.getString(R.string.hot_mg_haptic_default)
+        _lieResult.value = null
 
         updateIntensityAndProgress()
 
@@ -141,11 +134,9 @@ class HotGameViewModel @Inject constructor(
         _playerA.value = p1
         _playerB.value = p2
 
-        // --- PROBABILIDADES SEGÚN INTENSIDAD ---
         val roll = Random.nextInt(100)
         val currentInt = _intensity.value
 
-        // Si es MODO DIABLO, todo está permitido con alta probabilidad
         if (_isDiabloMode.value) {
             when {
                 roll < 10 -> _gameState.value = HotState.RouletteWheel
@@ -158,15 +149,12 @@ class HotGameViewModel @Inject constructor(
             return
         }
 
-        // PROGRESIÓN NORMAL
         when (currentInt) {
             HotIntensity.SOFT -> {
-                // 90% Cartas (Preguntas), 10% Pulso (Inocente)
                 if (roll < 10 && p2 != null) _gameState.value = HotState.Heartbeat
                 else prepareCardTurn()
             }
             HotIntensity.MEDIUM -> {
-                // Empiezan los juegos táctiles y visuales
                 when {
                     roll < 15 -> _gameState.value = HotState.Scratch
                     roll < 30 -> _gameState.value = HotState.LieDetector
@@ -175,7 +163,6 @@ class HotGameViewModel @Inject constructor(
                 }
             }
             HotIntensity.HOT, HotIntensity.EXTREME -> {
-                // Juegos físicos y sensores
                 when {
                     roll < 15 -> _gameState.value = HotState.GyroCup
                     roll < 30 -> _gameState.value = HotState.Whisper
@@ -204,7 +191,6 @@ class HotGameViewModel @Inject constructor(
         }
     }
 
-    // --- PREPARADORES DE MINIJUEGOS ---
     private fun prepareCardTurn() {
         _gameState.value = HotState.Card
         viewModelScope.launch {
@@ -214,7 +200,7 @@ class HotGameViewModel @Inject constructor(
                 var text = card.textString ?: card.textRes?.let { context.getString(it) } ?: ""
                 text = text.replace("{A}", _playerA.value?.name ?: "A").replace("{B}", _playerB.value?.name ?: "B")
                 _currentText.value = text
-            } else { _currentText.value = "¡Beban todos!" }
+            } else { _currentText.value = context.getString(R.string.hot_fallback_text) }
         }
     }
 
@@ -227,14 +213,11 @@ class HotGameViewModel @Inject constructor(
         _gameState.value = HotState.Haptic
     }
 
-    // --- ACCIONES DE MINIJUEGOS ---
-
-    // 1. Slots
     fun spinSlots() {
         viewModelScope.launch {
             _isSpinningSlots.value = true
-            val actions = listOf("Besar", "Lamer", "Morder", "Soplar", "Acariciar", "Masajear", "Chupar")
-            val parts = listOf("Cuello", "Oreja", "Mano", "Espalda", "Ombligo", "Muslo", "Labios")
+            val actions = context.resources.getStringArray(R.array.hot_slots_actions)
+            val parts = context.resources.getStringArray(R.array.hot_slots_parts)
             for (i in 0..20) {
                 _slotAction.value = actions.random()
                 _slotBodyPart.value = parts.random()
@@ -244,29 +227,26 @@ class HotGameViewModel @Inject constructor(
         }
     }
 
-    // 2. Haptic
     fun triggerVibration() {
         val duration = Random.nextLong(200, 800)
         val amplitude = Random.nextInt(100, 255)
         if (Build.VERSION.SDK_INT >= 26) vibrator.vibrate(VibrationEffect.createOneShot(duration, amplitude))
         else vibrator.vibrate(duration)
-        _hapticStatus.value = listOf("¡Detectado!", "Caliente...", "Más abajo...", "¡Ahí!").random()
+        val messages = context.resources.getStringArray(R.array.hot_haptic_messages)
+        _hapticStatus.value = messages.random()
     }
 
-    // 3. Lie Detector (Sin truco, random 50/50 o bias)
     fun startLieAnalysis() {
         viewModelScope.launch {
-            _lieResult.value = null // Analizando...
-            delay(2500) // Suspenso
-            _lieResult.value = Random.nextBoolean() // Resultado real aleatorio
+            _lieResult.value = null
+            delay(2500)
+            _lieResult.value = Random.nextBoolean()
             if (_lieResult.value == false) {
-                // Si es mentira, vibra fuerte para avisar
                 if (Build.VERSION.SDK_INT >= 26) vibrator.vibrate(VibrationEffect.createOneShot(500, 255))
             }
         }
     }
 
-    // --- HELPERS (Compatible Pair, Safety) IGUAL QUE ANTES ---
     private fun findCompatiblePair(): Pair<PlayerModel?, PlayerModel?> {
         if (allPlayers.size < 2) return allPlayers.firstOrNull() to null
         val p1 = allPlayers.random()
@@ -286,6 +266,6 @@ class HotGameViewModel @Inject constructor(
 
     fun revealCard() { _isRevealed.value = true }
     fun safetyGreen() { nextTurn() }
-    fun safetyYellow() { _currentText.value = "⚠️ ¡Penitencia! Beban un trago."; _gameState.value = HotState.Card; _isRevealed.value = true }
-    fun safetyRed() { _currentText.value = "🛑 Salto seguro."; _gameState.value = HotState.Card; _isRevealed.value = true; viewModelScope.launch { delay(1500); nextTurn() } }
+    fun safetyYellow() { _currentText.value = context.getString(R.string.hot_safety_yellow); _gameState.value = HotState.Card; _isRevealed.value = true }
+    fun safetyRed() { _currentText.value = context.getString(R.string.hot_safety_red); _gameState.value = HotState.Card; _isRevealed.value = true; viewModelScope.launch { delay(1500); nextTurn() } }
 }

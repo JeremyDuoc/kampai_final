@@ -99,4 +99,77 @@
         <item>Envía una nude a quien el grupo decida (o bebe 5 tragos).</item>
         <item>Llama a tu ex y gime.</item>
     </string-array>
+
+    <string name="hot_screen_title">KAMPAI: AFTER DARK</string>
+    <string name="hot_label_temp">Temperatura</string>
+    <string name="hot_mode_soft">Suave ❄️</string>
+    <string name="hot_mode_medium">Caliente 🔥</string>
+    <string name="hot_mode_hot">Fuego 🔥🔥</string>
+    <string name="hot_mode_extreme">EXTREMO ⚡</string>
+    <string name="hot_mode_diablo_on">😈 DIABLO ON</string>
+    <string name="hot_mode_diablo_off">😇 DIABLO OFF</string>
+
+    <string name="hot_card_custom">👑 RETO PERSONALIZADO</string>
+    <string name="hot_card_reveal">MANTÉN PULSADO\nPARA REVELAR</string>
+    <string name="hot_fallback_text">¡Beban todos!</string>
+
+    <string name="hot_btn_next_fire">SIGUIENTE RETO 🔥</string>
+    <string name="hot_btn_reveal">REVELAR RETO</string>
+    <string name="hot_btn_start_game">COMENZAR JUEGO</string>
+
+    <string name="hot_safety_yellow">⚠️ ¡Penitencia! Beban un trago largo para saltar el reto.</string>
+    <string name="hot_safety_red">🛑 Salto seguro. El respeto es lo primero.</string>
+    <string name="hot_safety_no">No</string>
+    <string name="hot_safety_drink">Penitencia</string>
+
+    <string name="hot_mg_slots_title">🎰 DADOS DE LA PASIÓN</string>
+    <string name="hot_mg_haptic_title">📳 SENSOR TÁCTIL</string>
+    <string name="hot_mg_lie_title">🤥 DETECTOR DE MENTIRAS</string>
+    <string name="hot_mg_gyro_title">🍸 COPA INESTABLE</string>
+    <string name="hot_mg_scratch_title">🎫 RASPA LA CARTA</string>
+    <string name="hot_mg_roulette_title">🎡 RULETA DE CASTIGOS</string>
+    <string name="hot_mg_heart_title">❤️ PULSO DEL MOMENTO</string>
+    <string name="hot_mg_blow_title">🌬️ SOPLA</string>
+    <string name="hot_mg_whisper_title">🤫 SUSURRA</string>
+
+    <string name="hot_mg_slots_btn">GIRAR</string>
+    <string name="hot_mg_slots_label_action">ACCIÓN</string>
+    <string name="hot_mg_slots_label_zone">ZONA</string>
+
+    <string name="hot_mg_haptic_desc">Pasa el celular por el cuerpo del otro...</string>
+    <string name="hot_mg_haptic_btn">PULSAR</string>
+    <string name="hot_mg_haptic_touch_here">TOCAR AQUÍ</string>
+    <string name="hot_mg_haptic_default">Pulsar...</string>
+
+    <string name="hot_mg_lie_desc">Haz una pregunta incómoda...</string>
+    <string name="hot_mg_lie_analyzing">Analizando...</string>
+    <string name="hot_mg_lie_place_finger">Pon el dedo</string>
+    <string name="hot_mg_lie_true">VERDAD ✅</string>
+    <string name="hot_mg_lie_false">MENTIRA ❌</string>
+
+    <string name="hot_mg_gyro_desc">Pasa el celular sin inclinarlo</string>
+    <string name="hot_mg_gyro_fail">¡SE CAYÓ! 🍺 BEBE</string>
+    <string name="hot_mg_gyro_good">¡BIEN HECHO!</string>
+
+    <string name="hot_mg_audio_blow_desc">Sopla para revelar...</string>
+    <string name="hot_mg_audio_whisper_desc">Dile algo al oído...</string>
+
+    <string name="hot_mg_heart_desc">Presionen al ritmo del corazón...</string>
+    <string name="hot_mg_heart_sub">Tóquense y sientan el ritmo.</string>
+
+    <string-array name="hot_slots_actions">
+        <item>Besar</item> <item>Lamer</item> <item>Morder</item>
+        <item>Soplar</item> <item>Acariciar</item> <item>Masajear</item> <item>Chupar</item>
+    </string-array>
+
+    <string-array name="hot_slots_parts">
+        <item>Cuello</item> <item>Oreja</item> <item>Mano</item>
+        <item>Espalda</item> <item>Ombligo</item> <item>Muslo</item>
+        <item>Labios</item> <item>Pecho</item>
+    </string-array>
+
+    <string-array name="hot_haptic_messages">
+        <item>¡Detectado!</item> <item>Caliente...</item>
+        <item>Más abajo...</item> <item>¡Ahí!</item>
+    </string-array>
 </resources>

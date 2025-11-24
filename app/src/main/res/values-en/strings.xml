@@ -100,9 +100,9 @@
     <string name="warmup_screen_subtitle">Random events</string>
     <string name="warmup_mode_title">PartyMix Mode</string>
     <string name="warmup_mode_desc">Different rounds with phrases and random events.</string>
-    <string name="warmup_feature_1">✨ Surprise events! Add players to unlock them.</string>
-    <string name="warmup_feature_2">🎲 Random players</string>
-    <string name="warmup_feature_3">🔥 Intense challenges</string>
+    <string name="warmup_feature_1"> Surprise events! Add players to unlock them.</string>
+    <string name="warmup_feature_2"> Random players</string>
+    <string name="warmup_feature_3"> Intense challenges</string>
     <string name="warmup_start_btn">🔥 Start Party</string>
     <string name="warmup_rules_btn">View Rules</string>
     <string name="warmup_round_fmt">Round %1$d/%2$d</string>
@@ -188,6 +188,7 @@
     <string name="ph_men_drink">ALL MEN DRINK!</string>
     <string name="ph_women_drink">ALL WOMEN DRINK!</string>
     <string name="ph_last_stand">Last one standing: 2 SHOTS</string>
+    <string name="ph_get_sushi">The girls who order sushi just for the IG Notes: BOTTOMS UP!</string>
     <string name="ph_floor_touch">Last one to touch the floor: DRINK</string>
     <string name="ph_youngest_distribute">Youngest: DISTRIBUTE 3 DRINKS</string>
     <string name="ph_everyone_drinks">EVERYONE DRINKS!</string>
@@ -205,6 +206,101 @@
     <string name="ph_action_battery">Lowest battery: DRINK</string>
     <string name="ph_no_explain">Show last photo in gallery (No explaining)</string>
     <string name="ph_hug">Hug round: Hug person to your left</string>
+    <string name="ph_youngest_drink">The youngest: DRINK</string>
+    <string name="ph_oldest_shot_cross">The oldest: CHOOSES TWO to do a SHOT CROSS</string>
+    <string name="ph_siblings_drink">Whoever has the most siblings: DRINK</string>
+    <string name="ph_bday_closest_shot">The person with the closest birthday: 1 SHOT</string>
+    <string name="ph_own_vehicle_drink">Whoever came in their own vehicle: DRINK</string>
+    <string name="ph_last_hand_up_shot">Last person to raise their hand: 2 SHOTS</string>
+    <string name="ph_oldest_phone_drink">The person with the oldest phone: DRINK</string>
+    <string name="ph_seated_drink">One sip for everyone who is sitting</string>
+    <string name="ph_last_stand_choose">The last person to stand up: CHOOSES WHO DRINKS</string>
+    <string name="ph_age_split_shot">-20 years old: 1 shot. +20 years old: 2 shots</string>
+    <string name="ph_age_over_22_drink">People over 22 years old drink</string>
+    <string name="ph_youngest_shot_cross">The youngest chooses 2 people for a shot cross</string>
+    <string name="ph_tall_short_shot_cross">The tallest and the shortest person: SHOT CROSS</string>
+    <string name="ph_dark_hair_drink">People with dark hair: 1 sip. Dyed hair: 2 sips</string>
+    <string name="ph_height_over_drink">People taller than 1.70m: DRINK</string>
+    <string name="ph_eye_color_drink">If there is someone with green or blue eyes: DRINK</string>
+    <string name="ph_glasses_drink">If you wear glasses: DRINK</string>
+    <string name="ph_dimples_drink">People with dimples: DRINK</string>
+    <string name="ph_smallest_foot_drink">Whoever has the smallest foot: DRINK</string>
+    <string name="ph_curly_hair_drink">People with curly hair: DRINK</string>
+    <string name="ph_left_handed_shot">If you are left-handed: SHOT</string>
+    <string name="ph_freckles_drink">If you have freckles: DRINK</string>
+    <string name="ph_zodiac_fire_earth_drink">Drinkers: Leo, Capricorn, Cancer, and Gemini</string>
+    <string name="ph_zodiac_air_water_drink">Drinkers: Aquarius, Taurus, Aries, and Libra</string>
+    <string name="ph_longest_name_drink">The person with the longest name: DRINK</string>
+    <string name="ph_fall_in_love_drink">Those who fall in love quickly: DRINK</string>
+    <string name="ph_get_angry_drink">If you get angry easily: SIP</string>
+    <string name="ph_sagi_shot">Sagittarius: SHOT for talking too much</string>
+    <string name="ph_relationship_shot">Singles: 1 shot. Casually dating: 2 shots</string>
+    <string name="ph_phone_brand_shot">iPhone: 2 shots. Samsung: 1. Others: Saved</string>
+    <string name="ph_back_ex_drink">If you got back with your ex: DRINK</string>
+    <string name="ph_sneaking_out_drink">If you ve ever snuck out: DRINK</string>
+    <string name="ph_kiss_someone_drink">If you would kiss someone here: DRINK</string>
+    <string name="ph_first_time_age_drink">First time before age 16: DRINK</string>
+    <string name="ph_prefer_married_shot">If you prefer being married over single: SHOT</string>
+    <string name="ph_pity_kiss_shot">If you kissed someone out of pity: SHOT</string>
+    <string name="ph_fake_ig_shot">If you have a fake Instagram for stalking: SHOT</string>
+    <string name="ph_dating_app_drink">If you used Dating Apps: LONG SIP</string>
+    <string name="ph_erotic_dream_drink">If you had an erotic dream with someone present: DRINK</string>
+    <string name="ph_caught_in_act_drink">If you got caught in the act: DRINK</string>
+    <string name="ph_read_receipts_drink">If you have read receipts turned off: DRINK</string>
+    <string name="ph_most_followers_shot">The person with the most IG followers: SHOT</string>
+    <string name="ph_bite_kiss_shot">If you like kisses with biting: SHOT</string>
+    <string name="ph_fantasy_boss_shot">If you ve fantasized about a teacher/boss: SHOT</string>
+    <string name="ph_sneaky_phone_check_shot">If you secretly checked someones phone: SHOT</string>
+    <string name="ph_phone_checked_drink">If your phone has been checked: SIP</string>
+    <string name="ph_vote_best_smell_distribute">Vote who smells best: DISTRIBUTE 2</string>
+    <string name="ph_vote_spender_shot">Vote for the biggest spender: SHOT</string>
+    <string name="ph_vote_quiet_shot">Point to the quietest one: TAKE A SHOT</string>
+    <string name="ph_vote_party_animal_drink">Vote for the biggest party animal: DRINK</string>
+    <string name="ph_vote_least_party_drink">Vote for the least party animal: DRINK</string>
+    <string name="ph_vote_shameless_drink">Vote for the most shameless: DRINK</string>
+    <string name="ph_vote_embarrassed_drink">Vote for the most embarrassing: DRINK</string>
+    <string name="ph_vote_extrovert_drink">Vote for the most extroverted: DRINK</string>
+    <string name="ph_vote_otaku_drink">Vote for the Otaku of the group: DRINK</string>
+    <string name="ph_vote_gamer_drink">Vote for the biggest Gamer: DRINK</string>
+    <string name="ph_vote_best_dressed_drink">Vote for the best-dressed person</string>
+    <string name="ph_vote_most_pointed_bottoms_up">VOTE! The most pointed-at person chugs</string>
+    <string name="ph_proposer_choose_drink">The person who suggested playing chooses 3 to drink</string>
+    <string name="ph_oldest_choose_kiss">The oldest person chooses 2 to give a peck</string>
+    <string name="ph_earliest_choose_kiss">The person who arrived earliest chooses 2 for a peck</string>
+    <string name="ph_latest_drink">The person who arrived latest: DRINK</string>
+    <string name="ph_host_choose_drink">The person hosting chooses 2 to drink</string>
+    <string name="ph_serious_drink">Everyone be serious: The first person to laugh DRINKS</string>
+    <string name="ph_count_to_ten_drink">Count to 10: The person who says 10 DRINKS</string>
+    <string name="ph_most_battery_choose">The person with the most battery chooses 2</string>
+    <string name="ph_women_choose_drink">Every woman chooses 1 person to drink</string>
+    <string name="ph_men_massage">Men massage women for 1 min (or shot)</string>
+    <string name="ph_women_massage">Women massage men for 1 min (or shot)</string>
+    <string name="ph_last_nose_touch_drink">The last person to touch their nose: DRINK</string>
+    <string name="ph_tattoos_drink">Those with tattoos: DRINK</string>
+    <string name="ph_no_tattoos_drink">Those without tattoos: DRINK</string>
+    <string name="ph_red_underwear_shot">If you are wearing red underwear: SHOT</string>
+    <string name="ph_swap_clothing_drink">Swap a piece of clothing with the person to your right or DRINK</string>
+    <string name="ph_best_cook_choose">Whoever cooks best: Chooses who drinks</string>
+    <string name="ph_biggest_foot_drink">Whoever has the biggest foot: DRINK</string>
+    <string name="ph_travel_continent_safe">If you have traveled to another continent: SAVED. Everyone else drinks.</string>
+    <string name="ph_most_coins_drink">The person with the most coins in their pocket: DRINK</string>
+    <string name="ph_pets_drink">If you have a pet: DRINK</string>
+    <string name="ph_siblings_present_drink">Everyone who has siblings: DRINK</string>
+    <string name="ph_most_languages_distribute">The person who speaks the most languages: Distributes 2 sips</string>
+    <string name="ph_motorcycle_drink">If you ride a motorcycle: DRINK</string>
+    <string name="ph_confession_3t1l">Say 3 truths and 1 lie about yourselves</string>
+    <string name="ph_confession_first_time">CONFESSION: How old were you for your first time?</string>
+    <string name="ph_confession_weird_place">CONFESSION: The weirdest place you ve done it?</string>
+    <string name="ph_confession_first_look">CONFESSION: What is the first thing you look at in someone?</string>
+    <string name="ph_swap_places">SWAP PLACES! Everyone switch places with anyone</string>
+    <string name="ph_thumb_war">Thumb War with the person to your right</string>
+    <string name="ph_biggest_foot_song">The person with the biggest foot chooses the next song</string>
+    <string name="ph_lock_screen_show">Show your lock screen wallpaper</string>
+    <string name="ph_touch_nose_tongue">Try to touch your nose with your tongue.</string>
+    <string name="ph_vote_president">Point to who you think would be the best president</string>
+    <string name="ph_massage_right">Give a 1 min shoulder massage to the person on your right</string>
+    <string name="ph_last_green_touch_lose">The last person to touch something GREEN loses</string>
+    <string name="ph_low_battery_google_search">The person with the lowest battery must show their last Google search</string>
 
     <string name="truth_game_title">🎭 Truth or Dare</string>
     <string name="truth_game_subtitle">Do you dare?</string>
@@ -723,6 +819,79 @@
 
     <string name="classics_screen_title">Classic Games</string>
     <string name="party_cancel">Cancel</string>
+
+    <string name="hot_screen_title">KAMPAI: AFTER DARK</string>
+    <string name="hot_label_temp">Temperature</string>
+    <string name="hot_mode_soft">Soft ❄️</string>
+    <string name="hot_mode_medium">Hot 🔥</string>
+    <string name="hot_mode_hot">Fire 🔥🔥</string>
+    <string name="hot_mode_extreme">EXTREME ⚡</string>
+    <string name="hot_mode_diablo_on">😈 DEVIL ON</string>
+    <string name="hot_mode_diablo_off">😇 DEVIL OFF</string>
+
+    <string name="hot_card_custom">👑 USER CREATED</string>
+    <string name="hot_card_reveal">HOLD TO\nREVEAL</string>
+    <string name="hot_fallback_text">Everyone drinks!</string>
+
+    <string name="hot_btn_next_fire">NEXT CHALLENGE 🔥</string>
+    <string name="hot_btn_reveal">REVEAL CHALLENGE</string>
+    <string name="hot_btn_start_game">START GAME</string>
+
+    <string name="hot_safety_yellow">⚠️ Punishment! Drink a long sip to skip.</string>
+    <string name="hot_safety_red">🛑 Safety skip. Respect comes first.</string>
+    <string name="hot_safety_no">No</string>
+    <string name="hot_safety_drink">Punishment</string>
+
+    <string name="hot_mg_slots_title">🎰 PASSION SLOTS</string>
+    <string name="hot_mg_haptic_title">📳 TOUCH SENSOR</string>
+    <string name="hot_mg_lie_title">🤥 LIE DETECTOR</string>
+    <string name="hot_mg_gyro_title">🍸 UNSTABLE CUP</string>
+    <string name="hot_mg_scratch_title">🎫 SCRATCH CARD</string>
+    <string name="hot_mg_roulette_title">🎡 PUNISHMENT WHEEL</string>
+    <string name="hot_mg_heart_title">❤️ HEARTBEAT</string>
+    <string name="hot_mg_blow_title">🌬️ BLOW</string>
+    <string name="hot_mg_whisper_title">🤫 WHISPER</string>
+
+    <string name="hot_mg_slots_btn">SPIN</string>
+    <string name="hot_mg_slots_label_action">ACTION</string>
+    <string name="hot_mg_slots_label_zone">ZONE</string>
+
+    <string name="hot_mg_haptic_desc">Pass the phone over the body...</string>
+    <string name="hot_mg_haptic_btn">PRESS</string>
+    <string name="hot_mg_haptic_touch_here">TOUCH HERE</string>
+    <string name="hot_mg_haptic_default">Press...</string>
+
+    <string name="hot_mg_lie_desc">Ask an awkward question...</string>
+    <string name="hot_mg_lie_analyzing">Analyzing...</string>
+    <string name="hot_mg_lie_place_finger">Place finger</string>
+    <string name="hot_mg_lie_true">TRUTH ✅</string>
+    <string name="hot_mg_lie_false">LIE ❌</string>
+
+    <string name="hot_mg_gyro_desc">Pass the phone without tilting it</string>
+    <string name="hot_mg_gyro_fail">SPILLED! 🍺 DRINK</string>
+    <string name="hot_mg_gyro_good">GOOD JOB!</string>
+
+    <string name="hot_mg_audio_blow_desc">Blow to reveal...</string>
+    <string name="hot_mg_audio_whisper_desc">Whisper in the ear...</string>
+
+    <string name="hot_mg_heart_desc">Press to the heartbeat rhythm...</string>
+    <string name="hot_mg_heart_sub">Touch each other and feel the rhythm.</string>
+
+    <string-array name="hot_slots_actions">
+        <item>Kiss</item> <item>Lick</item> <item>Bite</item>
+        <item>Blow</item> <item>Caress</item> <item>Massage</item> <item>Suck</item>
+    </string-array>
+
+    <string-array name="hot_slots_parts">
+        <item>Neck</item> <item>Ear</item> <item>Hand</item>
+        <item>Back</item> <item>Belly button</item> <item>Thigh</item>
+        <item>Lips</item> <item>Chest</item>
+    </string-array>
+
+    <string-array name="hot_haptic_messages">
+        <item>Detected!</item> <item>Hot...</item>
+        <item>Lower...</item> <item>There!</item>
+    </string-array>
 
 
 </resources>

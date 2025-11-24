@@ -9,7 +9,6 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,9 +21,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.*
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.*
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -43,7 +40,6 @@ import com.example.kampai.domain.models.PlayerModel
 import kotlin.math.abs
 import kotlin.random.Random
 
-// --- COLORES DEL TEMA ---
 private val ColorSoft = Color(0xFF4CAF50)
 private val ColorMedium = Color(0xFFFF9800)
 private val ColorHot = Color(0xFFF44336)
@@ -58,7 +54,6 @@ fun HotGameScreen(
     onBack: () -> Unit,
     onNavigateToCreate: () -> Unit
 ) {
-    // Estados del ViewModel
     val gameState by viewModel.gameState.collectAsState()
     val currentCard by viewModel.currentCard.collectAsState()
     val text by viewModel.currentText.collectAsState()
@@ -69,12 +64,10 @@ fun HotGameScreen(
     val isDiablo by viewModel.isDiabloMode.collectAsState()
     val showTutorial by viewModel.showTutorial.collectAsState()
     val isRevealed by viewModel.isRevealed.collectAsState()
-    val loading by viewModel.loading.collectAsState()
 
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
 
-    // Animación de color de fondo
     val targetColor = if (isDiablo) DiabloColor else getIntensityColor(intensity)
     val themeColor by animateColorAsState(targetValue = targetColor, animationSpec = tween(1000), label = "themeColor")
 
@@ -89,17 +82,14 @@ fun HotGameScreen(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // 1. HEADER CON MODO DIABLO
-            HotHeaderWithDiablo(onBack, onNavigateToCreate, isDiablo, { viewModel.toggleDiabloMode() }, themeColor)
+            HotHeaderWithDiablo(onBack, onNavigateToCreate, isDiablo, { viewModel.toggleDiabloMode() })
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 2. TERMÓMETRO
             IntensityThermometer(progress, intensity, themeColor, isDiablo)
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 3. JUGADORES
             if (p1 != null) {
                 PlayersInteractionDisplay(p1!!, p2)
             } else {
@@ -108,7 +98,6 @@ fun HotGameScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // 4. ZONA DE JUEGO DINÁMICA (El corazón de la pantalla)
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
@@ -122,15 +111,13 @@ fun HotGameScreen(
                 ) { mode ->
                     when (mode) {
                         HotGameViewModel.HotState.Card -> {
-                            // Carta normal o texto de penitencia
                             if (currentCard != null || text.isNotEmpty()) {
                                 HotCardDisplay(
                                     card = currentCard,
                                     textOverride = text,
                                     isRevealed = isRevealed,
                                     onReveal = { viewModel.revealCard() },
-                                    themeColor = themeColor,
-                                    screenWidth = screenWidth
+                                    themeColor = themeColor
                                 )
                             }
                         }
@@ -149,7 +136,6 @@ fun HotGameScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // 5. SEMÁFORO DE SEGURIDAD
             SafetyTrafficLight(
                 onGreen = { viewModel.safetyGreen() },
                 onYellow = { viewModel.safetyYellow() },
@@ -157,19 +143,14 @@ fun HotGameScreen(
             )
         }
 
-        // DIÁLOGO DE TUTORIAL
         if (showTutorial) {
             TutorialDialog(onDismiss = { viewModel.closeTutorial() })
         }
     }
 }
 
-// =====================================================================
-// ====================== COMPONENTES DEL HEADER =======================
-// =====================================================================
-
 @Composable
-fun HotHeaderWithDiablo(onBack: () -> Unit, onCreate: () -> Unit, isDiablo: Boolean, onToggleDiablo: () -> Unit, themeColor: Color) {
+fun HotHeaderWithDiablo(onBack: () -> Unit, onCreate: () -> Unit, isDiablo: Boolean, onToggleDiablo: () -> Unit) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
         IconButton(onClick = onBack, modifier = Modifier.background(Color.White.copy(0.1f), CircleShape)) {
             Icon(Icons.Filled.ArrowBack, null, tint = Color.White)
@@ -181,7 +162,12 @@ fun HotHeaderWithDiablo(onBack: () -> Unit, onCreate: () -> Unit, isDiablo: Bool
             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
             modifier = Modifier.height(36.dp)
         ) {
-            Text(if (isDiablo) "😈 DIABLO ON" else "😇 DIABLO OFF", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = if (isDiablo) Color.White else Color.Gray)
+            Text(
+                text = stringResource(if (isDiablo) R.string.hot_mode_diablo_on else R.string.hot_mode_diablo_off),
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = if (isDiablo) Color.White else Color.Gray
+            )
         }
         IconButton(onClick = onCreate, modifier = Modifier.background(Gold.copy(0.2f), CircleShape)) {
             Icon(Icons.Filled.Add, null, tint = Gold)
@@ -193,14 +179,16 @@ fun HotHeaderWithDiablo(onBack: () -> Unit, onCreate: () -> Unit, isDiablo: Bool
 fun IntensityThermometer(progress: Float, intensity: HotIntensity, color: Color, isDiablo: Boolean) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text("Temperatura", color = Color.Gray, fontSize = 12.sp)
+            Text(stringResource(R.string.hot_label_temp), color = Color.Gray, fontSize = 12.sp)
             Text(
-                text = if (isDiablo) "MODO DIABLO ☠️" else when (intensity) {
-                    HotIntensity.SOFT -> "Suave ❄️"
-                    HotIntensity.MEDIUM -> "Caliente 🔥"
-                    HotIntensity.HOT -> "Fuego 🔥🔥"
-                    HotIntensity.EXTREME -> "EXTREMO ⚡"
-                },
+                text = if (isDiablo) stringResource(R.string.hot_mode_diablo) else stringResource(
+                    when (intensity) {
+                        HotIntensity.SOFT -> R.string.hot_mode_soft
+                        HotIntensity.MEDIUM -> R.string.hot_mode_medium
+                        HotIntensity.HOT -> R.string.hot_mode_hot
+                        HotIntensity.EXTREME -> R.string.hot_mode_extreme
+                    }
+                ),
                 color = color, fontSize = 12.sp, fontWeight = FontWeight.Bold
             )
         }
@@ -229,17 +217,9 @@ fun PlayersInteractionDisplay(p1: PlayerModel, p2: PlayerModel?) {
     }
 }
 
-// =====================================================================
-// ====================== MINIJUEGOS VISUALES ==========================
-// =====================================================================
-
-// 1. CARTA PRINCIPAL (TEXTO)
 @Composable
-fun HotCardDisplay(card: HotChallenge?, textOverride: String, isRevealed: Boolean, onReveal: () -> Unit, themeColor: Color, screenWidth: androidx.compose.ui.unit.Dp) {
-    val infiniteTransition = rememberInfiniteTransition(label = "border")
-    val borderAlpha by infiniteTransition.animateFloat(initialValue = 0.3f, targetValue = 1f, animationSpec = infiniteRepeatable(tween(1000), RepeatMode.Reverse), label = "borderAlpha")
+fun HotCardDisplay(card: HotChallenge?, textOverride: String, isRevealed: Boolean, onReveal: () -> Unit, themeColor: Color) {
     val isCustom = card?.isCustom == true
-
     Card(
         modifier = Modifier.fillMaxWidth().aspectRatio(0.8f).clickable(enabled = !isRevealed) { onReveal() },
         shape = RoundedCornerShape(32.dp), colors = CardDefaults.cardColors(containerColor = Color(0xFF1E1E1E)), elevation = CardDefaults.cardElevation(24.dp)
@@ -247,13 +227,13 @@ fun HotCardDisplay(card: HotChallenge?, textOverride: String, isRevealed: Boolea
         Box(modifier = Modifier.fillMaxSize().then(if (isCustom) Modifier.border(4.dp, Brush.sweepGradient(listOf(Gold.copy(0.2f), Gold, Gold.copy(0.2f))), RoundedCornerShape(32.dp)) else Modifier.border(2.dp, themeColor.copy(0.5f), RoundedCornerShape(32.dp)))) {
             Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(colors = listOf(Color(0xFF2D2D2D), Color(0xFF121212)))))
             Column(modifier = Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-                if (isCustom) Text("👑 RETO PERSONALIZADO", color = Gold, fontSize = 12.sp, fontWeight = FontWeight.Black, modifier = Modifier.padding(bottom = 16.dp))
+                if (isCustom) Text(stringResource(R.string.hot_card_custom), color = Gold, fontSize = 12.sp, fontWeight = FontWeight.Black, modifier = Modifier.padding(bottom = 16.dp))
                 if (isRevealed) {
                     Text(text = textOverride, style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold, fontSize = 24.sp), color = Color.White, textAlign = TextAlign.Center)
                 } else {
                     Icon(Icons.Filled.LocalFireDepartment, null, tint = themeColor, modifier = Modifier.size(80.dp))
                     Spacer(modifier = Modifier.height(24.dp))
-                    Text("TOCA PARA REVELAR", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color.Gray)
+                    Text(stringResource(R.string.hot_card_reveal), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color.Gray, textAlign = TextAlign.Center)
                     Spacer(modifier = Modifier.height(24.dp))
                     Box(Modifier.fillMaxWidth().height(16.dp).background(Color.DarkGray, RoundedCornerShape(8.dp)).blur(12.dp))
                     Spacer(modifier = Modifier.height(12.dp))
@@ -264,7 +244,6 @@ fun HotCardDisplay(card: HotChallenge?, textOverride: String, isRevealed: Boolea
     }
 }
 
-// 2. DADOS / SLOTS
 @Composable
 fun SlotsGameDisplay(viewModel: HotGameViewModel) {
     val action by viewModel.slotAction.collectAsState()
@@ -272,15 +251,15 @@ fun SlotsGameDisplay(viewModel: HotGameViewModel) {
     val isSpinning by viewModel.isSpinningSlots.collectAsState()
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("🎰 DADOS DE LA PASIÓN", color = Gold, fontWeight = FontWeight.Black, fontSize = 20.sp)
+        Text(stringResource(R.string.hot_mg_slots_title), color = Gold, fontWeight = FontWeight.Black, fontSize = 20.sp)
         Spacer(modifier = Modifier.height(24.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            SlotReel(text = action, label = "ACCIÓN")
-            SlotReel(text = part, label = "ZONA")
+            SlotReel(text = action, label = stringResource(R.string.hot_mg_slots_label_action))
+            SlotReel(text = part, label = stringResource(R.string.hot_mg_slots_label_zone))
         }
         Spacer(modifier = Modifier.height(32.dp))
         Button(onClick = { viewModel.spinSlots() }, enabled = !isSpinning, colors = ButtonDefaults.buttonColors(containerColor = Gold), modifier = Modifier.fillMaxWidth(0.7f).height(50.dp)) {
-            Text("GIRAR", color = Color.Black, fontWeight = FontWeight.Black)
+            Text(stringResource(R.string.hot_mg_slots_btn), color = Color.Black, fontWeight = FontWeight.Black)
         }
     }
 }
@@ -298,7 +277,6 @@ fun SlotReel(text: String, label: String) {
     }
 }
 
-// 3. DETECTOR DE MENTIRAS
 @Composable
 fun LieDetectorDisplay(viewModel: HotGameViewModel) {
     val result by viewModel.lieResult.collectAsState()
@@ -306,8 +284,8 @@ fun LieDetectorDisplay(viewModel: HotGameViewModel) {
     val fingerColor by animateColorAsState(if (result == true) Color.Green else if (result == false) Color.Red else if (isPressing) Color.Yellow else Color.Gray)
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("🤥 DETECTOR DE MENTIRAS", color = Color.Cyan, fontWeight = FontWeight.Bold, fontSize = 20.sp)
-        Text("Hazle una pregunta incómoda...", color = Color.Gray)
+        Text(stringResource(R.string.hot_mg_lie_title), color = Color.Cyan, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+        Text(stringResource(R.string.hot_mg_lie_desc), color = Color.Gray)
         Spacer(modifier = Modifier.height(24.dp))
         Box(
             modifier = Modifier.size(120.dp).clip(CircleShape).background(fingerColor.copy(0.2f)).border(3.dp, fingerColor, CircleShape)
@@ -322,26 +300,32 @@ fun LieDetectorDisplay(viewModel: HotGameViewModel) {
                 },
             contentAlignment = Alignment.Center
         ) {
-            Icon(painter = painterResource(R.drawable.ic_launcher_foreground), contentDescription = null, tint = fingerColor, modifier = Modifier.size(60.dp)) // Reemplaza con icono de huella si tienes
+            Icon(painter = painterResource(R.drawable.ic_launcher_foreground), contentDescription = null, tint = fingerColor, modifier = Modifier.size(60.dp))
         }
         Spacer(modifier = Modifier.height(24.dp))
-        Text(if (result == true) "VERDAD ✅" else if (result == false) "MENTIRA ❌" else if (isPressing) "Analizando..." else "Pon el dedo", fontSize = 24.sp, fontWeight = FontWeight.Black, color = fingerColor)
+        Text(
+            text = when (result) {
+                true -> stringResource(R.string.hot_mg_lie_true)
+                false -> stringResource(R.string.hot_mg_lie_false)
+                else -> if (isPressing) stringResource(R.string.hot_mg_lie_analyzing) else stringResource(R.string.hot_mg_lie_place_finger)
+            },
+            fontSize = 24.sp, fontWeight = FontWeight.Black, color = fingerColor
+        )
     }
 }
 
-// 4. SENSOR TÁCTIL (HAPTIC)
 @Composable
 fun HapticGameDisplay(viewModel: HotGameViewModel) {
     val status by viewModel.hapticStatus.collectAsState()
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("📳 SENSOR TÁCTIL", color = Color(0xFF03A9F4), fontWeight = FontWeight.Black, fontSize = 22.sp)
+        Text(stringResource(R.string.hot_mg_haptic_title), color = Color(0xFF03A9F4), fontWeight = FontWeight.Black, fontSize = 22.sp)
         Spacer(modifier = Modifier.height(12.dp))
-        Text("Pasa el celular por el cuerpo...", color = Color.Gray)
+        Text(stringResource(R.string.hot_mg_haptic_desc), color = Color.Gray)
         Spacer(modifier = Modifier.height(32.dp))
         Box(modifier = Modifier.size(220.dp).clip(CircleShape).background(Brush.radialGradient(listOf(Color(0xFF03A9F4).copy(0.2f), Color.Transparent))).border(3.dp, Color(0xFF03A9F4).copy(0.6f), CircleShape).clickable { viewModel.triggerVibration() }, contentAlignment = Alignment.Center) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(Icons.Filled.LocalFireDepartment, null, tint = Color(0xFF03A9F4), modifier = Modifier.size(48.dp))
-                Text("PULSAR", fontSize = 20.sp, fontWeight = FontWeight.Black, color = Color.White)
+                Text(stringResource(R.string.hot_mg_haptic_btn), fontSize = 20.sp, fontWeight = FontWeight.Black, color = Color.White)
             }
         }
         Spacer(modifier = Modifier.height(24.dp))
@@ -349,7 +333,6 @@ fun HapticGameDisplay(viewModel: HotGameViewModel) {
     }
 }
 
-// 5. COPA INESTABLE (GIROSCOPIO)
 @Composable
 fun GyroCupDisplay() {
     val context = LocalContext.current
@@ -366,24 +349,23 @@ fun GyroCupDisplay() {
         onDispose { sensorManager.unregisterListener(listener) }
     }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("🍸 NO DERRAMES", color = Color(0xFF03A9F4), fontWeight = FontWeight.Bold)
-        Text("Pasa el celular sin inclinarlo", color = Color.Gray)
+        Text(stringResource(R.string.hot_mg_gyro_title), color = Color(0xFF03A9F4), fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.hot_mg_gyro_desc), color = Color.Gray)
         Spacer(modifier = Modifier.height(40.dp))
         Box(modifier = Modifier.size(150.dp, 200.dp).clip(RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp)).background(Color.White.copy(0.1f)).border(2.dp, Color.White, RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp))) {
             if (!spilled) Box(modifier = Modifier.fillMaxSize().graphicsLayer { rotationZ = tiltX * -5f }.background(Brush.verticalGradient(listOf(Color(0xFF03A9F4).copy(0.5f), Color(0xFF03A9F4)))).align(Alignment.BottomCenter).fillMaxHeight(0.7f))
         }
         Spacer(modifier = Modifier.height(20.dp))
-        if (spilled) Text("¡SE CAYÓ! 🍺 BEBE", color = Color.Red, fontWeight = FontWeight.Black, fontSize = 24.sp)
+        if (spilled) Text(stringResource(R.string.hot_mg_gyro_fail), color = Color.Red, fontWeight = FontWeight.Black, fontSize = 24.sp)
     }
 }
 
-// 6. RASPE (SCRATCH)
 @Composable
 fun ScratchGameDisplay(onFinish: () -> Unit) {
     var scratchedCount by remember { mutableStateOf(0) }
     LaunchedEffect(scratchedCount) { if (scratchedCount > 15) onFinish() }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("🎫 RASPA LA CARTA", color = Gold, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.hot_mg_scratch_title), color = Gold, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(20.dp))
         Box(modifier = Modifier.size(300.dp, 200.dp).clip(RoundedCornerShape(16.dp))) {
             Box(modifier = Modifier.fillMaxSize().background(Color.White), contentAlignment = Alignment.Center) { Text("💋", fontSize = 80.sp) }
@@ -394,13 +376,12 @@ fun ScratchGameDisplay(onFinish: () -> Unit) {
     }
 }
 
-// 7. AUDIO (MOCK)
 @Composable
 fun AudioGameDisplay(isBlow: Boolean) {
     val infiniteTransition = rememberInfiniteTransition(label = "mic")
     val randomLevel by infiniteTransition.animateFloat(initialValue = 0.2f, targetValue = 0.8f, animationSpec = infiniteRepeatable(tween(500), RepeatMode.Reverse), label = "lvl")
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(if (isBlow) "🌬️ SOPLA" else "🤫 SUSURRA", color = Color(0xFFE91E63), fontWeight = FontWeight.Bold, fontSize = 24.sp)
+        Text(stringResource(if (isBlow) R.string.hot_mg_blow_title else R.string.hot_mg_whisper_title), color = Color(0xFFE91E63), fontWeight = FontWeight.Bold, fontSize = 24.sp)
         Spacer(modifier = Modifier.height(40.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp), verticalAlignment = Alignment.Bottom, modifier = Modifier.height(100.dp)) {
             repeat(10) { val height = (randomLevel * Random.nextFloat()).coerceIn(0.1f, 1f); Box(modifier = Modifier.width(10.dp).fillMaxHeight(height).background(Color(0xFFE91E63), RoundedCornerShape(50))) }
@@ -408,13 +389,12 @@ fun AudioGameDisplay(isBlow: Boolean) {
     }
 }
 
-// 8. RULETA CASTIGOS
 @Composable
 fun RouletteWheelDisplay() {
     val infiniteTransition = rememberInfiniteTransition(label = "wheel")
     val rotation by infiniteTransition.animateFloat(initialValue = 0f, targetValue = 360f, animationSpec = infiniteRepeatable(tween(2000, easing = LinearEasing)), label = "rot")
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("🎡 RULETA DE CASTIGOS", color = DiabloColor, fontWeight = FontWeight.Black)
+        Text(stringResource(R.string.hot_mg_roulette_title), color = DiabloColor, fontWeight = FontWeight.Black)
         Spacer(modifier = Modifier.height(30.dp))
         Box(modifier = Modifier.size(250.dp), contentAlignment = Alignment.Center) {
             Canvas(modifier = Modifier.fillMaxSize().rotate(rotation)) {
@@ -426,21 +406,16 @@ fun RouletteWheelDisplay() {
     }
 }
 
-// 9. PULSO
 @Composable
 fun HeartbeatGameDisplay() {
     val infiniteTransition = rememberInfiniteTransition(label = "heart")
     val scale by infiniteTransition.animateFloat(initialValue = 1f, targetValue = 1.3f, animationSpec = infiniteRepeatable(tween(600, easing = FastOutSlowInEasing), RepeatMode.Reverse), label = "scale")
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("❤️ PULSO DEL MOMENTO", color = Color(0xFFE91E63), fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.hot_mg_heart_title), color = Color(0xFFE91E63), fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(40.dp))
         Icon(Icons.Filled.LocalFireDepartment, null, tint = Color(0xFFE91E63), modifier = Modifier.size(100.dp).scale(scale))
     }
 }
-
-// =====================================================================
-// ====================== TUTORIAL Y HELPERS ===========================
-// =====================================================================
 
 @Composable
 fun TutorialDialog(onDismiss: () -> Unit) {
@@ -476,8 +451,8 @@ fun TutorialStep(text: String, isWarning: Boolean = false) {
 @Composable
 fun SafetyTrafficLight(onGreen: () -> Unit, onYellow: () -> Unit, onRed: () -> Unit) {
     Row(modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
-        SafetyButton(Color(0xFFEF5350), "🛑", onRed, label = "No")
-        SafetyButton(Color(0xFFFFCA28), "🍺", onYellow, label = "Penitencia")
+        SafetyButton(Color(0xFFEF5350), "🛑", onRed, label = stringResource(R.string.hot_safety_no))
+        SafetyButton(Color(0xFFFFCA28), "🍺", onYellow, label = stringResource(R.string.hot_safety_drink))
         SafetyButton(Color(0xFF66BB6A), "🔥", onGreen, isBig = true)
     }
 }

@@ -136,10 +136,10 @@
     <string name="warmup_screen_subtitle">Eventos aleatórios</string>
     <string name="warmup_mode_title">Modo PartyMix</string>
     <string name="warmup_mode_desc">Rodadas diferentes com frases e eventos. Um jogador será selecionado para cada desafio!</string>
-    <string name="warmup_feature_1">✨ Eventos surpresa! Não esqueça de adicionar jogadores.</string>
-    <string name="warmup_feature_2">🎲 Jogadores aleatórios</string>
-    <string name="warmup_feature_3">🔥 Desafios intensos</string>
-    <string name="warmup_start_btn">🔥 Começar Festa</string>
+    <string name="warmup_feature_1"> Eventos surpresa! Não esqueça de adicionar jogadores.</string>
+    <string name="warmup_feature_2"> Jogadores aleatórios</string>
+    <string name="warmup_feature_3"> Desafios intensos</string>
+    <string name="warmup_start_btn"> Começar Festa</string>
     <string name="warmup_rules_btn">Ver Regras</string>
     <string name="warmup_round_fmt">Rodada %1$d/%2$d</string>
     <string name="warmup_next_btn">Próximo →</string>
@@ -225,6 +225,8 @@
     <string name="ph_women_drink">TODAS AS MULHERES BEBEM!</string>
     <string name="ph_last_stand">Último a ficar de pé: 2 SHOTS</string>
     <string name="ph_floor_touch">Último a tocar o chão: BEBE</string>
+    <string name="ph_get_sushi">As meninas que pedem sushi só para as notas do IG: VIRA TUDO!!</string>
+
     <string name="ph_youngest_distribute">O mais novo: DISTRIBUI 3 GOLES</string>
     <string name="ph_everyone_drinks">TODOS BEBEM!</string>
     <string name="ph_tallest">O mais alto: ESCOLHE QUEM BEBE</string>
@@ -241,6 +243,101 @@
     <string name="ph_action_battery">Menos bateria: BEBE</string>
     <string name="ph_no_explain">Mostre a última foto da galeria (Sem explicar)</string>
     <string name="ph_hug">Rodada do Abraço: Abrace quem está à esquerda</string>
+    <string name="ph_youngest_drink">O mais jovem: BEBE</string>
+    <string name="ph_oldest_shot_cross">O mais velho: ESCOLHE DOIS para fazer SHOT CRUZADO</string>
+    <string name="ph_siblings_drink">Quem tem mais irmãos: BEBE</string>
+    <string name="ph_bday_closest_shot">O aniversariante mais próximo: 1 SHOT</string>
+    <string name="ph_own_vehicle_drink">Quem veio com veículo próprio: BEBE</string>
+    <string name="ph_last_hand_up_shot">Último a levantar a mão: 2 SHOTS</string>
+    <string name="ph_oldest_phone_drink">Quem tem o celular mais antigo: BEBE</string>
+    <string name="ph_seated_drink">Um gole para todos que estão sentados</string>
+    <string name="ph_last_stand_choose">O último a ficar de pé: ESCOLHE QUEM BEBE</string>
+    <string name="ph_age_split_shot">-20 anos: 1 shot. +20 anos: 2 shots</string>
+    <string name="ph_age_over_22_drink">Maiores de 22 anos bebem</string>
+    <string name="ph_youngest_shot_cross">O mais jovem escolhe 2 pessoas para shot cruzado</string>
+    <string name="ph_tall_short_shot_cross">A pessoa mais alta e a mais baixa: SHOT CRUZADO</string>
+    <string name="ph_dark_hair_drink">Cabelo escuro: 1 gole. Cabelo tingido: 2 goles</string>
+    <string name="ph_height_over_drink">Quem mede mais de 1.70m: BEBE</string>
+    <string name="ph_eye_color_drink">Se houver alguém de olhos verdes ou azuis: BEBE</string>
+    <string name="ph_glasses_drink">Se você usa óculos: BEBE</string>
+    <string name="ph_dimples_drink">Quem tem covinhas: BEBE</string>
+    <string name="ph_smallest_foot_drink">Quem tem o menor pé: BEBE</string>
+    <string name="ph_curly_hair_drink">Quem tem cabelo cacheado: BEBE</string>
+    <string name="ph_left_handed_shot">Se você é canhoto: SHOT</string>
+    <string name="ph_freckles_drink">Se você tem sardas: BEBE</string>
+    <string name="ph_zodiac_fire_earth_drink">Bebem: Leão, Capricórnio, Câncer e Gêmeos</string>
+    <string name="ph_zodiac_air_water_drink">Bebem: Aquário, Touro, Áries e Libra</string>
+    <string name="ph_longest_name_drink">O nome mais longo: BEBE</string>
+    <string name="ph_fall_in_love_drink">Quem se apaixona rápido: BEBE</string>
+    <string name="ph_get_angry_drink">Se fica bravo rápido: GOLE</string>
+    <string name="ph_sagi_shot">Sagitário: SHOT por falar demais</string>
+    <string name="ph_relationship_shot">Solteiros: 1 shot. Enrolados: 2 shots</string>
+    <string name="ph_phone_brand_shot">iPhone: 2 shots. Samsung: 1. Outros: Salvos</string>
+    <string name="ph_back_ex_drink">Se voltou com o ex: BEBE</string>
+    <string name="ph_sneaking_out_drink">Se já saiu escondido: BEBE</string>
+    <string name="ph_kiss_someone_drink">Se beijaria alguém aqui: BEBE</string>
+    <string name="ph_first_time_age_drink">Primeira vez antes dos 16: BEBE</string>
+    <string name="ph_prefer_married_shot">Se prefere ser casado do que solteiro: SHOT</string>
+    <string name="ph_pity_kiss_shot">Se beijou alguém por pena: SHOT</string>
+    <string name="ph_fake_ig_shot">Se tem Instagram falso para stalkear: SHOT</string>
+    <string name="ph_dating_app_drink">Se usou Apps de Namoro: GOLE LONGO</string>
+    <string name="ph_erotic_dream_drink">Se teve um sonho erótico com alguém presente: BEBE</string>
+    <string name="ph_caught_in_act_drink">Se foi pego no flagra: BEBE</string>
+    <string name="ph_read_receipts_drink">Se tem o "visto" desativado: BEBE</string>
+    <string name="ph_most_followers_shot">Quem tem mais seguidores no IG: SHOT</string>
+    <string name="ph_bite_kiss_shot">Se gosta de beijos com mordida: SHOT</string>
+    <string name="ph_fantasy_boss_shot">Se fantasiou com professor/chefe: SHOT</string>
+    <string name="ph_sneaky_phone_check_shot">Se checou o celular de alguém escondido: SHOT</string>
+    <string name="ph_phone_checked_drink">Se checaram seu celular: GOLE</string>
+    <string name="ph_vote_best_smell_distribute">Vote em quem cheira melhor: DISTRIBUI 2</string>
+    <string name="ph_vote_spender_shot">Vote no mais gastador: SHOT</string>
+    <string name="ph_vote_quiet_shot">Aponte para o mais quieto: TOMA SHOT</string>
+    <string name="ph_vote_party_animal_drink">Vote no mais festeiro: BEBE</string>
+    <string name="ph_vote_least_party_drink">Vote no menos festeiro: BEBE</string>
+    <string name="ph_vote_shameless_drink">Vote no mais sem-vergonha: BEBE</string>
+    <string name="ph_vote_embarrassed_drink">Vote no mais envergonhado: BEBE</string>
+    <string name="ph_vote_extrovert_drink">Vote no mais extrovertido: BEBE</string>
+    <string name="ph_vote_otaku_drink">Vote no Otaku da turma: BEBE</string>
+    <string name="ph_vote_gamer_drink">Vote no mais Gamer: BEBE</string>
+    <string name="ph_vote_best_dressed_drink">Vote na pessoa mais bem vestida</string>
+    <string name="ph_vote_most_pointed_bottoms_up">VOTAÇÃO! O mais apontado vira</string>
+    <string name="ph_proposer_choose_drink">Quem propôs jogar escolhe 3 para beber</string>
+    <string name="ph_oldest_choose_kiss">O mais velho escolhe 2 para dar um selinho</string>
+    <string name="ph_earliest_choose_kiss">Quem chegou mais cedo escolhe 2 para um selinho</string>
+    <string name="ph_latest_drink">Quem chegou mais tarde: BEBE</string>
+    <string name="ph_host_choose_drink">Quem está dando a casa escolhe 2 para beber</string>
+    <string name="ph_serious_drink">Todos sérios: O primeiro a rir BEBE</string>
+    <string name="ph_count_to_ten_drink">Contem até 10: Quem falar o 10 BEBE</string>
+    <string name="ph_most_battery_choose">Quem tem mais bateria escolhe 2</string>
+    <string name="ph_women_choose_drink">Cada mulher escolhe 1 pessoa para beber</string>
+    <string name="ph_men_massage">Homens massageiam mulheres por 1 min (ou shot)</string>
+    <string name="ph_women_massage">Mulheres massageiam homens por 1 min (ou shot)</string>
+    <string name="ph_last_nose_touch_drink">O último a tocar o nariz: BEBE</string>
+    <string name="ph_tattoos_drink">Quem tem tatuagens: BEBE</string>
+    <string name="ph_no_tattoos_drink">Quem não tem tatuagens: BEBE</string>
+    <string name="ph_red_underwear_shot">Se estiver usando cueca/calcinha vermelha: SHOT</string>
+    <string name="ph_swap_clothing_drink">Troque uma peça de roupa com quem está à direita ou BEBE</string>
+    <string name="ph_best_cook_choose">Quem cozinha melhor: Escolhe quem bebe</string>
+    <string name="ph_biggest_foot_drink">Quem tem o maior pé: BEBE</string>
+    <string name="ph_travel_continent_safe">Se viajou para outro continente: SALVO. Os outros bebem.</string>
+    <string name="ph_most_coins_drink">Quem tem mais moedas no bolso: BEBE</string>
+    <string name="ph_pets_drink">Se tem um pet: BEBE</string>
+    <string name="ph_siblings_present_drink">Todos que têm irmãos: BEBEM</string>
+    <string name="ph_most_languages_distribute">Quem fala mais idiomas: Distribui 2 goles</string>
+    <string name="ph_motorcycle_drink">Se pilota moto: BEBE</string>
+    <string name="ph_confession_3t1l">Digam 3 verdades e 1 mentira sobre vocês</string>
+    <string name="ph_confession_first_time">CONFISSÃO: Qual foi a idade da primeira vez?</string>
+    <string name="ph_confession_weird_place">CONFISSÃO: O lugar mais estranho que já fizeram?</string>
+    <string name="ph_confession_first_look">CONFISSÃO: Qual a primeira coisa que você olha em alguém?</string>
+    <string name="ph_swap_places">TROCA DE LUGAR! Todos troquem de lugar com alguém</string>
+    <string name="ph_thumb_war">Guerra de Polegares com a pessoa à sua direita</string>
+    <string name="ph_biggest_foot_song">Quem tem o maior pé escolhe a próxima música</string>
+    <string name="ph_lock_screen_show">Mostre seu papel de parede da tela de bloqueio</string>
+    <string name="ph_touch_nose_tongue">Tente tocar o nariz com a língua.</string>
+    <string name="ph_vote_president">Aponte para quem seria o melhor presidente do país</string>
+    <string name="ph_massage_right">Faça uma massagem de ombro de 1 min em quem está à sua direita</string>
+    <string name="ph_last_green_touch_lose">O último a tocar algo VERDE perde</string>
+    <string name="ph_low_battery_google_search">Quem tem menos bateria deve mostrar a última pesquisa no Google</string>
 
     <string name="culture_title">Categorias</string>
     <string name="culture_selection_title">Como quer jogar?</string>
@@ -707,4 +804,78 @@
     </string-array>
 
     <string name="classics_screen_title">Jogos Clássicos</string>
+
+    <string name="hot_screen_title">KAMPAI: AFTER DARK</string>
+    <string name="hot_label_temp">Temperature</string>
+    <string name="hot_mode_soft">Soft ❄️</string>
+    <string name="hot_mode_medium">Hot 🔥</string>
+    <string name="hot_mode_hot">Fire 🔥🔥</string>
+    <string name="hot_mode_extreme">EXTREME ⚡</string>
+    <string name="hot_mode_diablo_on">😈 DEVIL ON</string>
+    <string name="hot_mode_diablo_off">😇 DEVIL OFF</string>
+
+    <string name="hot_card_custom">👑 USER CREATED</string>
+    <string name="hot_card_reveal">HOLD TO\nREVEAL</string>
+    <string name="hot_fallback_text">Everyone drinks!</string>
+
+    <string name="hot_btn_next_fire">NEXT CHALLENGE 🔥</string>
+    <string name="hot_btn_reveal">REVEAL CHALLENGE</string>
+    <string name="hot_btn_start_game">START GAME</string>
+
+    <string name="hot_safety_yellow">⚠️ Punishment! Drink a long sip to skip.</string>
+    <string name="hot_safety_red">🛑 Safety skip. Respect comes first.</string>
+    <string name="hot_safety_no">No</string>
+    <string name="hot_safety_drink">Punishment</string>
+
+    <string name="hot_mg_slots_title">🎰 PASSION SLOTS</string>
+    <string name="hot_mg_haptic_title">📳 TOUCH SENSOR</string>
+    <string name="hot_mg_lie_title">🤥 LIE DETECTOR</string>
+    <string name="hot_mg_gyro_title">🍸 UNSTABLE CUP</string>
+    <string name="hot_mg_scratch_title">🎫 SCRATCH CARD</string>
+    <string name="hot_mg_roulette_title">🎡 PUNISHMENT WHEEL</string>
+    <string name="hot_mg_heart_title">❤️ HEARTBEAT</string>
+    <string name="hot_mg_blow_title">🌬️ BLOW</string>
+    <string name="hot_mg_whisper_title">🤫 WHISPER</string>
+
+    <string name="hot_mg_slots_btn">SPIN</string>
+    <string name="hot_mg_slots_label_action">ACTION</string>
+    <string name="hot_mg_slots_label_zone">ZONE</string>
+
+    <string name="hot_mg_haptic_desc">Pass the phone over the body...</string>
+    <string name="hot_mg_haptic_btn">PRESS</string>
+    <string name="hot_mg_haptic_touch_here">TOUCH HERE</string>
+    <string name="hot_mg_haptic_default">Press...</string>
+
+    <string name="hot_mg_lie_desc">Ask an awkward question...</string>
+    <string name="hot_mg_lie_analyzing">Analyzing...</string>
+    <string name="hot_mg_lie_place_finger">Place finger</string>
+    <string name="hot_mg_lie_true">TRUTH ✅</string>
+    <string name="hot_mg_lie_false">LIE ❌</string>
+
+    <string name="hot_mg_gyro_desc">Pass the phone without tilting it</string>
+    <string name="hot_mg_gyro_fail">SPILLED! 🍺 DRINK</string>
+    <string name="hot_mg_gyro_good">GOOD JOB!</string>
+
+    <string name="hot_mg_audio_blow_desc">Blow to reveal...</string>
+    <string name="hot_mg_audio_whisper_desc">Whisper in the ear...</string>
+
+    <string name="hot_mg_heart_desc">Press to the heartbeat rhythm...</string>
+    <string name="hot_mg_heart_sub">Touch each other and feel the rhythm.</string>
+
+    <string-array name="hot_slots_actions">
+        <item>Kiss</item> <item>Lick</item> <item>Bite</item>
+        <item>Blow</item> <item>Caress</item> <item>Massage</item> <item>Suck</item>
+    </string-array>
+
+    <string-array name="hot_slots_parts">
+        <item>Neck</item> <item>Ear</item> <item>Hand</item>
+        <item>Back</item> <item>Belly button</item> <item>Thigh</item>
+        <item>Lips</item> <item>Chest</item>
+    </string-array>
+
+    <string-array name="hot_haptic_messages">
+        <item>Detected!</item> <item>Hot...</item>
+        <item>Lower...</item> <item>There!</item>
+    </string-array>
+
 </resources>
