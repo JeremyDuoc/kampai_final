@@ -15,14 +15,13 @@ import kotlin.random.Random
 class WarmupViewModel @Inject constructor() : ViewModel() {
 
     sealed class WarmupAction {
-        // Ahora guarda el ID del recurso (R.string.xxx)
         data class Phrase(val textRes: Int, val emoji: String, val color: Color) : WarmupAction()
 
         data class Event(
             val eventType: EventType,
             val titleRes: Int,
-            val descriptionRes: Int, // ID del recurso base
-            val descriptionArgs: List<String> = emptyList(), // Argumentos para strings dinámicos (%s)
+            val descriptionRes: Int,
+            val descriptionArgs: List<String> = emptyList(),
             val selectedPlayer: PlayerModel?,
             val emoji: String,
             val color: Color,
@@ -44,7 +43,8 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         object Idle : GameState()
         data class ShowingAction(val action: WarmupAction, val number: Int, val total: Int) : GameState()
         data class ShowingEvent(val event: WarmupAction.Event) : GameState()
-        object Finished : GameState()
+        // Stats ahora mapea PlayerModel -> Int
+        data class Finished(val stats: Map<PlayerModel, Int>) : GameState()
     }
 
     private val _gameState = MutableStateFlow<GameState>(GameState.Idle)
@@ -53,8 +53,18 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     private val _showRulesDialog = MutableStateFlow(false)
     val showRulesDialog: StateFlow<Boolean> = _showRulesDialog.asStateFlow()
 
+    private val _showStatsDialog = MutableStateFlow(false)
+    val showStatsDialog: StateFlow<Boolean> = _showStatsDialog.asStateFlow()
+
     private val _selectedPlayerForEvent = MutableStateFlow<PlayerModel?>(null)
     val selectedPlayerForEvent: StateFlow<PlayerModel?> = _selectedPlayerForEvent.asStateFlow()
+
+    // CORRECCIÓN: El ID del jugador es String, no Int.
+    // Mapa: ID del Jugador (String) -> Cantidad de tragos (Int)
+    private val _drinkStats = MutableStateFlow<Map<String, Int>>(emptyMap())
+    val drinkStats: StateFlow<Map<String, Int>> = _drinkStats.asStateFlow() // OJO: Tu getter público debe devolver Map<String, Int> o Map<Int, Int> dependiendo de lo que use la UI, pero internamente usamos String ID.
+    // Para facilitar la UI (que usa IDs enteros o necesita el objeto), haremos la conversión en la UI o pasaremos el mapa tal cual si ajustas la UI.
+    // PERO para corregir tu error actual, usaremos String como clave interna.
 
     private val phrases = listOf(
         Triple(R.string.ph_men_drink, "🍺", Color(0xFF2563EB)),
@@ -77,8 +87,6 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         Triple(R.string.ph_action_battery, "🪫", Color(0xFFEF4444)),
         Triple(R.string.ph_no_explain, "📱", Color(0xFFEC4899)),
         Triple(R.string.ph_hug, "🤗", Color(0xFFF472B6)),
-
-        // NUEVAS FRASES (TRADUCIDAS A IDS DE RECURSO)
         Triple(R.string.ph_youngest_drink, "🎂", Color(0xFF8B5CF6)),
         Triple(R.string.ph_oldest_shot_cross, "👴", Color(0xFF6366F1)),
         Triple(R.string.ph_siblings_drink, "👨‍👩‍👧‍👦", Color(0xFFEF4444)),
@@ -175,9 +183,8 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         Triple(R.string.ph_last_green_touch_lose, "🟢", Color(0xFF22C55E)),
         Triple(R.string.ph_low_battery_google_search, "🔍", Color(0xFFEF4444)),
         Triple(R.string.ph_get_sushi,"🍣", Color(0xFFF59E0B)),
-
     )
-    // LISTA DE EVENTOS CON IDs
+
     private val events = listOf(
         EventDefinition(
             type = EventType.SHOT_CHALLENGE,
@@ -203,13 +210,12 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             descriptionsRes = listOf(R.string.evt_desc_challenge_1, R.string.evt_desc_challenge_2),
             instructionRes = R.string.evt_inst_challenge
         ),
-        // Evento especial (la descripción se decide dinámicamente)
         EventDefinition(
             type = EventType.RPS_DUEL,
             titleRes = R.string.evt_title_rps,
             emoji = "✂️",
             color = Color(0xFFF59E0B),
-            descriptionsRes = listOf(R.string.evt_desc_rps_random), // Placeholder
+            descriptionsRes = listOf(R.string.evt_desc_rps_random),
             instructionRes = R.string.evt_inst_rps
         ),
         EventDefinition(
@@ -233,7 +239,7 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             titleRes = R.string.evt_title_gift,
             emoji = "🎁",
             color = Color(0xFFEC4899),
-            descriptionsRes = listOf(R.string.gift_pos_1), // Placeholder
+            descriptionsRes = listOf(R.string.gift_pos_1),
             instructionRes = R.string.evt_inst_gift_prep
         ),
         EventDefinition(
@@ -267,19 +273,32 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     private val eventFrequency = 5
     private var eventPlayers: List<PlayerModel> = emptyList()
 
-    fun setPlayers(players: List<PlayerModel>) { eventPlayers = players }
+    fun setPlayers(players: List<PlayerModel>) {
+        eventPlayers = players
+        if (_drinkStats.value.isEmpty()) {
+            // CORRECCIÓN: it.id es String. El mapa ahora acepta String.
+            _drinkStats.value = players.associate { it.id to 0 }
+        }
+    }
+
     fun showRules() { _showRulesDialog.value = true }
     fun hideRules() { _showRulesDialog.value = false }
+    fun toggleStats() { _showStatsDialog.value = !_showStatsDialog.value }
 
     fun startWarmup() {
         currentRound = 0
+        _drinkStats.value = eventPlayers.associate { it.id to 0 }
         showNextAction()
     }
 
     fun nextAction() {
         currentRound++
         if (currentRound >= totalRounds) {
-            _gameState.value = GameState.Finished
+            // Stats Finales: Mapeamos de vuelta al objeto PlayerModel usando el ID string
+            val finalStats = _drinkStats.value.mapKeys { entry ->
+                eventPlayers.find { it.id == entry.key } ?: eventPlayers.first()
+            }
+            _gameState.value = GameState.Finished(finalStats)
         } else {
             showNextAction()
         }
@@ -310,7 +329,7 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         val eventDef = events.random()
         var selectedPlayer: PlayerModel? = null
         var finalDescRes = eventDef.descriptionsRes.random()
-        val descArgs = mutableListOf<String>() // Argumentos dinámicos
+        val descArgs = mutableListOf<String>()
         var instructionRes = eventDef.instructionRes
         var giftPhase: GiftPhase? = null
 
@@ -323,13 +342,11 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             selectedPlayer = eventPlayers.random()
         }
 
-        // LÓGICA DE REGALOS
         if (eventDef.type == EventType.GIFT) {
             giftPhase = GiftPhase.RAISE_HAND
             finalDescRes = R.string.evt_desc_gift_prep
         }
 
-        // LÓGICA PIEDRA PAPEL TIJERA
         if (eventDef.type == EventType.RPS_DUEL && eventPlayers.size >= 2) {
             val male = eventPlayers.find { it.gender == com.example.kampai.domain.models.Gender.MALE }
             val female = eventPlayers.find { it.gender == com.example.kampai.domain.models.Gender.FEMALE }
@@ -345,10 +362,7 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
                 finalDescRes = R.string.evt_desc_rps_random
                 descArgs.add(p2.name)
             }
-        }
-
-        // LÓGICA DUELO DE MIRADAS
-        else if (eventDef.type == EventType.STARING_CONTEST && eventPlayers.size >= 2) {
+        } else if (eventDef.type == EventType.STARING_CONTEST && eventPlayers.size >= 2) {
             val p1 = eventPlayers.random()
             val p2 = (eventPlayers - p1).random()
             selectedPlayer = p1
@@ -369,8 +383,42 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         )
     }
 
-    fun acceptChallenge() { nextAction() }
-    fun rejectChallenge() { nextAction() }
+    // --- LÓGICA DE ESTADÍSTICAS ---
+
+    fun acceptChallenge() {
+        val state = _gameState.value
+        if (state is GameState.ShowingEvent && state.event.eventType == EventType.SHOT_CHALLENGE) {
+            state.event.selectedPlayer?.let { player ->
+                addDrinksToPlayer(player.id, 1) // player.id es String, ahora la función lo acepta
+            }
+        }
+        nextAction()
+    }
+
+    fun rejectChallenge() {
+        val state = _gameState.value
+        if (state is GameState.ShowingEvent) {
+            val player = state.event.selectedPlayer
+            if (player != null) {
+                addDrinksToPlayer(player.id, state.event.penaltyDrinks) // player.id es String
+            }
+        }
+        nextAction()
+    }
+
+    // CORRECCIÓN: playerId ahora es String para coincidir con el PlayerModel
+    private fun addDrinksToPlayer(playerId: String, amount: Int) {
+        val currentStats = _drinkStats.value.toMutableMap()
+        val currentCount = currentStats[playerId] ?: 0
+        currentStats[playerId] = currentCount + amount
+        _drinkStats.value = currentStats
+
+    }
+
+    fun addManualDrink(playerId: String) {
+        // Reutilizamos la lógica privada que ya tenías
+        addDrinksToPlayer(playerId, 1)
+    }
 
     fun revealGift() {
         val currentState = _gameState.value
@@ -378,12 +426,15 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
             currentState.event.eventType == EventType.GIFT &&
             currentState.event.giftPhase == GiftPhase.RAISE_HAND) {
 
-            // Premios/Castigos (IDs)
             val gifts = listOf(
                 R.string.gift_pos_1, R.string.gift_pos_2,
                 R.string.gift_neg_1, R.string.gift_neg_2
             )
             val selectedGift = gifts.random()
+
+            if (selectedGift == R.string.gift_neg_1 || selectedGift == R.string.gift_neg_2) {
+                currentState.event.selectedPlayer?.let { addDrinksToPlayer(it.id, 1) }
+            }
 
             val updatedEvent = currentState.event.copy(
                 giftPhase = GiftPhase.REVEAL,

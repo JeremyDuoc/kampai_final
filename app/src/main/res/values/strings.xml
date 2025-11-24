@@ -111,6 +111,15 @@ x
     <string name="warmup_finished_title">¡PartyMix\nCompletado!</string>
     <string name="warmup_finished_subtitle">¡Esperamos que la hayan pasado increíble!</string>
     <string name="warmup_back_home_btn">🔄 Volver al Inicio</string>
+    <string name="stats_title">📊 Recuento de Tragos</string>
+    <string name="stats_empty">Nadie ha bebido... todavía.</string>
+    <string name="stats_drinks_fmt">%d 🍺</string>
+    <string name="end_summary_title">🏆 Resultados de la Noche</string>
+    <string name="end_most_drunk">👑 REY/REINA DE LA COPA</string>
+    <string name="end_least_drunk">😇 EL MÁS SANTO</string>
+    <string name="end_punishment_title">⚖️ LA SENTENCIA FINAL</string>
+    <string name="end_punishment_desc">¡%1$s fue el que más bebió, por lo que debe elegir la penitencia que desee para %2$s!</string>
+    <string name="end_punishment_draw">¡Es un empate! Todos beben un trago de la amistad.</string>
 
     <string name="event_label_special">¡EVENTO ESPECIAL!</string>
     <string name="event_label_prep">¡PREPARACIÓN!</string>

@@ -33,14 +33,6 @@ class GameRepository @Inject constructor() {
             color = Color(0xFFF59E0B),
             route = "game_kingscup"
         ),
-        GameModel(
-            id = "karaoke",
-            title = R.string.game_title_karaoke,
-            description = R.string.game_desc_karaoke,
-            iconRes = R.drawable.culture,
-            color = Color(0xFFF59E0B),
-            route = "game_karaoke"
-        ),
 
         GameModel(
             id = "hot",
@@ -51,14 +43,6 @@ class GameRepository @Inject constructor() {
             route = "game_hot"
         ),
 
-        GameModel(
-            id = "card_game",
-            title = R.string.game_title_cardgame,
-            description = R.string.game_desc_cardgame,
-            iconRes = R.drawable.culture, // Asegúrate que este icono exista o cámbialo
-            color = Color(0xFFE53935),
-            route = "card_game"
-        ),
         GameModel(
             id = "impostor",
             title = R.string.game_title_impostor,
