@@ -19,14 +19,12 @@ class CharadesViewModel @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
-    // Modificado: Ahora nameRes es Int para traducción
     enum class Difficulty(val nameRes: Int, val timeSeconds: Int, val pointsPerCorrect: Int) {
         EASY(R.string.charades_diff_easy, 60, 1),
         MEDIUM(R.string.charades_diff_medium, 45, 2),
         HARD(R.string.charades_diff_hard, 30, 3)
     }
 
-    // Cargamos las listas desde XML
     private val wordsEasy = context.resources.getStringArray(R.array.charades_easy_list).toList()
     private val wordsMedium = context.resources.getStringArray(R.array.charades_medium_list).toList()
     private val wordsHard = context.resources.getStringArray(R.array.charades_hard_list).toList()
@@ -91,7 +89,7 @@ class CharadesViewModel @Inject constructor(
 
         if (availableWords.isEmpty()) {
             usedWords.clear()
-            return getRandomWord() // Recursión segura si se reinicia
+            return getRandomWord()
         }
 
         val word = availableWords.random()

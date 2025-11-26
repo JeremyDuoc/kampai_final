@@ -151,7 +151,7 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    // --- LÓGICA DE GOOGLE PLAY (CALIFICAR) ---
+    // --- LÓGICA DE GOOGLE PLAY  ---
     fun openPlayStore() {
         val packageName = context.packageName
         try {
@@ -170,7 +170,6 @@ class SettingsViewModel @Inject constructor(
     // --- LÓGICA DE LEGAL ---
 
     fun openPrivacyPolicy() {
-        // Prueba primero con Google.com para descartar problemas de tu documento
         openUrl("https://docs.google.com/document/d/e/2PACX-1vQiV8arDJFrRFH5kqN5B6NZi6DJBGe2d80hQVqo2a6QaP5efZtm9koSmdF0wK11VjBWcT8YDUoHnk3-/pub")
     }
 
@@ -178,7 +177,7 @@ class SettingsViewModel @Inject constructor(
         openUrl("https://docs.google.com/document/d/e/2PACX-1vSaQ6bBOKcAhlV36i5QM_BaLKmIrcdqwqdUztcaETOVL61jXepWGk3Ia7JN7hSheeOhzKaC2eX34uvT/pub")
     }
 
-    private fun openUrl(rawUrl: String) { //No funcionan las URL
+    private fun openUrl(rawUrl: String) { //No funcionan las URL, metodo para evitar errores
         try {
             val cleanUrl = rawUrl.replace("\\s".toRegex(), "")
 

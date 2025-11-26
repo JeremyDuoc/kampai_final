@@ -7,7 +7,7 @@ data class GameModel(
     val id: String,
     val title: Int,
     val description: Int,
-    val iconRes: Int,
+    val iconEmoji: String,
     val color: Color,
     val route: String
 )

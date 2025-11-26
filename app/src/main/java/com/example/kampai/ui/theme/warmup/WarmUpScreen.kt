@@ -470,7 +470,7 @@ fun StatsDialog(
     players: List<PlayerModel>,
     stats: Map<String, Int>,
     onDismiss: () -> Unit,
-    onAddDrink: (String) -> Unit // <--- Nuevo parámetro
+    onAddDrink: (String) -> Unit
 ) {
     Dialog(onDismissRequest = onDismiss) {
         Card(
@@ -478,7 +478,6 @@ fun StatsDialog(
             shape = RoundedCornerShape(24.dp)
         ) {
             Column(modifier = Modifier.padding(24.dp)) {
-                // Título y botón de cerrar en la misma fila (opcional, por estética)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,

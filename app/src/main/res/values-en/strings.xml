@@ -72,8 +72,7 @@
     <string name="game_title_karaoke">Karaoke</string>
     <string name="game_desc_karaoke">Karaoke Mode</string>
 
-    <string name="game_title_cardgame">Card Game</string>
-    <string name="game_desc_cardgame">Local multiplayer UNO style</string>
+    <string name="game_title_cardgame">Card Game</string>}
 
     <string name="game_title_impostor">The Impostor</string>
     <string name="game_desc_impostor">Find out who is lying.</string>

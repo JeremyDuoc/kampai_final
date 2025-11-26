@@ -43,7 +43,6 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         object Idle : GameState()
         data class ShowingAction(val action: WarmupAction, val number: Int, val total: Int) : GameState()
         data class ShowingEvent(val event: WarmupAction.Event) : GameState()
-        // Stats ahora mapea PlayerModel -> Int
         data class Finished(val stats: Map<PlayerModel, Int>) : GameState()
     }
 
@@ -59,12 +58,8 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     private val _selectedPlayerForEvent = MutableStateFlow<PlayerModel?>(null)
     val selectedPlayerForEvent: StateFlow<PlayerModel?> = _selectedPlayerForEvent.asStateFlow()
 
-    // CORRECCIÓN: El ID del jugador es String, no Int.
-    // Mapa: ID del Jugador (String) -> Cantidad de tragos (Int)
     private val _drinkStats = MutableStateFlow<Map<String, Int>>(emptyMap())
-    val drinkStats: StateFlow<Map<String, Int>> = _drinkStats.asStateFlow() // OJO: Tu getter público debe devolver Map<String, Int> o Map<Int, Int> dependiendo de lo que use la UI, pero internamente usamos String ID.
-    // Para facilitar la UI (que usa IDs enteros o necesita el objeto), haremos la conversión en la UI o pasaremos el mapa tal cual si ajustas la UI.
-    // PERO para corregir tu error actual, usaremos String como clave interna.
+    val drinkStats: StateFlow<Map<String, Int>> = _drinkStats.asStateFlow()
 
     private val phrases = listOf(
         Triple(R.string.ph_men_drink, "🍺", Color(0xFF2563EB)),
@@ -276,7 +271,6 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     fun setPlayers(players: List<PlayerModel>) {
         eventPlayers = players
         if (_drinkStats.value.isEmpty()) {
-            // CORRECCIÓN: it.id es String. El mapa ahora acepta String.
             _drinkStats.value = players.associate { it.id to 0 }
         }
     }
@@ -294,7 +288,6 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     fun nextAction() {
         currentRound++
         if (currentRound >= totalRounds) {
-            // Stats Finales: Mapeamos de vuelta al objeto PlayerModel usando el ID string
             val finalStats = _drinkStats.value.mapKeys { entry ->
                 eventPlayers.find { it.id == entry.key } ?: eventPlayers.first()
             }
@@ -389,7 +382,7 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         val state = _gameState.value
         if (state is GameState.ShowingEvent && state.event.eventType == EventType.SHOT_CHALLENGE) {
             state.event.selectedPlayer?.let { player ->
-                addDrinksToPlayer(player.id, 1) // player.id es String, ahora la función lo acepta
+                addDrinksToPlayer(player.id, 1)
             }
         }
         nextAction()
@@ -400,13 +393,12 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
         if (state is GameState.ShowingEvent) {
             val player = state.event.selectedPlayer
             if (player != null) {
-                addDrinksToPlayer(player.id, state.event.penaltyDrinks) // player.id es String
+                addDrinksToPlayer(player.id, state.event.penaltyDrinks)
             }
         }
         nextAction()
     }
 
-    // CORRECCIÓN: playerId ahora es String para coincidir con el PlayerModel
     private fun addDrinksToPlayer(playerId: String, amount: Int) {
         val currentStats = _drinkStats.value.toMutableMap()
         val currentCount = currentStats[playerId] ?: 0
@@ -416,7 +408,6 @@ class WarmupViewModel @Inject constructor() : ViewModel() {
     }
 
     fun addManualDrink(playerId: String) {
-        // Reutilizamos la lógica privada que ya tenías
         addDrinksToPlayer(playerId, 1)
     }
 

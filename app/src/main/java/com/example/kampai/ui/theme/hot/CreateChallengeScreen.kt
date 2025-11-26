@@ -30,7 +30,6 @@ import com.example.kampai.R
 import com.example.kampai.domain.models.HotIntensity
 import com.example.kampai.domain.models.HotTarget
 
-// Colores del tema AfterDark
 private val DarkBg = Color(0xFF121212)
 private val Gold = Color(0xFFFFD700)
 private val RedWine = Color(0xFF4A0E0E)
@@ -45,7 +44,6 @@ fun CreateChallengeScreen(
     val target by viewModel.target.collectAsState()
     val context = LocalContext.current
 
-    // Escuchar evento de guardado exitoso
     LaunchedEffect(Unit) {
         viewModel.saveEvent.collect {
             Toast.makeText(context, context.getString(R.string.create_msg_success), Toast.LENGTH_SHORT).show()
@@ -313,7 +311,6 @@ fun TargetChip(
     }
 }
 
-// FUNCIÓN PRIVADA Y RENOMBRADA PARA EVITAR CONFLICTOS
 private fun getLocalIntensityColor(intensity: HotIntensity): Color {
     return when (intensity) {
         HotIntensity.SOFT -> Color(0xFF4CAF50) // Verde

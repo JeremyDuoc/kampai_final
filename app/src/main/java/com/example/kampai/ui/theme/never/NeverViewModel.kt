@@ -15,10 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NeverViewModel @Inject constructor(
-    @ApplicationContext private val context: Context // Inyectamos contexto
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
-    // Cargamos las preguntas desde el XML (se traduce solo)
     private val allQuestions = context.resources.getStringArray(R.array.never_questions_list)
         .toList()
         .shuffled()
@@ -38,12 +37,10 @@ class NeverViewModel @Inject constructor(
     fun nextQuestion() {
         viewModelScope.launch {
             _isChanging.value = true
-            delay(300) // Tiempo para la animación de salida
+            delay(300)
 
-            // Avanzar al siguiente índice
             currentIndex = (currentIndex + 1) % allQuestions.size
 
-            // Si completamos la lista, barajar de nuevo
             if (currentIndex == 0) {
                 allQuestions.shuffle()
             }
@@ -51,7 +48,7 @@ class NeverViewModel @Inject constructor(
             _currentQuestion.value = allQuestions[currentIndex]
             _questionNumber.value = _questionNumber.value + 1
 
-            delay(100) // Pequeña pausa antes de mostrar la nueva pregunta
+            delay(100)
             _isChanging.value = false
         }
     }

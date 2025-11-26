@@ -20,7 +20,6 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
     private val _gameOver = MutableStateFlow(false)
     val gameOver: StateFlow<Boolean> = _gameOver.asStateFlow()
 
-    // CAMBIO: Ahora guardamos el ID del recurso (Int), no el texto
     private val _messageRes = MutableStateFlow(R.string.roulette_msg_start)
     val messageRes: StateFlow<Int> = _messageRes.asStateFlow()
 
@@ -50,7 +49,6 @@ class RouletteViewModel @Inject constructor() : ViewModel() {
             val currentList = _chambers.value.toMutableList()
 
             if (index == bulletIndex) {
-                // ¡BANG!
                 currentList[index] = true
                 _chambers.value = currentList
                 delay(200)

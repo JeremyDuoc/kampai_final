@@ -24,7 +24,7 @@ private val DarkColorScheme = darkColorScheme(
     onError = Color.White
 )
 
-// ========== ESQUEMA DE COLORES CLAROS - TOTALMENTE REVISADO ==========
+// ========== ESQUEMA DE COLORES CLAROS ==========
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryVioletLight,
     secondary = SecondaryPinkLight,

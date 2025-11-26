@@ -80,7 +80,7 @@ fun KampaiCard(
     )
 }
 
-// 3. Scaffold Estándar para Juegos (Para no repetir código)
+// 3. Scaffold Estándar para Juegos
 @Composable
 fun GameScaffold(
     title: String,
@@ -95,7 +95,6 @@ fun GameScaffold(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Header común
             Box(modifier = Modifier.fillMaxWidth()) {
                 IconButton(
                     onClick = onBack,
@@ -116,7 +115,7 @@ fun GameScaffold(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Contenido del juego
+
             content()
         }
     }

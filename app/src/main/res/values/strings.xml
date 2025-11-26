@@ -74,7 +74,6 @@ x
     <string name="game_desc_karaoke">Modo Karaoke</string>
 
     <string name="game_title_cardgame">Juego de Cartas</string>
-    <string name="game_desc_cardgame">Multijugador local tipo UNO</string>
 
     <string name="game_title_impostor">El Impostor</string>
     <string name="game_desc_impostor">Encuentra quién miente.</string>

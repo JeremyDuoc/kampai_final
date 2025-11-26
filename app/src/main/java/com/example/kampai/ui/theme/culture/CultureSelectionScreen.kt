@@ -7,8 +7,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
@@ -21,8 +23,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kampai.R
@@ -38,32 +42,41 @@ fun CultureSelectionScreen(
 ) {
     var showContent by remember { mutableStateOf(false) }
 
+    val scrollState = rememberScrollState()
+
     LaunchedEffect(Unit) {
         delay(100)
         showContent = true
     }
 
-    Box(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
+        val maxWidth = maxWidth
+        val maxHeight = maxHeight
+        val useWideLayout = maxWidth > 600.dp || maxWidth > maxHeight
+
         AnimatedSelectionBackground()
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(24.dp),
+                .verticalScroll(scrollState)
+                .padding(horizontal = 24.dp, vertical = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             AnimatedHeader(onBack = onBack, showContent = showContent)
 
-            Spacer(modifier = Modifier.height(60.dp))
+            val topSpacerHeight = if (maxHeight < 600.dp) 20.dp else 60.dp
+            Spacer(modifier = Modifier.height(topSpacerHeight))
 
             Text(
                 text = stringResource(R.string.culture_selection_title),
                 style = MaterialTheme.typography.headlineMedium.copy(
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    fontSize = if (maxHeight < 600.dp) 24.sp else 28.sp // Texto responsive
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.graphicsLayer { alpha = if (showContent) 1f else 0f }
@@ -78,43 +91,66 @@ fun CultureSelectionScreen(
                 modifier = Modifier.graphicsLayer { alpha = if (showContent) 1f else 0f }
             )
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(if (maxHeight < 600.dp) 20.dp else 40.dp))
 
-            // Modo Clásico
-            AnimatedModeCard(
-                title = stringResource(R.string.culture_mode_classic),
-                emoji = "🎯",
-                description = stringResource(R.string.culture_desc_classic),
-                bulletPoints = listOf(
-                    stringResource(R.string.culture_feat_classic_1),
-                    stringResource(R.string.culture_feat_classic_2),
-                    stringResource(R.string.culture_feat_classic_3)
-                ),
-                color = PrimaryViolet,
-                onClick = onNavigateToClassic,
-                delay = 200,
-                showContent = showContent
-            )
+            if (useWideLayout) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(24.dp),
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Box(modifier = Modifier.weight(1f)) {
+                        ModeCardClassic(onNavigateToClassic, showContent, 200)
+                    }
+                    Box(modifier = Modifier.weight(1f)) {
+                        ModeCardBomb(onNavigateToBomb, showContent, 400)
+                    }
+                }
+            } else {
+                ModeCardClassic(onNavigateToClassic, showContent, 200)
+                Spacer(modifier = Modifier.height(24.dp))
+                ModeCardBomb(onNavigateToBomb, showContent, 400)
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
-
-            // Modo Bomba
-            AnimatedModeCard(
-                title = stringResource(R.string.culture_mode_bomb),
-                emoji = "💣",
-                description = stringResource(R.string.culture_desc_bomb),
-                bulletPoints = listOf(
-                    stringResource(R.string.culture_feat_bomb_1),
-                    stringResource(R.string.culture_feat_bomb_2),
-                    stringResource(R.string.culture_feat_bomb_3)
-                ),
-                color = AccentRed,
-                onClick = onNavigateToBomb,
-                delay = 400,
-                showContent = showContent
-            )
         }
     }
+}
+
+@Composable
+fun ModeCardClassic(onClick: () -> Unit, showContent: Boolean, delay: Long) {
+    AnimatedModeCard(
+        title = stringResource(R.string.culture_mode_classic),
+        emoji = "🎯",
+        description = stringResource(R.string.culture_desc_classic),
+        bulletPoints = listOf(
+            stringResource(R.string.culture_feat_classic_1),
+            stringResource(R.string.culture_feat_classic_2),
+            stringResource(R.string.culture_feat_classic_3)
+        ),
+        color = PrimaryViolet,
+        onClick = onClick,
+        delay = delay,
+        showContent = showContent
+    )
+}
+
+@Composable
+fun ModeCardBomb(onClick: () -> Unit, showContent: Boolean, delay: Long) {
+    AnimatedModeCard(
+        title = stringResource(R.string.culture_mode_bomb),
+        emoji = "💣",
+        description = stringResource(R.string.culture_desc_bomb),
+        bulletPoints = listOf(
+            stringResource(R.string.culture_feat_bomb_1),
+            stringResource(R.string.culture_feat_bomb_2),
+            stringResource(R.string.culture_feat_bomb_3)
+        ),
+        color = AccentRed,
+        onClick = onClick,
+        delay = delay,
+        showContent = showContent
+    )
 }
 
 @Composable
@@ -213,7 +249,13 @@ fun AnimatedModeCard(
                         Text(text = emoji, fontSize = 36.sp)
                     }
                     Spacer(modifier = Modifier.width(16.dp))
-                    Text(text = title, style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.ExtraBold), color = MaterialTheme.colorScheme.onSurface)
+                    // Hacemos que el título se encoja un poco si es muy largo en pantallas pequeñas
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.ExtraBold),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.weight(1f) // Permite que el texto fluya sin empujar el emoji fuera
+                    )
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(text = description, style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 22.sp), color = Color.LightGray)

@@ -38,7 +38,6 @@ fun SettingsScreen(
 ) {
     val language by viewModel.language.collectAsState()
     val soundEnabled by viewModel.soundEnabled.collectAsState()
-    val isDarkMode by viewModel.isDarkMode.collectAsState()
     val showSuggestionsDialog by viewModel.showSuggestionsDialog.collectAsState()
     val showLanguageDialog by viewModel.showLanguageDialog.collectAsState()
 
@@ -83,12 +82,6 @@ fun SettingsScreen(
                     )
                 }
 
-                item {
-                    ThemeSettingItem(
-                        isDarkMode = isDarkMode,
-                        onToggle = { viewModel.toggleDarkMode(it) }
-                    )
-                }
 
                 // SECCIÓN: INFORMACIÓN
                 item {

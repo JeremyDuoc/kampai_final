@@ -109,7 +109,6 @@
     <string name="game_desc_karaoke">Modo Karaokê</string>
 
     <string name="game_title_cardgame">Jogo de Cartas</string>
-    <string name="game_desc_cardgame">Multijogador local tipo UNO</string>
 
     <string name="game_title_impostor">O Impostor</string>
     <string name="game_desc_impostor">Descubra quem está mentindo.</string>

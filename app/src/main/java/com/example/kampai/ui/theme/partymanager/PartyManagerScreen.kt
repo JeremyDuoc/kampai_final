@@ -47,8 +47,7 @@ import kotlinx.coroutines.delay
 fun PartyManagerScreen(
     viewModel: PartyManagerViewModel = hiltViewModel(),
     onBack: () -> Unit,
-    // VARIABLE DE CONTROL: Pásala como 'true' desde MainActivity si el usuario pagó
-    isPremiumUnlocked: Boolean = true
+    isPremiumUnlocked: Boolean = false
 ) {
     val players by viewModel.players.collectAsState()
     val showAddDialog by viewModel.showAddDialog.collectAsState()
@@ -93,7 +92,7 @@ fun PartyManagerScreen(
         if (showAddDialog) {
             AddPlayerDialog(
                 onDismiss = { viewModel.toggleAddDialog() },
-                showAdvancedOptions = isPremiumUnlocked, // <--- AQUÍ ACTIVAMOS LA MAGIA
+                showAdvancedOptions = isPremiumUnlocked,
                 onConfirm = { name, gender, emoji, attraction, vibe ->
                     viewModel.addPlayer(name, gender, emoji, attraction, vibe)
                 }
@@ -112,7 +111,7 @@ fun AddPlayerDialog(
     var selectedGender by remember { mutableStateOf(Gender.MALE) }
     var selectedEmoji by remember { mutableStateOf(AvatarEmojis.getRandomEmoji()) }
 
-    // Nuevos campos (con valores por defecto seguros)
+    // Nuevos campos
     var selectedAttraction by remember { mutableStateOf(Attraction.BOTH) }
     var selectedVibe by remember { mutableStateOf(Vibe.BOLD) }
 

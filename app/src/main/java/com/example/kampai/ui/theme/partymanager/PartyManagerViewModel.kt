@@ -57,7 +57,6 @@ class PartyManagerViewModel @Inject constructor(
         _showAddDialog.update { !it }
     }
 
-    // FUNCIÓN ACTUALIZADA: Ahora recibe Attraction y Vibe
     fun addPlayer(
         name: String,
         gender: Gender,

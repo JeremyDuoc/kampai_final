@@ -9,11 +9,12 @@ import javax.inject.Inject
 class GameRepository @Inject constructor() {
 
     private val allGames = listOf(
+        // --- JUEGOS PRINCIPALES ---
         GameModel(
             id = "warmup",
             title = R.string.game_title_warmup,
             description = R.string.game_desc_warmup,
-            iconRes = R.drawable.warmup,
+            iconEmoji = "🍹", // Cóctel (PartyMix)
             color = Color(0xFFF59E0B),
             route = "game_warmup"
         ),
@@ -21,7 +22,7 @@ class GameRepository @Inject constructor() {
             id = "culture",
             title = R.string.game_title_culture,
             description = R.string.game_desc_culture,
-            iconRes = R.drawable.culture,
+            iconEmoji = "🤓", // Nerd (Cultura)
             color = PrimaryViolet,
             route = "culture_selection"
         ),
@@ -29,35 +30,25 @@ class GameRepository @Inject constructor() {
             id = "kingscup",
             title = R.string.game_title_kingscup,
             description = R.string.game_desc_kingscup,
-            iconRes = R.drawable.culture,
-            color = Color(0xFFF59E0B),
+            iconEmoji = "👑", // Corona (King's Cup)
+            color = Color(0xFF1E1E1E),
             route = "game_kingscup"
         ),
 
-        GameModel(
-            id = "hot",
-            title = R.string.game_title_hot,
-            description = R.string.game_desc_hot,
-            iconRes = R.drawable.truth,
-            color = Color(0xFFD32F2F),
-            route = "game_hot"
-        ),
-
+        // --- JUEGOS CLÁSICOS Y OTROS ---
         GameModel(
             id = "impostor",
             title = R.string.game_title_impostor,
             description = R.string.game_desc_impostor,
-            iconRes = R.drawable.mimic,
+            iconEmoji = "👺", // Máscara (Impostor)
             color = AccentRed,
             route = "game_impostor"
         ),
-
-        // --- CLÁSICOS ---
         GameModel(
             id = "never_have_i_ever",
             title = R.string.game_title_never,
             description = R.string.game_desc_never,
-            iconRes = R.drawable.never,
+            iconEmoji = "🙊", // Mono tapándose boca (Yo Nunca)
             color = AccentCyan,
             route = "game_never"
         ),
@@ -65,7 +56,7 @@ class GameRepository @Inject constructor() {
             id = "truth_or_dare",
             title = R.string.game_title_truth,
             description = R.string.game_desc_truth,
-            iconRes = R.drawable.truth,
+            iconEmoji = "🎭", // Teatro (Verdad o Reto)
             color = AccentAmber,
             route = "game_truth"
         ),
@@ -73,7 +64,7 @@ class GameRepository @Inject constructor() {
             id = "high_low",
             title = R.string.game_title_highlow,
             description = R.string.game_desc_highlow,
-            iconRes = R.drawable.highlow,
+            iconEmoji = "🃏", // Joker (Mayor o Menor)
             color = SecondaryPink,
             route = "game_highlow"
         ),
@@ -81,7 +72,7 @@ class GameRepository @Inject constructor() {
             id = "charades",
             title = R.string.game_title_charades,
             description = R.string.game_desc_charades,
-            iconRes = R.drawable.mimic,
+            iconEmoji = "🤸", // Persona haciendo pirueta (Mímica)
             color = AccentAmber,
             route = "game_charades"
         ),
@@ -89,7 +80,7 @@ class GameRepository @Inject constructor() {
             id = "roulette",
             title = R.string.game_title_roulette,
             description = R.string.game_desc_roulette,
-            iconRes = R.drawable.ruleta,
+            iconEmoji = "🧨", // Dinamita (Ruleta)
             color = AccentRed,
             route = "game_roulette"
         ),
@@ -97,17 +88,28 @@ class GameRepository @Inject constructor() {
             id = "most_likely",
             title = R.string.game_title_likely,
             description = R.string.game_desc_likely,
-            iconRes = R.drawable.truth,
+            iconEmoji = "🫵", // Dedo apuntando (Quién es más probable)
             color = SecondaryPink,
             route = "game_likely"
         )
+
     )
 
     fun getMostPlayedGames(): List<GameModel> {
-        return allGames.filter { it.id == "warmup" || it.id == "culture" || it.id == "impostor" || it.id == "kingscup" }
+        // Ajusta aquí los juegos que quieres que salgan en el carrusel principal (Top)
+        return allGames.filter {
+            it.id == "warmup" || it.id == "kingscup" || it.id == "impostor"  || it.id == "culture"
+        }
     }
 
     fun getClassicGames(): List<GameModel> {
-        return allGames.filter { it.id != "warmup" && it.id != "culture" && it.id != "impostor" && it.id != "kingscup"}
+        // Filtramos para que en la lista de "Clásicos" no salgan los que ya están en el Top
+        return allGames.filter {
+            it.id != "warmup" &&
+                    it.id != "kingscup" &&
+                    it.id != "impostor" &&
+                    it.id != "culture"
+        }
     }
+
 }

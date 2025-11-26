@@ -33,13 +33,6 @@
             </intent-filter>
         </activity>
 
-        <!-- ==================== JUEGO DE CARTAS ==================== -->
-        <activity
-            android:name=".cardgame.ui.CardGameActivity"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.Kampai" />
 
     </application>
 

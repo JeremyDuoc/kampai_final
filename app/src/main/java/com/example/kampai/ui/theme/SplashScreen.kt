@@ -42,7 +42,6 @@ fun SplashScreen(navController: NavController) {
     val progress = remember { Animatable(0f) }
 
     LaunchedEffect(key1 = true) {
-        // Animación de Logo (Zoom In + Fade In)
         scale.animateTo(
             targetValue = 1f,
             animationSpec = tween(durationMillis = 1000)
@@ -54,16 +53,14 @@ fun SplashScreen(navController: NavController) {
     }
 
     LaunchedEffect(key1 = true) {
-        // Animación de Barra de Carga (Simula carga de 2 segundos)
         progress.animateTo(
             targetValue = 1f,
             animationSpec = tween(durationMillis = 2000, easing = LinearEasing)
         )
 
-        // Pequeña pausa al finalizar
         delay(200)
 
-        // Navega al Home
+
         navController.navigate("home") {
             popUpTo("splash") { inclusive = true }
         }

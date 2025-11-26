@@ -19,7 +19,7 @@ import kotlin.random.Random
 
 @HiltViewModel
 class BombViewModel @Inject constructor(
-    @ApplicationContext private val context: Context, // Contexto inyectado
+    @ApplicationContext private val context: Context,
     private val soundManager: SoundManager
 ) : ViewModel() {
 
@@ -40,11 +40,9 @@ class BombViewModel @Inject constructor(
 
     private var timerJob: Job? = null
 
-    // Cargamos las categorías desde strings.xml
     private val categories = context.resources.getStringArray(R.array.bomb_categories_list).toList()
 
     fun startGame() {
-        // Tiempo aleatorio más dinámico (entre 30 y 61 segundos)
         val duration = Random.nextInt(30, 61)
         _category.value = categories.random()
         _timeLeft.value = duration
@@ -53,7 +51,6 @@ class BombViewModel @Inject constructor(
         timerJob?.cancel()
         timerJob = viewModelScope.launch {
             while (_timeLeft.value > 0) {
-                // Velocidad del sonido aumenta con la urgencia
                 val soundSpeed = when {
                     _timeLeft.value <= 3 -> 250L   // Muy rápido
                     _timeLeft.value <= 5 -> 450L   // Rápido
@@ -73,7 +70,7 @@ class BombViewModel @Inject constructor(
                 _timeLeft.value -= 1
             }
 
-            // ¡EXPLOSIÓN!
+
             _uiState.value = GameState.Exploded
             try {
                 Log.d("KampaiBomb", "💥 ¡EXPLOSIÓN!")
@@ -82,7 +79,6 @@ class BombViewModel @Inject constructor(
                 Log.e("KampaiBomb", "Error en explosión: ${e.message}")
             }
 
-            // Efecto de vibración adicional (pequeño delay para impacto)
             delay(100)
         }
     }

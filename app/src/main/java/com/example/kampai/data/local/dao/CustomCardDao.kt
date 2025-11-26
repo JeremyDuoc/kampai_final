@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CustomCardDao {
 
-    // Obtener todas las cartas personalizadas (se actualiza solo con Flow)
+    // Obtener todas las cartas personalizadas
     @Query("SELECT * FROM custom_cards ORDER BY createdDate DESC")
     fun getAllCustomCards(): Flow<List<CustomCardEntity>>
 
@@ -23,7 +23,7 @@ interface CustomCardDao {
     @Delete
     suspend fun deleteCard(card: CustomCardEntity)
 
-    // Borrar todas (útil para resetear)
+    // Borrar todas
     @Query("DELETE FROM custom_cards")
     suspend fun clearAll()
 }
