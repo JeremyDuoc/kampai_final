@@ -47,10 +47,10 @@ class TruthViewModel @Inject constructor() : ViewModel() {
 
     private val dares = listOf(
         R.string.dare_1, R.string.dare_2, R.string.dare_3, R.string.dare_4,
-        R.string.dare_5, R.string.dare_6, R.string.dare_7, R.string.dare_8,
+        R.string.dare_5, R.string.dare_6,  R.string.dare_8,
         R.string.dare_9, R.string.dare_10, R.string.dare_11, R.string.dare_12,
         R.string.dare_13, R.string.dare_14, R.string.dare_15, R.string.dare_16,
-        R.string.dare_17, R.string.dare_18, R.string.dare_19, R.string.dare_20,
+        R.string.dare_17, R.string.dare_18, R.string.dare_19,
         R.string.dare_21, R.string.dare_22, R.string.dare_23, R.string.dare_24,
         R.string.dare_25
     ).shuffled().toMutableList()

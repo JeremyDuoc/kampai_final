@@ -59,7 +59,6 @@ fun HomeScreen(
     partyViewModel: PartyManagerViewModel = hiltViewModel(),
     onGameSelected: (String) -> Unit,
     onNavigateToClassics: () -> Unit,
-    onNavigateToHot: () -> Unit,
     onPartyManager: () -> Unit,
     onNavigateToSettings: () -> Unit
 ) {
@@ -67,11 +66,8 @@ fun HomeScreen(
     val players by partyViewModel.players.collectAsState()
     val showDisclaimer by viewModel.showDisclaimer.collectAsState()
 
-    // Lógica Premium (Activada para pruebas)
-    val isPremiumUnlocked = false
-    val context = LocalContext.current
-    val hotMessage = stringResource(R.string.home_hot_message)
 
+    val context = LocalContext.current
 
     val configuration = LocalConfiguration.current
     val screenHeight = configuration.screenHeightDp.dp
@@ -195,28 +191,6 @@ fun HomeScreen(
                     onClick = onNavigateToClassics,
                     modifier = Modifier.weight(1f)
                 )
-
-                // Botón AfterDark / Premium
-                if (isPremiumUnlocked) {
-                    GlassCategoryCard(
-                        title = "AfterDark",
-                        subtitle = "🔥",
-                        icon = Icons.Filled.LocalFireDepartment,
-                        accentColor = Color(0xFFD32F2F),
-                        isSpecial = true,
-                        onClick = onNavigateToHot,
-                        modifier = Modifier.weight(1f)
-                    )
-                } else {
-                    GlassCategoryCard(
-                        title = stringResource(R.string.home_hot_plus18),
-                        subtitle = stringResource(R.string.home_hot_coming_soon),
-                        icon = Icons.Filled.Lock,
-                        accentColor = TextGray,
-                        onClick = { Toast.makeText(context, hotMessage, Toast.LENGTH_SHORT).show() },
-                        modifier = Modifier.weight(1f)
-                    )
-                }
             }
         }
 
@@ -312,7 +286,6 @@ fun CarouselGameCard(
                     )
             )
 
-            // Borde brillante
             if (isFocused) {
                 Box(
                     modifier = Modifier

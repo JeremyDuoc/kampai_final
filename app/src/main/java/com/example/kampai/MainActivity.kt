@@ -1,6 +1,5 @@
 package com.example.kampai
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,16 +8,13 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -32,8 +28,6 @@ import com.example.kampai.ui.theme.culture.CultureSelectionScreen
 import com.example.kampai.ui.theme.highlow.HighLowGameScreen
 import com.example.kampai.ui.theme.home.ClassicsScreen
 import com.example.kampai.ui.theme.home.HomeScreen
-import com.example.kampai.ui.theme.hot.CreateChallengeScreen
-import com.example.kampai.ui.theme.hot.HotGameScreen
 import com.example.kampai.ui.theme.impostor.ImpostorGameScreen
 import com.example.kampai.ui.theme.kingscup.KingsCupGameScreen
 import com.example.kampai.ui.theme.likely.MostLikelyScreen
@@ -43,6 +37,8 @@ import com.example.kampai.ui.theme.roulette.RouletteGameScreen
 import com.example.kampai.ui.theme.settings.SettingsScreen
 import com.example.kampai.ui.theme.truth.TruthGameScreen
 import com.example.kampai.ui.theme.warmup.WarmupGameScreen
+import com.example.kampai.utils.navigateSafe
+import com.example.kampai.utils.popBackStackSafe
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -62,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 
 @Composable
 fun KampaiApp() {
@@ -90,111 +87,91 @@ fun KampaiApp() {
         composable("home") {
             HomeScreen(
                 onGameSelected = { route ->
-                    navController.navigate(route)
+                    navController.navigateSafe(route)
                 },
                 onNavigateToClassics = {
-                    navController.navigate("classics_screen")
+                    navController.navigateSafe("classics_screen")
                 },
-                // --- AQUÍ ESTÁ LA CORRECCIÓN ---
-                onNavigateToHot = {
-                    navController.navigate("game_hot")
-                },
-                // -------------------------------
                 onPartyManager = {
-                    navController.navigate("party_manager")
+                    navController.navigateSafe("party_manager")
                 },
                 onNavigateToSettings = {
-                    navController.navigate("settings")
+                    navController.navigateSafe("settings")
                 }
             )
         }
 
-        composable("game_hot") {
-            HotGameScreen(
-                onBack = { navController.popBackStack() },
-                onNavigateToCreate = { navController.navigate("create_challenge") }
-            )
-        }
-
-        composable("create_challenge") {
-            CreateChallengeScreen(
-                onBack = { navController.popBackStack() }
-            )
-        }
-
         composable("settings") {
-            SettingsScreen(onBack = { navController.popBackStack() })
+            SettingsScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("classics_screen") {
             ClassicsScreen(
                 onGameSelected = { route ->
-                    navController.navigate(route)
+                    navController.navigateSafe(route)
                 },
                 onBack = {
-                    navController.popBackStack()
+                    navController.popBackStackSafe()
                 }
             )
         }
 
         composable("party_manager") {
             PartyManagerScreen(
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStackSafe() }
             )
         }
 
-
         composable("culture_selection") {
             CultureSelectionScreen(
-                onNavigateToBomb = { navController.navigate("game_bomb") },
-                onNavigateToClassic = { navController.navigate("game_culture") },
-                onBack = { navController.popBackStack() }
+                onNavigateToBomb = { navController.navigateSafe("game_bomb") },
+                onNavigateToClassic = { navController.navigateSafe("game_culture") },
+                onBack = { navController.popBackStackSafe() }
             )
         }
 
         composable("game_bomb") {
-            BombGameScreen(onBack = { navController.popBackStack() })
+            BombGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_culture") {
-            CultureGameScreen(onBack = { navController.popBackStack() })
+            CultureGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_warmup") {
-            WarmupGameScreen(onBack = { navController.popBackStack() })
+            WarmupGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_kingscup") {
-            KingsCupGameScreen(onBack = { navController.popBackStack() })
+            KingsCupGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
-
         composable("game_likely") {
-            MostLikelyScreen(onBack = { navController.popBackStack() })
+            MostLikelyScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_impostor") {
-            ImpostorGameScreen(onBack = { navController.popBackStack() })
+            ImpostorGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_never") {
-            NeverGameScreen(onBack = { navController.popBackStack() })
+            NeverGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_truth") {
-            TruthGameScreen(onBack = { navController.popBackStack() })
+            TruthGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_highlow") {
-            HighLowGameScreen(onBack = { navController.popBackStack() })
+            HighLowGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_charades") {
-            CharadesGameScreen(onBack = { navController.popBackStack() })
+            CharadesGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_roulette") {
-            RouletteGameScreen(onBack = { navController.popBackStack() })
+            RouletteGameScreen(onBack = { navController.popBackStackSafe() })
         }
     }
 }

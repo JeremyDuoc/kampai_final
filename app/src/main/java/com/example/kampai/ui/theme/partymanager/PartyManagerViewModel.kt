@@ -3,11 +3,9 @@ package com.example.kampai.ui.theme.partymanager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kampai.data.PartyRepository
-import com.example.kampai.domain.models.Attraction
 import com.example.kampai.domain.models.AvatarEmojis
 import com.example.kampai.domain.models.Gender
 import com.example.kampai.domain.models.PlayerModel
-import com.example.kampai.domain.models.Vibe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -61,8 +59,6 @@ class PartyManagerViewModel @Inject constructor(
         name: String,
         gender: Gender,
         avatarEmoji: String,
-        attraction: Attraction,
-        vibe: Vibe
     ) {
         viewModelScope.launch {
             try {
@@ -77,8 +73,6 @@ class PartyManagerViewModel @Inject constructor(
                     gender = gender,
                     colorIndex = nextColorIndex,
                     avatarEmoji = avatarEmoji,
-                    attraction = attraction, // Nuevo
-                    vibe = vibe            // Nuevo
                 )
 
                 val updatedList = _players.value + newPlayer

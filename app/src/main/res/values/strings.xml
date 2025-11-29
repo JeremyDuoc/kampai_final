@@ -22,9 +22,7 @@ x
     <string name="home_most_played">🔥 Más Jugados</string>
     <string name="home_categories">📂 Categorías</string>
     <string name="home_classics">Clásicos</string>
-    <string name="home_hot_plus18">+18 Hot</string>
-    <string name="home_hot_coming_soon">(Próximamente)</string>
-    <string name="home_hot_message">Versión Premium próximamente 🔥</string>
+    <string name="home_coming_soon">(Próximamente)</string>
 
     <string name="settings_title">⚙️ Configuración</string>
     <string name="settings_language">Idioma</string>
@@ -344,6 +342,136 @@ x
     <string name="truth_18">¿Cuál es el peor regalo que has recibido?</string>
     <string name="truth_19">¿Has acosado a alguien en redes sociales?</string>
     <string name="truth_20">¿Qué es lo peor que has hecho borracho?</string>
+    <string name="truth_21">¿Cuál es tu música romántica preferida para la intimidad?</string>
+    <string name="truth_22">¿Con qué famoso/celebridad fantaseabas durante tu adolescencia?</string>
+    <string name="truth_23">Si la persona que estás conociendo te dice que la intimidad física no es posible, ¿aceptarías?</string>
+    <string name="truth_24">¿Cuál fue el mejor día de tu vida?</string>
+    <string name="truth_25">¿Serías capaz de ganar con tu cuerpo si no tuvieras nada de dinero?</string>
+    <string name="truth_26">¿Alguna vez te has enamorado de la pareja de un amigo/amiga?</string>
+    <string name="truth_27">¿Qué harías si vieras fotos íntimas de otras personas en el teléfono de tu pareja?</string>
+    <string name="truth_28">¿Tu primera vez fue con alguien a quien amabas?</string>
+    <string name="truth_29">¿Alguna vez te han despedido por hacer algo inapropiado?</string>
+    <string name="truth_30">¿Alguna vez le robaste dinero a tus padres?</string>
+    <string name="truth_31">¿Qué debe hacer una persona para que te enamores de ella?</string>
+    <string name="truth_32">¿Cuánto tiempo después de conocer a alguien permites la intimidad?</string>
+    <string name="truth_33">¿Viajar al futuro o al pasado?</string>
+    <string name="truth_34">¿Qué superpoder te gustaría tener?</string>
+    <string name="truth_35">¿Qué significa para ti el amor incondicional?</string>
+    <string name="truth_36">¿Cuál es el sueño que te ha dejado más impactado?</string>
+    <string name="truth_37">¿Has tenido experiencias paranormales? Si es así, cuenta la que más te ha impactado.</string>
+    <string name="truth_38">Si mañana tuvieras que mudarte a otro país, ¿a dónde irías?</string>
+    <string name="truth_39">¿Qué tan rápido te prendes?</string>
+    <string name="truth_40">¿Cómo ha cambiado tu concepto del amor a lo largo de los años?</string>
+    <string name="truth_41">¿Has estado en una relación con una persona mucho mayor o mejor que tú?</string>
+    <string name="truth_42">¿Alguna vez has coqueteado el/la papá/mamá de un amigo?</string>
+    <string name="truth_43">¿Cubrirías la infidelidad de un amigo?</string>
+    <string name="truth_44">¿Alguna vez has presenciado a otra pareja teniendo intimidad?</string>
+    <string name="truth_45">¿Cuál es tu punto más sensible?</string>
+    <string name="truth_46">¿A qué edad descubriste el auto placer?</string>
+    <string name="truth_47">Qué prefieres, ¿una noche tranquila en casa, o en un restaurante caro?</string>
+    <string name="truth_48">¿Qué es lo principal que quieres hacer antes de morir?</string>
+    <string name="truth_49">¿Alguna vez has tenido una relación a distancia?</string>
+    <string name="truth_50">¿Cómo fue tu primera vez?</string>
+    <string name="truth_51">¿Alguna vez has enviado una foto íntima a la persona equivocada?</string>
+    <string name="truth_52">¿Qué es lo más asqueroso que has hecho por amor (o calentura)?</string>
+    <string name="truth_53">Si pudieras intercambiar de pareja con alguien de aquí, ¿con quién sería?</string>
+    <string name="truth_54">¿Cuál es la razón más ridícula por la que has terminado una relación?</string>
+    <string name="truth_55">¿Alguna vez has dudado de tu orientación sexual?</string>
+    <string name="truth_56">¿Qué es lo que tus padres creen de ti que es totalmente falso?</string>
+    <string name="truth_57">¿Has tenido intimidad en la casa de tus padres mientras ellos estaban?</string>
+    <string name="truth_58">¿Qué tipo de contenido para adultos prefieres ver?</string>
+    <string name="truth_59">¿Alguna vez has coqueteado con alguien solo por interés?</string>
+    <string name="truth_60">¿Cuál es el lugar más extraño donde has tenido ganas de hacerlo?</string>
+    <string name="truth_61">¿Alguna vez has tenido una relación con una persona que tenga hijos que no son tuyos?</string>
+    <string name="truth_62">¿Qué harías si descubres que tu mejor amigo/a te tiene ganas?</string>
+    <string name="truth_63">¿Alguna vez has usado la ropa interior de otra persona?</string>
+    <string name="truth_64">¿Cuál es tu placer culposo en cuanto a contenido para adultos o literatura erótica?</string>
+    <string name="truth_65">¿Has sido el/la "amante" en una relación ajena?</string>
+    <string name="truth_66">¿Qué es lo más cruel que le has dicho a alguien a la cara?</string>
+    <string name="truth_67">Si tuvieras que casarte con alguien de este grupo, ¿quién sería?</string>
+    <string name="truth_68">¿Alguna vez has orinado en una piscina pública (siendo adulto)?</string>
+    <string name="truth_69">¿Cuál es la foto más comprometedora que tienes en tu galería ahora mismo?</string>
+    <string name="truth_70">¿Has coqueteado con hermanos/as de amigos?</string>
+    <string name="truth_71">¿Qué es lo que más envidias de la persona a tu derecha?</string>
+    <string name="truth_72">¿Alguna vez has grabado un video íntimo? (No hace falta enseñarlo...)</string>
+    <string name="truth_73">¿Has tenido alguna enfermedad venérea o susto de embarazo?</string>
+    <string name="truth_74">¿Cuál es el sueño más extraño que has tenido con alguien de aquí?</string>
+    <string name="truth_75">¿Cuál es el periodo más largo en el que no has tenido intimidad?</string>
+    <string name="truth_76">¿Qué es lo más caro que has roto y escondiste la evidencia?</string>
+    <string name="truth_77">¿Alguna vez te han pillado tocándote?</string>
+    <string name="truth_78">Si pudieras borrar a una persona de tu pasado, ¿quién sería?</string>
+    <string name="truth_79">¿Qué parte de tu cuerpo te operarías si fuera gratis?</string>
+    <string name="truth_80">¿Has hecho sexting con alguien que no conocías en persona?</string>
+    <string name="truth_81">¿Cuál es la mentira más elaborada que has mantenido por mucho tiempo?</string>
+    <string name="truth_82">¿Te has sentido atraído por algún familiar lejano (primo/a)?</string>
+    <string name="truth_83">¿Qué opinas realmente de la pareja de tu mejor amigo/a?</string>
+    <string name="truth_84">¿Alguna vez has salido sin ropa interior a la calle?</string>
+    <string name="truth_85">¿Qué es lo peor que has hecho en el trabajo/escuela y nadie descubrió?</string>
+    <string name="truth_86">¿Has tenido un "amigo con derechos" que terminó mal?</string>
+    <string name="truth_87">¿Cuál es tu fetiche más "normal" que te da vergüenza admitir?</string>
+    <string name="truth_88">¿A qué edad probaste el alcohol por primera vez? Cuenta tu experiencia.</string>
+    <string name="truth_89">¿Has fingido ser del sexo opuesto en internet?</string>
+    <string name="truth_90">¿Qué es lo más patético que has hecho para llamar la atención de la persona que te gusta?</string>
+    <string name="truth_91">¿Has usado el cepillo de dientes de otra persona sin decírselo?</string>
+    <string name="truth_92">¿Te acostarías con la ex-pareja de un amigo por 1 millón de dólares?</string>
+    <string name="truth_93">¿Cuál es el mensaje de texto más vergonzoso que has enviado borracho?</string>
+    <string name="truth_94">¿Alguna vez has dudado si eres el padre/madre de un niño? (O si tus padres son los tuyos)</string>
+    <string name="truth_95">¿Qué es lo que menos te gusta físicamente de ti mismo?</string>
+    <string name="truth_96">¿Has tenido intimidad pensando en otra persona?</string>
+    <string name="truth_97">¿Alguna vez has robado un beso a la fuerza? (O intentado)</string>
+    <string name="truth_98">¿Qué es lo más sucio (literalmente) que has hecho en la cama?</string>
+    <string name="truth_99">¿Te han hecho una propuesta indecente por dinero? ¿Aceptaste?</string>
+    <string name="truth_100">Si pudieras tener una característica física de alguien presente, ¿cuál sería?</string>
+    <string name="truth_101">¿Cuántas veces te has enamorado en tu vida?</string>
+    <string name="truth_102">¿Alguna vez te has tirado un gas y has culpado a otra persona?</string>
+    <string name="truth_103">¿Qué es lo peor que han dicho tus padres sobre tu pareja?</string>
+    <string name="truth_104">¿Has tenido intimidad en el trabajo?</string>
+    <string name="truth_105">¿Alguna vez te han dejado plantado/a en una cita?</string>
+    <string name="truth_106">¿Te has enamorado de un profesor/a?</string>
+    <string name="truth_107">¿Alguna vez has despertado con resaca y alguien desconocido al lado?</string>
+    <string name="truth_108">¿Qué es lo que más te apaga en la cama?</string>
+    <string name="truth_109">¿Has leído el diario o mensajes privados de alguien sin permiso?</string>
+    <string name="truth_110">¿Te has sentido atraído por la pareja de alguien de esta sala?</string>
+    <string name="truth_111">¿Alguna vez has fingido que te gustaba un regalo y luego lo vendiste?</string>
+    <string name="truth_112">¿Cuál es la situación más incómoda que has vivido con tus suegros?</string>
+    <string name="truth_113">¿Has tenido alguna experiencia con alguien de tu mismo sexo?</string>
+    <string name="truth_114">¿Qué es lo más ilegal que has hecho?</string>
+    <string name="truth_115">¿Has tenido intimidad con alguien solo porque tenía coche/casa/dinero?</string>
+    <string name="truth_116">¿Cuál es el hábito más asqueroso que tienes cuando estás solo?</string>
+    <string name="truth_117">¿Has llorado para conseguir lo que querías?</string>
+    <string name="truth_118">¿Alguna vez te han pillado mintiendo sobre tu currículum?</string>
+    <string name="truth_119">¿A qué edad perdiste la virginidad y fue como esperabas?</string>
+    <string name="truth_120">¿Qué complejos tienes?</string>
+    <string name="truth_121">¿Alguna vez estuviste cerca de la muerte?</string>
+    <string name="truth_122">¿Alguna vez has deseado que tu pareja actual te deje para no hacerlo tú?</string>
+    <string name="truth_123">¿Cuál es el rumor más falso que has escuchado sobre ti?</string>
+    <string name="truth_124">¿Te has besado con más de 3 personas en una sola noche?</string>
+    <string name="truth_125">¿Qué es lo que nunca le perdonarías a un amigo?</string>
+    <string name="truth_126">¿Has usado Tinder estando en una relación "solo para ver"?</string>
+    <string name="truth_127">¿Alguna vez has vomitado sobre alguien?</string>
+    <string name="truth_128">¿Cuál es tu técnica infalible para coquetear?</string>
+    <string name="truth_129">¿Has tenido intimidad en el cine?</string>
+    <string name="truth_130">¿Te has acostado con alguien mucho mayor que tú (sugar daddy/mommy)?</string>
+    <string name="truth_131">¿Qué es lo que más te prende que te digan al oído?</string>
+    <string name="truth_132">¿Alguna vez has fingido una llamada para escapar de una cita?</string>
+    <string name="truth_133">¿Cuál es la cosa más estúpida por la que has llorado?</string>
+    <string name="truth_134">¿Has tenido intimidad con alguien cuyo nombre no recuerdas?</string>
+    <string name="truth_135">¿Quién de este grupo crees que será el primero en casarse (o divorciarse)?</string>
+    <string name="truth_136">¿Alguna vez has comido algo de la basura?</string>
+    <string name="truth_137">¿Te has sentido atraído sexualmente por algún personaje de dibujos animados?</string>
+    <string name="truth_138">¿Qué es lo peor que has hecho por venganza?</string>
+    <string name="truth_139">¿Alguna vez has tenido piojos y no se lo dijiste a nadie?</string>
+    <string name="truth_140">¿Te has hecho pis encima de la risa (o del miedo) siendo adulto?</string>
+    <string name="truth_141">¿Has stalkeado a la nueva pareja de tu ex?</string>
+    <string name="truth_142">¿Cuál es tu mayor "Red Flag" en una relación?</string>
+    <string name="truth_143">¿Alguna vez has robado en el trabajo?</string>
+    <string name="truth_144">¿Te has acostado con el/la ex de un amigo?</string>
+    <string name="truth_145">¿Qué harías si fueras del sexo opuesto por un día?</string>
+    <string name="truth_146">¿Alguna vez has dicho "Te amo" sin sentirlo?</string>
+    <string name="truth_147">¿Cuál es la parte de tu cuerpo que menos te gusta que te toquen?</string>
+    <string name="truth_148">¿Cuáles son tus creencias religiosas?</string>
+    <string name="truth_149">¿Qué es lo más raro que has usado como lubricante?</string>
+    <string name="truth_150">¿Alguna vez has deseado la muerte de alguien (en serio)?</string>
 
     <string name="dare_1">Haz 10 sentadillas mientras bebes.</string>
     <string name="dare_2">Deja que el grupo envíe un mensaje a quien quieran desde tu móvil.</string>
@@ -351,7 +479,6 @@ x
     <string name="dare_4">Bebe un trago sin usar las manos.</string>
     <string name="dare_5">Habla con acento extranjero las próximas 3 rondas.</string>
     <string name="dare_6">Baila sin música durante 30 segundos.</string>
-    <string name="dare_7">Permite que alguien revise tu galería de fotos por 1 minuto.</string>
     <string name="dare_8">Come algo mezclado que el grupo decida.</string>
     <string name="dare_9">Haz una llamada a un contacto random y canta una canción.</string>
     <string name="dare_10">Intercambia una prenda con alguien del grupo.</string>
@@ -364,12 +491,111 @@ x
     <string name="dare_17">Haz un piropo a cada persona del grupo.</string>
     <string name="dare_18">Actúa como mesero y sirve a todos por 10 minutos.</string>
     <string name="dare_19">Haz beatbox durante 30 segundos.</string>
-    <string name="dare_20">Lame el cuello de la persona a tu derecha.</string>
     <string name="dare_21">Cuenta un chiste. Si nadie se ríe, bebes doble.</string>
     <string name="dare_22">Habla solo en tercera persona hasta tu próximo turno.</string>
     <string name="dare_23">Permite que te hagan cosquillas por 30 segundos sin reírte.</string>
     <string name="dare_24">Haz una sesión de fotos vergonzosa que el grupo dirija.</string>
     <string name="dare_25">Camina en cuatro patas hasta tu próximo turno.</string>
+    <string name="dare_26">Deja que el grupo prepare un trago "especial" con lo que haya y bébetelo.</string>
+    <string name="dare_27">Muestra las últimas 3 fotos de tu galería o bebe 3 tragos.</string>
+    <string name="dare_28">Haz un baile sexy a la persona que tienes enfrente.</string>
+    <string name="dare_29">Llama a un restaurante y pide una "Hamburguesa Kampai" con mucha seguridad.</string>
+    <string name="dare_30">Huele el pie de la persona a tu derecha (con calcetín... o no).</string>
+    <string name="dare_31">Siéntate en las piernas de la persona de tu izquierda hasta tu próximo turno.</string>
+    <string name="dare_32">Deja que te pinten la cara con un marcador (o maquillaje).</string>
+    <string name="dare_33">Bebe un shot del ombligo de alguien (Body Shot).</string>
+    <string name="dare_34">Dale un "Me gusta" a la primera foto de tu ex en Instagram.</string>
+    <string name="dare_35">Habla cantando todo lo que digas durante 2 rondas.</string>
+    <string name="dare_36">Haz 50 abdominales o termina tu bebida.</string>
+    <string name="dare_37">Muerde una fruta (o lo que sea) sostenida por la boca de otro jugador.</string>
+    <string name="dare_38">Grita por la ventana: "¡AMO EL ALCOHOL Y NO ME ARREPIENTO!".</string>
+    <string name="dare_39">Ponte los calcetines en las manos hasta el próximo turno.</string>
+    <string name="dare_40">Deja que el grupo te cambie el peinado y quédate así 10 minutos.</string>
+    <string name="dare_41">Bebe un trago sin usar las manos (que alguien te dé de beber).</string>
+    <string name="dare_42">Imita un orgasmo ruidoso durante 10 segundos.</string>
+    <string name="dare_43">Lee en voz alta el último mensaje de WhatsApp que enviaste.</string>
+    <string name="dare_44">Haz el puente (arco) durante 30 segundos.</string>
+    <string name="dare_45">Ponte la ropa interior por encima de los pantalones por 2 rondas.</string>
+    <string name="dare_46">Come una cucharada de canela, picante o limón puro.</string>
+    <string name="dare_47">Deja que alguien te escriba algo en la frente.</string>
+    <string name="dare_48">Baila la Macarena sin música y con cara seria.</string>
+    <string name="dare_49">Hazle un masaje de pies a la persona de tu derecha.</string>
+    <string name="dare_50">Bebe agua del plato de una mascota (o de un plato hondo en el suelo).</string>
+    <string name="dare_51">Envía un audio gimiendo al contacto que el grupo elija.</string>
+    <string name="dare_52">Da 10 vueltas rápidas sobre ti mismo e intenta caminar en línea recta.</string>
+    <string name="dare_53">Ponte un cubo de hielo en la ropa interior hasta que se derrita.</string>
+    <string name="dare_54">Deja que el grupo te envíe un DM a un famoso desde tu cuenta.</string>
+    <string name="dare_55">Actúa como un perro y pide caricias a todos.</string>
+    <string name="dare_56">Bebe cada vez que alguien diga tu nombre durante esta ronda.</string>
+    <string name="dare_57">Intercambia tu camisa/camiseta con la persona de tu izquierda.</string>
+    <string name="dare_58">Haz una declaración de amor dramática a una lámpara u objeto.</string>
+    <string name="dare_59">Muestra tu historial de búsqueda de YouTube.</string>
+    <string name="dare_60">Deja que alguien te depile una pequeña zona de la pierna (con cera o cinta).</string>
+    <string name="dare_61">Lame el lóbulo de la oreja de la persona a tu derecha.</string>
+    <string name="dare_62">Canta el coro de tu canción favorita a todo pulmón.</string>
+    <string name="dare_63">Haz una plancha (plank) durante 1 minuto. Si caes, bebes doble.</string>
+    <string name="dare_64">Deja que te revisen las notas del móvil.</string>
+    <string name="dare_65">Imita a un bebé naciendo.</string>
+    <string name="dare_66">Bebe un vaso de agua lleno sin respirar.</string>
+    <string name="dare_67">Camina como un modelo de pasarela por toda la habitación.</string>
+    <string name="dare_68">Deja que alguien te dé una nalgada fuerte.</string>
+    <string name="dare_69">Ponte de rodillas y pide matrimonio a la persona que el grupo elija.</string>
+    <string name="dare_70">Mete la mano en el inodoro (y lávatela después, por favor).</string>
+    <string name="dare_71">Haz twerking contra la pared durante 20 segundos.</string>
+    <string name="dare_72">Llama a un número equivocado y trata de venderles una aspiradora.</string>
+    <string name="dare_73">No puedes mostrar los dientes al reírte hasta tu próximo turno.</string>
+    <string name="dare_74">Besa la mano de todos los presentes.</string>
+    <string name="dare_75">Deja que te rompan un huevo en la cabeza (o bebe 2 shots).</string>
+    <string name="dare_76">Hazte pasar por un influencer y promociona un producto imaginario.</string>
+    <string name="dare_77">Bebe un trago de la bebida de cada jugador.</string>
+    <string name="dare_78">Ponte hielo en los pezones por 30 segundos.</string>
+    <string name="dare_79">Dibuja un bigote en tu cara con algo que no sea tóxico.</string>
+    <string name="dare_80">Haz 20 sentadillas con alguien cargado en tu espalda.</string>
+    <string name="dare_81">Muestra tu foto de DNI o pasaporte a todos.</string>
+    <string name="dare_82">Deja que alguien publique un estado de "Estoy embarazada/o" en tu red social.</string>
+    <string name="dare_83">Come un trozo de papel (pequeño).</string>
+    <string name="dare_84">Haz el gusano en el suelo.</string>
+    <string name="dare_85">Deja que te aten las manos por 10 minutos.</string>
+    <string name="dare_86">Lame el suelo (o bebe 3 tragos).</string>
+    <string name="dare_87">Intenta lamerte el codo mientras todos te graban.</string>
+    <string name="dare_88">Habla con un acento "fresa" exagerado.</string>
+    <string name="dare_89">Quítate los calcetines con los dientes de otra persona.</string>
+    <string name="dare_90">Haz una torre de cartas/objetos. Si se cae, bebes.</string>
+    <string name="dare_91">Besa tu propio reflejo en el espejo apasionadamente.</string>
+    <string name="dare_92">Manda un audio ladrando al último grupo de WhatsApp que usaste.</string>
+    <string name="dare_93">Bebe un shot de salsa de soja o vinagre.</string>
+    <string name="dare_94">Deja que alguien te haga cosquillas hasta que digas "PARAR" (y bebas por rendirte).</string>
+    <string name="dare_95">Haz una imitación de cómo tienes intimidad (con sonidos).</string>
+    <string name="dare_96">Baila lento con una escoba o fregona.</string>
+    <string name="dare_97">Ponte los zapatos en las manos y aplaude.</string>
+    <string name="dare_98">Haz 10 burpees seguidos.</string>
+    <string name="dare_99">Deja que te dibujen algo en la espalda y adivina qué es. Si fallas, bebes.</string>
+    <string name="dare_100">Cierra los ojos y deja que alguien te dé de comer algo sorpresa.</string>
+    <string name="dare_101">Muestra el contenido de tu cartera/billetera.</string>
+    <string name="dare_102">Haz un poema sobre el alcohol y recítalo.</string>
+    <string name="dare_103">Intenta hacer malabares con 3 objetos. Por cada caída, un trago.</string>
+    <string name="dare_104">Haz una cara fea y mantenla hasta el próximo turno.</string>
+    <string name="dare_105">Bebe con tu mano no dominante el resto del juego.</string>
+    <string name="dare_106">Llama a tu crush y cuelga inmediatamente.</string>
+    <string name="dare_107">Hazte el muerto en el suelo hasta que alguien te reviva (con un beso o trago).</string>
+    <string name="dare_108">Adivina el color de ropa interior de alguien. Si fallas, te quitas una prenda.</string>
+    <string name="dare_109">Haz una parada de manos (o inténtalo).</string>
+    <string name="dare_110">Deja que el grupo elija tu nuevo fondo de pantalla.</string>
+    <string name="dare_111">Habla sin abrir la boca durante 2 rondas.</string>
+    <string name="dare_112">Besa la calva o frente de alguien.</string>
+    <string name="dare_113">Haz un video de TikTok ridículo y guárdalo en borradores.</string>
+    <string name="dare_114">Come una rodaja de limón sin hacer muecas.</string>
+    <string name="dare_115">Siéntate en el suelo y no uses muebles por 3 rondas.</string>
+    <string name="dare_116">Haz una imitación de otro jugador. Si no adivinan, bebes.</string>
+    <string name="dare_117">Deja que te vendan los ojos y adivina quién te toca la cara.</string>
+    <string name="dare_118">Gime el nombre de la persona a tu izquierda.</string>
+    <string name="dare_119">Haz un brindis vergonzoso por ti mismo.</string>
+    <string name="dare_120">Ponte la ropa al revés (lo de adentro hacia afuera).</string>
+    <string name="dare_121">Mastica agua y haz gárgaras con una canción.</string>
+    <string name="dare_122">Hazte una foto sacando la lengua y súbela.</string>
+    <string name="dare_123">Toca la nariz de alguien con tu lengua.</string>
+    <string name="dare_124">Promociona la aplicación en la red social de tu preferencia.</string>
+    <string name="dare_125">¡Fondo blanco! Termina tu bebida ahora mismo.</string>
 
     <string name="kings_game_title">KING\'S CUP</string>
     <string name="kings_cards_remaining">%d cartas restantes</string>
@@ -396,7 +622,7 @@ x
     <string name="card_9_title">Nueve - Rima</string>
     <string name="card_10_title">Diez - Categoría</string>
     <string name="card_j_title">Jota - Regla</string>
-    <string name="card_q_title">Reina - Pregunta</string>
+    <string name="card_q_title">Reina - Todos</string>
     <string name="card_k_title">Rey</string>
 
     <string name="card_ace_desc">Todos beben hasta que el que sacó pare.</string>
@@ -408,9 +634,9 @@ x
     <string name="card_7_desc">Último en levantar la mano bebe.</string>
     <string name="card_8_desc">Elige un compañero de bebida.</string>
     <string name="card_9_desc">Di una palabra, rimen hasta fallar.</string>
-    <string name="card_10_desc">Di una categoría, nombren hasta fallar.</string>
+    <string name="card_10_desc">Di una categoría (ej. marcas de auto), nombren hasta fallar.</string>
     <string name="card_j_desc">Crea una regla nueva.</string>
-    <string name="card_q_desc">Haces preguntas, quien responda bebe.</string>
+    <string name="card_q_desc">¡Todos beben!.</string>
     <string name="card_k_desc">Ver instrucciones especiales.</string>
 
     <string name="king_1_desc">1º Rey: Elige QUÉ lleva el vaso.\nPrepara la mezcla del trago central.</string>
@@ -430,7 +656,7 @@ x
     <string name="guide_9">Di una palabra. Todos deben decir una rima. El que falle o repita, bebe.</string>
     <string name="guide_10">Ej: Marcas de coches. El que se quede en blanco, bebe.</string>
     <string name="guide_j">Inventa una regla (ej: beber con la zurda). Quien la rompa, bebe.</string>
-    <string name="guide_q">Haz preguntas a otros. Si responden \'sí\' o \'no\', beben.</string>
+    <string name="guide_q">Todos beben.</string>
     <string name="guide_k1">1º Rey: Elige QUÉ lleva el vaso central. Prepara el trago.</string>
     <string name="guide_k2">2º Rey: Elige DÓNDE se va a beber.</string>
     <string name="guide_k3">3º Rey: Elige CÓMO se va a beber.</string>
@@ -556,8 +782,8 @@ x
         <item>Yo nunca he tenido una relación abierta.</item>
         <item>Yo nunca he mentido para faltar al trabajo/clases.</item>
         <item>Yo nunca he revisado el teléfono de mi pareja.</item>
-        <item>Yo nunca he tenido sexo en un lugar público.</item>
-        <item>Yo nunca he robado algo de una tienda.</item>
+        <item>Yo nunca he tenido relaciones en un lugar público.</item>
+        <item>Yo nunca he tomado algo sin pagar.</item>
         <item>Yo nunca he usado una app de citas.</item>
         <item>Yo nunca he tenido un sueño erótico con alguien de aquí.</item>
         <item>Yo nunca he vomitado por beber demasiado.</item>
@@ -566,21 +792,213 @@ x
         <item>Yo nunca he fingido un orgasmo.</item>
         <item>Yo nunca he stalkeado a mi ex en redes sociales.</item>
         <item>Yo nunca he hecho un trío.</item>
-        <item>Yo nunca he conducido borracho.</item>
         <item>Yo nunca he tenido una cita a ciegas.</item>
         <item>Yo nunca he olvidado el nombre de alguien mientras lo hacíamos.</item>
         <item>Yo nunca he sido infiel.</item>
         <item>Yo nunca he nadado desnudo.</item>
-        <item>Yo nunca he tenido sexo en un coche.</item>
-        <item>Yo nunca he mentido en el juego de Yo Nunca.</item>
+        <item>Yo nunca he tenido relaciones en un auto.</item>
         <item>Yo nunca he enviado un mensaje borracho del que me arrepienta.</item>
         <item>Yo nunca he besado a más de una persona en una noche.</item>
-        <item>Yo nunca he tenido sexo en la playa.</item>
         <item>Yo nunca he sido expulsado de un bar/discoteca.</item>
         <item>Yo nunca he tenido una fantasía con un profesor.</item>
         <item>Yo nunca he usado juguetes sexuales.</item>
         <item>Yo nunca he hecho ghosting a alguien.</item>
-        <item>Yo nunca he ligado con un policía para evitar una multa.</item>
+        <item>Yo nunca he tenido intimidad en un ascensor.</item>
+        <item>Yo nunca he tenido intimidad en el cine.</item>
+        <item>Yo nunca he tenido intimidad en el trabajo.</item>
+        <item>Yo nunca he tenido intimidad en la escuela o universidad.</item>
+        <item>Yo nunca he tenido intimidad en un bosque.</item>
+        <item>Yo nunca he tenido intimidad en un probador de ropa.</item>
+        <item>Yo nunca he tenido intimidad en un baño de avión.</item>
+        <item>Yo nunca he tenido intimidad en la cama de mis padres.</item>
+        <item>Yo nunca he tenido intimidad en un balcón o terraza.</item>
+        <item>Yo nunca he tenido intimidad en una fiesta con gente cerca.</item>
+        <item>Yo nunca he tenido intimidad en el sofá de un amigo.</item>
+        <item>Yo nunca he tenido intimidad en un autobús.</item>
+        <item>Yo nunca he tenido intimidad debajo de una mesa.</item>
+        <item>Yo nunca he enviado un "nude" a la persona equivocada.</item>
+        <item>Yo nunca he recibido un "nude" no solicitado.</item>
+        <item>Yo nunca he grabado un video íntimo.</item>
+        <item>Yo nunca he tenido fotos intimas en mi carpeta oculta.</item>
+        <item>Yo nunca he hecho sexting en el trabajo o clases.</item>
+        <item>Yo nunca he enviado un mensaje subido de tono a mi jefe por error.</item>
+        <item>Yo nunca he usado Tinder solo para subir mi ego.</item>
+        <item>Yo nunca he mentido en mi perfil de citas sobre mi altura o peso.</item>
+        <item>Yo nunca he quedado con alguien de internet y me he arrepentido al verlo.</item>
+        <item>Yo nunca he buscado porno en el celular de un amigo.</item>
+        <item>Yo nunca he tenido sexting.</item>
+        <item>Yo nunca he hecho una videollamada caliente.</item>
+        <item>Yo nunca he stalkeado a la nueva pareja de mi ex.</item>
+        <item>Yo nunca he adivinado la contraseña de alguien para espiarlo.</item>
+        <item>Yo nunca he creado un perfil falso para espiar a alguien.</item>
+        <item>Yo nunca he subido una historia solo para que la vea una persona.</item>
+        <item>Yo nunca he mandado una foto "accidental" que era intencional.</item>
+        <item>Yo nunca he eliminado mensajes para que mi pareja no los vea.</item>
+        <item>Yo nunca he buscado en Google cómo hacer ciertas posiciones.</item>
+        <item>Yo nunca he visto porno con mi pareja.</item>
+        <item>Yo nunca he pagado por contenido para adultos (OnlyFans, etc).</item>
+        <item>Yo nunca he tenido una ciber-relación.</item>
+        <item>Yo nunca he bloqueado a alguien después de acostarme con él/ella.</item>
+        <item>Yo nunca he dejado en "visto" a alguien que me gustaba para hacerme el interesante.</item>
+        <item>Yo nunca he revisado el historial de búsqueda de otra persona.</item>
+        <item>Yo nunca he tomado capturas de pantalla de conversaciones privadas.</item>
+        <item>Yo nunca he fingido que mi cámara no funcionaba para no mostrarme.</item>
+        <item>Yo nunca he ligado por LinkedIn.</item>
+        <item>Yo nunca he usado la cuenta de Netflix de un ex.</item>
+        <item>Yo nunca he enviado un audio gimiendo de broma (o no).</item>
+        <item>Yo nunca he usado esposas o ataduras.</item>
+        <item>Yo nunca he usado un antifaz o venda en los ojos.</item>
+        <item>Yo nunca he hecho un juego de roles (disfraces/actuación).</item>
+        <item>Yo nunca he usado comida durante la intimidad.</item>
+        <item>Yo nunca he usado hielo durante la intimidad.</item>
+        <item>Yo nunca he tenido una experiencia del mismo sexo (si eres hetero).</item>
+        <item>Yo nunca he hecho un chupón a propósito para marcar territorio.</item>
+        <item>Yo nunca he tenido relaciones con alguien mucho mayor que yo.</item>
+        <item>Yo nunca he tenido relaciones con alguien mucho menor que yo.</item>
+        <item>Yo nunca he dormido con alguien en la primera cita.</item>
+        <item>Yo nunca he tenido un "aquí te pillo, aquí te mato" (rapidito).</item>
+        <item>Yo nunca he tenido intimidad sin que la otra persona se quite la ropa.</item>
+        <item>Yo nunca he tenido intimidad con los calcetines puestos.</item>
+        <item>Yo nunca he fingido placer para terminar rápido.</item>
+        <item>Yo nunca he dicho el nombre de otra persona en la cama.</item>
+        <item>Yo nunca me he quedado dormido durante en pleno acto.</item>
+        <item>Yo nunca he tenido un calambre en un momento inoportuno.</item>
+        <item>Yo nunca he tenido un accidente vergonzoso (gases, ruidos) en la cama.</item>
+        <item>Yo nunca he roto una cama o mueble haciéndolo.</item>
+        <item>Yo nunca he sido pillado por mis padres.</item>
+        <item>Yo nunca he sido pillado por los padres de mi pareja.</item>
+        <item>Yo nunca he sido pillado por un compañero de cuarto.</item>
+        <item>Yo nunca he escuchado a mis padres haciéndolo.</item>
+        <item>Yo nunca he escuchado a mis compañeros de cuarto haciéndolo.</item>
+        <item>Yo nunca lo he hecho por atrás.</item>
+        <item>Yo nunca he tragado algo que no debía.</item>
+        <item>Yo nunca he probado el sadomasoquismo ligero.</item>
+        <item>Yo nunca me he excitado en un momento inapropiado (funeral, misa).</item>
+        <item>Yo nunca he tenido un orgasmo múltiple.</item>
+        <item>Yo nunca he llorado después de tener intimidad.</item>
+        <item>Yo nunca he tenido relaciones frente a un espejo.</item>
+        <item>Yo nunca me he grabado a mí mismo tocándome.</item>
+        <item>Yo nunca he tenido intimidad con alguien que no me atraía físicamente.</item>
+        <item>Yo nunca he tenido intimidad con alguien solo por despecho.</item>
+        <item>Yo nunca he tenido intimidad con alguien cuyo nombre olvidé.</item>
+        <item>Yo nunca he besado al ex de un amigo/a.</item>
+        <item>Yo nunca me he acostado con el ex de un amigo/a.</item>
+        <item>Yo nunca he tenido sentimientos por la pareja de mi amigo/a.</item>
+        <item>Yo nunca he sido el/la amante.</item>
+        <item>Yo nunca he sido infiel emocionalmente.</item>
+        <item>Yo nunca he coqueteado para conseguir bebidas gratis.</item>
+        <item>Yo nunca he coqueteado con un profesor/a.</item>
+        <item>Yo nunca he coqueteado con un policía para evitar una multa.</item>
+        <item>Yo nunca he dicho "Te amo" sin sentirlo para llevarme a alguien a la cama.</item>
+        <item>Yo nunca he vuelto con un ex más de 3 veces.</item>
+        <item>Yo nunca he tenido una relación tóxica.</item>
+        <item>Yo nunca he revisado la basura de alguien.</item>
+        <item>Yo nunca he tenido celos de un amigo/a.</item>
+        <item>Yo nunca he besado a un amigo/a "de broma".</item>
+        <item>Yo nunca he tenido un sueño húmedo con un amigo/a.</item>
+        <item>Yo nunca me he declarado a alguien borracho/a.</item>
+        <item>Yo nunca he llorado en público por una ruptura.</item>
+        <item>Yo nunca he hecho una escena de celos en público.</item>
+        <item>Yo nunca he tenido una cita doble que salió mal.</item>
+        <item>Yo nunca he escapado de una cita por la ventana del baño.</item>
+        <item>Yo nunca he dado un número de teléfono falso.</item>
+        <item>Yo nunca he besado a dos personas diferentes en la misma fiesta.</item>
+        <item>Yo nunca he besado a más de 5 personas en una noche.</item>
+        <item>Yo nunca he tenido relaciones con un compañero de trabajo.</item>
+        <item>Yo nunca he tenido relaciones con mi jefe/a.</item>
+        <item>Yo nunca he tenido intimidad con un vecino/a.</item>
+        <item>Yo nunca he tenido intimidad con alguien casado/a.</item>
+        <item>Yo nunca he roto una pareja.</item>
+        <item>Yo nunca me he enamorado de alguien imposible.</item>
+        <item>Yo nunca he tenido una laguna mental por alcohol.</item>
+        <item>Yo nunca he despertado en un lugar desconocido.</item>
+        <item>Yo nunca he despertado con alguien desconocido.</item>
+        <item>Yo nunca he perdido el celular en una borrachera.</item>
+        <item>Yo nunca he perdido la cartera/billetera en una fiesta.</item>
+        <item>Yo nunca he perdido un zapato en una fiesta.</item>
+        <item>Yo nunca he vomitado sobre otra persona.</item>
+        <item>Yo nunca he vomitado en un taxi/Uber.</item>
+        <item>Yo nunca he orinado en la calle entre coches.</item>
+        <item>Yo nunca he robado un vaso o copa de un bar.</item>
+        <item>Yo nunca me he ido de una fiesta sin despedirme (bomba de humo).</item>
+        <item>Yo nunca he bailado encima de una mesa o barra.</item>
+        <item>Yo nunca he hecho un striptease (aunque sea parcial) en una fiesta.</item>
+        <item>Yo nunca he bebido del vaso de un desconocido.</item>
+        <item>Yo nunca he entrado al baño equivocado por error.</item>
+        <item>Yo nunca he sido expulsado de un club.</item>
+        <item>Yo nunca he tenido una pelea a puñetazos en una fiesta.</item>
+        <item>Yo nunca he besado a alguien del mismo sexo estando borracho/a.</item>
+        <item>Yo nunca he llamado a mi ex llorando borracho/a.</item>
+        <item>Yo nunca he comido comida de la basura o del suelo borracho/a.</item>
+        <item>Yo nunca he dormido en la calle o en un banco.</item>
+        <item>Yo nunca he dormido en el baño de una discoteca.</item>
+        <item>Yo nunca he entrado a una fiesta sin invitación.</item>
+        <item>Yo nunca he mentido sobre mi nombre en una fiesta.</item>
+        <item>Yo nunca he dicho que era extranjero para ligar.</item>
+        <item>Yo nunca he mezclado más de 5 tipos de alcohol en una noche.</item>
+        <item>Yo nunca he hecho "fondo blanco" de una botella.</item>
+        <item>Yo nunca he jugado a juegos de beber hasta desmayarme.</item>
+        <item>Yo nunca he tenido que ser llevado a casa por amigos.</item>
+        <item>Yo nunca he tenido una resaca de dos días.</item>
+        <item>Yo nunca he robado dinero de la cartera de mis padres.</item>
+        <item>Yo nunca he robado algo de una tienda (aunque sea un chicle).</item>
+        <item>Yo nunca he hecho trampa en un juego de mesa.</item>
+        <item>Yo nunca he mentido en este juego.</item>
+        <item>Yo nunca he deseado que le pase algo malo a alguien.</item>
+        <item>Yo nunca he juzgado a alguien de este grupo por su vida sexual.</item>
+        <item>Yo nunca he contado un secreto que prometí guardar.</item>
+        <item>Yo nunca he leído el diario o mensajes de otra persona.</item>
+        <item>Yo nunca he usado el cepillo de dientes de otra persona sin avisar.</item>
+        <item>Yo nunca he orinado en una piscina pública.</item>
+        <item>Yo nunca he orinado en la ducha.</item>
+        <item>Yo nunca he culpado a otra persona de un gas que me tiré.</item>
+        <item>Yo nunca he fingido una llamada para no saludar a alguien.</item>
+        <item>Yo nunca he regalado algo que me habían regalado a mí.</item>
+        <item>Yo nunca he comido algo del refrigerador que no era mío.</item>
+        <item>Yo nunca he salido de casa sin ropa interior.</item>
+        <item>Yo nunca he tenido piojos de adulto.</item>
+        <item>Yo nunca he pasado más de 3 días sin bañarme.</item>
+        <item>Yo nunca he usado la misma ropa interior dos días seguidos.</item>
+        <item>Yo nunca me he hurgado la nariz y me lo he comido.</item>
+        <item>Yo nunca he dudado de mi orientación sexual.</item>
+        <item>Yo nunca he tenido curiosidad por probar ropa del sexo opuesto.</item>
+        <item>Yo nunca he practicado besos con mi mano o espejo.</item>
+        <item>Yo nunca he practicado cómo proponer matrimonio.</item>
+        <item>Yo nunca he llorado para conseguir lo que quería.</item>
+        <item>Yo nunca he fingido estar borracho para hacer algo estúpido.</item>
+        <item>Yo nunca he sido arrestado.</item>
+        <item>Yo nunca he estado en una patrulla de policía.</item>
+        <item>Yo nunca he roto algo en una tienda y lo he escondido.</item>
+        <item>Yo nunca he hecho ghosting a un amigo.</item>
+        <item>Yo nunca he tenido intimidad con alguien que no se había duchado.</item>
+        <item>Yo nunca me he sentido atraído por un personaje de dibujos animados.</item>
+        <item>Yo nunca he tenido una fantasía con alguien de este grupo.</item>
+        <item>Yo nunca he imaginado a la gente de esta sala desnuda.</item>
+        <item>Yo nunca me he tocado pensando en un amigo/a.</item>
+        <item>Yo nunca he tenido intimidad mientras había otras personas en la habitación (durmiendo).</item>
+        <item>Yo nunca he hecho un trío (o más).</item>
+        <item>Yo nunca he ido a un club de striptease.</item>
+        <item>Yo nunca he pagado por un baile privado.</item>
+        <item>Yo nunca he usado lubricante de sabores.</item>
+        <item>Yo nunca he lamido nata o chocolate del cuerpo de alguien.</item>
+        <item>Yo nunca he jugado al strip poker.</item>
+        <item>Yo nunca he perdido una prenda en una apuesta.</item>
+        <item>Yo nunca he besado a alguien con brackets y nos hemos enganchado.</item>
+        <item>Yo nunca he tenido una marca de mordida visible.</item>
+        <item>Yo nunca he tenido rasguños en la espalda.</item>
+        <item>Yo nunca he roto la cama por el movimiento.</item>
+        <item>Yo nunca me he acostado con alguien solo porque era famoso/popular.</item>
+        <item>Yo nunca he tenido un susto de embarazo.</item>
+        <item>Yo nunca he tomado la pastilla del día después.</item>
+        <item>Yo nunca he comprado condones con vergüenza.</item>
+        <item>Yo nunca he mentido sobre el tamaño de mis atributos.</item>
+        <item>Yo nunca he visto porno en el celular de mi pareja.</item>
+        <item>Yo nunca he encontrado juguetes sexuales de mis padres.</item>
+        <item>Yo nunca he gemido el nombre equivocado.</item>
+        <item>Yo nunca he hecho la posición del 69.</item>
+        <item>Yo nunca he practicado cómo besar con mi mano o el espejo.</item>
+        <item>Yo nunca he usado comida como juguete sexual.</item>
+        <item>Yo nunca me he sentido atraído por el padre/madre de un amigo/a.</item>
     </string-array>
 
     <string name="impostor_title">🕵️ El Impostor</string>
@@ -729,12 +1147,12 @@ x
         <item>Ser echado del boliche</item>
     </string-array>
 
-    <string name="disclaimer_title">⚠️ Aviso Importante</string>
-    <string name="disclaimer_text_1">Esta aplicación es un juego para fines de entretenimiento exclusivamente.</string>
-    <string name="disclaimer_bullet_1">• Debes ser mayor de edad legal en tu país para consumir alcohol.</string>
+    <string name="disclaimer_title">⚠️ Aviso legal importante</string>
+    <string name="disclaimer_text_1">Kampai es un juego para fines de entretenimiento exclusivamente.</string>
+    <string name="disclaimer_bullet_1">• Debes ser mayor de 18 años (o la edad legal en tu país) para usar esta app</string>
     <string name="disclaimer_bullet_2">• Kampai no promueve el abuso del alcohol.</string>
-    <string name="disclaimer_bullet_3">• Nunca bebas y conduzcas.</string>
-    <string name="disclaimer_text_2">Juega con responsabilidad y cuida a tus amigos.</string>
+    <string name="disclaimer_bullet_3">• NUNCA bebas y conduzcas.</string>
+    <string name="disclaimer_text_2">Juega con responsabilidad y cuida a tus amigos. Si tienes problemas con el alcohol, busca ayuda profesional. Al continuar, confirmas que eres mayor de edad y aceptas la plena responsabilidad por el uso de esta aplicación.</string>
     <string name="disclaimer_btn_accept">Acepto y soy mayor de edad</string>
 
     <string name="roulette_title">🔫 Ruleta Rusa</string>
@@ -774,7 +1192,7 @@ x
         <item>...que pierda su celular hoy.</item>
         <item>...que se despierte en otra ciudad mañana.</item>
         <item>...que se desnude si bebe demasiado.</item>
-        <item>...que tenga sexo en un lugar público.</item>
+        <item>...que tenga intimidad en un lugar público.</item>
         <item>...que se pelee con un guardia de seguridad.</item>
         <item>...que se case por dinero.</item>
         <item>...que se una a una secta accidentalmente.</item>
@@ -794,6 +1212,300 @@ x
         <item>...que proponga un trío.</item>
         <item>...que abandone a sus amigos por un ligue.</item>
         <item>...que coma comida del suelo.</item>
+        <item>...que se enamore de un bailarín exótico.</item>
+        <item>...que sea el primero en caer en un apocalipsis zombie.</item>
+        <item>...que se ría en un momento muy inapropiado (como un funeral).</item>
+        <item>...que tenga una orden de alejamiento por intenso/a.</item>
+        <item>...que se haga viral por un video vergonzoso.</item>
+        <item>...que done todo su dinero a una estafa piramidal.</item>
+        <item>...que se quede calvo/a primero.</item>
+        <item>...que tenga una familia secreta.</item>
+        <item>...que se case en Las Vegas en una noche loca.</item>
+        <item>...que finja su propia desaparición para escapar de deudas.</item>
+        <item>...que tenga un romance con su jefe para un ascenso.</item>
+        <item>...que se tatúe el nombre de su pareja al mes de conocerla.</item>
+        <item>...que termine viviendo con sus padres a los 40.</item>
+        <item>...que busque a alguien mayor para que lo mantenga.</item>
+        <item>...que pierda el pasaporte en el extranjero.</item>
+        <item>...que tenga gustos muy extraños en la intimidad.</item>
+        <item>...que bese a más personas en esta fiesta.</item>
+        <item>...que se despierte sin ropa en un parque.</item>
+        <item>...que termine manteniendo a una pareja mucho más joven.</item>
+        <item>...que gane la lotería y lo pierda todo en una semana.</item>
+        <item>...que olvide el cumpleaños de su propia madre.</item>
+        <item>...que tenga una conversación profunda con un perro.</item>
+        <item>...que se opere algo por pura vanidad.</item>
+        <item>...que sea multado por hacer sus necesidades en la calle.</item>
+        <item>...que pase la noche con un desconocido hoy.</item>
+        <item>...que llore viendo una película de dibujos animados.</item>
+        <item>...que se caiga por las escaleras hoy.</item>
+        <item>...que le huela mal el aliento mañana por la mañana.</item>
+        <item>...que espíe a sus vecinos con binoculares.</item>
+        <item>...que use una identidad falsa en redes.</item>
+        <item>...que tenga algo con el ex de un amigo.</item>
+        <item>...que mienta en su currículum y consiga el trabajo.</item>
+        <item>...que se convierta en influencer de la noche a la mañana.</item>
+        <item>...que incendie la cocina intentando hervir agua.</item>
+        <item>...que se vaya sin pagar de un restaurante (simpa).</item>
+        <item>...que termine en un hospital por una apuesta tonta.</item>
+        <item>...que experimente con alguien de su mismo género hoy.</item>
+        <item>...que no se haya cambiado la ropa interior hoy.</item>
+        <item>...que bloquee a alguien justo después de pasar la noche juntos.</item>
+        <item>...que sea infiel y culpe a la otra persona.</item>
+        <item>...que se compre una isla si fuera rico.</item>
+        <item>...que sobreviviría más tiempo solo en una isla desierta.</item>
+        <item>...que se case con una celebridad.</item>
+        <item>...que tenga el historial de navegación más "interesante".</item>
+        <item>...que le roben el celular por despistado.</item>
+        <item>...que termine discutiendo con un objeto inanimado.</item>
+        <item>...que se enamore de alguien solo por cómo lo trata en la cama.</item>
+        <item>...que tenga una colección de juguetes para adultos.</item>
+        <item>...que finja ser extranjero para ligar.</item>
+        <item>...que rompa la pantalla de su teléfono esta noche.</item>
+        <item>...que intente besar al DJ.</item>
+        <item>...que se duerma durante el acto.</item>
+        <item>...que diga el nombre equivocado en el momento íntimo.</item>
+        <item>...que termine siendo político corrupto.</item>
+        <item>...que tenga miedo a la oscuridad.</item>
+        <item>...que nunca devuelva la ropa que le prestan.</item>
+        <item>...que se ponga a limpiar la casa en medio de la fiesta.</item>
+        <item>...que le pida matrimonio a alguien que acaba de conocer.</item>
+        <item>...que tenga algo contagioso y no lo sepa.</item>
+        <item>...que sea el primero en morir en una película de terror.</item>
+        <item>...que se coma la comida de otro en el trabajo.</item>
+        <item>...que se cree una cuenta falsa para criticar a alguien.</item>
+        <item>...que termine bañándose con ropa en la piscina.</item>
+        <item>...que bese a la persona a su derecha si se anima.</item>
+        <item>...que tenga la peor foto de DNI/Licencia.</item>
+        <item>...que tenga fetiche de pies.</item>
+        <item>...que termine en un convento o monasterio.</item>
+        <item>...que grite durante una película de miedo.</item>
+        <item>...que se gaste todo el dinero invitando tragos hoy.</item>
+        <item>...que termine mareado en el Uber.</item>
+        <item>...que le coquetee a un policía para evitar una multa.</item>
+        <item>...que tenga más secretos que el gobierno.</item>
+        <item>...que sufra síndrome de Estocolmo.</item>
+        <item>...que termine con alguien 20 años mayor.</item>
+        <item>...que tenga una relación a distancia exitosa.</item>
+        <item>...que pueda pasar 3 días sin ducharse.</item>
+        <item>...que se ponga a llorar sin razón aparente.</item>
+        <item>...que tenga el cuarto más desordenado.</item>
+        <item>...que quiera ser el centro de atención en una boda ajena.</item>
+        <item>...que termine con un tatuaje en la cara.</item>
+        <item>...que sea el mal ejemplo para sus hijos.</item>
+        <item>...que tenga conversaciones imaginarias en la ducha.</item>
+        <item>...que le tenga miedo a los payasos.</item>
+        <item>...que termine en un reality show polémico.</item>
+        <item>...que esté con dos personas en el mismo día.</item>
+        <item>...que sea un mal besador.</item>
+        <item>...que sea el mejor mintiendo.</item>
+        <item>...que venda fotos de sus pies en internet.</item>
+        <item>...que se ría de su propio chiste antes de contarlo.</item>
+        <item>...que stalkee a la ex de su actual pareja.</item>
+        <item>...que termine durmiendo en la calle por perder las llaves.</item>
+        <item>...que pierda las llaves de su casa hoy.</item>
+        <item>...que se orine de la risa.</item>
+        <item>...que le gusten los uniformes.</item>
+        <item>...que se meta en una pelea por defender a un amigo.</item>
+        <item>...que termine liándose con alguien de este grupo.</item>
+        <item>...que se vaya a vivir a otro país por amor.</item>
+        <item>...que sea el primero en abandonar el grupo de WhatsApp.</item>
+        <item>...que tenga la peor resaca de la historia mañana.</item>
+        <item>...que envíe un mensaje de texto a la persona equivocada.</item>
+        <item>...que use la misma ropa interior dos días seguidos.</item>
+        <item>...que se coma el último pedazo de pizza sin preguntar.</item>
+        <item>...que se crea influencer con 200 seguidores.</item>
+        <item>...que se enamore de un personaje de anime.</item>
+        <item>...que intente hacer un mortal y se rompa algo.</item>
+        <item>...que se quede dormido en el cine.</item>
+        <item>...que hable en sueños.</item>
+        <item>...que ronque como tractor.</item>
+        <item>...que se olvide de ponerse desodorante.</item>
+        <item>...que termine siendo famoso.</item>
+        <item>...que escriba un libro sobre sus aventuras amorosas.</item>
+        <item>...que tenga un hijo antes de casarse.</item>
+        <item>...que se convierta en la "tía/tío rica/o y soltera/o".</item>
+        <item>...que se mude a una furgoneta y viaje por el mundo.</item>
+        <item>...que se haga vegano por moda.</item>
+        <item>...que le guste que le peguen (suavemente).</item>
+        <item>...que tenga esposas en su mesita de noche.</item>
+        <item>...que grabe sus encuentros íntimos.</item>
+        <item>...que prefiera hacerlo por la mañana.</item>
+        <item>...que use disfraces en la intimidad.</item>
+        <item>...que le guste que le hablen sucio.</item>
+        <item>...que sea ruidoso/a en la cama.</item>
+        <item>...que proponga hacerlo en un lugar prohibido.</item>
+        <item>...que se excite con el peligro.</item>
+        <item>...que haya tenido un sueño "húmedo" hoy.</item>
+        <item>...que necesite autosatisfacerse a diario.</item>
+        <item>...que tenga un piercing en un lugar oculto.</item>
+        <item>...que haya probado prácticas tántricas.</item>
+        <item>...que le guste morder.</item>
+        <item>...que le guste ser dominado/a.</item>
+        <item>...que le guste dominar.</item>
+        <item>...que tenga una lista de sus conquistas.</item>
+        <item>...que haya fingido placer esta semana.</item>
+        <item>...que haya estado con alguien solo por despecho.</item>
+        <item>...que lo haya hecho en un baño de discoteca.</item>
+        <item>...que lo haya hecho en la playa.</item>
+        <item>...que lo haya hecho en un ascensor.</item>
+        <item>...que lo haya hecho en el trabajo.</item>
+        <item>...que haya enviado fotos atrevidas hoy.</item>
+        <item>...que tenga fotos picantes en su carpeta "oculta".</item>
+        <item>...que se ponga rojo/a con estas preguntas.</item>
+        <item>...que esté "animado/a" ahora mismo.</item>
+        <item>...que termine besando a alguien antes de que acabe el juego.</item>
+        <item>...que se lleve a alguien a casa esta noche.</item>
+        <item>...que proponga jugar a la botella después de esto.</item>
+        <item>...que sea vegano pero coma carne cuando bebe.</item>
+        <item>...que se haga un perfil de Tinder con fotos falsas.</item>
+        <item>...que tenga miedo a volar.</item>
+        <item>...que grite si ve una araña.</item>
+        <item>...que se olvide de pagar sus deudas.</item>
+        <item>...que siempre llegue tarde.</item>
+        <item>...que sea el primero en dormirse en una pijamada.</item>
+        <item>...que se ría de chistes malos.</item>
+        <item>...que compre cosas inútiles por internet.</item>
+        <item>...que tenga más de 5 gatos en el futuro.</item>
+        <item>...que se convierta en un ermitaño.</item>
+        <item>...que gane un Nobel de la Paz.</item>
+        <item>...que se meta en política.</item>
+        <item>...que tenga un canal de YouTube de conspiraciones.</item>
+        <item>...que crea que la tierra es plana.</item>
+        <item>...que sea abducido por aliens.</item>
+        <item>...que se haga cirugía plástica en secreto.</item>
+        <item>...que use Photoshop en todas sus fotos.</item>
+        <item>...que compre seguidores en Instagram.</item>
+        <item>...que se cree una cuenta de fan de sí mismo.</item>
+        <item>...que tenga una colección de algo extraño.</item>
+        <item>...que se disfrace de furro.</item>
+        <item>...que aprenda un idioma solo para ligar.</item>
+        <item>...que se case con alguien de otro continente.</item>
+        <item>...que tenga un romance de verano.</item>
+        <item>...que escriba poesía mala.</item>
+        <item>...que se tatúe una frase en chino sin saber qué dice.</item>
+        <item>...que se ponga un piercing en la lengua.</item>
+        <item>...que se tiña el pelo de un color neón.</item>
+        <item>...que se rape la cabeza en una crisis existencial.</item>
+        <item>...que se vaya de retiro espiritual y no vuelva.</item>
+        <item>...que se haga monje budista.</item>
+        <item>...que viva en una comuna hippie.</item>
+        <item>...que no use desodorante por ser "natural".</item>
+        <item>...que deje de depilarse por protesta.</item>
+        <item>...que se haga nudista.</item>
+        <item>...que vaya a una playa nudista "por error".</item>
+        <item>...que se meta al mar con ropa.</item>
+        <item>...que pierda el traje de baño en el mar.</item>
+        <item>...que le pique una medusa.</item>
+        <item>...que se queme con el sol y parezca un camarón.</item>
+        <item>...que use calcetines con sandalias.</item>
+        <item>...que use riñonera de forma no irónica.</item>
+        <item>...que se vista como su abuelo.</item>
+        <item>...que use pijama para ir al supermercado.</item>
+        <item>...que salga a la calle con las etiquetas de la ropa puestas.</item>
+        <item>...que se ponga los zapatos al revés.</item>
+        <item>...que se choque con una puerta de cristal.</item>
+        <item>...que se caiga de la silla ahora mismo.</item>
+        <item>...que derrame su bebida encima de alguien.</item>
+        <item>...que rompa un vaso sin querer.</item>
+        <item>...que se atragante con su propia saliva.</item>
+        <item>...que estornude y se tire un gas a la vez.</item>
+        <item>...que se ría tanto que no pueda respirar.</item>
+        <item>...que tenga una risa de villano.</item>
+        <item>...que tenga una risa contagiosa.</item>
+        <item>...que hable muy fuerte sin darse cuenta.</item>
+        <item>...que interrumpa a todos al hablar.</item>
+        <item>...que cuente el mismo chiste tres veces.</item>
+        <item>...que arruine el final de una película.</item>
+        <item>...que llore con el final de Titanic.</item>
+        <item>...que se asuste con su propia sombra.</item>
+        <item>...que crea en fantasmas.</item>
+        <item>...que haga ouija.</item>
+        <item>...que vaya a un cementerio de noche.</item>
+        <item>...que se disfrace de fantasma para asustar.</item>
+        <item>...que sea el asesino en una película de misterio.</item>
+        <item>...que resuelva un crimen.</item>
+        <item>...que sea un espía secreto.</item>
+        <item>...que tenga una doble vida.</item>
+        <item>...que sea millonario en secreto.</item>
+        <item>...que esté en bancarrota y no lo diga.</item>
+        <item>...que pida dinero prestado y no lo devuelva.</item>
+        <item>...que encuentre dinero en la calle.</item>
+        <item>...que pierda la cartera.</item>
+        <item>...que le roben el almuerzo.</item>
+        <item>...que se coma el almuerzo de otro.</item>
+        <item>...que cocine algo incomible.</item>
+        <item>...que queme una tostada.</item>
+        <item>...que pida comida a domicilio todos los días.</item>
+        <item>...que sea adicto al chocolate.</item>
+        <item>...que sea adicto al café.</item>
+        <item>...que no pueda vivir sin su teléfono.</item>
+        <item>...que responda mensajes a los 3 segundos.</item>
+        <item>...que deje en visto a todo el mundo.</item>
+        <item>...que tenga más de 1000 notificaciones sin leer.</item>
+        <item>...que tenga la pantalla del móvil rota.</item>
+        <item>...que se le caiga el móvil al inodoro.</item>
+        <item>...que se tome selfies en el baño.</item>
+        <item>...que use filtros de perro en sus fotos.</item>
+        <item>...que haga bailes de TikTok en público.</item>
+        <item>...que se crea famoso.</item>
+        <item>...que conozca a un famoso.</item>
+        <item>...que acose a un famoso.</item>
+        <item>...que se cuele en un evento VIP.</item>
+        <item>...que lo echen de un concierto.</item>
+        <item>...que se suba al escenario.</item>
+        <item>...que cante horrible en el karaoke.</item>
+        <item>...que se crea cantante profesional.</item>
+        <item>...que baile sin ritmo.</item>
+        <item>...que sea el alma de la fiesta.</item>
+        <item>...que organice la mejor fiesta.</item>
+        <item>...que limpie todo después de la fiesta.</item>
+        <item>...que se vaya sin despedirse (bomba de humo).</item>
+        <item>...que se quede dormido en la fiesta.</item>
+        <item>...que vomite en la fiesta.</item>
+        <item>...que pierda la dignidad en la fiesta.</item>
+        <item>...que ligue más en la fiesta.</item>
+        <item>...que termine besando a alguien en la fiesta.</item>
+        <item>...que se vaya acompañado/a de la fiesta.</item>
+        <item>...que pierda la virginidad en una fiesta.</item>
+        <item>...que lo haga en una fiesta.</item>
+        <item>...que lo haga en un coche.</item>
+        <item>...que lo haga en la playa.</item>
+        <item>...que lo haga en el bosque.</item>
+        <item>...que lo haga en un avión.</item>
+        <item>...que lo haga en un ascensor.</item>
+        <item>...que lo haga en el cine.</item>
+        <item>...que lo haga en el trabajo.</item>
+        <item>...que lo haga en la escuela/universidad.</item>
+        <item>...que lo haga en la casa de sus padres.</item>
+        <item>...que lo haga en la casa de sus suegros.</item>
+        <item>...que lo haga con la luz encendida.</item>
+        <item>...que lo haga con calcetines.</item>
+        <item>...que lo haga disfrazado.</item>
+        <item>...que grabe un video haciéndolo.</item>
+        <item>...que tenga fotos íntimas en su móvil.</item>
+        <item>...que envíe fotos íntimas por error.</item>
+        <item>...que reciba fotos íntimas no solicitadas.</item>
+        <item>...que tenga un juguete sexual escondido.</item>
+        <item>...que tenga esposas.</item>
+        <item>...que le guste el juego de roles.</item>
+        <item>...que le guste que le hablen sucio.</item>
+        <item>...que sea ruidoso/a.</item>
+        <item>...que sea silencioso/a.</item>
+        <item>...que dure poco.</item>
+        <item>...que dure demasiado.</item>
+        <item>...que se quede dormido/a después.</item>
+        <item>...que pida comida después.</item>
+        <item>...que quiera repetir inmediatamente.</item>
+        <item>...que nunca quiera hacerlo.</item>
+        <item>...que siempre tenga ganas.</item>
+        <item>...que sea el/la mejor en la cama.</item>
+        <item>...que sea el/la peor en la cama.</item>
+        <item>...que tenga más experiencia.</item>
+        <item>...que sea virgen (o casi).</item>
+        <item>...que haya hecho un trío.</item>
+        <item>...que quiera hacer un trío.</item>
+        <item>...que tenga una relación abierta.</item>
     </string-array>
 
     <string name="party_manager_title">🎉 La Party</string>
@@ -826,37 +1538,8 @@ x
     <string name="classics_screen_title">Juegos Clásicos</string>
     <string name="party_cancel">Cancelar</string>
 
-    <string name="create_title">Crear Reto</string>
-    <string name="create_subtitle">Escribe tu propia carta</string>
-    <string name="create_hint">Escribe el reto aquí... Ej: {A} debe besar a {B}...</string>
-    <string name="create_label_intensity">INTENSIDAD</string>
-    <string name="create_label_target">OBJETIVO</string>
-    <string name="create_btn_save">Guardar Carta</string>
-    <string name="create_msg_success">¡Carta guardada en el mazo!</string>
-    <string name="create_preview">VISTA PREVIA</string>
 
-    <string name="intensity_soft">Suave</string>
-    <string name="intensity_medium">Tenso</string>
-    <string name="intensity_hot">Hot</string>
-    <string name="intensity_extreme">Extremo</string>
 
-    <string name="target_solo">Solo</string>
-    <string name="target_couple">Pareja</string>
-    <string name="target_group">Grupo</string>
-    <string name="game_title_hot">AfterDark</string>
-    <string name="game_desc_hot">Modo picante para parejas y grupos. +18</string>
-
-    <string name="party_label_attraction">Le gustan:</string>
-    <string name="party_label_vibe">Personalidad:</string>
-
-    <string name="attr_men">Hombres</string>
-    <string name="attr_women">Mujeres</string>
-    <string name="attr_both">Ambos</string>
-    <string name="attr_none">Nadie</string>
-
-    <string name="vibe_shy">Tímido</string>
-    <string name="vibe_bold">Atrevido</string>
-    <string name="vibe_crazy">Loco</string>
 
 
 

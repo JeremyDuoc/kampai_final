@@ -36,7 +36,6 @@ class PartyRepository @Inject constructor(
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            // Si hay error al deserializar, limpiar y devolver lista vacía
             sharedPreferences.edit().remove("saved_players").apply()
             emptyList()
         }

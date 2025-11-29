@@ -47,7 +47,6 @@ import kotlinx.coroutines.delay
 fun PartyManagerScreen(
     viewModel: PartyManagerViewModel = hiltViewModel(),
     onBack: () -> Unit,
-    isPremiumUnlocked: Boolean = false
 ) {
     val players by viewModel.players.collectAsState()
     val showAddDialog by viewModel.showAddDialog.collectAsState()
@@ -92,9 +91,8 @@ fun PartyManagerScreen(
         if (showAddDialog) {
             AddPlayerDialog(
                 onDismiss = { viewModel.toggleAddDialog() },
-                showAdvancedOptions = isPremiumUnlocked,
-                onConfirm = { name, gender, emoji, attraction, vibe ->
-                    viewModel.addPlayer(name, gender, emoji, attraction, vibe)
+                onConfirm = { name, gender, emoji ->
+                    viewModel.addPlayer(name, gender, emoji)
                 }
             )
         }
@@ -104,17 +102,11 @@ fun PartyManagerScreen(
 @Composable
 fun AddPlayerDialog(
     onDismiss: () -> Unit,
-    showAdvancedOptions: Boolean,
-    onConfirm: (String, Gender, String, Attraction, Vibe) -> Unit
+    onConfirm: (String, Gender, String) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
     var selectedGender by remember { mutableStateOf(Gender.MALE) }
     var selectedEmoji by remember { mutableStateOf(AvatarEmojis.getRandomEmoji()) }
-
-    // Nuevos campos
-    var selectedAttraction by remember { mutableStateOf(Attraction.BOTH) }
-    var selectedVibe by remember { mutableStateOf(Vibe.BOLD) }
-
     var showEmojiPicker by remember { mutableStateOf(false) }
 
     Dialog(onDismissRequest = onDismiss) {
@@ -141,41 +133,8 @@ fun AddPlayerDialog(
                     }
                 }
 
-                // --- SECCIÓN PREMIUM: OPCIONES AVANZADAS ---
-                if (showAdvancedOptions) {
-                    Spacer(modifier = Modifier.height(24.dp))
-                    Divider(color = Color.White.copy(alpha = 0.1f))
-                    Spacer(modifier = Modifier.height(16.dp))
 
-                    Text(text = stringResource(R.string.party_label_attraction), color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.align(Alignment.Start), fontSize = 14.sp)
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                        Attraction.values().forEach { attr ->
-                            SelectableChip(
-                                text = stringResource(attr.nameRes),
-                                isSelected = selectedAttraction == attr,
-                                onClick = { selectedAttraction = attr },
-                                color = PrimaryViolet
-                            )
-                        }
-                    }
 
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    Text(text = stringResource(R.string.party_label_vibe), color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.align(Alignment.Start), fontSize = 14.sp)
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                        Vibe.values().forEach { vibe ->
-                            SelectableChip(
-                                text = stringResource(vibe.nameRes),
-                                isSelected = selectedVibe == vibe,
-                                onClick = { selectedVibe = vibe },
-                                color = SecondaryPink
-                            )
-                        }
-                    }
-                }
-                // ------------------------------------------
 
                 Spacer(modifier = Modifier.height(24.dp))
 
@@ -189,7 +148,7 @@ fun AddPlayerDialog(
                     OutlinedButton(onClick = onDismiss, modifier = Modifier.weight(1f), colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)) {
                         Text(stringResource(R.string.party_btn_cancel))
                     }
-                    Button(onClick = { if (name.isNotBlank()) onConfirm(name, selectedGender, selectedEmoji, selectedAttraction, selectedVibe) }, modifier = Modifier.weight(1f), colors = ButtonDefaults.buttonColors(containerColor = PrimaryViolet), enabled = name.isNotBlank()) {
+                    Button(onClick = { if (name.isNotBlank()) onConfirm(name, selectedGender, selectedEmoji) }, modifier = Modifier.weight(1f), colors = ButtonDefaults.buttonColors(containerColor = PrimaryViolet), enabled = name.isNotBlank()) {
                         Text(stringResource(R.string.party_btn_add))
                     }
                 }

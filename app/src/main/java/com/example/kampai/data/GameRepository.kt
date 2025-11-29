@@ -56,7 +56,7 @@ class GameRepository @Inject constructor() {
             id = "truth_or_dare",
             title = R.string.game_title_truth,
             description = R.string.game_desc_truth,
-            iconEmoji = "🎭", // Teatro (Verdad o Reto)
+            iconEmoji = "🎭",
             color = AccentAmber,
             route = "game_truth"
         ),
@@ -64,7 +64,7 @@ class GameRepository @Inject constructor() {
             id = "high_low",
             title = R.string.game_title_highlow,
             description = R.string.game_desc_highlow,
-            iconEmoji = "🃏", // Joker (Mayor o Menor)
+            iconEmoji = "🃏",
             color = SecondaryPink,
             route = "game_highlow"
         ),
@@ -72,7 +72,7 @@ class GameRepository @Inject constructor() {
             id = "charades",
             title = R.string.game_title_charades,
             description = R.string.game_desc_charades,
-            iconEmoji = "🤸", // Persona haciendo pirueta (Mímica)
+            iconEmoji = "🤸",
             color = AccentAmber,
             route = "game_charades"
         ),
@@ -80,7 +80,7 @@ class GameRepository @Inject constructor() {
             id = "roulette",
             title = R.string.game_title_roulette,
             description = R.string.game_desc_roulette,
-            iconEmoji = "🧨", // Dinamita (Ruleta)
+            iconEmoji = "🧨",
             color = AccentRed,
             route = "game_roulette"
         ),
@@ -88,7 +88,7 @@ class GameRepository @Inject constructor() {
             id = "most_likely",
             title = R.string.game_title_likely,
             description = R.string.game_desc_likely,
-            iconEmoji = "🫵", // Dedo apuntando (Quién es más probable)
+            iconEmoji = "🫵",
             color = SecondaryPink,
             route = "game_likely"
         )
@@ -96,14 +96,12 @@ class GameRepository @Inject constructor() {
     )
 
     fun getMostPlayedGames(): List<GameModel> {
-        // Ajusta aquí los juegos que quieres que salgan en el carrusel principal (Top)
         return allGames.filter {
             it.id == "warmup" || it.id == "kingscup" || it.id == "impostor"  || it.id == "culture"
         }
     }
 
     fun getClassicGames(): List<GameModel> {
-        // Filtramos para que en la lista de "Clásicos" no salgan los que ya están en el Top
         return allGames.filter {
             it.id != "warmup" &&
                     it.id != "kingscup" &&

@@ -2,16 +2,8 @@
 <resources>
     <string name="app_name">Kampai</string>
 
-    <string name="splash_loading">Prepare-se para beber...</string>
+    <string name="splash_loading">Preparem-se para beber...</string>
     <string name="splash_version">v1.0</string>
-
-    <string name="disclaimer_title">⚠️ Aviso Importante</string>
-    <string name="disclaimer_text_1">Este aplicativo é um jogo exclusivamente para fins de entretenimento.</string>
-    <string name="disclaimer_bullet_1">• Você deve ter a idade legal para consumir álcool no seu país.</string>
-    <string name="disclaimer_bullet_2">• Kampai não promove o abuso de álcool.</string>
-    <string name="disclaimer_bullet_3">• Se beber, não dirija.</string>
-    <string name="disclaimer_text_2">Jogue com responsabilidade e cuide dos seus amigos.</string>
-    <string name="disclaimer_btn_accept">Aceito e sou maior de idade</string>
 
     <string name="content_desc_logo">Logo Kampai</string>
     <string name="content_desc_settings">Configurações</string>
@@ -23,49 +15,20 @@
     <string name="home_party_subtitle">🍻 A festa começa agora</string>
 
     <plurals name="home_player_count_plural">
-        <item quantity="one">🍻 %d jogador na festa</item>
-        <item quantity="other">🍻 %d jogadores na festa</item>
+        <item quantity="one">🍻 %d jogador na party</item>
+        <item quantity="other">🍻 %d jogadores na party</item>
     </plurals>
 
     <string name="home_most_played">🔥 Mais Jogados</string>
     <string name="home_categories">📂 Categorias</string>
     <string name="home_classics">Clássicos</string>
-    <string name="home_hot_plus18">+18 Hot</string>
-    <string name="home_hot_coming_soon">(Em breve)</string>
-    <string name="home_hot_message">Versão Premium em breve 🔥</string>
-
-    <string name="party_manager_title">🎉 A Festa</string>
-    <string name="party_players_count">%d jogadores</string>
-    <string name="party_players_count_one">%d jogador</string>
-    <string name="party_btn_add_player">Adicionar Jogador</string>
-    <string name="party_empty_title">Sem jogadores</string>
-    <string name="party_empty_subtitle">Adicione jogadores para começar</string>
-
-    <string name="party_turn_of">Vez de:</string>
-
-    <string name="party_dialog_title">Adicionar Jogador</string>
-    <string name="party_input_name">Nome</string>
-    <string name="party_label_gender">Gênero</string>
-    <string name="party_label_avatar">Avatar</string>
-    <string name="party_avatar_selected">Avatar selecionado</string>
-    <string name="party_avatar_change">Toque para mudar</string>
-    <string name="party_btn_cancel">Cancelar</string>
-    <string name="party_btn_add">Adicionar</string>
-
-    <string name="gender_male">Homem</string>
-    <string name="gender_female">Mulher</string>
-    <string name="gender_other">Outro</string>
-
-    <string name="avatar_cat_animals">🐾 Animais</string>
-    <string name="avatar_cat_faces">😊 Caras</string>
-    <string name="avatar_cat_fantasy">🧙 Fantasia</string>
-    <string name="avatar_cat_sports">⚽ Esportes</string>
+    <string name="home_coming_soon">(Em Breve)</string>
 
     <string name="settings_title">⚙️ Configurações</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_language_select">Selecione seu idioma preferido</string>
-    <string name="settings_spanish">Espanhol 🇪🇸</string>
-    <string name="settings_english">Inglês 🇺🇸</string>
+    <string name="settings_spanish">Español 🇪🇸</string>
+    <string name="settings_english">English 🇺🇸</string>
     <string name="settings_sound">Som</string>
     <string name="settings_sound_effects">Efeitos sonoros do jogo</string>
     <string name="settings_theme">Tema</string>
@@ -79,7 +42,7 @@
     <string name="settings_suggest">Enviar Sugestão</string>
     <string name="settings_suggest_desc">Compartilhe suas ideias</string>
     <string name="settings_bug">Reportar Erro</string>
-    <string name="settings_bug_desc">Se encontrar um problema, avise-nos</string>
+    <string name="settings_bug_desc">Encontrou um problema? Conte-nos</string>
     <string name="settings_rate">Avaliar App</string>
     <string name="settings_rate_desc">Ajude outros a nos descobrir</string>
     <string name="settings_legal">⚖️ LEGAL</string>
@@ -94,7 +57,6 @@
     <string name="close">Fechar</string>
     <string name="delete">Excluir</string>
     <string name="add">Adicionar</string>
-    <string name="party_cancel">Cancelar</string>
 
     <string name="game_title_warmup">PartyMix</string>
     <string name="game_desc_warmup">Eventos aleatórios e desafios rápidos.</string>
@@ -117,13 +79,13 @@
     <string name="game_desc_never">Se você já fez, você bebe.</string>
 
     <string name="game_title_truth">Verdade ou Desafio</string>
-    <string name="game_desc_truth">Você ousa ou confessa?</string>
+    <string name="game_desc_truth">Confessa ou encara?</string>
 
     <string name="game_title_highlow">Maior ou Menor</string>
     <string name="game_desc_highlow">Adivinhe se a carta é maior ou menor.</string>
 
     <string name="game_title_charades">Mímica Bêbada</string>
-    <string name="game_desc_charades">Atue sem falar e deixe adivinharem.</string>
+    <string name="game_desc_charades">Atue sem falar e eles adivinham.</string>
 
     <string name="game_title_roulette">Roleta Russa</string>
     <string name="game_desc_roulette">A sorte decide seu destino.</string>
@@ -134,22 +96,31 @@
     <string name="warmup_screen_title">🔥 PartyMix</string>
     <string name="warmup_screen_subtitle">Eventos aleatórios</string>
     <string name="warmup_mode_title">Modo PartyMix</string>
-    <string name="warmup_mode_desc">Rodadas diferentes com frases e eventos. Um jogador será selecionado para cada desafio!</string>
-    <string name="warmup_feature_1"> Eventos surpresa! Não esqueça de adicionar jogadores.</string>
-    <string name="warmup_feature_2"> Jogadores aleatórios</string>
-    <string name="warmup_feature_3"> Desafios intensos</string>
-    <string name="warmup_start_btn"> Começar Festa</string>
+    <string name="warmup_mode_desc">Diferentes rodadas com frases e eventos aleatórios. Adicione jogadores no menu para ativar eventos especiais!</string>
+    <string name="warmup_feature_1"> Eventos surpresa! Não esqueça de add jogadores.</string>
+    <string name="warmup_feature_2"> Jogadores selecionados aleatoriamente para desafios.</string>
+    <string name="warmup_feature_3"> Desafios intensos e divertidos!</string>
+    <string name="warmup_start_btn">🔥 Começar Party</string>
     <string name="warmup_rules_btn">Ver Regras</string>
     <string name="warmup_round_fmt">Rodada %1$d/%2$d</string>
     <string name="warmup_next_btn">Próximo →</string>
     <string name="warmup_finished_title">PartyMix\nConcluído!</string>
-    <string name="warmup_finished_subtitle">Esperamos que tenham se divertido!</string>
+    <string name="warmup_finished_subtitle">Esperamos que tenha sido incrível!</string>
     <string name="warmup_back_home_btn">🔄 Voltar ao Início</string>
+    <string name="stats_title">📊 Contagem de Drinks</string>
+    <string name="stats_empty">Ninguém bebeu... ainda.</string>
+    <string name="stats_drinks_fmt">%d 🍺</string>
+    <string name="end_summary_title">🏆 Resultados da Noite</string>
+    <string name="end_most_drunk">👑 REI/RAINHA DO COPO</string>
+    <string name="end_least_drunk">😇 O MAIS SANTO</string>
+    <string name="end_punishment_title">⚖️ SENTENÇA FINAL</string>
+    <string name="end_punishment_desc">Já que %1$s bebeu mais, deve escolher a penitência que quiser para %2$s!</string>
+    <string name="end_punishment_draw">Empate! Todos bebem um gole da amizade.</string>
 
     <string name="event_label_special">EVENTO ESPECIAL!</string>
     <string name="event_label_prep">PREPARAÇÃO!</string>
     <string name="event_player_selected_label">Jogador selecionado:</string>
-    <string name="event_btn_reject">Recusar</string>
+    <string name="event_btn_reject">Rejeitar</string>
     <string name="event_btn_reject_sub">-2 goles</string>
     <string name="event_btn_accept">Aceitar</string>
     <string name="event_btn_accept_sub">Desafio</string>
@@ -157,20 +128,20 @@
     <string name="event_btn_continue">Continuar</string>
 
     <string name="rules_title">📜 Regras do Jogo</string>
-    <string name="rules_understood">Entendi!</string>
+    <string name="rules_understood">Entendido!</string>
     <string name="rule_1_title">Instruções</string>
-    <string name="rule_1_desc">Siga as instruções em cada carta e avance.</string>
+    <string name="rule_1_desc">Siga as instruções de cada carta e dê próximo.</string>
     <string name="rule_2_title">Eventos</string>
-    <string name="rule_2_desc">Eventos aleatórios aparecem a cada poucas rodadas.</string>
+    <string name="rule_2_desc">Eventos aleatórios aparecerão. Adicione jogadores para ativar!</string>
     <string name="rule_3_title">Turnos</string>
-    <string name="rule_3_desc">Respeite o turno do jogador selecionado.</string>
+    <string name="rule_3_desc">Respeite o turno do companheiro.</string>
     <string name="rule_4_title">Hidratação</string>
     <string name="rule_4_desc">Lembre-se de beber água e jogar com responsabilidade.</string>
 
     <string name="evt_title_shots">DESAFIO DE SHOTS</string>
     <string name="evt_title_speed">TESTE DE VELOCIDADE</string>
     <string name="evt_title_challenge">DESAFIO DE CORAGEM</string>
-    <string name="evt_title_rps">PEDRA, PAPEL OU TESOURA</string>
+    <string name="evt_title_rps">PEDRA, PAPEL E TESOURA</string>
     <string name="evt_title_tongue">TRAVA-LÍNGUAS</string>
     <string name="evt_title_staring">DUELO DE OLHARES</string>
     <string name="evt_title_judge">O JUIZ</string>
@@ -183,196 +154,548 @@
     <string name="evt_title_mimic">DUELO DE MÍMICA</string>
 
     <string name="evt_inst_shots">Complete o desafio ou beba 2 goles extras.</string>
-    <string name="evt_inst_speed">Rápido! Se falhar, beba 2 goles.</string>
-    <string name="evt_inst_challenge">Você tem coragem? Se não, beba 2 goles.</string>
-    <string name="evt_inst_rps">Se o HOMEM ganhar, mulheres bebem. Se a MULHER ganhar, homens bebem.</string>
-    <string name="evt_inst_tongue">Diga rápido. Falhou: 2 shots. Conseguiu: distribua 3.</string>
-    <string name="evt_inst_staring">Olhem-se fixamente. Primeiro a piscar ou rir: BEBE.</string>
-    <string name="evt_inst_judge">Quem quebrar sua regra, bebe.</string>
-    <string name="evt_inst_gift_prep">O primeiro a levantar a mão ganha algo especial...</string>
+    <string name="evt_inst_speed">Rápido! Se não conseguir, beba 2 goles.</string>
+    <string name="evt_inst_challenge">Você se atreve? Se não, beba 2 goles.</string>
+    <string name="evt_inst_rps">Se o HOMEM ganha, mulheres bebem. Se a MULHER ganha, homens bebem.</string>
+    <string name="evt_inst_tongue">Diga rápido. Se falhar: 2 doses. Se conseguir: distribua 3.</string>
+    <string name="evt_inst_staring">Olhem-se fixamente. O primeiro a piscar ou rir: BEBE.</string>
+    <string name="evt_inst_judge">Quem quebrar sua regra, bebe. (Dura até sair outro Juiz).</string>
+    <string name="evt_inst_gift_prep">O primeiro a levantar a mão recebe algo especial...</string>
     <string name="evt_inst_gift_reveal">Este é o seu destino!</string>
-    <string name="evt_inst_ice">Se cair ou recusar: SHOT.</string>
-    <string name="evt_inst_selfie">Tirem a foto. O fotógrafo escolhe quem bebe.</string>
-    <string name="evt_inst_dance">Mostre seu talento! Se não dançar, beba 2.</string>
-    <string name="evt_inst_likely">No 3, apontem para alguém. O mais apontado BEBE.</string>
-    <string name="evt_inst_medusa">Contem até 3 e olhem para alguém. Se cruzarem o olhar: AMBOS BEBEM!</string>
-    <string name="evt_inst_mimic">Os outros adivinham. Ninguém acertou em 30s? VOCÊ BEBE.</string>
+    <string name="evt_inst_ice">Se cair ou amarelar: SHOT.</string>
+    <string name="evt_inst_selfie">Tirem a foto e postem. Quem tirou escolhe quem bebe.</string>
+    <string name="evt_inst_dance">Mostre-se! Se não dançar, beba 2 goles.</string>
+    <string name="evt_inst_likely">No 3, todos apontam para alguém. O mais apontado BEBE.</string>
+    <string name="evt_inst_medusa">Contem até 3 e olhem para alguém. Se cruzar olhar: AMBOS BEBEM!</string>
+    <string name="evt_inst_mimic">Os outros adivinham. Ninguém adivinhou em 30s? BEBE.</string>
 
-    <string name="evt_desc_shot_1">deve beber 2 shots agachado</string>
-    <string name="evt_desc_shot_2">debe beber 1 shot sem usar as mãos</string>
-    <string name="evt_desc_speed_1">nomeie 5 países em 10 segundos</string>
-    <string name="evt_desc_speed_2">diga 10 palavras que rimem com \'ÃO\'</string>
-    <string name="evt_desc_challenge_1">faça 15 agachamentos enquanto bebe</string>
-    <string name="evt_desc_challenge_2">cante uma música em voz alta</string>
+    <string name="evt_desc_shot_1">deve beber 2 doses agachado</string>
+    <string name="evt_desc_shot_2">deve beber 1 dose sem usar as mãos</string>
+    <string name="evt_desc_speed_1">deve nomear 5 países em 10 segundos</string>
+    <string name="evt_desc_speed_2">deve dizer 10 palavras que rimem com \'ÃO\'</string>
+    <string name="evt_desc_challenge_1">deve fazer 15 agachamentos enquanto bebe</string>
+    <string name="evt_desc_challenge_2">deve cantar uma música em voz alta</string>
 
-    <string name="evt_desc_rps_mix">VS %1$s\nBatalha dos sexos!</string>
+    <string name="evt_desc_rps_mix">VS %1$s\nDuelo de sexos!</string>
     <string name="evt_desc_rps_random">VS %1$s\nAté a morte!</string>
-    <string name="evt_desc_staring">Você enfrenta...\n👉 %1$s 👈\n\nNão pisque!</string>
+    <string name="evt_desc_staring">Enfrentando...\n👉 %1$s 👈\n\nNão pisque!</string>
 
     <string name="evt_desc_judge">Crie uma regra. Ex: Ninguém pode dizer \'SIM\' ou \'NÃO\'.</string>
-    <string name="evt_desc_ice">Passem um gelo boca a boca pela roda.</string>
+    <string name="evt_desc_ice">Passem um gelo boca a boca por toda a roda.</string>
     <string name="evt_desc_selfie">Foto em grupo agora mesmo!</string>
-    <string name="evt_desc_medusa">Todos de cabeça baixa...</string>
+    <string name="evt_desc_medusa">Todos abaixem a cabeça...</string>
     <string name="evt_desc_gift_prep">Quem quiser um PRESENTE levante a mão AGORA!</string>
 
     <string name="gift_pos_1">PRÊMIO! Distribua 3 goles.</string>
-    <string name="gift_pos_2">SALVO! Carta coringa para pular um desafio.</string>
-    <string name="gift_neg_1">CASTIGO! Beba o dobro na próxima vez.</string>
+    <string name="gift_pos_2">SALVAÇÃO! Carta coringa para pular desafio.</string>
+    <string name="gift_neg_1">CASTIGO! Beba o dobro.</string>
     <string name="gift_neg_2">VIRA-VIRA! Termine seu copo agora.</string>
 
     <string name="ph_men_drink">TODOS OS HOMENS BEBEM!</string>
     <string name="ph_women_drink">TODAS AS MULHERES BEBEM!</string>
-    <string name="ph_last_stand">Último a ficar de pé: 2 SHOTS</string>
+    <string name="ph_last_stand">Último a ficar de pé: 2 DOSES</string>
     <string name="ph_floor_touch">Último a tocar o chão: BEBE</string>
-    <string name="ph_get_sushi">As meninas que pedem sushi só para as notas do IG: VIRA TUDO!!</string>
-
     <string name="ph_youngest_distribute">O mais novo: DISTRIBUI 3 GOLES</string>
-    <string name="ph_everyone_drinks">TODOS BEBEM!</string>
+    <string name="ph_everyone_drinks">GERAL BEBE!</string>
     <string name="ph_tallest">O mais alto: ESCOLHE QUEM BEBE</string>
     <string name="ph_singles">Solteiros: BEBEM</string>
-    <string name="ph_couples">Comprometidos: BEBEM</string>
-    <string name="ph_phone_addict">Celular na mão: BEBE</string>
-    <string name="ph_colors_black">Quem veste preto: BEBE</string>
-    <string name="ph_colors_white">Quem veste branco: BEBE</string>
-    <string name="ph_never_have_u">Nome com a letra A: BEBE</string>
-    <string name="ph_smoke">Fumantes: GOLE LONGO</string>
-    <string name="ph_gym">Quem vai na academia: BEBE.</string>
+    <string name="ph_couples">Namorando/Casados: BEBEM</string>
+    <string name="ph_phone_addict">Quem tá com celular na mão: BEBE</string>
+    <string name="ph_colors_black">Quem tá de preto: BEBE</string>
+    <string name="ph_colors_white">Quem tá de branco: BEBE</string>
+    <string name="ph_never_have_u">Se seu nome tem U: BEBE</string>
+    <string name="ph_smoke">Se fuma: BEBE UM GOLE LONGO</string>
+    <string name="ph_gym">Se vai na academia: BEBE. Se não: TAMBÉM</string>
     <string name="ph_vote_laugh">Votem em quem ri mais: BEBE</string>
     <string name="ph_vote_shy">Votem no mais tímido: BEBE</string>
-    <string name="ph_action_battery">Menos bateria: BEBE</string>
-    <string name="ph_no_explain">Mostre a última foto da galeria (Sem explicar)</string>
+    <string name="ph_action_battery">Quem tiver menos bateria: BEBE</string>
+    <string name="ph_no_explain">Mostre a última foto da galeria (Sem explicações)</string>
     <string name="ph_hug">Rodada do Abraço: Abrace quem está à esquerda</string>
-    <string name="ph_youngest_drink">O mais jovem: BEBE</string>
-    <string name="ph_oldest_shot_cross">O mais velho: ESCOLHE DOIS para fazer SHOT CRUZADO</string>
-    <string name="ph_siblings_drink">Quem tem mais irmãos: BEBE</string>
-    <string name="ph_bday_closest_shot">O aniversariante mais próximo: 1 SHOT</string>
-    <string name="ph_own_vehicle_drink">Quem veio com veículo próprio: BEBE</string>
-    <string name="ph_last_hand_up_shot">Último a levantar a mão: 2 SHOTS</string>
-    <string name="ph_oldest_phone_drink">Quem tem o celular mais antigo: BEBE</string>
-    <string name="ph_seated_drink">Um gole para todos que estão sentados</string>
-    <string name="ph_last_stand_choose">O último a ficar de pé: ESCOLHE QUEM BEBE</string>
+
+    <string name="ph_youngest_drink">O mais novo: BEBE</string>
+    <string name="ph_get_sushi">Quem pede sushi nas notas do Insta: VIRA TUDO</string>
+    <string name="ph_oldest_shot_cross">O mais velho: ESCOLHE DOIS PARA SHOT CRUZADO</string>
+    <string name="ph_siblings_drink">Quem tiver mais irmãos: BEBE</string>
+    <string name="ph_bday_closest_shot">Aniversário mais próximo: 1 DOSE</string>
+    <string name="ph_own_vehicle_drink">Quem veio dirigindo: BEBE</string>
+    <string name="ph_last_hand_up_shot">Último a levantar a mão: 2 DOSES</string>
+    <string name="ph_oldest_phone_drink">Quem tem o celular mais velho: BEBE</string>
+    <string name="ph_seated_drink">Um gole quem estiver sentado</string>
+    <string name="ph_last_stand_choose">Último a levantar: ESCOLHE QUEM BEBE</string>
     <string name="ph_age_split_shot">-20 anos: 1 shot. +20 anos: 2 shots</string>
-    <string name="ph_age_over_22_drink">Maiores de 22 anos bebem</string>
-    <string name="ph_youngest_shot_cross">O mais jovem escolhe 2 pessoas para shot cruzado</string>
-    <string name="ph_tall_short_shot_cross">A pessoa mais alta e a mais baixa: SHOT CRUZADO</string>
-    <string name="ph_dark_hair_drink">Cabelo escuro: 1 gole. Cabelo tingido: 2 goles</string>
-    <string name="ph_height_over_drink">Quem mede mais de 1.70m: BEBE</string>
-    <string name="ph_eye_color_drink">Se houver alguém de olhos verdes ou azuis: BEBE</string>
-    <string name="ph_glasses_drink">Se você usa óculos: BEBE</string>
+    <string name="ph_age_over_22_drink">Maiores de 22 bebem</string>
+    <string name="ph_youngest_shot_cross">O/a mais novo escolhe 2 para shot cruzado</string>
+    <string name="ph_tall_short_shot_cross">Pessoa mais alta e mais baixa: SHOT CRUZADO</string>
+    <string name="ph_dark_hair_drink">Cabelo escuro: 1 gole. Tingidos: 2 goles</string>
+    <string name="ph_height_over_drink">Quem mede mais de 1.75m: BEBE</string>
+    <string name="ph_eye_color_drink">Se tem olhos verdes ou azuis: BEBE</string>
+    <string name="ph_glasses_drink">Se usa óculos: BEBE</string>
     <string name="ph_dimples_drink">Quem tem covinhas: BEBE</string>
-    <string name="ph_smallest_foot_drink">Quem tem o menor pé: BEBE</string>
-    <string name="ph_curly_hair_drink">Quem tem cabelo cacheado: BEBE</string>
-    <string name="ph_left_handed_shot">Se você é canhoto: SHOT</string>
-    <string name="ph_freckles_drink">Se você tem sardas: BEBE</string>
+    <string name="ph_smallest_foot_drink">Quem tem o pé menor: BEBE</string>
+    <string name="ph_curly_hair_drink">Cabelo cacheado: BEBE</string>
+    <string name="ph_left_handed_shot">Se é canhoto: DOSE</string>
+    <string name="ph_freckles_drink">Se tem sardas: BEBE</string>
     <string name="ph_zodiac_fire_earth_drink">Bebem: Leão, Capricórnio, Câncer e Gêmeos</string>
     <string name="ph_zodiac_air_water_drink">Bebem: Aquário, Touro, Áries e Libra</string>
-    <string name="ph_longest_name_drink">O nome mais longo: BEBE</string>
+    <string name="ph_longest_name_drink">Nome mais longo: BEBE</string>
     <string name="ph_fall_in_love_drink">Quem se apaixona rápido: BEBE</string>
-    <string name="ph_get_angry_drink">Se fica bravo rápido: GOLE</string>
-    <string name="ph_sagi_shot">Sagitário: SHOT por falar demais</string>
-    <string name="ph_relationship_shot">Solteiros: 1 shot. Enrolados: 2 shots</string>
-    <string name="ph_phone_brand_shot">iPhone: 2 shots. Samsung: 1. Outros: Salvos</string>
-    <string name="ph_back_ex_drink">Se voltou com o ex: BEBE</string>
-    <string name="ph_sneaking_out_drink">Se já saiu escondido: BEBE</string>
-    <string name="ph_kiss_someone_drink">Se beijaria alguém aqui: BEBE</string>
+    <string name="ph_get_angry_drink">Se estressa rápido: GOLE</string>
+    <string name="ph_sagi_shot">Sagitário: DOSE por falar demais</string>
+    <string name="ph_relationship_shot">Solteiros: 1 dose. Enrolados: 2 doses</string>
+    <string name="ph_phone_brand_shot">iPhone: 2 doses. Samsung: 1. Outros: Salvos</string>
+    <string name="ph_back_ex_drink">Se voltou com ex: BEBE</string>
+    <string name="ph_sneaking_out_drink">Se já fugiu de casa: BEBE</string>
+    <string name="ph_kiss_someone_drink">Se beijaria alguém daqui: BEBE</string>
     <string name="ph_first_time_age_drink">Primeira vez antes dos 16: BEBE</string>
-    <string name="ph_prefer_married_shot">Se prefere ser casado do que solteiro: SHOT</string>
-    <string name="ph_pity_kiss_shot">Se beijou alguém por pena: SHOT</string>
-    <string name="ph_fake_ig_shot">Se tem Instagram falso para stalkear: SHOT</string>
+    <string name="ph_prefer_married_shot">Se prefere estar casado que solteiro: DOSE</string>
+    <string name="ph_pity_kiss_shot">Se beijou por pena: DOSE</string>
+    <string name="ph_fake_ig_shot">Se tem Instagram fake pra stalkear: DOSE</string>
     <string name="ph_dating_app_drink">Se usou Apps de Namoro: GOLE LONGO</string>
-    <string name="ph_erotic_dream_drink">Se teve um sonho erótico com alguém presente: BEBE</string>
-    <string name="ph_caught_in_act_drink">Se foi pego no flagra: BEBE</string>
-    <string name="ph_read_receipts_drink">Se tem o "visto" desativado: BEBE</string>
-    <string name="ph_most_followers_shot">Quem tem mais seguidores no IG: SHOT</string>
-    <string name="ph_bite_kiss_shot">Se gosta de beijos com mordida: SHOT</string>
-    <string name="ph_fantasy_boss_shot">Se fantasiou com professor/chefe: SHOT</string>
-    <string name="ph_sneaky_phone_check_shot">Se checou o celular de alguém escondido: SHOT</string>
-    <string name="ph_phone_checked_drink">Se checaram seu celular: GOLE</string>
-    <string name="ph_vote_best_smell_distribute">Vote em quem cheira melhor: DISTRIBUI 2</string>
-    <string name="ph_vote_spender_shot">Vote no mais gastador: SHOT</string>
-    <string name="ph_vote_quiet_shot">Aponte para o mais quieto: TOMA SHOT</string>
-    <string name="ph_vote_party_animal_drink">Vote no mais festeiro: BEBE</string>
-    <string name="ph_vote_least_party_drink">Vote no menos festeiro: BEBE</string>
-    <string name="ph_vote_shameless_drink">Vote no mais sem-vergonha: BEBE</string>
-    <string name="ph_vote_embarrassed_drink">Vote no mais envergonhado: BEBE</string>
-    <string name="ph_vote_extrovert_drink">Vote no mais extrovertido: BEBE</string>
-    <string name="ph_vote_otaku_drink">Vote no Otaku da turma: BEBE</string>
-    <string name="ph_vote_gamer_drink">Vote no mais Gamer: BEBE</string>
-    <string name="ph_vote_best_dressed_drink">Vote na pessoa mais bem vestida</string>
-    <string name="ph_vote_most_pointed_bottoms_up">VOTAÇÃO! O mais apontado vira</string>
-    <string name="ph_proposer_choose_drink">Quem propôs jogar escolhe 3 para beber</string>
+    <string name="ph_erotic_dream_drink">Sonho erótico com alguém presente: BEBE</string>
+    <string name="ph_caught_in_act_drink">Se te pegaram no flagra: BEBE</string>
+    <string name="ph_read_receipts_drink">Se tira o visto por último: BEBE</string>
+    <string name="ph_most_followers_shot">Quem tem mais seguidores no IG: DOSE</string>
+    <string name="ph_bite_kiss_shot">Se gosta de beijo com mordida: DOSE</string>
+    <string name="ph_fantasy_boss_shot">Fantasia com prof/chefe: DOSE</string>
+    <string name="ph_sneaky_phone_check_shot">Se já mexeu no cel de alguém escondido: DOSE</string>
+    <string name="ph_phone_checked_drink">Se mexeram no seu cel: GOLE</string>
+    <string name="ph_vote_best_smell_distribute">Votem no mais cheiroso: REPARTE 2</string>
+    <string name="ph_vote_spender_shot">Votem no mais gastador: DOSE</string>
+    <string name="ph_vote_quiet_shot">Votem no mais quieto: TOMA DOSE</string>
+    <string name="ph_vote_party_animal_drink">Votem no mais baladeiro: BEBE</string>
+    <string name="ph_vote_least_party_drink">Votem no mais caseiro: BEBE</string>
+    <string name="ph_vote_shameless_drink">Votem no mais sem vergonha: BEBE</string>
+    <string name="ph_vote_embarrassed_drink">Votem no mais envergonhado: BEBE</string>
+    <string name="ph_vote_extrovert_drink">Votem no mais extrovertido: BEBE</string>
+    <string name="ph_vote_otaku_drink">Votem no Otaku do grupo: BEBE</string>
+    <string name="ph_vote_gamer_drink">Votem no mais Gamer: BEBE</string>
+    <string name="ph_vote_best_dressed_drink">Votem no melhor vestido</string>
+    <string name="ph_vote_most_pointed_bottoms_up">VOTAÇÃO! O mais apontado vira o copo</string>
+    <string name="ph_proposer_choose_drink">Quem propôs jogar escolhe 3 pra beber</string>
     <string name="ph_oldest_choose_kiss">O mais velho escolhe 2 para dar um selinho</string>
-    <string name="ph_earliest_choose_kiss">Quem chegou mais cedo escolhe 2 para um selinho</string>
+    <string name="ph_earliest_choose_kiss">Quem chegou mais cedo escolhe 2 p/ selinho</string>
     <string name="ph_latest_drink">Quem chegou mais tarde: BEBE</string>
-    <string name="ph_host_choose_drink">Quem está dando a casa escolhe 2 para beber</string>
-    <string name="ph_serious_drink">Todos sérios: O primeiro a rir BEBE</string>
-    <string name="ph_count_to_ten_drink">Contem até 10: Quem falar o 10 BEBE</string>
-    <string name="ph_most_battery_choose">Quem tem mais bateria escolhe 2</string>
-    <string name="ph_women_choose_drink">Cada mulher escolhe 1 pessoa para beber</string>
-    <string name="ph_men_massage">Homens massageiam mulheres por 1 min (ou shot)</string>
-    <string name="ph_women_massage">Mulheres massageiam homens por 1 min (ou shot)</string>
-    <string name="ph_last_nose_touch_drink">O último a tocar o nariz: BEBE</string>
-    <string name="ph_tattoos_drink">Quem tem tatuagens: BEBE</string>
-    <string name="ph_no_tattoos_drink">Quem não tem tatuagens: BEBE</string>
-    <string name="ph_red_underwear_shot">Se estiver usando cueca/calcinha vermelha: SHOT</string>
-    <string name="ph_swap_clothing_drink">Troque uma peça de roupa com quem está à direita ou BEBE</string>
+    <string name="ph_host_choose_drink">Dono da casa escolhe 2 pra beber</string>
+    <string name="ph_serious_drink">Todos sérios: Primeiro a rir BEBE</string>
+    <string name="ph_count_to_ten_drink">Contem até 10: Quem falar 10 BEBE</string>
+    <string name="ph_most_battery_choose">Quem tiver mais bateria escolhe 2</string>
+    <string name="ph_women_choose_drink">Cada mulher escolhe 1 pessoa pra beber</string>
+    <string name="ph_men_massage">Homens massageiam mulheres 1 min (ou dose)</string>
+    <string name="ph_women_massage">Mulheres massageiam homens 1 min (ou dose)</string>
+    <string name="ph_last_nose_touch_drink">Último a tocar o nariz: BEBE</string>
+    <string name="ph_tattoos_drink">Quem tem tatuagem: BEBE</string>
+    <string name="ph_no_tattoos_drink">Quem não tem tatuagem: BEBE</string>
+    <string name="ph_red_underwear_shot">Se usa roupa íntima vermelha: DOSE</string>
+    <string name="ph_swap_clothing_drink">Troque uma peça de roupa com quem tá na direita ou BEBE</string>
     <string name="ph_best_cook_choose">Quem cozinha melhor: Escolhe quem bebe</string>
-    <string name="ph_biggest_foot_drink">Quem tem o maior pé: BEBE</string>
-    <string name="ph_travel_continent_safe">Se viajou para outro continente: SALVO. Os outros bebem.</string>
-    <string name="ph_most_coins_drink">Quem tem mais moedas no bolso: BEBE</string>
-    <string name="ph_pets_drink">Se tem um pet: BEBE</string>
-    <string name="ph_siblings_present_drink">Todos que têm irmãos: BEBEM</string>
-    <string name="ph_most_languages_distribute">Quem fala mais idiomas: Distribui 2 goles</string>
+    <string name="ph_biggest_foot_drink">Quem tem o pé maior: BEBE</string>
+    <string name="ph_travel_continent_safe">Se viajou pra outro continente: SALVO. Resto bebe.</string>
+    <string name="ph_most_coins_drink">Quem tiver mais moedas no bolso: BEBE</string>
+    <string name="ph_pets_drink">Tem animal de estimação: BEBE</string>
+    <string name="ph_siblings_present_drink">Todos que tem irmãos: BEBEM</string>
+    <string name="ph_most_languages_distribute">Quem fala mais idiomas: Reparte 2 goles</string>
     <string name="ph_motorcycle_drink">Se pilota moto: BEBE</string>
     <string name="ph_confession_3t1l">Digam 3 verdades e 1 mentira sobre vocês</string>
-    <string name="ph_confession_first_time">CONFISSÃO: Qual foi a idade da primeira vez?</string>
-    <string name="ph_confession_weird_place">CONFISSÃO: O lugar mais estranho que já fizeram?</string>
-    <string name="ph_confession_first_look">CONFISSÃO: Qual a primeira coisa que você olha em alguém?</string>
-    <string name="ph_swap_places">TROCA DE LUGAR! Todos troquem de lugar com alguém</string>
-    <string name="ph_thumb_war">Guerra de Polegares com a pessoa à sua direita</string>
-    <string name="ph_biggest_foot_song">Quem tem o maior pé escolhe a próxima música</string>
-    <string name="ph_lock_screen_show">Mostre seu papel de parede da tela de bloqueio</string>
-    <string name="ph_touch_nose_tongue">Tente tocar o nariz com a língua.</string>
-    <string name="ph_vote_president">Aponte para quem seria o melhor presidente do país</string>
-    <string name="ph_massage_right">Faça uma massagem de ombro de 1 min em quem está à sua direita</string>
-    <string name="ph_last_green_touch_lose">O último a tocar algo VERDE perde</string>
-    <string name="ph_low_battery_google_search">Quem tem menos bateria deve mostrar a última pesquisa no Google</string>
+    <string name="ph_confession_first_time">CONFISSÃO: Com que idade foi a primeira vez?</string>
+    <string name="ph_confession_weird_place">CONFISSÃO: Lugar mais estranho onde já fizeram?</string>
+    <string name="ph_confession_first_look">CONFISSÃO: O que olham primeiro em alguém?</string>
+    <string name="ph_swap_places">TROCA DE LUGAR! Todos troquem de lugar com qualquer um</string>
+    <string name="ph_thumb_war">Guerra de Polegar com a pessoa da direita</string>
+    <string name="ph_biggest_foot_song">Quem tiver o maior pé escolhe a música</string>
+    <string name="ph_lock_screen_show">Mostrem o papel de parede do celular</string>
+    <string name="ph_touch_nose_tongue">Tentem tocar o nariz com a língua.</string>
+    <string name="ph_vote_president">Apontem para quem seria o melhor presidente</string>
+    <string name="ph_massage_right">Massagem de ombro 1 min em quem tá na direita</string>
+    <string name="ph_last_green_touch_lose">Último a tocar algo VERDE perde</string>
+    <string name="ph_low_battery_google_search">Quem tem menos bateria mostra a última busca no Google</string>
+
+    <string name="truth_game_title">🎭 Verdade ou Desafio</string>
+    <string name="truth_game_subtitle">Você encara?</string>
+    <string name="truth_stat_truth">Verdades</string>
+    <string name="truth_stat_dare">Desafios</string>
+    <string name="truth_turn_label">Vez de:</string>
+    <string name="truth_choose_label">O que você escolhe?</string>
+    <string name="truth_btn_truth">VERDADE</string>
+    <string name="truth_btn_dare">DESAFIO</string>
+    <string name="truth_result_truth">VERDADE</string>
+    <string name="truth_result_dare">DESAFIO</string>
+    <string name="truth_btn_back">Voltar a Escolher</string>
+
+    <string name="truth_1">Qual é o seu pior hábito?</string>
+    <string name="truth_2">Quem você não gosta nesta sala?</string>
+    <string name="truth_3">Qual seu maior medo irracional?</string>
+    <string name="truth_4">Coisa mais vergonhosa que buscou no Google?</string>
+    <string name="truth_5">Se arrepende de algum beijo?</string>
+    <string name="truth_6">Já mentiu a idade para algo?</string>
+    <string name="truth_7">Qual seu segredo mais obscuro?</string>
+    <string name="truth_8">Quem daqui você beijaria se fosse obrigado?</string>
+    <string name="truth_9">Já espiou o celular de alguém?</string>
+    <string name="truth_10">Qual a maior mentira que já contou?</string>
+    <string name="truth_11">Fingiu estar doente para faltar em algo?</string>
+    <string name="truth_12">Coisa mais vergonhosa num encontro?</string>
+    <string name="truth_13">Já roubou algo alguma vez?</string>
+    <string name="truth_14">Qual seu crush secreto atual?</string>
+    <string name="truth_15">Já colou numa prova?</string>
+    <string name="truth_16">Maior insegurança física?</string>
+    <string name="truth_17">Já chorou por alguém deste grupo?</string>
+    <string name="truth_18">Pior presente que já recebeu?</string>
+    <string name="truth_19">Já stalkeou alguém nas redes sociais?</string>
+    <string name="truth_20">Pior coisa que fez bêbado?</string>
+    <string name="truth_21">Qual é a sua música romântica favorita para a "hora H"?</string>
+    <string name="truth_22">Com qual famoso/celebridade você fantasiava durante a adolescência?</string>
+    <string name="truth_23">Se a pessoa que você está conhecendo disser que intimidade física não é possível, você aceitaria?</string>
+    <string name="truth_24">Qual foi o melhor dia da sua vida?</string>
+    <string name="truth_25">Você seria capaz de ganhar a vida com seu corpo se não tivesse dinheiro?</string>
+    <string name="truth_26">Você já se apaixonou pelo parceiro(a) de um amigo(a)?</string>
+    <string name="truth_27">O que você faria se visse fotos íntimas de outras pessoas no telefone do seu parceiro?</string>
+    <string name="truth_28">Sua primeira vez foi com alguém que você amava?</string>
+    <string name="truth_29">Você já foi demitido por fazer algo inapropriado?</string>
+    <string name="truth_30">Você já roubou dinheiro dos seus pais?</string>
+    <string name="truth_31">O que uma pessoa deve fazer para você se apaixonar por ela?</string>
+    <string name="truth_32">Quanto tempo depois de conhecer alguém você permite intimidade?</string>
+    <string name="truth_33">Viajar para o futuro ou para o passado?</string>
+    <string name="truth_34">Qual superpoder você gostaria de ter?</string>
+    <string name="truth_35">O que significa amor incondicional para você?</string>
+    <string name="truth_36">Qual é o sonho que mais te impactou?</string>
+    <string name="truth_37">Você já teve experiências paranormais? Se sim, conte a que mais te impactou.</string>
+    <string name="truth_38">Se amanhã você tivesse que se mudar para outro país, para onde iria?</string>
+    <string name="truth_39">Quão rápido você fica excitado(a)?</string>
+    <string name="truth_40">Como seu conceito de amor mudou ao longo dos anos?</string>
+    <string name="truth_41">Você já esteve em um relacionamento com alguém muito mais velho ou mais bonito que você?</string>
+    <string name="truth_42">Você já flertou com o pai/mãe de um amigo?</string>
+    <string name="truth_43">Você acobertaria a traição de um amigo?</string>
+    <string name="truth_44">Você já presenciou outro casal tendo intimidade?</string>
+    <string name="truth_45">Qual é o seu ponto mais sensível?</string>
+    <string name="truth_46">Com que idade você descobriu o auterotismo?</string>
+    <string name="truth_47">O que você prefere: uma noite tranquila em casa ou um restaurante caro?</string>
+    <string name="truth_48">Qual é a principal coisa que você quer fazer antes de morrer?</string>
+    <string name="truth_49">Você já teve um relacionamento à distância?</string>
+    <string name="truth_50">Como foi sua primeira vez?</string>
+    <string name="truth_51">Você já enviou uma foto íntima para a pessoa errada?</string>
+    <string name="truth_52">O que é a coisa mais nojenta que você já fez por amor (ou tesão)?</string>
+    <string name="truth_53">Se pudesse trocar de parceiro com alguém daqui, com quem seria?</string>
+    <string name="truth_54">Qual foi a razão mais ridícula pela qual você terminou um namoro?</string>
+    <string name="truth_55">Você já duvidou da sua orientação sexual?</string>
+    <string name="truth_56">O que seus pais acreditam sobre você que é totalmente falso?</string>
+    <string name="truth_57">Você já transou na casa dos seus pais enquanto eles estavam lá?</string>
+    <string name="truth_58">Que tipo de conteúdo adulto você prefere assistir?</string>
+    <string name="truth_59">Você já flertou com alguém só por interesse?</string>
+    <string name="truth_60">Qual é o lugar mais estranho onde você teve vontade de fazer?</string>
+    <string name="truth_61">Você já teve um relacionamento com alguém que tem filhos que não são seus?</string>
+    <string name="truth_62">O que você faria se descobrisse que seu melhor amigo(a) te quer?</string>
+    <string name="truth_63">Você já usou a roupa íntima de outra pessoa?</string>
+    <string name="truth_64">Qual é o seu "guilty pleasure" em relação a conteúdo adulto ou literatura erótica?</string>
+    <string name="truth_65">Você já foi o/a "amante" em um relacionamento alheio?</string>
+    <string name="truth_66">O que é a coisa mais cruel que você já disse na cara de alguém?</string>
+    <string name="truth_67">Se você tivesse que casar com alguém deste grupo, quem seria?</string>
+    <string name="truth_68">Você já fez xixi em uma piscina pública (sendo adulto)?</string>
+    <string name="truth_69">Qual é a foto mais comprometedora que você tem na sua galeria agora?</string>
+    <string name="truth_70">Você já flertou com irmãos de amigos?</string>
+    <string name="truth_71">O que você mais inveja na pessoa à sua direita?</string>
+    <string name="truth_72">Você já gravou um vídeo íntimo? (Não precisa mostrar...)</string>
+    <string name="truth_73">Você já teve alguma doença venérea ou susto de gravidez?</string>
+    <string name="truth_74">Qual foi o sonho mais estranho que você teve com alguém daqui?</string>
+    <string name="truth_75">Qual é o período mais longo que você ficou sem sexo?</string>
+    <string name="truth_76">O que é a coisa mais cara que você quebrou e escondeu a evidência?</string>
+    <string name="truth_77">Você já foi pego se tocando?</string>
+    <string name="truth_78">Se pudesse apagar uma pessoa do seu passado, quem seria?</string>
+    <string name="truth_79">Qual parte do seu corpo você operaria se fosse de graça?</string>
+    <string name="truth_80">Você já fez sexting com alguém que não conhecia pessoalmente?</string>
+    <string name="truth_81">Qual é a mentira mais elaborada que você manteve por muito tempo?</string>
+    <string name="truth_82">Você já se sentiu atraído por algum parente distante (primo/a)?</string>
+    <string name="truth_83">O que você realmente acha do parceiro(a) do seu melhor amigo(a)?</string>
+    <string name="truth_84">Você já saiu sem roupa íntima na rua?</string>
+    <string name="truth_85">O que é a pior coisa que você fez no trabalho/escola e ninguém descobriu?</string>
+    <string name="truth_86">Você já teve uma "amizade colorida" que terminou mal?</string>
+    <string name="truth_87">Qual é o seu fetiche mais "normal" que você tem vergonha de admitir?</string>
+    <string name="truth_88">Com que idade você provou álcool pela primeira vez? Conte sua experiência.</string>
+    <string name="truth_89">Você já fingiu ser do sexo oposto na internet?</string>
+    <string name="truth_90">O que é a coisa mais patética que você fez para chamar a atenção do crush?</string>
+    <string name="truth_91">Você já usou a escova de dentes de outra pessoa sem avisar?</string>
+    <string name="truth_92">Você transaria com o ex de um amigo por 1 milhão de dólares?</string>
+    <string name="truth_93">Qual foi a mensagem de texto mais vergonhosa que você enviou bêbado(a)?</string>
+    <string name="truth_94">Você já duvidou se é pai/mãe de uma criança? (Ou se seus pais são os seus)</string>
+    <string name="truth_95">O que você menos gosta fisicamente em si mesmo?</string>
+    <string name="truth_96">Você já transou pensando em outra pessoa?</string>
+    <string name="truth_97">Você já roubou um beijo à força? (Ou tentou)</string>
+    <string name="truth_98">O que é a coisa mais suja (literalmente) que você fez na cama?</string>
+    <string name="truth_99">Já te fizeram uma proposta indecente por dinheiro? Você aceitou?</string>
+    <string name="truth_100">Se pudesse ter uma característica física de alguém presente, qual seria?</string>
+    <string name="truth_101">Quantas vezes você já se apaixonou na vida?</string>
+    <string name="truth_102">Você já soltou um pum e culpou outra pessoa?</string>
+    <string name="truth_103">O que foi a pior coisa que seus pais disseram sobre seu parceiro(a)?</string>
+    <string name="truth_104">Você já transou no trabalho?</string>
+    <string name="truth_105">Você já levou um bolo em um encontro?</string>
+    <string name="truth_106">Você já se apaixonou por um professor(a)?</string>
+    <string name="truth_107">Você já acordou de ressaca com um desconhecido ao lado?</string>
+    <string name="truth_108">O que mais te desanima na cama?</string>
+    <string name="truth_109">Você já leu o diário ou mensagens privadas de alguém sem permissão?</string>
+    <string name="truth_110">Você já se sentiu atraído pelo parceiro(a) de alguém desta sala?</string>
+    <string name="truth_111">Você já fingiu que gostou de um presente e depois o vendeu?</string>
+    <string name="truth_112">Qual é a situação mais constrangedora que você viveu com seus sogros?</string>
+    <string name="truth_113">Você já teve alguma experiência com alguém do mesmo sexo?</string>
+    <string name="truth_114">O que é a coisa mais ilegal que você já fez?</string>
+    <string name="truth_115">Você já ficou com alguém só porque tinha carro/casa/dinheiro?</string>
+    <string name="truth_116">Qual é o hábito mais nojento que você tem quando está sozinho?</string>
+    <string name="truth_117">Você já chorou para conseguir o que queria?</string>
+    <string name="truth_118">Você já foi pego mentindo no currículo?</string>
+    <string name="truth_119">Com que idade perdeu a virgindade e foi como esperava?</string>
+    <string name="truth_120">Que complexos você tem?</string>
+    <string name="truth_121">Você já esteve perto da morte?</string>
+    <string name="truth_122">Você já desejou que seu parceiro atual te deixasse para não ter que terminar?</string>
+    <string name="truth_123">Qual é o boato mais falso que você ouviu sobre você?</string>
+    <string name="truth_124">Você já beijou mais de 3 pessoas em uma única noite?</string>
+    <string name="truth_125">O que você nunca perdoaria em um amigo?</string>
+    <string name="truth_126">Você já usou Tinder estando em um relacionamento "só para ver"?</string>
+    <string name="truth_127">Você já vomitou em alguém?</string>
+    <string name="truth_128">Qual é sua técnica infalível para paquerar?</string>
+    <string name="truth_129">Você já transou no cinema?</string>
+    <string name="truth_130">Você já dormiu com alguém muito mais velho que você (sugar daddy/mommy)?</string>
+    <string name="truth_131">O que mais te excita que te digam ao pé do ouvido?</string>
+    <string name="truth_132">Você já fingiu uma ligação para escapar de um encontro?</string>
+    <string name="truth_133">Qual foi a coisa mais estúpida pela qual você chorou?</string>
+    <string name="truth_134">Você já transou com alguém cujo nome não lembra?</string>
+    <string name="truth_135">Quem deste grupo você acha que será o primeiro a casar (ou divorciar)?</string>
+    <string name="truth_136">Você já comeu algo do lixo?</string>
+    <string name="truth_137">Você já se sentiu sexualmente atraído por algum personagem de desenho animado?</string>
+    <string name="truth_138">O que foi a pior coisa que você fez por vingança?</string>
+    <string name="truth_139">Você já teve piolhos e não contou a ninguém?</string>
+    <string name="truth_140">Você já fez xixi nas calças de rir (ou de medo) sendo adulto?</string>
+    <string name="truth_141">Você já stalkeou o novo parceiro do seu ex?</string>
+    <string name="truth_142">Qual é a sua maior "Red Flag" em um relacionamento?</string>
+    <string name="truth_143">Você já roubou no trabalho?</string>
+    <string name="truth_144">Você já dormiu com o ex de um amigo?</string>
+    <string name="truth_145">O que você faria se fosse do sexo oposto por um dia?</string>
+    <string name="truth_146">Você já disse "Eu te amo" sem sentir?</string>
+    <string name="truth_147">Qual é a parte do seu corpo que você menos gosta que toquem?</string>
+    <string name="truth_148">Quais são suas crenças religiosas?</string>
+    <string name="truth_149">O que é a coisa mais estranha que você usou como lubrificante?</string>
+    <string name="truth_150">Você já desejou a morte de alguém (sério)?</string>
+
+    <string name="dare_1">Faça 10 agachamentos bebendo.</string>
+    <string name="dare_2">Deixe o grupo mandar mensagem pra alguém do seu cel.</string>
+    <string name="dare_3">Imite alguém do grupo até adivinharem.</string>
+    <string name="dare_4">Beba um gole sem usar as mãos.</string>
+    <string name="dare_5">Fale com sotaque gringo por 3 rodadas.</string>
+    <string name="dare_6">Dance sem música por 30 segundos.</string>
+    <string name="dare_8">Coma uma mistura que o grupo decidir.</string>
+    <string name="dare_9">Ligue para um contato aleatório e cante.</string>
+    <string name="dare_10">Troque uma peça de roupa com alguém.</string>
+    <string name="dare_11">20 flexões ou 2 doses.</string>
+    <string name="dare_12">Confesse sua última busca no Google.</string>
+    <string name="dare_13">Deixe alguém te maquiar ou pentear.</string>
+    <string name="dare_14">Segure um gelo na boca até derreter.</string>
+    <string name="dare_15">Imite seu animal favorito por 1 minuto.</string>
+    <string name="dare_16">Deixe alguém postar um story no seu Instagram.</string>
+    <string name="dare_17">Elogie cada pessoa do grupo.</string>
+    <string name="dare_18">Atue como garçom e sirva todos por 10 min.</string>
+    <string name="dare_19">Faça beatbox por 30 segundos.</string>
+    <string name="dare_21">Conte uma piada. Ninguém riu? Beba o dobro.</string>
+    <string name="dare_22">Fale em terceira pessoa até a próxima vez.</string>
+    <string name="dare_23">Receba cócegas por 30s sem rir.</string>
+    <string name="dare_24">Sessão de fotos vergonhosa dirigida pelo grupo.</string>
+    <string name="dare_25">Ande de quatro até sua próxima vez.</string>
+    <string name="dare_26">Deixe o grupo preparar um drink "especial" com o que tiver e beba.</string>
+    <string name="dare_27">Mostre as últimas 3 fotos da sua galeria ou beba 3 goles.</string>
+    <string name="dare_28">Faça uma dança sexy para a pessoa na sua frente.</string>
+    <string name="dare_29">Ligue para um restaurante e peça um "Hambúrguer Kampai" com muita confiança.</string>
+    <string name="dare_30">Cheire o pé da pessoa à sua direita (com meia... ou não).</string>
+    <string name="dare_31">Sente no colo da pessoa à sua esquerda até sua próxima vez.</string>
+    <string name="dare_32">Deixe pintarem seu rosto com canetinha (ou maquiagem).</string>
+    <string name="dare_33">Beba um shot do umbigo de alguém (Body Shot).</string>
+    <string name="dare_34">Curta a primeira foto do seu ex no Instagram.</string>
+    <string name="dare_35">Fale cantando tudo o que disser por 2 rodadas.</string>
+    <string name="dare_36">Faça 50 abdominais ou termine sua bebida.</string>
+    <string name="dare_37">Morda uma fruta (ou o que for) segurada pela boca de outro jogador.</string>
+    <string name="dare_38">Grite pela janela: "EU AMO ÁLCOOL E NÃO ME ARREPENDO!".</string>
+    <string name="dare_39">Coloque as meias nas mãos até a próxima vez.</string>
+    <string name="dare_40">Deixe o grupo mudar seu penteado e fique assim por 10 minutos.</string>
+    <string name="dare_41">Beba um gole sem usar as mãos (alguém te dá de beber).</string>
+    <string name="dare_42">Imite um orgasmo barulhento por 10 segundos.</string>
+    <string name="dare_43">Leia em voz alta a última mensagem de WhatsApp que você enviou.</string>
+    <string name="dare_44">Faça a ponte (arco) por 30 segundos.</string>
+    <string name="dare_45">Vista a roupa íntima por cima da calça por 2 rodadas.</string>
+    <string name="dare_46">Coma uma colher de canela, pimenta ou limão puro.</string>
+    <string name="dare_47">Deixe alguém escrever algo na sua testa.</string>
+    <string name="dare_48">Dance a Macarena sem música e com cara séria.</string>
+    <string name="dare_49">Faça uma massagem nos pés da pessoa à sua direita.</string>
+    <string name="dare_50">Beba água da tigela de um animal (ou de um prato fundo no chão).</string>
+    <string name="dare_51">Envie um áudio gemendo para um contato que o grupo escolher.</string>
+    <string name="dare_52">Dê 10 voltas rápidas em torno de si mesmo e tente andar em linha reta.</string>
+    <string name="dare_53">Coloque um cubo de gelo na roupa íntima até derreter.</string>
+    <string name="dare_54">Deixe o grupo enviar um DM para um famoso da sua conta.</string>
+    <string name="dare_55">Aja como um cachorro e peça carinho para todos.</string>
+    <string name="dare_56">Beba toda vez que alguém disser seu nome durante esta rodada.</string>
+    <string name="dare_57">Troque de camisa/camiseta com a pessoa à sua esquerda.</string>
+    <string name="dare_58">Faça uma declaração de amor dramática para uma lâmpada ou objeto.</string>
+    <string name="dare_59">Mostre seu histórico de busca do YouTube.</string>
+    <string name="dare_60">Deixe alguém depilar uma pequena área da sua perna (com cera ou fita).</string>
+    <string name="dare_61">Lamba o lóbulo da orelha da pessoa à sua direita.</string>
+    <string name="dare_62">Cante o refrão da sua música favorita a plenos pulmões.</string>
+    <string name="dare_63">Faça uma prancha (plank) por 1 minuto. Se cair, bebe o dobro.</string>
+    <string name="dare_64">Deixe revisarem as notas do seu celular.</string>
+    <string name="dare_65">Imite um bebê nascendo.</string>
+    <string name="dare_66">Beba um copo cheio de água sem respirar.</string>
+    <string name="dare_67">Ande como um modelo de passarela pela sala toda.</string>
+    <string name="dare_68">Deixe alguém te dar um tapa forte no bumbum.</string>
+    <string name="dare_69">Ajoelhe-se e peça a pessoa que o grupo escolher em casamento.</string>
+    <string name="dare_70">Coloque a mão no vaso sanitário (e lave depois, por favor).</string>
+    <string name="dare_71">Faça twerk contra a parede por 20 segundos.</string>
+    <string name="dare_72">Ligue para um número errado e tente vender um aspirador.</string>
+    <string name="dare_73">Você não pode mostrar os dentes ao rir até sua próxima vez.</string>
+    <string name="dare_74">Beije a mão de todos os presentes.</string>
+    <string name="dare_75">Deixe quebrarem um ovo na sua cabeça (ou beba 2 shots).</string>
+    <string name="dare_76">Finja ser um influencer e promova um produto imaginário.</string>
+    <string name="dare_77">Beba um gole da bebida de cada jogador.</string>
+    <string name="dare_78">Coloque gelo nos mamilos por 30 segundos.</string>
+    <string name="dare_79">Desenhe um bigode no rosto com algo não tóxico.</string>
+    <string name="dare_80">Faça 20 agachamentos com alguém nas costas.</string>
+    <string name="dare_81">Mostre sua foto do RG ou CNH para todos.</string>
+    <string name="dare_82">Deixe alguém postar um status de "Estou grávida/o" na sua rede social.</string>
+    <string name="dare_83">Coma um pedaço de papel (pequeno).</string>
+    <string name="dare_84">Faça a minhoca no chão.</string>
+    <string name="dare_85">Deixe amarrarem suas mãos por 10 minutos.</string>
+    <string name="dare_86">Lamba o chão (ou beba 3 goles).</string>
+    <string name="dare_87">Tente lamber seu cotovelo enquanto todos filmam.</string>
+    <string name="dare_88">Fale com sotaque de "patricinha/mauricinho" exagerado.</string>
+    <string name="dare_89">Tire as meias com os dentes de outra pessoa.</string>
+    <string name="dare_90">Faça uma torre de cartas/objetos. Se cair, você bebe.</string>
+    <string name="dare_91">Beije seu próprio reflexo no espelho apaixonadamente.</string>
+    <string name="dare_92">Mande um áudio latindo para o último grupo de WhatsApp que usou.</string>
+    <string name="dare_93">Beba um shot de molho de soja (shoyu) ou vinagre.</string>
+    <string name="dare_94">Deixe alguém te fazer cócegas até você dizer "PARAR" (e beba por desistir).</string>
+    <string name="dare_95">Imite como você transa (com sons).</string>
+    <string name="dare_96">Dance lento com uma vassoura ou rodo.</string>
+    <string name="dare_97">Coloque os sapatos nas mãos e aplauda.</string>
+    <string name="dare_98">Faça 10 burpees seguidos.</string>
+    <string name="dare_99">Deixe desenharem algo nas suas costas e adivinhe o que é. Se errar, bebe.</string>
+    <string name="dare_100">Feche os olhos e deixe alguém te dar algo surpresa para comer.</string>
+    <string name="dare_101">Mostre o conteúdo da sua carteira.</string>
+    <string name="dare_102">Faça um poema sobre álcool e recite-o.</string>
+    <string name="dare_103">Tente fazer malabarismo com 3 objetos. Para cada queda, um gole.</string>
+    <string name="dare_104">Faça uma careta e mantenha até a próxima vez.</string>
+    <string name="dare_105">Beba com sua mão não dominante pelo resto do jogo.</string>
+    <string name="dare_106">Ligue para o seu crush e desligue imediatamente.</string>
+    <string name="dare_107">Finja de morto no chão até alguém te reviver (com um beijo ou bebida).</string>
+    <string name="dare_108">Adivinhe a cor da roupa íntima de alguém. Se errar, tira uma peça.</string>
+    <string name="dare_109">Plante bananeira (ou tente).</string>
+    <string name="dare_110">Deixe o grupo escolher seu novo papel de parede do celular.</string>
+    <string name="dare_111">Fale sem abrir a boca por 2 rodadas.</string>
+    <string name="dare_112">Beije a careca ou testa de alguém.</string>
+    <string name="dare_113">Faça um vídeo de TikTok ridículo e salve nos rascunhos.</string>
+    <string name="dare_114">Coma uma rodela de limão sem fazer careta.</string>
+    <string name="dare_115">Sente no chão e não use móveis por 3 rodadas.</string>
+    <string name="dare_116">Imite outro jogador. Se não adivinharem, você bebe.</string>
+    <string name="dare_117">Deixe vendarem seus olhos e adivinhe quem está tocando seu rosto.</string>
+    <string name="dare_118">Gema o nome da pessoa à sua esquerda.</string>
+    <string name="dare_119">Faça um brinde vergonhoso para si mesmo.</string>
+    <string name="dare_120">Vista a roupa do avesso.</string>
+    <string name="dare_121">Mastigue água e faça gargarejo com uma música.</string>
+    <string name="dare_122">Tire uma foto mostrando a língua e poste.</string>
+    <string name="dare_123">Toque o nariz de alguém com sua língua.</string>
+    <string name="dare_124">Divulgue o aplicativo na rede social de sua preferência.</string>
+    <string name="dare_125">Vira-vira! Termine sua bebida agora mesmo.</string>
+
+    <string name="kings_game_title">KING\'S CUP</string>
+    <string name="kings_cards_remaining">%d cartas restantes</string>
+    <string name="kings_cup_level">Nível do Copo Central</string>
+    <string name="kings_cup_status">/4 👑</string>
+    <string name="kings_drawing">Tirando carta...</string>
+    <string name="kings_btn_draw">Tirar Carta</string>
+    <string name="kings_btn_guide">Guia de Cartas</string>
+    <string name="kings_btn_next">Próximo Turno →</string>
+    <string name="kings_game_over_title">Fim de\nJogo!</string>
+    <string name="kings_game_over_king">Quarto Rei!\nBEBA O COPO!</string>
+    <string name="kings_btn_new_game">🔄 Nova Partida</string>
+    <string name="kings_guide_title">📜 Guia de Cartas</string>
+    <string name="kings_guide_objective">Objetivo: Evitar tirar o 4º Rei.</string>
+
+    <string name="card_ace_title">Ás - Cascata</string>
+    <string name="card_2_title">Dois - Você</string>
+    <string name="card_3_title">Três - Eu</string>
+    <string name="card_4_title">Quatro - Meninas</string>
+    <string name="card_5_title">Cinco - Polegar</string>
+    <string name="card_6_title">Seis - Meninos</string>
+    <string name="card_7_title">Sete - Céu</string>
+    <string name="card_8_title">Oito - Parceiro</string>
+    <string name="card_9_title">Nove - Rima</string>
+    <string name="card_10_title">Dez - Categorias</string>
+    <string name="card_j_title">Valete - Regra</string>
+    <string name="card_q_title">Dama - Todos</string>
+    <string name="card_k_title">Rei</string>
+
+    <string name="card_ace_desc">Todos bebem até quem tirou a carta parar.</string>
+    <string name="card_2_desc">Escolha alguém para beber.</string>
+    <string name="card_3_desc">Você bebe.</string>
+    <string name="card_4_desc">Todas as mulheres bebem.</string>
+    <string name="card_5_desc">Último a por polegar na mesa bebe.</string>
+    <string name="card_6_desc">Todos os homens bebem.</string>
+    <string name="card_7_desc">Último a levantar a mão bebe.</string>
+    <string name="card_8_desc">Escolha um parceiro de bebida.</string>
+    <string name="card_9_desc">Diga uma palavra, rimem até falhar.</string>
+    <string name="card_10_desc">Diga uma categoria, citem até falhar.</string>
+    <string name="card_j_desc">Crie uma regra nova.</string>
+    <string name="card_q_desc">Todos bebem!.</string>
+    <string name="card_k_desc">Ver instruções especiais.</string>
+
+    <string name="king_1_desc">1º Rei: Escolhe O QUE vai no copo.\nPrepara a mistura central.</string>
+    <string name="king_2_desc">2º Rei: Escolhe ONDE se bebe.\nEx: Em cima da mesa, embaixo...</string>
+    <string name="king_3_desc">3º Rei: Escolhe COMO se bebe.\nEx: Agachado, sem mãos, plantando bananeira...</string>
+    <string name="king_4_desc">4º Rei: MÁ SORTE!\nDeve beber todo o copo central cumprindo as regras anteriores.</string>
+    <string name="king_extra_desc">Rei Extra: Beba um gole.</string>
+
+    <string name="guide_ace">Todos bebem até que quem tirou a carta pare.</string>
+    <string name="guide_2">Escolha uma pessoa para beber.</string>
+    <string name="guide_3">Você bebe.</string>
+    <string name="guide_4">Todas as mulheres bebem.</string>
+    <string name="guide_5">Ponha o polegar na mesa. O último bebe.</string>
+    <string name="guide_6">Todos os homens bebem.</string>
+    <string name="guide_7">Levante a mão. O último bebe.</string>
+    <string name="guide_8">Escolha alguém. Sempre que você beber, ele/a bebe.</string>
+    <string name="guide_9">Diga uma palavra. Todos devem rimar. Falhou/Repetiu = Bebe.</string>
+    <string name="guide_10">Ex: Marcas de carro. Quem travar, bebe.</string>
+    <string name="guide_j">Invente uma regra (ex: beber com a esquerda). Quebrou = Bebe.</string>
+    <string name="guide_q">Todos bebem.</string>
+    <string name="guide_k1">1º Rei: Escolhe O QUE vai no copo central.</string>
+    <string name="guide_k2">2º Rei: Escolhe ONDE vai beber.</string>
+    <string name="guide_k3">3º Rei: Escolhe COMO vai beber.</string>
+    <string name="guide_k4">4º Rei: Bebe o copo cumprindo tudo anterior.</string>
 
     <string name="culture_title">Categorias</string>
     <string name="culture_selection_title">Como quer jogar?</string>
-    <string name="culture_selection_subtitle">Escolha seu nível de adrenalina</string>
+    <string name="culture_selection_subtitle">Escolha o nível de adrenalina</string>
 
     <string name="culture_mode_classic">Modo Clássico</string>
-    <string name="culture_desc_classic">Sem pressão. Pense com calma e responda.</string>
+    <string name="culture_desc_classic">Sem pressão. Pense com calma e responda quando pronto.</string>
     <string name="culture_feat_classic_1">Sem limite de tempo</string>
-    <string name="culture_feat_classic_2">Perfeito para conversar</string>
+    <string name="culture_feat_classic_2">Perfeito para resenha</string>
     <string name="culture_feat_classic_3">Menos estresse, mais diversão</string>
 
     <string name="culture_mode_bomb">Modo Bomba</string>
     <string name="culture_desc_bomb">Tic-Tac! Responda rápido ou a bomba explode.</string>
-    <string name="culture_feat_bomb_1">Tempo aleatório</string>
-    <string name="culture_feat_bomb_2">Tensão máxima</string>
-    <string name="culture_feat_bomb_3">Passe o celular rápido!</string>
+    <string name="culture_feat_bomb_1">Tempo aleatório limitado</string>
+    <string name="culture_feat_bomb_2">Máxima tensão</string>
+    <string name="culture_feat_bomb_3">Passa o celular rápido!</string>
 
     <string name="culture_game_subtitle_classic">MODO CLÁSSICO</string>
     <string name="culture_instruction">Nomeiem em ordem...</string>
     <string name="culture_rules_title">📋 Regras</string>
-    <string name="culture_rule_1">Digam itens da categoria em ordem</string>
+    <string name="culture_rule_1">Digam em ordem elementos da categoria</string>
     <string name="culture_rule_2">Sem repetir nem errar</string>
-    <string name="culture_rule_3">Quem errar, bebe!</string>
+    <string name="culture_rule_3">Quem falhar, bebe!</string>
     <string name="culture_btn_next">Próxima Categoria</string>
 
     <string-array name="culture_categories_list">
         <item>Marcas de Carro</item>
-        <item>Países</item>
+        <item>Nomes de Países</item>
         <item>Marcas de Cerveja</item>
         <item>Times de Futebol</item>
         <item>Ingredientes de Pizza</item>
         <item>Filmes da Pixar</item>
         <item>Nomes de Mulher com M</item>
-        <item>Partes do Corpo</item>
+        <item>Partes do Corpo Humano</item>
         <item>Marcas de Roupa</item>
-        <item>Heróis da Marvel</item>
+        <item>Super-heróis da Marvel</item>
         <item>Sabores de Sorvete</item>
         <item>Capitais do Mundo</item>
         <item>Posições Sexuais</item>
@@ -381,36 +704,36 @@
     </string-array>
 
     <string name="bomb_title">A BOMBA</string>
-    <string name="bomb_subtitle">Passe o celular rápido</string>
+    <string name="bomb_subtitle">Passa o celular rápido</string>
 
-    <string name="bomb_ready_title">⚠️ Pronto para a pressão? ⚠️</string>
-    <string name="bomb_rule_1">Fale um item da categoria</string>
-    <string name="bomb_rule_2">Tempo aleatório: 30-60s</string>
-    <string name="bomb_rule_3">Passe o celular rápido!</string>
+    <string name="bomb_ready_title">⚠️ Pronto para pressão? ⚠️</string>
+    <string name="bomb_rule_1">Mencione um item da categoria</string>
+    <string name="bomb_rule_2">Tempo aleatório: 30-60 segundos</string>
+    <string name="bomb_rule_3">Passa o celular rápido!</string>
     <string name="bomb_rule_4">Se explodir: PENITÊNCIA!</string>
-    <string name="bomb_btn_start">🔥 ACENDER PAVIO</string>
+    <string name="bomb_btn_start">🔥 ACENDER O PAVIO</string>
 
-    <string name="bomb_badge_label">FALE UM...</string>
+    <string name="bomb_badge_label">FALA UM...</string>
     <string name="bomb_urgent_high">RÁPIDO!!</string>
-    <string name="bomb_urgent_med">VAI LOGO!</string>
-    <string name="bomb_urgent_low">Acelera...</string>
+    <string name="bomb_urgent_med">AGILIZA!</string>
+    <string name="bomb_urgent_low">Vai logo...</string>
 
     <string name="bomb_boom_title">BOOM!</string>
-    <string name="bomb_exploded_title">EXPLODIU!</string>
-    <string name="bomb_drink_command">BEBA!</string>
-    <string name="bomb_failed_msg">Você falhou sob pressão</string>
+    <string name="bomb_exploded_title">EXPLODIU EM VOCÊ!</string>
+    <string name="bomb_drink_command">BEBE!</string>
+    <string name="bomb_failed_msg">Falhou na pressão</string>
     <string name="bomb_btn_retry">🔄 Tentar de Novo</string>
 
     <string-array name="bomb_categories_list">
-        <item>Marcas de Carro</item>
+        <item>Marcas de Carros</item>
         <item>Pokémons</item>
         <item>Capitais da Europa</item>
         <item>Marcas de Cerveja</item>
         <item>Ingredientes de Pizza</item>
         <item>Filmes da Disney</item>
         <item>Partes do Corpo</item>
-        <item>Palavras que rimam com \'ÃO\'</item>
-        <item>Heróis Marvel</item>
+        <item>Palavras que rimam com \'PÃO\'</item>
+        <item>Heróis da Marvel</item>
         <item>Coisas de banheiro</item>
         <item>Raças de Cachorro</item>
         <item>Times de Futebol</item>
@@ -418,363 +741,297 @@
         <item>Frutas Tropicais</item>
         <item>Países da América</item>
         <item>Instrumentos Musicais</item>
-        <item>Cores em Inglês</item>
+        <item>Cores em inglês</item>
         <item>Filmes de Terror</item>
         <item>Marcas de Roupa</item>
-        <item>Apps de celular</item>
+        <item>Aplicativos de celular</item>
         <item>Emojis populares</item>
         <item>Músicas de Funk</item>
         <item>Videogames famosos</item>
         <item>Redes Sociais</item>
         <item>Tipos de Queijo</item>
-        <item>Fast Food</item>
+        <item>Marcas de Fast Food</item>
         <item>Séries da Netflix</item>
-        <item>Artistas de Trap/Funk</item>
+        <item>Artistas de Trap</item>
         <item>Coisas de cozinha</item>
         <item>Modelos de iPhone</item>
-        <item>Palavras com \'Z\'</item>
-        <item>Drinks famosos</item>
+        <item>Palavras com \'Q\'</item>
+        <item>Coquetéis famosos</item>
         <item>Países da Ásia</item>
         <item>Marcas de Tênis</item>
-        <item>Sobremesas</item>
-        <item>Ferramentas</item>
+        <item>Sobremesas típicas</item>
+        <item>Ferramentas de trabalho</item>
         <item>Animais marinhos</item>
-        <item>Planetas</item>
-        <item>Estilos musicais</item>
+        <item>Planetas do Sistema Solar</item>
+        <item>Gêneros musicais</item>
         <item>Tipos de Macarrão</item>
     </string-array>
 
-    <string name="kings_game_title">KING\'S CUP</string>
-    <string name="kings_cards_remaining">%d cartas restantes</string>
-    <string name="kings_cup_level">Nível do Copo Central</string>
-    <string name="kings_cup_status">/4 👑</string>
-    <string name="kings_drawing">Tirando carta...</string>
-    <string name="kings_btn_draw">Tirar Carta</string>
-    <string name="kings_btn_guide">Ver Guia</string>
-    <string name="kings_btn_next">Próximo Turno →</string>
-    <string name="kings_game_over_title">Fim de\nJogo!</string>
-    <string name="kings_game_over_king">4º Rei!\nBEBA O COPO!</string>
-    <string name="kings_btn_new_game">🔄 Nova Partida</string>
-    <string name="kings_guide_title">📜 Guia de Cartas</string>
-    <string name="kings_guide_objective">Objetivo: Evitar tirar o 4º Rei.</string>
-
-    <string name="card_ace_title">Ás - Cascata</string>
-    <string name="card_2_title">Dois - Você</string>
-    <string name="card_3_title">Três - Eu</string>
-    <string name="card_4_title">Quatro - Elas</string>
-    <string name="card_5_title">Cinco - Polegar</string>
-    <string name="card_6_title">Seis - Eles</string>
-    <string name="card_7_title">Sete - Céu</string>
-    <string name="card_8_title">Oito - Parceiro</string>
-    <string name="card_9_title">Nove - Rima</string>
-    <string name="card_10_title">Dez - Categoria</string>
-    <string name="card_j_title">Valete - Regra</string>
-    <string name="card_q_title">Dama - Pergunta</string>
-    <string name="card_k_title">Rei</string>
-
-    <string name="card_ace_desc">Todos bebem até quem tirou a carta parar.</string>
-    <string name="card_2_desc">Escolha alguém para beber.</string>
-    <string name="card_3_desc">Você bebe.</string>
-    <string name="card_4_desc">Todas as mulheres bebem.</string>
-    <string name="card_5_desc">Último a por o polegar na mesa bebe.</string>
-    <string name="card_6_desc">Todos os homens bebem.</string>
-    <string name="card_7_desc">Último a levantar a mão bebe.</string>
-    <string name="card_8_desc">Escolha um parceiro para beber com você.</string>
-    <string name="card_9_desc">Diga uma palavra, rimem até errar.</string>
-    <string name="card_10_desc">Diga uma categoria, citem até errar.</string>
-    <string name="card_j_desc">Crie uma nova regra.</string>
-    <string name="card_q_desc">Faça perguntas. Quem responder, bebe.</string>
-    <string name="card_k_desc">Ver instruções especiais.</string>
-
-    <string name="king_1_desc">1º Rei: Escolha O QUE vai no copo.\nPrepare a mistura.</string>
-    <string name="king_2_desc">2º Rei: Escolha ONDE se bebe.\nEx: Em cima da mesa, no chão...</string>
-    <string name="king_3_desc">3º Rei: Escolha COMO se bebe.\nEx: Sem as mãos, de ponta cabeça...</string>
-    <string name="king_4_desc">4º Rei: AZAR!\nVocê deve beber o copo todo seguindo as regras anteriores.</string>
-    <string name="king_extra_desc">Rei Extra: Beba um gole.</string>
-
-    <string name="guide_ace">Todos bebem até quem tirou a carta parar.</string>
-    <string name="guide_2">Escolha alguém para beber.</string>
-    <string name="guide_3">Você bebe.</string>
-    <string name="guide_4">Todas as mulheres bebem.</string>
-    <string name="guide_5">Coloque o polegar na mesa. O último bebe.</string>
-    <string name="guide_6">Todos os homens bebem.</string>
-    <string name="guide_7">Levante a mão. O último bebe.</string>
-    <string name="guide_8">Escolha um parceiro. Ele bebe quando você bebe.</string>
-    <string name="guide_9">Diga uma palavra. Todos rimam. Errou = Bebe.</string>
-    <string name="guide_10">Ex: Marcas de carro. Branco = Bebe.</string>
-    <string name="guide_j">Invente uma regra (ex: beber com a mão esquerda).</string>
-    <string name="guide_q">Faça perguntas. Se responderem \'sim\' ou \'não\', bebem.</string>
-    <string name="guide_k1">1º Rei: Escolha o que vai no copo central.</string>
-    <string name="guide_k2">2º Rei: Escolha onde se bebe.</string>
-    <string name="guide_k3">3º Rei: Escolha como se bebe.</string>
-    <string name="guide_k4">4º Rei: Beba o copo seguindo as regras.</string>
-
     <string name="never_game_title">🤫 Eu Nunca</string>
     <string name="never_question_number">Pergunta #%d</string>
-    <string name="never_instruction">Se você já fez, bebe</string>
-    <string name="never_swipe_hint">Deslize para o próximo</string>
-    <string name="never_swipe_release">Solte!</string>
-    <string name="never_swipe_dragging">Próximo...</string>
-    <string name="never_btn_next">Próximo</string>
+    <string name="never_instruction">Se você fez, bebe</string>
+    <string name="never_swipe_hint">Deslize para próxima</string>
+    <string name="never_swipe_release">Solta!</string>
+    <string name="never_swipe_dragging">Próxima...</string>
+    <string name="never_btn_next">Próxima</string>
 
     <string-array name="never_questions_list">
         <item>Eu nunca fui preso.</item>
         <item>Eu nunca beijei alguém nesta sala.</item>
         <item>Eu nunca tive um relacionamento aberto.</item>
         <item>Eu nunca menti para faltar ao trabalho/aula.</item>
-        <item>Eu nunca mexi no celular do meu parceiro.</item>
-        <item>Eu nunca fiz sexo em local público.</item>
-        <item>Eu nunca roubei nada de uma loja.</item>
-        <item>Eu nunca usei Tinder ou similar.</item>
+        <item>Eu nunca revisei o celular do meu parceiro.</item>
+        <item>Eu nunca transei em um lugar público.</item>
+        <item>Eu nunca peguei algo sem pagar.</item>
+        <item>Eu nunca usei um app de namoro.</item>
         <item>Eu nunca tive um sonho erótico com alguém daqui.</item>
         <item>Eu nunca vomitei por beber demais.</item>
-        <item>Eu nunca mandei nude.</item>
-        <item>Eu nunca tive um amizade colorida.</item>
+        <item>Eu nunca enviei um nude.</item>
+        <item>Eu nunca tive um amigo colorido.</item>
         <item>Eu nunca fingi um orgasmo.</item>
-        <item>Eu nunca stalkeei meu ex.</item>
-        <item>Eu nunca fiz um trio.</item>
-        <item>Eu nunca dirigi bêbado.</item>
-        <item>Eu nunca fui num encontro às cegas.</item>
+        <item>Eu nunca stalkeei meu ex nas redes sociais.</item>
+        <item>Eu nunca fiz um ménage.</item>
+        <item>Eu nunca tive um encontro às cegas.</item>
         <item>Eu nunca esqueci o nome de alguém na hora H.</item>
-        <item>Eu nunca traí.</item>
+        <item>Eu nunca fui infiel.</item>
         <item>Eu nunca nadei pelado.</item>
-        <item>Eu nunca fiz sexo num carro.</item>
-        <item>Eu nunca menti no jogo Eu Nunca.</item>
-        <item>Eu nunca mandei mensagem bêbado e me arrependi.</item>
-        <item>Eu nunca beijei mais de uma pessoa na mesma noite.</item>
-        <item>Eu nunca fiz sexo na praia.</item>
-        <item>Eu nunca fui expulso de uma balada.</item>
-        <item>Eu nunca tive fantasia com professor(a).</item>
+        <item>Eu nunca transei em um carro.</item>
+        <item>Eu nunca mandei uma mensagem bêbado da qual me arrependa.</item>
+        <item>Eu nunca beijei mais de uma pessoa numa noite.</item>
+        <item>Eu nunca fui expulso de um bar/balada.</item>
+        <item>Eu nunca tive uma fantasia com um professor.</item>
         <item>Eu nunca usei brinquedos sexuais.</item>
         <item>Eu nunca dei ghosting em alguém.</item>
-        <item>Eu nunca flertei com policial para evitar multa.</item>
-    </string-array>
-
-    <string name="truth_game_title">🎭 Verdade ou Desafio</string>
-    <string name="truth_game_subtitle">Você tem coragem?</string>
-    <string name="truth_stat_truth">Verdades</string>
-    <string name="truth_stat_dare">Desafios</string>
-    <string name="truth_turn_label">Vez de:</string>
-    <string name="truth_choose_label">O que escolhe?</string>
-    <string name="truth_btn_truth">VERDADE</string>
-    <string name="truth_btn_dare">DESAFIO</string>
-    <string name="truth_result_truth">VERDADE</string>
-    <string name="truth_result_dare">DESAFIO</string>
-    <string name="truth_btn_back">Voltar</string>
-
-    <string name="truth_1">Qual é o seu pior hábito?</string>
-    <string name="truth_2">De quem você menos gosta aqui?</string>
-    <string name="truth_3">Qual seu maior medo irracional?</string>
-    <string name="truth_4">O que mais vergonhoso você pesquisou no Google?</string>
-    <string name="truth_5">Você se arrepende de algum beijo?</string>
-    <string name="truth_6">Já mentiu sua idade?</string>
-    <string name="truth_7">Qual seu segredo mais sombrio?</string>
-    <string name="truth_8">Quem daqui você beijaria se fosse obrigado?</string>
-    <string name="truth_9">Já espiou o celular de alguém?</string>
-    <string name="truth_10">Qual a maior mentira que já contou?</string>
-    <string name="truth_11">Já fingiu estar doente para não ir a algum lugar?</string>
-    <string name="truth_12">O que de mais vergonhoso aconteceu num encontro?</string>
-    <string name="truth_13">Já roubou algo?</string>
-    <string name="truth_14">Quem é seu crush secreto atual?</string>
-    <string name="truth_15">Já colou numa prova?</string>
-    <string name="truth_16">Qual sua maior insegurança física?</string>
-    <string name="truth_17">Já chorou por alguém deste grupo?</string>
-    <string name="truth_18">Qual o pior presente que já ganhou?</string>
-    <string name="truth_19">Já stalkeou alguém obsessivamente?</string>
-    <string name="truth_20">Qual a pior coisa que fez bêbado?</string>
-
-    <string name="dare_1">Faça 10 agachamentos bebendo.</string>
-    <string name="dare_2">Deixe o grupo mandar mensagem para quem quiser do seu celular.</string>
-    <string name="dare_3">Imite alguém do grupo até adivinharem.</string>
-    <string name="dare_4">Beba um gole sem usar as mãos.</string>
-    <string name="dare_5">Fale com sotaque gringo por 3 rodadas.</string>
-    <string name="dare_6">Dance sem música por 30 segundos.</string>
-    <string name="dare_7">Deixe alguém ver sua galeria por 1 minuto.</string>
-    <string name="dare_8">Coma uma mistura misteriosa que o grupo fizer.</string>
-    <string name="dare_9">Ligue para um contato aleatório e cante.</string>
-    <string name="dare_10">Troque uma peça de roupa com alguém.</string>
-    <string name="dare_11">Faça 20 flexões ou beba 2 shots.</string>
-    <string name="dare_12">Confesse sua última busca no Google.</string>
-    <string name="dare_13">Deixe alguém bagunçar seu cabelo ou maquiagem.</string>
-    <string name="dare_14">Segure um gelo na boca até derreter.</string>
-    <string name="dare_15">Imite seu animal favorito por 1 minuto.</string>
-    <string name="dare_16">Deixe postarem um story no seu Instagram.</string>
-    <string name="dare_17">Elogie cada pessoa do grupo.</string>
-    <string name="dare_18">Atue como garçom e sirva todos por 10 min.</string>
-    <string name="dare_19">Faça beatbox por 30 segundos.</string>
-    <string name="dare_20">Lamba o pescoço da pessoa à direita.</string>
-    <string name="dare_21">Conte uma piada. Se ninguém rir, beba o dobro.</string>
-    <string name="dare_22">Fale em terceira pessoa até sua próxima vez.</string>
-    <string name="dare_23">Receba cócegas por 30s sem rir.</string>
-    <string name="dare_24">Faça uma sessão de fotos vergonhosa dirigida pelo grupo.</string>
-    <string name="dare_25">Ande de quatro até sua próxima vez.</string>
-
-    <string name="highlow_title">🎴 Maior ou Menor</string>
-    <string name="highlow_streak_fmt">Sequência: %d 🔥</string>
-    <string name="highlow_instruction">A próxima é Maior ou Menor?</string>
-    <string name="highlow_label_current">CARTA ATUAL</string>
-    <string name="highlow_label_next">PRÓXIMA CARTA</string>
-    <string name="highlow_label_result">RESULTADO</string>
-    <string name="highlow_btn_lower">MENOR</string>
-    <string name="highlow_btn_higher">MAIOR</string>
-    <string name="highlow_btn_next">Próxima Rodada →</string>
-    <string name="highlow_result_correct">CORRETO! Era %s 🎉</string>
-    <string name="highlow_result_wrong">ERROU! Era %s 😢\nBEBA!</string>
-
-    <string name="charades_title">🎭 Mímica Bêbada</string>
-    <string name="charades_score_fmt">🏆 Pontos: %d</string>
-    <string name="charades_ready_title">Pronto para atuar?</string>
-    <string name="charades_ready_desc">• Atue sem falar\n• Seu time deve adivinhar\n• Cada palavra conta\n• Sem sons!</string>
-    <string name="charades_difficulty_label">DIFICULDADE</string>
-    <string name="charades_btn_start">Começar!</string>
-    <string name="charades_instruction_mute">Atue sem falar</string>
-    <string name="charades_btn_skip">Pular</string>
-    <string name="charades_btn_correct">Acertou!</string>
-    <string name="charades_diff_easy">Esquenta</string>
-    <string name="charades_diff_medium">Festa</string>
-    <string name="charades_diff_hard">After</string>
-    <string name="charades_time_up">Acabou o tempo!</string>
-    <string name="charades_final_score">Pontuação Final</string>
-    <string name="charades_result_expert">Atores profissionais! 🌟</string>
-    <string name="charades_result_good">Bom trabalho! 🎭</string>
-    <string name="charades_result_ok">Valeu a tentativa! 👏</string>
-    <string name="charades_result_bad">Bebam mais para soltar! 🍺</string>
-    <string name="charades_btn_replay">Jogar de Novo</string>
-
-    <string-array name="charades_easy_list">
-        <item>Tomar um shot</item>
-        <item>Tirar selfie</item>
-        <item>Barman</item>
-        <item>DJ</item>
-        <item>Bêbado</item>
-        <item>Ressaca</item>
-        <item>Segurança de balada</item>
-        <item>Cantar Karaokê</item>
-        <item>Dançar Funk</item>
-        <item>Paquerar</item>
-        <item>Pedir a conta</item>
-        <item>Brindar</item>
-        <item>Cair no chão</item>
-        <item>Fumar</item>
-        <item>Abrir cerveja</item>
-    </string-array>
-
-    <string-array name="charades_medium_list">
-        <item>Mandar áudio bêbado</item>
-        <item>Descer até o chão</item>
-        <item>Perder o celular</item>
-        <item>Vomitar no banheiro</item>
-        <item>Pedir Uber</item>
-        <item>Dançar na mesa</item>
-        <item>Fazer o quatro (teste de sobriedade)</item>
-        <item>Roubar copo</item>
-        <item>Dormir no sofá</item>
-        <item>Briga de bar</item>
-        <item>Chorar pelo ex</item>
-        <item>Virar o copo (Vira-Vira)</item>
-        <item>Furar fila</item>
-        <item>Perder a dignidade</item>
-        <item>Pole Dance</item>
-    </string-array>
-
-    <string-array name="charades_hard_list">
-        <item>Tentar abrir a porta bêbado</item>
-        <item>Segurar o vômito</item>
-        <item>Paquerar barman por bebida grátis</item>
-        <item>Explicar algo pra polícia</item>
-        <item>Andar de salto bêbada</item>
-        <item>Procurar banheiro desesperado</item>
-        <item>Acordar sem saber onde está</item>
-        <item>Comer podrão às 6 da manhã</item>
-        <item>Tentar desbloquear celular com a cara</item>
-        <item>Fingir sobriedade pros pais</item>
-        <item>Perder o sapato na festa</item>
-        <item>Roubar microfone do DJ</item>
-        <item>Dormir abraçado no vaso</item>
-        <item>Escrever pro ex e apagar</item>
-        <item>Ser expulso da balada</item>
-    </string-array>
-
-    <string name="roulette_title">🔫 Roleta Russa</string>
-    <string name="roulette_shots_fired">%d/6 câmaras disparadas</string>
-    <string name="roulette_btn_spin">Girar Tambor</string>
-    <string name="roulette_status_spinning">🔄 Girando...</string>
-    <string name="roulette_status_pick">👆 Toque numa câmara</string>
-    <string name="roulette_tension_label">TENSÃO</string>
-    <string name="roulette_tension_calm">😌 CALMO</string>
-    <string name="roulette_tension_tense">😰 TENSO</string>
-    <string name="roulette_tension_danger">⚠️ CUIDADO</string>
-    <string name="roulette_tension_extreme">🔥 MUITO PERIGOSO</string>
-    <string name="roulette_msg_start">Tem coragem de jogar?</string>
-    <string name="roulette_msg_safe_1">✓ Click... Salvo por enquanto</string>
-    <string name="roulette_msg_safe_2">😅 Sorte sua...</string>
-    <string name="roulette_msg_safe_3">😬 Ficando tenso...</string>
-    <string name="roulette_msg_safe_4">😱 A SORTE VAI ACABAR!</string>
-    <string name="roulette_msg_safe_5">😰 MAIS UMA E VOCÊ MORRE!</string>
-    <string name="roulette_msg_bang">💥 BANG! VOCÊ BEBE! 🍺</string>
-
-    <string name="likely_title">👉 Quem é mais provável?</string>
-    <string name="likely_subtitle">Votação em grupo</string>
-    <string name="likely_instruction_badge">No 3, apontem para...</string>
-    <string name="likely_btn_next">Próxima Pergunta</string>
-    <string name="likely_rules_title">📋 Como jogar</string>
-    <string name="likely_rule_1">Leiam a pergunta em voz alta</string>
-    <string name="likely_rule_2">Contem: 3... 2... 1... VAI!</string>
-    <string name="likely_rule_3">Todos apontam para alguém ao mesmo tempo</string>
-    <string name="likely_rule_4">A pessoa mais apontada BEBE 🍺</string>
-
-    <string-array name="likely_questions_list">
-        <item>...que vomite hoje à noite.</item>
-        <item>...que ligue para o ex bêbado.</item>
-        <item>...que perca o celular hoje.</item>
-        <item>...que acorde em outra cidade amanhã.</item>
-        <item>...que fique pelado se beber muito.</item>
-        <item>...que transe em local público.</item>
-        <item>...que brigue com o segurança.</item>
-        <item>...que case por dinheiro.</item>
-        <item>...que entre num culto sem querer.</item>
-        <item>...que beije alguém feio por pena.</item>
-        <item>...que caia dançando.</item>
-        <item>...que vá preso.</item>
-        <item>...que faça uma tatuagem zoada.</item>
-        <item>...que finja estar sóbrio e falhe.</item>
-        <item>...que roube copo do bar.</item>
-        <item>...que chore no meio da festa.</item>
-        <item>...que durma no banheiro.</item>
-        <item>...que dê em cima do namorado(a) de amigo.</item>
-        <item>...que apareça no jornal por besteira.</item>
-        <item>...que gaste o salário todo numa noite.</item>
-        <item>...que tenha um OnlyFans secreto.</item>
-        <item>...que esqueça onde mora.</item>
-        <item>...que proponha um trio.</item>
-        <item>...que abandone os amigos por um peguete.</item>
-        <item>...que coma comida do chão.</item>
+        <item>Eu nunca transei num elevador.</item>
+        <item>Eu nunca transei no cinema.</item>
+        <item>Eu nunca transei no trabalho.</item>
+        <item>Eu nunca transei na escola ou faculdade.</item>
+        <item>Eu nunca transei numa floresta.</item>
+        <item>Eu nunca transei num provador de loja.</item>
+        <item>Eu nunca transei num banheiro de avião.</item>
+        <item>Eu nunca transei na cama dos meus pais.</item>
+        <item>Eu nunca transei numa varanda ou terraço.</item>
+        <item>Eu nunca transei numa festa com gente por perto.</item>
+        <item>Eu nunca transei no sofá de um amigo.</item>
+        <item>Eu nunca transei num ônibus.</item>
+        <item>Eu nunca transei debaixo de uma mesa.</item>
+        <item>Eu nunca mandei um nude para a pessoa errada.</item>
+        <item>Eu nunca recebi um nude não solicitado.</item>
+        <item>Eu nunca gravei um vídeo íntimo.</item>
+        <item>Eu nunca tive fotos íntimas na minha pasta oculta.</item>
+        <item>Eu nunca fiz sexting no trabalho ou na aula.</item>
+        <item>Eu nunca mandei uma mensagem picante para meu chefe por erro.</item>
+        <item>Eu nunca usei Tinder só para aumentar meu ego.</item>
+        <item>Eu nunca menti no meu perfil de namoro sobre minha altura ou peso.</item>
+        <item>Eu nunca encontrei alguém da internet e me arrependi ao ver.</item>
+        <item>Eu nunca procurei pornô no celular de um amigo.</item>
+        <item>Eu nunca fiz sexting.</item>
+        <item>Eu nunca fiz uma chamada de vídeo picante.</item>
+        <item>Eu nunca stalkeei o atual do meu ex.</item>
+        <item>Eu nunca adivinhei a senha de alguém para espionar.</item>
+        <item>Eu nunca criei um perfil falso para espionar alguém.</item>
+        <item>Eu nunca postei um story só para uma pessoa ver.</item>
+        <item>Eu nunca mandei uma foto "sem querer" que era intencional.</item>
+        <item>Eu nunca apaguei mensagens para meu parceiro não ver.</item>
+        <item>Eu nunca pesquisei no Google como fazer certas posições.</item>
+        <item>Eu nunca assisti pornô com meu parceiro.</item>
+        <item>Eu nunca paguei por conteúdo adulto (OnlyFans, etc).</item>
+        <item>Eu nunca tive um webnamoro.</item>
+        <item>Eu nunca bloqueei alguém depois de dormir com ele/ela.</item>
+        <item>Eu nunca deixei no vácuo alguém que eu gostava para me fazer de difícil.</item>
+        <item>Eu nunca verifiquei o histórico de busca de outra pessoa.</item>
+        <item>Eu nunca tirei print de conversas privadas.</item>
+        <item>Eu nunca fingi que minha câmera não funcionava para não aparecer.</item>
+        <item>Eu nunca paquerei pelo LinkedIn.</item>
+        <item>Eu nunca usei a conta da Netflix de um ex.</item>
+        <item>Eu nunca mandei um áudio gemendo de brincadeira (ou não).</item>
+        <item>Eu nunca usei algemas ou amarras.</item>
+        <item>Eu nunca usei uma venda nos olhos.</item>
+        <item>Eu nunca fiz roleplay (fantasias/atuação).</item>
+        <item>Eu nunca usei comida na hora H.</item>
+        <item>Eu nunca usei gelo na hora H.</item>
+        <item>Eu nunca tive uma experiência do mesmo sexo (se for hétero).</item>
+        <item>Eu nunca fiz um chupão de propósito para marcar território.</item>
+        <item>Eu nunca fiquei com alguém muito mais velho que eu.</item>
+        <item>Eu nunca fiquei com alguém muito mais novo que eu.</item>
+        <item>Eu nunca dormi com alguém no primeiro encontro.</item>
+        <item>Eu nunca tive uma rapidinha.</item>
+        <item>Eu nunca transei sem a outra pessoa tirar a roupa.</item>
+        <item>Eu nunca transei de meia.</item>
+        <item>Eu nunca fingi prazer para acabar rápido.</item>
+        <item>Eu nunca disse o nome de outra pessoa na cama.</item>
+        <item>Eu nunca dormi no meio do ato.</item>
+        <item>Eu nunca tive uma cãibra num momento inoportuno.</item>
+        <item>Eu nunca tive um acidente vergonhoso (gases, barulhos) na cama.</item>
+        <item>Eu nunca quebrei uma cama ou móvel fazendo.</item>
+        <item>Eu nunca fui pego pelos meus pais.</item>
+        <item>Eu nunca fui pego pelos pais do meu parceiro.</item>
+        <item>Eu nunca fui pego por um colega de quarto.</item>
+        <item>Eu nunca ouvi meus pais fazendo.</item>
+        <item>Eu nunca ouvi meus colegas de quarto fazendo.</item>
+        <item>Eu nunca fiz por trás.</item>
+        <item>Eu nunca engoli algo que não devia.</item>
+        <item>Eu nunca provei sadomasoquismo leve.</item>
+        <item>Eu nunca fiquei excitado num momento inapropriado (funeral, missa).</item>
+        <item>Eu nunca tive um orgasmo múltiplo.</item>
+        <item>Eu nunca chorei depois do sexo.</item>
+        <item>Eu nunca transei na frente de um espelho.</item>
+        <item>Eu nunca me gravei me tocando.</item>
+        <item>Eu nunca transei com alguém que não me atraía fisicamente.</item>
+        <item>Eu nunca transei com alguém só por despeito.</item>
+        <item>Eu nunca transei com alguém cujo nome esqueci.</item>
+        <item>Eu nunca beijei o ex de um amigo.</item>
+        <item>Eu nunca dormi com o ex de um amigo.</item>
+        <item>Eu nunca tive sentimentos pelo parceiro do meu amigo.</item>
+        <item>Eu nunca fui o amante.</item>
+        <item>Eu nunca fui infiel emocionalmente.</item>
+        <item>Eu nunca flertei para conseguir bebidas grátis.</item>
+        <item>Eu nunca flertei com um professor.</item>
+        <item>Eu nunca flertei com um policial para evitar uma multa.</item>
+        <item>Eu nunca disse "Eu te amo" sem sentir para levar alguém para a cama.</item>
+        <item>Eu nunca voltei com um ex mais de 3 vezes.</item>
+        <item>Eu nunca tive um relacionamento tóxico.</item>
+        <item>Eu nunca vasculhei o lixo de alguém.</item>
+        <item>Eu nunca tive ciúmes de um amigo.</item>
+        <item>Eu nunca beijei um amigo "de brincadeira".</item>
+        <item>Eu nunca tive um sonho molhado com um amigo.</item>
+        <item>Eu nunca me declarei para alguém bêbado.</item>
+        <item>Eu nunca chorei em público por um término.</item>
+        <item>Eu nunca fiz uma cena de ciúmes em público.</item>
+        <item>Eu nunca tive um encontro duplo que deu errado.</item>
+        <item>Eu nunca fugi de um encontro pela janela do banheiro.</item>
+        <item>Eu nunca dei um número de telefone falso.</item>
+        <item>Eu nunca beijei duas pessoas diferentes na mesma festa.</item>
+        <item>Eu nunca beijei mais de 5 pessoas numa noite.</item>
+        <item>Eu nunca transei com um colega de trabalho.</item>
+        <item>Eu nunca transei com meu chefe.</item>
+        <item>Eu nunca transei com um vizinho.</item>
+        <item>Eu nunca transei com alguém casado.</item>
+        <item>Eu nunca destruí um casal.</item>
+        <item>Eu nunca me apaixonei por alguém impossível.</item>
+        <item>Eu nunca tive um apagão por álcool.</item>
+        <item>Eu nunca acordei em um lugar desconhecido.</item>
+        <item>Eu nunca acordei com alguém desconhecido.</item>
+        <item>Eu nunca perdi o celular numa bebedeira.</item>
+        <item>Eu nunca perdi a carteira numa festa.</item>
+        <item>Eu nunca perdi um sapato numa festa.</item>
+        <item>Eu nunca vomitei em outra pessoa.</item>
+        <item>Eu nunca vomitei num táxi/Uber.</item>
+        <item>Eu nunca fiz xixi na rua entre carros.</item>
+        <item>Eu nunca roubei um copo de um bar.</item>
+        <item>Eu nunca saí de uma festa sem me despedir (sair à francesa).</item>
+        <item>Eu nunca dancei em cima de uma mesa ou balcão.</item>
+        <item>Eu nunca fiz um striptease (mesmo que parcial) numa festa.</item>
+        <item>Eu nunca bebi do copo de um desconhecido.</item>
+        <item>Eu nunca entrei no banheiro errado por engano.</item>
+        <item>Eu nunca fui expulso de uma balada.</item>
+        <item>Eu nunca tive uma briga física numa festa.</item>
+        <item>Eu nunca beijei alguém do mesmo sexo estando bêbado.</item>
+        <item>Eu nunca liguei para meu ex chorando bêbado.</item>
+        <item>Eu nunca comi comida do lixo ou do chão bêbado.</item>
+        <item>Eu nunca dormi na rua ou num banco.</item>
+        <item>Eu nunca dormi no banheiro de uma balada.</item>
+        <item>Eu nunca entrei numa festa sem convite (bicão).</item>
+        <item>Eu nunca menti sobre meu nome numa festa.</item>
+        <item>Eu nunca disse que era gringo para paquerar.</item>
+        <item>Eu nunca misturei mais de 5 tipos de álcool numa noite.</item>
+        <item>Eu nunca virei uma garrafa no gargalo.</item>
+        <item>Eu nunca joguei jogos de beber até desmaiar.</item>
+        <item>Eu nunca tive que ser carregado para casa por amigos.</item>
+        <item>Eu nunca tive uma ressaca de dois dias.</item>
+        <item>Eu nunca roubei dinheiro da carteira dos meus pais.</item>
+        <item>Eu nunca roubei algo de uma loja (mesmo um chiclete).</item>
+        <item>Eu nunca trapacei num jogo de tabuleiro.</item>
+        <item>Eu nunca menti neste jogo.</item>
+        <item>Eu nunca desejei que algo ruim acontecesse a alguém.</item>
+        <item>Eu nunca julguei alguém deste grupo por sua vida sexual.</item>
+        <item>Eu nunca contei um segredo que prometi guardar.</item>
+        <item>Eu nunca li o diário ou mensagens de outra pessoa.</item>
+        <item>Eu nunca usei a escova de dentes de outra pessoa sem avisar.</item>
+        <item>Eu nunca fiz xixi numa piscina pública.</item>
+        <item>Eu nunca fiz xixi no banho.</item>
+        <item>Eu nunca culpei outra pessoa por um pum que eu soltei.</item>
+        <item>Eu nunca fingi uma ligação para não cumprimentar alguém.</item>
+        <item>Eu nunca repassei um presente que me deram.</item>
+        <item>Eu nunca comi algo da geladeira que não era meu.</item>
+        <item>Eu nunca saí de casa sem roupa íntima.</item>
+        <item>Eu nunca tive piolho depois de adulto.</item>
+        <item>Eu nunca passei mais de 3 dias sem tomar banho.</item>
+        <item>Eu nunca usei a mesma roupa íntima dois dias seguidos.</item>
+        <item>Eu nunca tirei meleca e comi.</item>
+        <item>Eu nunca duvidei da minha orientação sexual.</item>
+        <item>Eu nunca tive curiosidade de provar roupa do sexo oposto.</item>
+        <item>Eu nunca pratiquei beijo com minha mão ou espelho.</item>
+        <item>Eu nunca pratiquei como pedir em casamento.</item>
+        <item>Eu nunca chorei para conseguir o que queria.</item>
+        <item>Eu nunca fingi estar bêbado para fazer algo estúpido.</item>
+        <item>Eu nunca fui preso.</item>
+        <item>Eu nunca estive num carro de polícia.</item>
+        <item>Eu nunca quebrei algo numa loja e escondi.</item>
+        <item>Eu nunca dei ghosting num amigo.</item>
+        <item>Eu nunca transei com alguém que não tinha tomado banho.</item>
+        <item>Eu nunca me senti atraído por um personagem de desenho.</item>
+        <item>Eu nunca tive uma fantasia com alguém deste grupo.</item>
+        <item>Eu nunca imaginei as pessoas desta sala peladas.</item>
+        <item>Eu nunca me toquei pensando num amigo.</item>
+        <item>Eu nunca transei enquanto havia outras pessoas no quarto (dormindo).</item>
+        <item>Eu nunca fiz um ménage (ou mais).</item>
+        <item>Eu nunca fui a um clube de striptease.</item>
+        <item>Eu nunca paguei por uma dança privada.</item>
+        <item>Eu nunca usei lubrificante com sabor.</item>
+        <item>Eu nunca lambi chantilly ou chocolate do corpo de alguém.</item>
+        <item>Eu nunca joguei strip poker.</item>
+        <item>Eu nunca perdi uma peça de roupa numa aposta.</item>
+        <item>Eu nunca beijei alguém com aparelho e enroscamos.</item>
+        <item>Eu nunca tive uma marca de mordida visível.</item>
+        <item>Eu nunca tive arranhões nas costas.</item>
+        <item>Eu nunca quebrei a cama pelo movimento.</item>
+        <item>Eu nunca dormi com alguém só porque era famoso/popular.</item>
+        <item>Eu nunca tive um susto de gravidez.</item>
+        <item>Eu nunca tomei pílula do dia seguinte.</item>
+        <item>Eu nunca comprei camisinha com vergonha.</item>
+        <item>Eu nunca menti sobre o tamanho dos meus atributos.</item>
+        <item>Eu nunca vi pornô no celular do meu parceiro.</item>
+        <item>Eu nunca encontrei brinquedos sexuais dos meus pais.</item>
+        <item>Eu nunca gemi o nome errado.</item>
+        <item>Eu nunca fiz a posição 69.</item>
+        <item>Eu nunca pratiquei como beijar com a mão ou o espelho.</item>
+        <item>Eu nunca usei comida como brinquedo sexual.</item>
+        <item>Eu nunca me senti atraído pelo pai/mãe de um amigo.</item>
     </string-array>
 
     <string name="impostor_title">🕵️ O Impostor</string>
     <string name="impostor_subtitle">Encontre o mentiroso</string>
+
     <string name="impostor_setup_title">Quem é o Impostor?</string>
-    <string name="impostor_rules_bullet">• Todos recebem uma palavra secreta\n• Menos o impostor que não sabe nada\n• Deem pistas sem falar a palavra\n• O impostor deve fingir que sabe\n• Votem em quem é o impostor</string>
+    <string name="impostor_rules_bullet">• Todos recebem uma palavra secreta\n• Exceto o impostor que não sabe\n• Deem dicas sem dizer a palavra\n• O impostor deve fingir que sabe\n• Votem em quem é o impostor</string>
     <string name="impostor_warn_players">⚠️ Mínimo de 3 jogadores</string>
     <string name="impostor_ready_players">✓ %d jogadores prontos</string>
     <string name="impostor_btn_start">Iniciar Jogo</string>
+
     <string name="impostor_player_counter">Jogador %1$d de %2$d</string>
     <string name="impostor_card_locked_title">Toque para ver\nsua palavra</string>
     <string name="impostor_btn_reveal">Ver minha palavra</string>
+
     <string name="impostor_role_impostor">VOCÊ É O IMPOSTOR!</string>
     <string name="impostor_role_desc_impostor">Você não sabe a palavra\nFinja!</string>
+
     <string name="impostor_role_desc_crew">Esta é a palavra secreta</string>
+
     <string name="impostor_btn_next_player">Próximo Jogador</string>
     <string name="impostor_btn_start_round">Começar Rodada</string>
-    <string name="impostor_clues_title">Rodada de Pistas</string>
-    <string name="impostor_clues_desc">• Deem pistas um por vez\n• Não digam a palavra diretamente\n• O impostor deve se misturar\n• Observem quem parece suspeito</string>
+
+    <string name="impostor_clues_title">Rodada de Dicas</string>
+    <string name="impostor_clues_desc">• Deem dicas por turno\n• Não digam a palavra diretamente\n• O impostor deve fingir conhecer\n• Observem quem parece suspeito</string>
     <string name="impostor_btn_vote">Iniciar Votação</string>
+
     <string name="impostor_vote_title">Quem é o impostor?</string>
-    <string name="impostor_vote_count">Votos totais: %d</string>
+    <string name="impostor_vote_count">Total de votos: %d</string>
     <string name="impostor_vote_plural">%d votos</string>
     <string name="impostor_btn_results">Ver Resultados</string>
+
     <string name="impostor_res_win">O Impostor Ganhou!</string>
-    <string name="impostor_res_caught">Impostor Pego!</string>
+    <string name="impostor_res_caught">Pegaram o Impostor!</string>
     <string name="impostor_res_who_was">O impostor era:</string>
     <string name="impostor_res_word_was">A palavra era:</string>
     <string name="impostor_res_msg_win">Todos bebem, menos o impostor!</string>
@@ -788,13 +1045,13 @@
         <item>Academia</item> <item>Cemitério</item> <item>Zoológico</item> <item>Aeroporto</item> <item>Biblioteca</item>
         <item>Cachorro</item> <item>Gato</item> <item>Leão</item> <item>Tubarão</item> <item>Dinossauro</item>
         <item>Dragão</item> <item>Unicórnio</item> <item>Pinguim</item> <item>Cobra</item> <item>Aranha</item>
-        <item>Futebol</item> <item>Tênis</item> <item>Boxe</item> <item>Xadrez</item> <item>Videogame</item>
-        <item>Guitarra</item> <item>Piano</item> <item>Bateria</item> <item>Microfone</item> <item>Fones de ouvido</item>
+        <item>Futebol</item> <item>Tênis</item> <item>Boxe</item> <item>Xadrez</item> <item>Videogames</item>
+        <item>Guitarra</item> <item>Piano</item> <item>Bateria</item> <item>Microfone</item> <item>Fones</item>
         <item>Carro</item> <item>Avião</item> <item>Barco</item> <item>Bicicleta</item> <item>Helicóptero</item>
-        <item>Médico</item> <item>Policial</item> <item>Bombeiro</item> <item>Palhaço</item> <item>Pirata</item>
+        <item>Médico</item> <item>Polícia</item> <item>Bombeiro</item> <item>Palhaço</item> <item>Pirata</item>
         <item>Ninja</item> <item>Vampiro</item> <item>Zumbi</item> <item>Astronauta</item> <item>Mágico</item>
-        <item>Harry Potter</item> <item>Batman</item> <item>Homem-Aranha</item> <item>Goku</item> <item>Barbie</item>
-        <item>Messi</item> <item>Cristiano Ronaldo</item> <item>Shakira</item> <item>Anitta</item> <item>The Rock</item>
+        <item>Harry Potter</item> <item>Batman</item> <item>Homem Aranha</item> <item>Goku</item> <item>Barbie</item>
+        <item>Neymar</item> <item>Cristiano Ronaldo</item> <item>Anitta</item> <item>Bad Bunny</item> <item>The Rock</item>
         <item>Facebook</item> <item>Instagram</item> <item>TikTok</item> <item>Netflix</item> <item>WhatsApp</item>
         <item>iPhone</item> <item>Notebook</item> <item>Televisão</item> <item>Relógio</item> <item>Câmera</item>
         <item>Sapatos</item> <item>Roupa Íntima</item> <item>Óculos</item> <item>Chapéu</item> <item>Maquiagem</item>
@@ -802,79 +1059,482 @@
         <item>Titanic</item> <item>Star Wars</item> <item>Vingadores</item> <item>Disney</item> <item>Mickey Mouse</item>
     </string-array>
 
+    <string name="highlow_title">🎴 Maior ou Menor</string>
+    <string name="highlow_streak_fmt">Sequência: %d 🔥</string>
+    <string name="highlow_instruction">Próxima é Maior ou Menor?</string>
+
+    <string name="highlow_label_current">CARTA ATUAL</string>
+    <string name="highlow_label_next">PRÓXIMA CARTA</string>
+    <string name="highlow_label_result">RESULTADO</string>
+
+    <string name="highlow_btn_lower">MENOR</string>
+    <string name="highlow_btn_higher">MAIOR</string>
+    <string name="highlow_btn_next">Próxima Rodada →</string>
+
+    <string name="highlow_result_correct">CORRETO! Era %s 🎉</string>
+    <string name="highlow_result_wrong">ERRADO! Era %s 😢\nBEBE!</string>
+
+    <string name="charades_title">🎭 Mímica Bêbada</string>
+    <string name="charades_score_fmt">🏆 Pontos: %d</string>
+    <string name="charades_ready_title">Pronto para atuar?</string>
+    <string name="charades_ready_desc">• Atue sem falar\n• Seu time deve adivinhar\n• Cada palavra conta\n• Não use as mãos ilegalmente!</string>
+    <string name="charades_difficulty_label">DIFICULDADE</string>
+    <string name="charades_btn_start">Começar!</string>
+    <string name="charades_instruction_mute">Atue sem falar</string>
+    <string name="charades_btn_skip">Pular</string>
+    <string name="charades_btn_correct">Correto!</string>
+
+    <string name="charades_diff_easy">Esquenta</string> <string name="charades_diff_medium">A Festa</string> <string name="charades_diff_hard">After</string>  <string name="charades_time_up">Acabou o tempo!</string>
+    <string name="charades_final_score">Pontuação Final</string>
+    <string name="charades_result_expert">Atores profissionais! 🌟</string>
+    <string name="charades_result_good">Excelente trabalho! 🎭</string>
+    <string name="charades_result_ok">Bom trabalho! 👏</string>
+    <string name="charades_result_bad">Bebam mais para se soltar! 🍺</string>
+    <string name="charades_btn_replay">Jogar de Novo</string>
+
+    <string-array name="charades_easy_list">
+        <item>Tomar um shot</item>
+        <item>Tirar uma selfie</item>
+        <item>Barman</item>
+        <item>DJ</item>
+        <item>Bêbado</item>
+        <item>Ressaca</item>
+        <item>Segurança da balada</item>
+        <item>Cantar Karaokê</item>
+        <item>Dançar Funk</item>
+        <item>Paquerar</item>
+        <item>Pedir a conta</item>
+        <item>Brindar</item>
+        <item>Cair no chão</item>
+        <item>Fumar</item>
+        <item>Abrir uma cerveja</item>
+    </string-array>
+
+    <string-array name="charades_medium_list">
+        <item>Mandar áudio bêbado</item>
+        <item>Descer até o chão</item>
+        <item>Perder o celular</item>
+        <item>Vomitar no banheiro</item>
+        <item>Pedir um Uber</item>
+        <item>Dançar na mesa</item>
+        <item>Fazer o quatro (teste de bafômetro)</item>
+        <item>Roubar um copo</item>
+        <item>Dormir no sofá</item>
+        <item>Briga de bêbado</item>
+        <item>Chorar pelo ex</item>
+        <item>Virar copo (Fundo branco)</item>
+        <item>Furar a fila</item>
+        <item>Perder a dignidade</item>
+        <item>Pole Dance</item>
+    </string-array>
+
+    <string-array name="charades_hard_list">
+        <item>Tentar abrir a porta bêbado</item>
+        <item>Segurar o vômito</item>
+        <item>Xavecar o barman por bebida</item>
+        <item>Explicar algo pra polícia</item>
+        <item>Andar de salto bêbada</item>
+        <item>Procurar banheiro desesperadamente</item>
+        <item>Acordar sem saber onde está</item>
+        <item>Comer podrão às 6 AM</item>
+        <item>Tentar desbloquear cel com a cara</item>
+        <item>Fingir sobriedade pros pais</item>
+        <item>Perder um sapato na festa</item>
+        <item>Roubar microfone do DJ</item>
+        <item>Dormir abraçado na privada</item>
+        <item>Escrever pro ex e arrepender</item>
+        <item>Ser expulso da balada</item>
+    </string-array>
+
+    <string name="disclaimer_title">⚠️ Aviso legal importante</string>
+    <string name="disclaimer_text_1">Kampai é um jogo exclusivamente para entretenimento.</string>
+    <string name="disclaimer_bullet_1">• Você deve ser maior de 18 anos para usar este app</string>
+    <string name="disclaimer_bullet_2">• Kampai não promove o abuso de álcool.</string>
+    <string name="disclaimer_bullet_3">• NUNCA beba e dirija.</string>
+    <string name="disclaimer_text_2">Jogue com responsabilidade e cuide dos seus amigos. Se tiver problemas com álcool, procure ajuda profissional. Ao continuar, confirma que é maior de idade e aceita responsabilidade pelo uso.</string>
+    <string name="disclaimer_btn_accept">Aceito e sou maior de idade</string>
+
+    <string name="roulette_title">🔫 Roleta Russa</string>
+    <string name="roulette_shots_fired">%d/6 câmaras disparadas</string>
+    <string name="roulette_btn_spin">Girar Tambor</string>
+    <string name="roulette_status_spinning">🔄 Girando...</string>
+    <string name="roulette_status_pick">👆 Toque numa câmara</string>
+
+    <string name="roulette_tension_label">TENSÃO</string>
+    <string name="roulette_tension_calm">😌 TRANQUILO</string>
+    <string name="roulette_tension_tense">😰 TENSO</string>
+    <string name="roulette_tension_danger">⚠️ CUIDADO</string>
+    <string name="roulette_tension_extreme">🔥 PERIGO</string>
+
+    <string name="roulette_msg_start">Tem coragem de jogar?</string>
+    <string name="roulette_msg_safe_1">✓ Click... Passou dessa vez</string>
+    <string name="roulette_msg_safe_2">😅 Salvo por enquanto...</string>
+    <string name="roulette_msg_safe_3">😬 O clima tá tenso...</string>
+    <string name="roulette_msg_safe_4">😱 A SORTE NÃO VAI DURAR!</string>
+    <string name="roulette_msg_safe_5">😰 MAIS UMA E JÁ ERA!</string>
+    <string name="roulette_msg_bang">💥 BANG! VOCÊ BEBE! 🍺</string>
+
+    <string name="likely_title">👉 Quem é mais provável?</string>
+    <string name="likely_subtitle">Votação grupal</string>
+    <string name="likely_instruction_badge">No 3, apontem...</string>
+    <string name="likely_btn_next">Próxima Pergunta</string>
+
+    <string name="likely_rules_title">📋 Como jogar</string>
+    <string name="likely_rule_1">Leiam a pergunta em voz alta</string>
+    <string name="likely_rule_2">Contem: 3... 2... 1... VAI!</string>
+    <string name="likely_rule_3">Todos apontam pra alguém ao mesmo tempo</string>
+    <string name="likely_rule_4">A pessoa mais apontada BEBE 🍺</string>
+
+    <string-array name="likely_questions_list">
+        <item>...terminar a noite vomitando.</item>
+        <item>...ligar para o ex bêbado.</item>
+        <item>...perder o celular hoje.</item>
+        <item>...acordar em outra cidade amanhã.</item>
+        <item>...ficar pelado se beber demais.</item>
+        <item>...transar num lugar público.</item>
+        <item>...brigar com um segurança.</item>
+        <item>...casar por dinheiro.</item>
+        <item>...entrar numa seita acidentalmente.</item>
+        <item>...beijar alguém feio por pena.</item>
+        <item>...cair dançando.</item>
+        <item>...terminar na cadeia.</item>
+        <item>...fazer uma tatuagem da qual se arrependa.</item>
+        <item>...fingir estar sóbrio e falhar miseravelmente.</item>
+        <item>...roubar um copo do bar.</item>
+        <item>...chorar no meio da festa.</item>
+        <item>...dormir no banheiro.</item>
+        <item>...ficar com o namorado(a) de um amigo.</item>
+        <item>...aparecer no jornal por algo estúpido.</item>
+        <item>...gastar todo o salário numa noite.</item>
+        <item>...ter um OnlyFans secreto.</item>
+        <item>...esquecer onde mora.</item>
+        <item>...propor um ménage.</item>
+        <item>...abandonar os amigos por um esquema.</item>
+        <item>...comer comida do chão.</item>
+        <item>...se apaixonar por um stripper.</item>
+        <item>...ser o primeiro a morrer num apocalipse zumbi.</item>
+        <item>...rir num momento muito inapropriado (tipo funeral).</item>
+        <item>...ter uma ordem de restrição por ser intenso demais.</item>
+        <item>...viralizar por um vídeo vergonhoso.</item>
+        <item>...doar todo o dinheiro para uma pirâmide financeira.</item>
+        <item>...ficar careca primeiro.</item>
+        <item>...ter uma família secreta.</item>
+        <item>...casar em Las Vegas numa noite louca.</item>
+        <item>...fingir o próprio desaparecimento para fugir de dívidas.</item>
+        <item>...ter um caso com o chefe para ser promovido.</item>
+        <item>...tatuar o nome do parceiro com um mês de namoro.</item>
+        <item>...terminar morando com os pais aos 40.</item>
+        <item>...procurar um sugar daddy/mommy.</item>
+        <item>...perder o passaporte no exterior.</item>
+        <item>...ter gostos muito estranhos na cama.</item>
+        <item>...beijar mais pessoas nesta festa.</item>
+        <item>...acordar sem roupa num parque.</item>
+        <item>...terminar sustentando um parceiro muito mais jovem.</item>
+        <item>...ganhar na loteria e perder tudo numa semana.</item>
+        <item>...esquecer o aniversário da própria mãe.</item>
+        <item>...ter uma conversa profunda com um cachorro.</item>
+        <item>...fazer uma plástica por pura vaidade.</item>
+        <item>...ser multado por fazer necessidades na rua.</item>
+        <item>...passar a noite com um desconhecido hoje.</item>
+        <item>...chorar vendo filme de desenho animado.</item>
+        <item>...cair da escada hoje.</item>
+        <item>...estar com mau hálito amanhã de manhã.</item>
+        <item>...espiar os vizinhos com binóculos.</item>
+        <item>...usar uma identidade falsa nas redes.</item>
+        <item>...ter algo com o ex de um amigo.</item>
+        <item>...mentir no currículo e conseguir o emprego.</item>
+        <item>...virar influencer da noite para o dia.</item>
+        <item>...incendiar a cozinha tentando ferver água.</item>
+        <item>...sair sem pagar de um restaurante.</item>
+        <item>...terminar num hospital por uma aposta idiota.</item>
+        <item>...experimentar com alguém do mesmo gênero hoje.</item>
+        <item>...não ter trocado a roupa íntima hoje.</item>
+        <item>...bloquear alguém logo depois de passar a noite juntos.</item>
+        <item>...ser infiel e culpar a outra pessoa.</item>
+        <item>...comprar uma ilha se fosse rico.</item>
+        <item>...sobreviver mais tempo sozinho numa ilha deserta.</item>
+        <item>...casar com uma celebridade.</item>
+        <item>...ter o histórico de navegação mais "interessante".</item>
+        <item>...ter o celular roubado por ser distraído.</item>
+        <item>...terminar discutindo com um objeto inanimado.</item>
+        <item>...se apaixonar por alguém só por como é tratado na cama.</item>
+        <item>...ter uma coleção de brinquedos adultos.</item>
+        <item>...fingir ser gringo para paquerar.</item>
+        <item>...quebrar a tela do celular esta noite.</item>
+        <item>...tentar beijar o DJ.</item>
+        <item>...dormir durante o ato.</item>
+        <item>...dizer o nome errado no momento íntimo.</item>
+        <item>...terminar sendo um político corrupto.</item>
+        <item>...ter medo do escuro.</item>
+        <item>...nunca devolver roupa emprestada.</item>
+        <item>...começar a limpar a casa no meio da festa.</item>
+        <item>...pedir alguém em casamento que acabou de conhecer.</item>
+        <item>...ter algo contagioso e não saber.</item>
+        <item>...ser o primeiro a morrer num filme de terror.</item>
+        <item>...comer a comida de outro no trabalho.</item>
+        <item>...criar uma conta fake para criticar alguém.</item>
+        <item>...terminar tomando banho de roupa na piscina.</item>
+        <item>...beijar a pessoa à direita se tiver coragem.</item>
+        <item>...ter a pior foto de RG/CNH.</item>
+        <item>...ter fetiche de pés.</item>
+        <item>...terminar num convento ou mosteiro.</item>
+        <item>...gritar durante um filme de terror.</item>
+        <item>...gastar todo o dinheiro pagando bebida hoje.</item>
+        <item>...ficar enjoado no Uber.</item>
+        <item>...dar em cima de um policial para evitar multa.</item>
+        <item>...ter mais segredos que o governo.</item>
+        <item>...sofrer síndrome de Estocolmo.</item>
+        <item>...terminar com alguém 20 anos mais velho.</item>
+        <item>...ter um relacionamento à distância bem-sucedido.</item>
+        <item>...conseguir passar 3 dias sem tomar banho.</item>
+        <item>...começar a chorar sem razão aparente.</item>
+        <item>...ter o quarto mais bagunçado.</item>
+        <item>...querer ser o centro das atenções no casamento alheio.</item>
+        <item>...terminar com uma tatuagem no rosto.</item>
+        <item>...ser o mau exemplo para seus filhos.</item>
+        <item>...ter conversas imaginárias no banho.</item>
+        <item>...ter medo de palhaços.</item>
+        <item>...terminar num reality show polêmico.</item>
+        <item>...ficar com duas pessoas no mesmo dia.</item>
+        <item>...beijar mal.</item>
+        <item>...ser o melhor mentindo.</item>
+        <item>...vender fotos dos pés na internet.</item>
+        <item>...rir da própria piada antes de contar.</item>
+        <item>...stalkear a ex do atual parceiro.</item>
+        <item>...terminar dormindo na rua por perder as chaves.</item>
+        <item>...perder as chaves de casa hoje.</item>
+        <item>...fazer xixi de tanto rir.</item>
+        <item>...gostar de uniformes.</item>
+        <item>...entrar numa briga para defender um amigo.</item>
+        <item>...terminar ficando com alguém deste grupo.</item>
+        <item>...ir morar em outro país por amor.</item>
+        <item>...ser o primeiro a sair do grupo de WhatsApp.</item>
+        <item>...ter a pior ressaca da história amanhã.</item>
+        <item>...mandar mensagem para a pessoa errada.</item>
+        <item>...usar a mesma roupa íntima dois dias seguidos.</item>
+        <item>...comer o último pedaço de pizza sem perguntar.</item>
+        <item>...se achar influencer com 200 seguidores.</item>
+        <item>...se apaixonar por um personagem de anime.</item>
+        <item>...tentar dar um mortal e quebrar algo.</item>
+        <item>...ficar dormindo no cinema.</item>
+        <item>...falar dormindo.</item>
+        <item>...roncar igual um trator.</item>
+        <item>...esquecer de passar desodorante.</item>
+        <item>...terminar sendo famoso.</item>
+        <item>...escrever um livro sobre suas aventuras amorosas.</item>
+        <item>...ter um filho antes de casar.</item>
+        <item>...se tornar o "tio/tia rico e solteiro".</item>
+        <item>...mudar para uma van e viajar pelo mundo.</item>
+        <item>...virar vegano por moda.</item>
+        <item>...gostar de apanhar (de leve).</item>
+        <item>...ter algemas na mesa de cabeceira.</item>
+        <item>...gravar seus encontros íntimos.</item>
+        <item>...preferir fazer de manhã.</item>
+        <item>...usar fantasias na hora H.</item>
+        <item>...gostar de ouvir sacanagem.</item>
+        <item>...ser barulhento na cama.</item>
+        <item>...propor fazer em lugar proibido.</item>
+        <item>...se excitar com o perigo.</item>
+        <item>...ter tido um sonho "molhado" hoje.</item>
+        <item>...precisar se satisfazer diariamente.</item>
+        <item>...ter um piercing num lugar escondido.</item>
+        <item>...ter provado práticas tântricas.</item>
+        <item>...gostar de morder.</item>
+        <item>...gostar de ser dominado.</item>
+        <item>...gostar de dominar.</item>
+        <item>...ter uma lista de suas conquistas.</item>
+        <item>...ter fingido prazer essa semana.</item>
+        <item>...ter ficado com alguém só por despeito.</item>
+        <item>...ter feito no banheiro da balada.</item>
+        <item>...ter feito na praia.</item>
+        <item>...ter feito no elevador.</item>
+        <item>...ter feito no trabalho.</item>
+        <item>...ter mandado fotos ousadas hoje.</item>
+        <item>...ter fotos picantes na pasta "oculta".</item>
+        <item>...ficar vermelho com essas perguntas.</item>
+        <item>...estar "animado" agora mesmo.</item>
+        <item>...terminar beijando alguém antes do jogo acabar.</item>
+        <item>...levar alguém para casa hoje à noite.</item>
+        <item>...propor brincar de garrafa depois disso.</item>
+        <item>...ser vegano mas comer carne quando bebe.</item>
+        <item>...fazer um perfil no Tinder com fotos falsas.</item>
+        <item>...ter medo de voar.</item>
+        <item>...gritar se vir uma aranha.</item>
+        <item>...esquecer de pagar dívidas.</item>
+        <item>...sempre chegar atrasado.</item>
+        <item>...ser o primeiro a dormir numa festa do pijama.</item>
+        <item>...rir de piadas ruins.</item>
+        <item>...comprar coisas inúteis na internet.</item>
+        <item>...ter mais de 5 gatos no futuro.</item>
+        <item>...virar um eremita.</item>
+        <item>...ganhar um Nobel da Paz.</item>
+        <item>...se meter em política.</item>
+        <item>...ter um canal no YouTube de conspirações.</item>
+        <item>...acreditar que a terra é plana.</item>
+        <item>...ser abduzido por aliens.</item>
+        <item>...fazer plástica escondido.</item>
+        <item>...usar Photoshop em todas as fotos.</item>
+        <item>...comprar seguidores no Instagram.</item>
+        <item>...criar uma conta de fã de si mesmo.</item>
+        <item>...ter uma coleção de algo estranho.</item>
+        <item>...se fantasiar de furry.</item>
+        <item>...aprender uma língua só para paquerar.</item>
+        <item>...casar com alguém de outro continente.</item>
+        <item>...ter um romance de verão.</item>
+        <item>...escrever poesia ruim.</item>
+        <item>...tatuar uma frase em chinês sem saber o que diz.</item>
+        <item>...colocar piercing na língua.</item>
+        <item>...pintar o cabelo de neon.</item>
+        <item>...raspar a cabeça numa crise existencial.</item>
+        <item>...ir para um retiro espiritual e não voltar.</item>
+        <item>...virar monge budista.</item>
+        <item>...morar numa comunidade hippie.</item>
+        <item>...não usar desodorante para ser "natural".</item>
+        <item>...parar de se depilar como protesto.</item>
+        <item>...virar nudista.</item>
+        <item>...ir numa praia de nudismo "por engano".</item>
+        <item>...entrar no mar de roupa.</item>
+        <item>...perder a roupa de banho no mar.</item>
+        <item>...ser queimado por água-viva.</item>
+        <item>...se queimar no sol e parecer um camarão.</item>
+        <item>...usar meia com sandália.</item>
+        <item>...usar pochete de forma não irônica.</item>
+        <item>...se vestir igual ao avô.</item>
+        <item>...ir de pijama ao mercado.</item>
+        <item>...sair na rua com etiqueta na roupa.</item>
+        <item>...colocar o sapato no pé errado.</item>
+        <item>...bater numa porta de vidro.</item>
+        <item>...cair da cadeira agora mesmo.</item>
+        <item>...derramar bebida em alguém.</item>
+        <item>...quebrar um copo sem querer.</item>
+        <item>...engasgar com a própria saliva.</item>
+        <item>...espirrar e soltar pum ao mesmo tempo.</item>
+        <item>...rir tanto que não consegue respirar.</item>
+        <item>...ter uma risada de vilão.</item>
+        <item>...ter uma risada contagiante.</item>
+        <item>...falar muito alto sem perceber.</item>
+        <item>...interromper todo mundo ao falar.</item>
+        <item>...contar a mesma piada três vezes.</item>
+        <item>...estragar o final de um filme (spoiler).</item>
+        <item>...chorar com o final de Titanic.</item>
+        <item>...se assustar com a própria sombra.</item>
+        <item>...acreditar em fantasmas.</item>
+        <item>...fazer ouija.</item>
+        <item>...ir num cemitério à noite.</item>
+        <item>...se fantasiar de fantasma para assustar.</item>
+        <item>...ser o assassino num filme de mistério.</item>
+        <item>...resolver um crime.</item>
+        <item>...ser um espião secreto.</item>
+        <item>...ter uma vida dupla.</item>
+        <item>...ser milionário em segredo.</item>
+        <item>...estar falido e não contar.</item>
+        <item>...pedir dinheiro emprestado e não devolver.</item>
+        <item>...achar dinheiro na rua.</item>
+        <item>...perder a carteira.</item>
+        <item>...ter o almoço roubado.</item>
+        <item>...comer o almoço de outro.</item>
+        <item>...cozinhar algo incomível.</item>
+        <item>...queimar a torrada.</item>
+        <item>...pedir delivery todo dia.</item>
+        <item>...ser viciado em chocolate.</item>
+        <item>...ser viciado em café.</item>
+        <item>...não conseguir viver sem celular.</item>
+        <item>...responder mensagens em 3 segundos.</item>
+        <item>...deixar todo mundo no vácuo.</item>
+        <item>...ter mais de 1000 notificações não lidas.</item>
+        <item>...ter a tela do celular quebrada.</item>
+        <item>...derrubar o celular na privada.</item>
+        <item>...tirar selfies no banheiro.</item>
+        <item>...usar filtro de cachorro nas fotos.</item>
+        <item>...fazer dancinha de TikTok em público.</item>
+        <item>...se achar famoso.</item>
+        <item>...conhecer um famoso.</item>
+        <item>...assediar um famoso.</item>
+        <item>...entrar de penetra num evento VIP.</item>
+        <item>...ser expulso de um show.</item>
+        <item>...subir no palco.</item>
+        <item>...cantar horrível no karaokê.</item>
+        <item>...se achar cantor profissional.</item>
+        <item>...dançar sem ritmo.</item>
+        <item>...ser a alma da festa.</item>
+        <item>...organizar a melhor festa.</item>
+        <item>...limpar tudo depois da festa.</item>
+        <item>...sair sem se despedir (sair à francesa).</item>
+        <item>...dormir na festa.</item>
+        <item>...vomitar na festa.</item>
+        <item>...perder a dignidade na festa.</item>
+        <item>...paquerar mais na festa.</item>
+        <item>...terminar beijando alguém na festa.</item>
+        <item>...ir embora acompanhado da festa.</item>
+        <item>...perder a virgindade numa festa.</item>
+        <item>...fazer numa festa.</item>
+        <item>...fazer num carro.</item>
+        <item>...fazer na praia.</item>
+        <item>...fazer na floresta.</item>
+        <item>...fazer num avião.</item>
+        <item>...fazer num elevador.</item>
+        <item>...fazer no cinema.</item>
+        <item>...fazer no trabalho.</item>
+        <item>...fazer na escola/faculdade.</item>
+        <item>...fazer na casa dos pais.</item>
+        <item>...fazer na casa dos sogros.</item>
+        <item>...fazer com a luz acesa.</item>
+        <item>...fazer de meia.</item>
+        <item>...fazer fantasiado.</item>
+        <item>...gravar um vídeo fazendo.</item>
+        <item>...ter fotos íntimas no celular.</item>
+        <item>...mandar fotos íntimas por engano.</item>
+        <item>...receber fotos íntimas não solicitadas.</item>
+        <item>...ter um brinquedo sexual escondido.</item>
+        <item>...ter algemas.</item>
+        <item>...gostar de roleplay.</item>
+        <item>...gostar de ouvir sacanagem.</item>
+        <item>...ser barulhento.</item>
+        <item>...ser silencioso.</item>
+        <item>...durar pouco.</item>
+        <item>...durar muito.</item>
+        <item>...dormir depois.</item>
+        <item>...pedir comida depois.</item>
+        <item>...querer repetir imediatamente.</item>
+        <item>...nunca querer fazer.</item>
+        <item>...sempre ter vontade.</item>
+        <item>...ser o melhor na cama.</item>
+        <item>...ser o pior na cama.</item>
+        <item>...ter mais experiência.</item>
+        <item>...ser virgem (ou quase).</item>
+        <item>...ter feito um ménage.</item>
+        <item>...querer fazer um ménage.</item>
+        <item>...ter um relacionamento aberto.</item>
+    </string-array>
+
+    <string name="party_manager_title">🎉 A Party</string>
+    <string name="party_players_count">%d jogadores</string>
+    <string name="party_players_count_one">%d jogador</string>
+    <string name="party_btn_add_player">Adicionar Jogador</string>
+    <string name="party_empty_title">Sem jogadores</string>
+    <string name="party_empty_subtitle">Adicione jogadores pra começar a festa</string>
+
+    <string name="party_turn_of">Vez de:</string>
+
+    <string name="party_dialog_title">Adicionar Jogador</string>
+    <string name="party_input_name">Nome</string>
+    <string name="party_label_gender">Gênero</string>
+    <string name="party_label_avatar">Avatar</string>
+    <string name="party_avatar_selected">Avatar selecionado</string>
+    <string name="party_avatar_change">Toque para mudar</string>
+    <string name="party_btn_cancel">Cancelar</string>
+    <string name="party_btn_add">Adicionar</string>
+
+    <string name="gender_male">Homem</string>
+    <string name="gender_female">Mulher</string>
+    <string name="gender_other">Outro</string>
+
+    <string name="avatar_cat_animals">🐾 Animais</string>
+    <string name="avatar_cat_faces">😊 Caras</string>
+    <string name="avatar_cat_fantasy">🧙 Fantasia</string>
+    <string name="avatar_cat_sports">⚽ Esportes</string>
+
     <string name="classics_screen_title">Jogos Clássicos</string>
-
-    <string name="hot_screen_title">KAMPAI: AFTER DARK</string>
-    <string name="hot_label_temp">Temperature</string>
-    <string name="hot_mode_soft">Soft ❄️</string>
-    <string name="hot_mode_medium">Hot 🔥</string>
-    <string name="hot_mode_hot">Fire 🔥🔥</string>
-    <string name="hot_mode_extreme">EXTREME ⚡</string>
-    <string name="hot_mode_diablo_on">😈 DEVIL ON</string>
-    <string name="hot_mode_diablo_off">😇 DEVIL OFF</string>
-
-    <string name="hot_card_custom">👑 USER CREATED</string>
-    <string name="hot_card_reveal">HOLD TO\nREVEAL</string>
-    <string name="hot_fallback_text">Everyone drinks!</string>
-
-    <string name="hot_btn_next_fire">NEXT CHALLENGE 🔥</string>
-    <string name="hot_btn_reveal">REVEAL CHALLENGE</string>
-    <string name="hot_btn_start_game">START GAME</string>
-
-    <string name="hot_safety_yellow">⚠️ Punishment! Drink a long sip to skip.</string>
-    <string name="hot_safety_red">🛑 Safety skip. Respect comes first.</string>
-    <string name="hot_safety_no">No</string>
-    <string name="hot_safety_drink">Punishment</string>
-
-    <string name="hot_mg_slots_title">🎰 PASSION SLOTS</string>
-    <string name="hot_mg_haptic_title">📳 TOUCH SENSOR</string>
-    <string name="hot_mg_lie_title">🤥 LIE DETECTOR</string>
-    <string name="hot_mg_gyro_title">🍸 UNSTABLE CUP</string>
-    <string name="hot_mg_scratch_title">🎫 SCRATCH CARD</string>
-    <string name="hot_mg_roulette_title">🎡 PUNISHMENT WHEEL</string>
-    <string name="hot_mg_heart_title">❤️ HEARTBEAT</string>
-    <string name="hot_mg_blow_title">🌬️ BLOW</string>
-    <string name="hot_mg_whisper_title">🤫 WHISPER</string>
-
-    <string name="hot_mg_slots_btn">SPIN</string>
-    <string name="hot_mg_slots_label_action">ACTION</string>
-    <string name="hot_mg_slots_label_zone">ZONE</string>
-
-    <string name="hot_mg_haptic_desc">Pass the phone over the body...</string>
-    <string name="hot_mg_haptic_btn">PRESS</string>
-    <string name="hot_mg_haptic_touch_here">TOUCH HERE</string>
-    <string name="hot_mg_haptic_default">Press...</string>
-
-    <string name="hot_mg_lie_desc">Ask an awkward question...</string>
-    <string name="hot_mg_lie_analyzing">Analyzing...</string>
-    <string name="hot_mg_lie_place_finger">Place finger</string>
-    <string name="hot_mg_lie_true">TRUTH ✅</string>
-    <string name="hot_mg_lie_false">LIE ❌</string>
-
-    <string name="hot_mg_gyro_desc">Pass the phone without tilting it</string>
-    <string name="hot_mg_gyro_fail">SPILLED! 🍺 DRINK</string>
-    <string name="hot_mg_gyro_good">GOOD JOB!</string>
-
-    <string name="hot_mg_audio_blow_desc">Blow to reveal...</string>
-    <string name="hot_mg_audio_whisper_desc">Whisper in the ear...</string>
-
-    <string name="hot_mg_heart_desc">Press to the heartbeat rhythm...</string>
-    <string name="hot_mg_heart_sub">Touch each other and feel the rhythm.</string>
-
-    <string-array name="hot_slots_actions">
-        <item>Kiss</item> <item>Lick</item> <item>Bite</item>
-        <item>Blow</item> <item>Caress</item> <item>Massage</item> <item>Suck</item>
-    </string-array>
-
-    <string-array name="hot_slots_parts">
-        <item>Neck</item> <item>Ear</item> <item>Hand</item>
-        <item>Back</item> <item>Belly button</item> <item>Thigh</item>
-        <item>Lips</item> <item>Chest</item>
-    </string-array>
-
-    <string-array name="hot_haptic_messages">
-        <item>Detected!</item> <item>Hot...</item>
-        <item>Lower...</item> <item>There!</item>
-    </string-array>
+    <string name="party_cancel">Cancelar</string>
 
 </resources>

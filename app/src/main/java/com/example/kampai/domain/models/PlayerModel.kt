@@ -14,20 +14,6 @@ enum class Gender(val emoji: String, val nameRes: Int) {
     OTHER("👽", R.string.gender_other);
 }
 
-// NUEVO: Preferencia (Para emparejar besos/retos físicos)
-enum class Attraction(val nameRes: Int) {
-    MEN(R.string.attr_men),
-    WOMEN(R.string.attr_women),
-    BOTH(R.string.attr_both),
-    NONE(R.string.attr_none)
-}
-
-// NUEVO: Personalidad (Para filtrar intensidad de retos)
-enum class Vibe(val nameRes: Int) {
-    SHY(R.string.vibe_shy),    // Retos suaves al inicio
-    BOLD(R.string.vibe_bold),  // Retos normales
-    CRAZY(R.string.vibe_crazy) // Vale todo desde el principio
-}
 
 object AvatarEmojis {
     val animals = listOf(
@@ -70,8 +56,6 @@ data class PlayerModel(
     val colorIndex: Int = 0,
     val avatarEmoji: String = AvatarEmojis.getRandomEmoji(),
     // Nuevos campos con valores por defecto "seguros"
-    val attraction: Attraction = Attraction.BOTH,
-    val vibe: Vibe = Vibe.BOLD
 ) {
     companion object {
         private val avatarColors = listOf(
