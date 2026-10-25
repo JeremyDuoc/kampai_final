@@ -7,16 +7,16 @@ plugins {
 
 android {
 
-    namespace = "com.example.kampai"
+    namespace = "com.jeremy.kampai"
 
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.kampai"
+        applicationId = "com.jeremy.kampai"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 35
+        versionCode = 8
+        versionName = "1.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -68,6 +68,7 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.2.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("com.google.android.gms:play-services-ads:23.0.0")
 
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")

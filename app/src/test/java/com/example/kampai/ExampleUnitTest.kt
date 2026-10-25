@@ -1,4 +1,4 @@
-package com.example.kampai
+package com.jeremy.kampai
 
 import org.junit.Test
 

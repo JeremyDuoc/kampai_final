@@ -3,6 +3,41 @@
     <string name="app_name">Kampai</string>
 
     <string name="splash_loading">Preparem-se para beber...</string>
+    <!-- Novos filtros e descoberta -->
+    <string name="filter_all">🔥 Todos</string>
+    <string name="filter_icebreaker">⚡ Quebra-gelo</string>
+    <string name="filter_duels">🃏 Duelos</string>
+    <string name="filter_spicy">🌶️ Picante</string>
+    <string name="filter_chaos">🎲 Caos</string>
+
+    <!-- Dado do Destino / Sorteio aleatório -->
+    <string name="dice_title">Dado do Destino</string>
+    <string name="dice_subtitle">Não sabem o que jogar? Deixe o destino escolher a rodada.</string>
+    <string name="dice_roll_btn">🎲 Rolar o Dado!</string>
+    <string name="dice_rolling">Sorteando jogo...</string>
+    <string name="dice_play_now">Jogar Agora!</string>
+    <string name="dice_reroll">Rolar de novo</string>
+
+    <!-- Badges de jogos -->
+    <string name="home_badge_hot">HOT 🔥</string>
+    <string name="home_badge_featured">DESTAQUE ⭐</string>
+    <string name="home_badge_insignia">INSÍGNIA 👑</string>
+    <string name="home_badge_hardcore">EXTREMO 💀</string>
+
+    <!-- Party Manager redesign -->
+    <string name="party_status_ready">🎉 Grupo pronto para a festa!</string>
+    <string name="party_status_need_more">Faltam %d jogadores para começar</string>
+    <string name="party_shuffle_btn">Embaralhar ordem</string>
+    <string name="party_shuffle_toast">Ordem de turnos embaralhada!</string>
+    <string name="party_title_new_player">Adicionar à Festa</string>
+    <string name="party_quick_start">Jogar com este grupo</string>
+    <string name="party_role_legend">A Lenda</string>
+    <string name="party_role_tequila">Mestre do Tequila</string>
+    <string name="party_role_immune">O Imune</string>
+    <string name="party_role_party_animal">Baladeiro Pro</string>
+    <string name="party_role_judge">O Juiz</string>
+    <string name="party_role_saint">O Santinho</string>
+
     <string name="splash_version">v1.0</string>
 
     <string name="content_desc_logo">Logo Kampai</string>
@@ -30,6 +65,8 @@
     <string name="settings_spanish">Español 🇪🇸</string>
     <string name="settings_english">English 🇺🇸</string>
     <string name="settings_sound">Som</string>
+    <string name="settings_support_creator">Apoiar o criador</string>
+    <string name="settings_support_creator_desc">Veja um vídeo para ajudar a melhorar o Kampai</string>
     <string name="settings_sound_effects">Efeitos sonoros do jogo</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_dark_mode">Modo Escuro</string>
@@ -81,14 +118,6 @@
     <string name="game_title_truth">Verdade ou Desafio</string>
     <string name="game_desc_truth">Confessa ou encara?</string>
 
-    <string name="game_title_highlow">Maior ou Menor</string>
-    <string name="game_desc_highlow">Adivinhe se a carta é maior ou menor.</string>
-
-    <string name="game_title_charades">Mímica Bêbada</string>
-    <string name="game_desc_charades">Atue sem falar e eles adivinham.</string>
-
-    <string name="game_title_roulette">Roleta Russa</string>
-    <string name="game_desc_roulette">A sorte decide seu destino.</string>
 
     <string name="game_title_likely">Quem é mais provável?</string>
     <string name="game_desc_likely">Votação em grupo.</string>
@@ -106,7 +135,23 @@
     <string name="warmup_next_btn">Próximo →</string>
     <string name="warmup_finished_title">PartyMix\nConcluído!</string>
     <string name="warmup_finished_subtitle">Esperamos que tenha sido incrível!</string>
+    <string name="evt_title_blind_chicken">A Galinha Cega 📸</string>
+    <string name="evt_desc_blind_chicken">%1$s deve vendar os olhos e pegar um celular. Deve tirar fotos enquanto os outros fogem!</string>
+    <string name="evt_inst_blind_chicken">Após 1 minuto, todos que aparecerem nas fotos devem beber.</string>
     <string name="warmup_back_home_btn">🔄 Voltar ao Início</string>
+    <string name="warmup_crew_title">Sua Equipe Nesta Rodada</string>
+    <string name="warmup_penalty_fmt">Penitência: %d goles 🍺</string>
+    <string name="warmup_event_badge">⚡ DESAFIO ESPECIAL</string>
+    <string name="warmup_quick_tip">Toque no cartão para avançar</string>
+    <string name="event_hazard_alert">⚠️ ALERTA DE DESAFIO ESPECIAL ⚠️</string>
+    <string name="event_target_acquired">ALVO NA MIRA</string>
+    <string name="event_penalty_label">PENITÊNCIA DO DESAFIO</string>
+    <string name="event_btn_surrender">Desisto 💀</string>
+    <string name="event_btn_victory">Completado! 🔥</string>
+    <string name="event_target_label">VÍTIMA DESIGNADA</string>
+    <string name="event_rules_header">MISSÃO ATIVA</string>
+
+
     <string name="stats_title">📊 Contagem de Drinks</string>
     <string name="stats_empty">Ninguém bebeu... ainda.</string>
     <string name="stats_drinks_fmt">%d 🍺</string>
@@ -320,6 +365,28 @@
     <string name="truth_result_truth">VERDADE</string>
     <string name="truth_result_dare">DESAFIO</string>
     <string name="truth_btn_back">Voltar a Escolher</string>
+    <string name="truth_portal_truth_title">O CONFESSIONÁRIO</string>
+    <string name="truth_portal_truth_desc">Tem coragem de confessar seu segredo mais íntimo?</string>
+    <string name="truth_portal_dare_title">O JULGAMENTO DE FOGO</string>
+    <string name="truth_portal_dare_desc">Prove sua coragem e cumpra a missão diante do grupo</string>
+    <string name="truth_coin_flip_btn">DADO 50/50</string>
+    <string name="truth_btn_refuse_penalty">Eu Recuso 💀</string>
+    <string name="truth_btn_complete">Cumprido! 🔥</string>
+    <string name="truth_stat_penalties">Penitências</string>
+    <string name="truth_hotseat_title">NO BANCO DOS RÉUS</string>
+    <string name="truth_penalty_notice">Penitência se recusar: 2 goles 🍺</string>
+    <string name="truth_reroll_tip">Trocar desafio</string>
+    <string name="truth_roulette_title">O destino está decidindo…</string>
+    <string name="truth_penalty_title">AMARELOU! 💀</string>
+    <string name="truth_penalty_subtitle">%1$s deve pagar a prenda para a galera</string>
+    <string name="truth_penalty_drinks">%1$d GOLES 🍺</string>
+    <string name="truth_penalty_confirm">Goles Tomados! Próximo →</string>
+    <string name="truth_guest_player">O Corajoso da Vez</string>
+    <string name="truth_round_indicator">RODADA %1$d</string>
+    <string name="truth_portal_truth_cta">CONFESSAR →</string>
+    <string name="truth_portal_dare_cta">ARRISCAR →</string>
+    <string name="truth_skip_player">Pular vez</string>
+    <string name="truth_stats_badge">%1$d V • %2$d D • %3$d 💀</string>
 
     <string name="truth_1">Qual é o seu pior hábito?</string>
     <string name="truth_2">Quem você não gosta nesta sala?</string>
@@ -686,21 +753,119 @@
     <string name="culture_btn_next">Próxima Categoria</string>
 
     <string-array name="culture_categories_list">
-        <item>Marcas de Carro</item>
+        <item>Marcas de Carros</item>
         <item>Nomes de Países</item>
         <item>Marcas de Cerveja</item>
         <item>Times de Futebol</item>
         <item>Ingredientes de Pizza</item>
         <item>Filmes da Pixar</item>
-        <item>Nomes de Mulher com M</item>
+        <item>Nomes Femininos com M</item>
         <item>Partes do Corpo Humano</item>
-        <item>Marcas de Roupa</item>
+        <item>Marcas de Roupas</item>
         <item>Super-heróis da Marvel</item>
         <item>Sabores de Sorvete</item>
         <item>Capitais do Mundo</item>
         <item>Posições Sexuais</item>
         <item>Redes Sociais</item>
         <item>Marcas de Cigarro</item>
+        <item>Frutas Tropicais</item>
+        <item>Tipos de Queijo</item>
+        <item>Personagens de Harry Potter</item>
+        <item>Marcas de Tênis</item>
+        <item>Mamíferos</item>
+        <item>Objetos de Cozinha</item>
+        <item>Planetas do Sistema Solar</item>
+        <item>Gêneros Musicais</item>
+        <item>Séries da Netflix</item>
+        <item>Instrumentos de Corda</item>
+        <item>Nomes Comuns de Cães</item>
+        <item>Países da Europa</item>
+        <item>Vilões da Disney</item>
+        <item>Coisas que tem num Banheiro</item>
+        <item>Esportes Olímpicos</item>
+        <item>Marcas de Refrigerante</item>
+        <item>Sobremesas Típicas</item>
+        <item>Coisas Verdes</item>
+        <item>Profissões</item>
+        <item>Aplicativos de Relacionamento</item>
+        <item>Cantores de Reggaeton</item>
+        <item>Marcas de Maquiagem</item>
+        <item>Ferramentas de Construção</item>
+        <item>Raças de Cães</item>
+        <item>Signos do Zodíaco</item>
+        <item>Músicas do Bad Bunny</item>
+        <item>Filmes de Terror</item>
+        <item>Coisas que voam</item>
+        <item>Jogos de Tabuleiro</item>
+        <item>Marcas de Celular</item>
+        <item>Tipos de Massa</item>
+        <item>Povos Originários</item>
+        <item>Invenções Famosas</item>
+        <item>Personagens de Star Wars</item>
+        <item>Coisas que tem na Praia</item>
+        <item>Especiarias para Cozinhar</item>
+        <item>Videogames Famosos</item>
+        <item>Elementos Químicos</item>
+        <item>Ossos do Corpo</item>
+        <item>Marcas de Whisky</item>
+        <item>Peixes do Oceano</item>
+        <item>Rios Famosos</item>
+        <item>Coisas de um Hospital</item>
+        <item>Aparelhos Eletrônicos</item>
+        <item>Drogas Comuns</item>
+        <item>Insultos Criativos</item>
+        <item>Partes de um Carro</item>
+        <item>Comida Rápida</item>
+        <item>Bebidas Alcohólicas com Rum</item>
+        <item>Coisas compradas na Farmácia</item>
+        <item>Flores</item>
+        <item>Tipos de Dinossauros</item>
+        <item>Youtubers Famosos</item>
+        <item>Marcas de Relógio</item>
+        <item>Coisas Amarelas</item>
+        <item>Nomes Masculinos com J</item>
+        <item>Instrumentos de Percussão</item>
+        <item>Personagens de Os Simpsons</item>
+        <item>Coisas Quadradas</item>
+        <item>Estados dos EUA</item>
+        <item>Moedas do Mundo</item>
+        <item>Coisas Frias</item>
+        <item>Superpoderes</item>
+        <item>Animais Aquáticos</item>
+        <item>Coisas que cheiram mal</item>
+        <item>Marcas de Chocolate</item>
+        <item>Estações do Ano</item>
+        <item>Coisas Pesadas</item>
+        <item>Partes de um Computador</item>
+        <item>Nomes de Gatos</item>
+        <item>Coisas que queimam</item>
+        <item>Artistas do Renascimento</item>
+        <item>Marcas de Vodka</item>
+        <item>Coisas que tem numa Floresta</item>
+        <item>Roupas de Inverno</item>
+        <item>Coisas que tem num Casamento</item>
+        <item>Tipos de Pão</item>
+        <item>Países da Ásia</item>
+        <item>Marcas de Motos</item>
+        <item>Coisas de Academia</item>
+        <item>Heróis da DC Comics</item>
+        <item>Coisas que fazem barulho</item>
+        <item>Partes do Olho</item>
+        <item>Coisas encontradas num Avião</item>
+        <item>Tipos de Nuvens</item>
+        <item>Marcas de Luxo</item>
+        <item>Comidas que se comem com a mão</item>
+        <item>Insetos</item>
+        <item>Materiais de Escritório</item>
+        <item>Presidentes Históricos</item>
+        <item>Coisas Transparentes</item>
+        <item>Marcas de Tequila</item>
+        <item>Coisas usadas para dormir</item>
+        <item>Jogos de Cassino</item>
+        <item>Coisas Pegajosas</item>
+        <item>Instrumentos de Sopro</item>
+        <item>Pedras Preciosas</item>
+        <item>Tipos de Árvores</item>
     </string-array>
 
     <string name="bomb_title">A BOMBA</string>
@@ -1059,93 +1224,6 @@
         <item>Titanic</item> <item>Star Wars</item> <item>Vingadores</item> <item>Disney</item> <item>Mickey Mouse</item>
     </string-array>
 
-    <string name="highlow_title">🎴 Maior ou Menor</string>
-    <string name="highlow_streak_fmt">Sequência: %d 🔥</string>
-    <string name="highlow_instruction">Próxima é Maior ou Menor?</string>
-
-    <string name="highlow_label_current">CARTA ATUAL</string>
-    <string name="highlow_label_next">PRÓXIMA CARTA</string>
-    <string name="highlow_label_result">RESULTADO</string>
-
-    <string name="highlow_btn_lower">MENOR</string>
-    <string name="highlow_btn_higher">MAIOR</string>
-    <string name="highlow_btn_next">Próxima Rodada →</string>
-
-    <string name="highlow_result_correct">CORRETO! Era %s 🎉</string>
-    <string name="highlow_result_wrong">ERRADO! Era %s 😢\nBEBE!</string>
-
-    <string name="charades_title">🎭 Mímica Bêbada</string>
-    <string name="charades_score_fmt">🏆 Pontos: %d</string>
-    <string name="charades_ready_title">Pronto para atuar?</string>
-    <string name="charades_ready_desc">• Atue sem falar\n• Seu time deve adivinhar\n• Cada palavra conta\n• Não use as mãos ilegalmente!</string>
-    <string name="charades_difficulty_label">DIFICULDADE</string>
-    <string name="charades_btn_start">Começar!</string>
-    <string name="charades_instruction_mute">Atue sem falar</string>
-    <string name="charades_btn_skip">Pular</string>
-    <string name="charades_btn_correct">Correto!</string>
-
-    <string name="charades_diff_easy">Esquenta</string> <string name="charades_diff_medium">A Festa</string> <string name="charades_diff_hard">After</string>  <string name="charades_time_up">Acabou o tempo!</string>
-    <string name="charades_final_score">Pontuação Final</string>
-    <string name="charades_result_expert">Atores profissionais! 🌟</string>
-    <string name="charades_result_good">Excelente trabalho! 🎭</string>
-    <string name="charades_result_ok">Bom trabalho! 👏</string>
-    <string name="charades_result_bad">Bebam mais para se soltar! 🍺</string>
-    <string name="charades_btn_replay">Jogar de Novo</string>
-
-    <string-array name="charades_easy_list">
-        <item>Tomar um shot</item>
-        <item>Tirar uma selfie</item>
-        <item>Barman</item>
-        <item>DJ</item>
-        <item>Bêbado</item>
-        <item>Ressaca</item>
-        <item>Segurança da balada</item>
-        <item>Cantar Karaokê</item>
-        <item>Dançar Funk</item>
-        <item>Paquerar</item>
-        <item>Pedir a conta</item>
-        <item>Brindar</item>
-        <item>Cair no chão</item>
-        <item>Fumar</item>
-        <item>Abrir uma cerveja</item>
-    </string-array>
-
-    <string-array name="charades_medium_list">
-        <item>Mandar áudio bêbado</item>
-        <item>Descer até o chão</item>
-        <item>Perder o celular</item>
-        <item>Vomitar no banheiro</item>
-        <item>Pedir um Uber</item>
-        <item>Dançar na mesa</item>
-        <item>Fazer o quatro (teste de bafômetro)</item>
-        <item>Roubar um copo</item>
-        <item>Dormir no sofá</item>
-        <item>Briga de bêbado</item>
-        <item>Chorar pelo ex</item>
-        <item>Virar copo (Fundo branco)</item>
-        <item>Furar a fila</item>
-        <item>Perder a dignidade</item>
-        <item>Pole Dance</item>
-    </string-array>
-
-    <string-array name="charades_hard_list">
-        <item>Tentar abrir a porta bêbado</item>
-        <item>Segurar o vômito</item>
-        <item>Xavecar o barman por bebida</item>
-        <item>Explicar algo pra polícia</item>
-        <item>Andar de salto bêbada</item>
-        <item>Procurar banheiro desesperadamente</item>
-        <item>Acordar sem saber onde está</item>
-        <item>Comer podrão às 6 AM</item>
-        <item>Tentar desbloquear cel com a cara</item>
-        <item>Fingir sobriedade pros pais</item>
-        <item>Perder um sapato na festa</item>
-        <item>Roubar microfone do DJ</item>
-        <item>Dormir abraçado na privada</item>
-        <item>Escrever pro ex e arrepender</item>
-        <item>Ser expulso da balada</item>
-    </string-array>
-
     <string name="disclaimer_title">⚠️ Aviso legal importante</string>
     <string name="disclaimer_text_1">Kampai é um jogo exclusivamente para entretenimento.</string>
     <string name="disclaimer_bullet_1">• Você deve ser maior de 18 anos para usar este app</string>
@@ -1153,26 +1231,6 @@
     <string name="disclaimer_bullet_3">• NUNCA beba e dirija.</string>
     <string name="disclaimer_text_2">Jogue com responsabilidade e cuide dos seus amigos. Se tiver problemas com álcool, procure ajuda profissional. Ao continuar, confirma que é maior de idade e aceita responsabilidade pelo uso.</string>
     <string name="disclaimer_btn_accept">Aceito e sou maior de idade</string>
-
-    <string name="roulette_title">🔫 Roleta Russa</string>
-    <string name="roulette_shots_fired">%d/6 câmaras disparadas</string>
-    <string name="roulette_btn_spin">Girar Tambor</string>
-    <string name="roulette_status_spinning">🔄 Girando...</string>
-    <string name="roulette_status_pick">👆 Toque numa câmara</string>
-
-    <string name="roulette_tension_label">TENSÃO</string>
-    <string name="roulette_tension_calm">😌 TRANQUILO</string>
-    <string name="roulette_tension_tense">😰 TENSO</string>
-    <string name="roulette_tension_danger">⚠️ CUIDADO</string>
-    <string name="roulette_tension_extreme">🔥 PERIGO</string>
-
-    <string name="roulette_msg_start">Tem coragem de jogar?</string>
-    <string name="roulette_msg_safe_1">✓ Click... Passou dessa vez</string>
-    <string name="roulette_msg_safe_2">😅 Salvo por enquanto...</string>
-    <string name="roulette_msg_safe_3">😬 O clima tá tenso...</string>
-    <string name="roulette_msg_safe_4">😱 A SORTE NÃO VAI DURAR!</string>
-    <string name="roulette_msg_safe_5">😰 MAIS UMA E JÁ ERA!</string>
-    <string name="roulette_msg_bang">💥 BANG! VOCÊ BEBE! 🍺</string>
 
     <string name="likely_title">👉 Quem é mais provável?</string>
     <string name="likely_subtitle">Votação grupal</string>
