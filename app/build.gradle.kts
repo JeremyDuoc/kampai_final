@@ -19,7 +19,7 @@ android {
         targetSdk = 35
         versionCode = 8
         versionName = "1.7"
-        buildConfigField("String", "KAMPAI_POPULARITY_API_BASE_URL", "\\"$popularityApiBaseUrl\\"")
+        buildConfigField("String", "KAMPAI_POPULARITY_API_BASE_URL", "\"$popularityApiBaseUrl\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
