@@ -5,6 +5,8 @@ plugins {
     id("kotlin-kapt")
 }
 
+val popularityApiBaseUrl = providers.gradleProperty("KAMPAI_POPULARITY_API_BASE_URL").orElse("").get()
+
 android {
 
     namespace = "com.jeremy.kampai"
@@ -17,6 +19,7 @@ android {
         targetSdk = 35
         versionCode = 8
         versionName = "1.7"
+        buildConfigField("String", "KAMPAI_POPULARITY_API_BASE_URL", "\\"$popularityApiBaseUrl\\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -42,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.14"
