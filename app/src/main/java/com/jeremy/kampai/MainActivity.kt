@@ -3,6 +3,7 @@ package com.jeremy.kampai
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -11,16 +12,18 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jeremy.kampai.ui.theme.KampaiTheme
+import com.jeremy.kampai.data.GamePopularityRepository
 import com.jeremy.kampai.ui.theme.SplashScreen
 import com.jeremy.kampai.ui.theme.ThemeManager
 import com.jeremy.kampai.ui.theme.bomb.BombGameScreen
 import com.jeremy.kampai.ui.theme.culture.CultureGameScreen
 import com.jeremy.kampai.ui.theme.culture.CultureSelectionScreen
-import com.jeremy.kampai.ui.theme.home.HomeScreen
+import com.jeremy.kampai.ui.theme.home.HomeScreenV2
 import android.widget.Toast
 import com.jeremy.kampai.ui.theme.impostor.ImpostorGameScreen
 import com.jeremy.kampai.ui.theme.kingscup.KingsCupGameScreen
@@ -40,11 +43,16 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var themeManager: ThemeManager
+
+    @Inject
+    lateinit var gamePopularityRepository: GamePopularityRepository
 
     private var mInterstitialAd: InterstitialAd? = null
     private var classicsClickCount = 0
@@ -58,6 +66,11 @@ class MainActivity : AppCompatActivity() {
             val isDarkMode by themeManager.isDarkMode.collectAsState(initial = true)
             KampaiTheme(isDarkMode = isDarkMode) {
                 KampaiApp(
+                    onGameSessionStarted = { gameId ->
+                        lifecycleScope.launch {
+                            gamePopularityRepository.recordGameSession(gameId)
+                        }
+                    },
                     onShowAdBeforeClassics = { onComplete ->
                         showInterstitial(onComplete)
                     },
@@ -113,7 +126,11 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-fun KampaiApp(onShowAdBeforeClassics: (() -> Unit) -> Unit, onSupportCreator: () -> Unit) {
+fun KampaiApp(
+    onGameSessionStarted: (String) -> Unit,
+    onShowAdBeforeClassics: (() -> Unit) -> Unit,
+    onSupportCreator: () -> Unit
+) {
     val navController = rememberNavController()
 
     NavHost(
@@ -137,7 +154,7 @@ fun KampaiApp(onShowAdBeforeClassics: (() -> Unit) -> Unit, onSupportCreator: ()
         }
 
         composable("home") {
-            HomeScreen(
+            HomeScreenV2(
                 onGameSelected = { route ->
                     navController.navigateSafe(route)
                 },
@@ -174,14 +191,17 @@ fun KampaiApp(onShowAdBeforeClassics: (() -> Unit) -> Unit, onSupportCreator: ()
         }
 
         composable("game_bomb") {
+            TrackGameSession("culture", onGameSessionStarted)
             BombGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_culture") {
+            TrackGameSession("culture", onGameSessionStarted)
             CultureGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_warmup") {
+            TrackGameSession("warmup", onGameSessionStarted)
             WarmupGameScreen(
                 onShowAd = { onAdDone ->
                     onShowAdBeforeClassics(onAdDone)
@@ -191,23 +211,39 @@ fun KampaiApp(onShowAdBeforeClassics: (() -> Unit) -> Unit, onSupportCreator: ()
         }
 
         composable("game_kingscup") {
+            TrackGameSession("kingscup", onGameSessionStarted)
             KingsCupGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_likely") {
+            TrackGameSession("most_likely", onGameSessionStarted)
             MostLikelyScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_impostor") {
+            TrackGameSession("impostor", onGameSessionStarted)
             ImpostorGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_never") {
+            TrackGameSession("never_have_i_ever", onGameSessionStarted)
             NeverGameScreen(onBack = { navController.popBackStackSafe() })
         }
 
         composable("game_truth") {
+            TrackGameSession("truth_or_dare", onGameSessionStarted)
             TruthGameScreen(onBack = { navController.popBackStackSafe() })
         }
+    }
+}
+
+@Composable
+private fun TrackGameSession(
+    gameId: String,
+    onGameSessionStarted: (String) -> Unit
+) {
+    LaunchedEffect(gameId) {
+        delay(5_000)
+        onGameSessionStarted(gameId)
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_v2_brand_subtitle">乾杯 / GAME NIGHT</string>
+    <string name="home_v2_logo_burst">✦</string>
+    <string name="home_v2_eyebrow">A NOITE ESTÁ SÓ COMEÇANDO</string>
+    <string name="home_v2_headline">O que vamos jogar\nhoje?</string>
+    <string name="home_v2_featured_default">DESTAQUE</string>
+    <string name="home_v2_featured_community">MAIS JOGADO DA SEMANA</string>
+    <string name="home_v2_play_now">JOGAR AGORA →</string>
+    <string name="home_v2_random_title">Não conseguem decidir?</string>
+    <string name="home_v2_random_aside">ALEATÓRIO</string>
+    <string name="home_v2_games_title">Jogos para esta noite</string>
+    <string name="home_v2_games_aside">%1$d JOGOS</string>
+    <string name="home_v2_coming_title">Em breve</string>
+    <string name="home_v2_feedback">FEEDBACK</string>
+    <string name="home_v2_suggest_title">Em breve</string>
+    <string name="home_v2_suggest_body">Tem alguma ideia ou regra que deveria estar no Kampai?</string>
+    <string name="home_v2_suggest_action">SUGERIR JOGO</string>
+    <string name="home_v2_suggest_subject">Sugestão de jogo para o Kampai</string>
+    <string name="home_v2_party">Gerenciar festa</string>
+    <string name="home_v2_last_random">Último: %1$s</string>
+    <string name="home_v2_intensity_soft">Leve</string>
+    <string name="home_v2_intensity_medium">Intermediário</string>
+    <string name="home_v2_intensity_strong">Forte</string>
+    <string name="home_v2_intensity_extreme">Extremo</string>
+    <string name="home_v2_vibe_icebreaker">Quebra-gelo</string>
+    <string name="home_v2_vibe_duels">Duelos</string>
+    <string name="home_v2_vibe_spicy">Picante</string>
+    <string name="home_v2_vibe_chaos">Caos</string>
+    <string name="home_v2_footer">KAMPAI ✦ QUE A NOITE COMECE</string>
+</resources>

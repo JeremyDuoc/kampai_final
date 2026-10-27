@@ -95,6 +95,10 @@ class GameRepository @Inject constructor() {
 
     fun getAllGames(): List<GameModel> = allGames
 
+    fun getGameById(id: String): GameModel? = allGames.firstOrNull { it.id == id }
+
+    fun getGameByRoute(route: String): GameModel? = allGames.firstOrNull { it.route == route }
+
     fun getMostPlayedGames(): List<GameModel> {
         return allGames.filter {
             it.id == "warmup" || it.id == "kingscup" || it.id == "impostor" || it.id == "culture"

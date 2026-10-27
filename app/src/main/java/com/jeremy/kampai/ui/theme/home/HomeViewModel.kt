@@ -3,7 +3,10 @@ package com.jeremy.kampai.ui.theme.home
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jeremy.kampai.data.GamePopularityRepository
 import com.jeremy.kampai.data.GameRepository
+import com.jeremy.kampai.domain.models.FeaturedGameSnapshot
+import com.jeremy.kampai.domain.models.FeaturedGameSource
 import com.jeremy.kampai.domain.models.GameModel
 import com.jeremy.kampai.domain.models.GameVibe
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val repository: GameRepository,
+    private val popularityRepository: GamePopularityRepository,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
@@ -36,10 +40,21 @@ class HomeViewModel @Inject constructor(
     private val _vibeGames = MutableStateFlow<List<GameModel>>(emptyList())
     val vibeGames: StateFlow<List<GameModel>> = _vibeGames.asStateFlow()
 
+    private val fallbackGame = repository.getGameById(GamePopularityRepository.DEFAULT_FEATURED_GAME_ID)
+        ?: repository.getAllGames().firstOrNull()
+
+    private val cachedFeatured = popularityRepository.cachedFeatured()
+    private val _featuredGame = MutableStateFlow(
+        repository.getGameById(cachedFeatured.gameId) ?: fallbackGame
+    )
+    val featuredGame: StateFlow<GameModel?> = _featuredGame.asStateFlow()
+
+    private val _featuredSource = MutableStateFlow(cachedFeatured.source)
+    val featuredSource: StateFlow<FeaturedGameSource> = _featuredSource.asStateFlow()
+
     private val _showDisclaimer = MutableStateFlow(false)
     val showDisclaimer: StateFlow<Boolean> = _showDisclaimer.asStateFlow()
 
-    // Sorteo aleatorio (Dado del Destino)
     private val _showDiceModal = MutableStateFlow(false)
     val showDiceModal: StateFlow<Boolean> = _showDiceModal.asStateFlow()
 
@@ -67,11 +82,27 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun loadGames() {
+        _mostPlayedGames.value = repository.getMostPlayedGames()
+        _newGames.value = repository.getNewGames()
+        _classicGames.value = repository.getClassicGames()
+        _vibeGames.value = repository.getGamesByVibe(GameVibe.ALL)
+        applyFeatured(popularityRepository.cachedFeatured())
+    }
+
+    fun refreshFeatured() {
         viewModelScope.launch {
-            _mostPlayedGames.value = repository.getMostPlayedGames()
-            _newGames.value = repository.getNewGames()
-            _classicGames.value = repository.getClassicGames()
-            _vibeGames.value = repository.getGamesByVibe(GameVibe.ALL)
+            applyFeatured(popularityRepository.refreshFeatured())
+        }
+    }
+
+    private fun applyFeatured(snapshot: FeaturedGameSnapshot) {
+        val resolved = repository.getGameById(snapshot.gameId)
+        if (resolved != null) {
+            _featuredGame.value = resolved
+            _featuredSource.value = snapshot.source
+        } else {
+            _featuredGame.value = fallbackGame
+            _featuredSource.value = FeaturedGameSource.DEFAULT
         }
     }
 
@@ -93,7 +124,6 @@ class HomeViewModel @Inject constructor(
     fun rollDice() {
         viewModelScope.launch {
             _isRolling.value = true
-            // Efecto de ruleta durante 800ms
             val all = repository.getAllGames()
             repeat(6) {
                 _rolledGame.value = all.random()
