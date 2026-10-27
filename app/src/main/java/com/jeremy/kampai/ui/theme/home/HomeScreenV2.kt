@@ -475,12 +475,35 @@ private fun HomeHeaderV2(onSettings: () -> Unit, modifier: Modifier = Modifier) 
     )
     val burstRotation by motion.animateFloat(
         initialValue = 9f,
-        targetValue = 18f,
+        targetValue = 9f,
         animationSpec = infiniteRepeatable(
-            animation = tween(2_400, easing = FastOutSlowInEasing),
-            repeatMode = RepeatMode.Reverse
+            animation = keyframes {
+                durationMillis = 4_800
+                9f at 0
+                18f at 2_304
+                5f at 2_784
+                11f at 3_456
+                9f at 4_800
+            },
+            repeatMode = RepeatMode.Restart
         ),
-        label = "brand_burst_4_8s"
+        label = "brand_burst_rotation_4_8s"
+    )
+    val burstScale by motion.animateFloat(
+        initialValue = 1f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = keyframes {
+                durationMillis = 4_800
+                1f at 0
+                1.08f at 2_304
+                .98f at 2_784
+                1.03f at 3_456
+                1f at 4_800
+            },
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "brand_burst_scale_4_8s"
     )
     val shimmer by motion.animateFloat(
         initialValue = 0f,
@@ -542,12 +565,12 @@ private fun HomeHeaderV2(onSettings: () -> Unit, modifier: Modifier = Modifier) 
                         if (shimmerPulse > 0f) {
                             Text(
                                 text = stringResource(R.string.app_name).uppercase(),
-                                color = Color.White.copy(alpha = .14f * shimmerPulse),
+                                color = Color.White.copy(alpha = .22f * shimmerPulse),
                                 fontSize = 25.sp,
                                 lineHeight = 25.sp,
                                 fontWeight = FontWeight.Black,
                                 letterSpacing = (-1.65).sp,
-                                modifier = Modifier.blur(1.2.dp)
+                                modifier = Modifier.blur(.8.dp)
                             )
                         }
                     }
@@ -556,8 +579,8 @@ private fun HomeHeaderV2(onSettings: () -> Unit, modifier: Modifier = Modifier) 
                             .offset(x = (-1).dp)
                             .graphicsLayer {
                                 rotationZ = burstRotation
-                                scaleX = 1f + .08f * breathe
-                                scaleY = 1f + .08f * breathe
+                                scaleX = burstScale
+                                scaleY = burstScale
                             },
                         contentAlignment = Alignment.Center
                     ) {
@@ -784,12 +807,29 @@ private fun BoxScope.AnimatedFeaturedStrokeV2(
 
 @Composable
 private fun FeaturedDeckV2(game: GameModel, modifier: Modifier = Modifier) {
+    val motion = rememberInfiniteTransition(label = "featured_deck_float")
+    val floatPhase by motion.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(3_000, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "featured_deck_float_6s"
+    )
+
+    val backRotation = -10f + 2f * floatPhase
+    val backY = 2f + 5f * floatPhase
+    val faceRotation = 11f - 2f * floatPhase
+    val faceX = 6f + 1f * floatPhase
+    val faceY = 12f - 5f * floatPhase
+
     Box(modifier = modifier.size(width = 110.dp, height = 149.dp)) {
         Box(
             Modifier
                 .matchParentSize()
-                .rotate(-10f)
-                .offset(x = (-8).dp, y = 2.dp)
+                .rotate(backRotation)
+                .offset(x = (-8).dp, y = backY.dp)
                 .shadow(12.dp, RoundedCornerShape(18.dp), spotColor = Color.Black.copy(alpha = .42f))
                 .clip(RoundedCornerShape(18.dp))
                 .background(Brush.linearGradient(listOf(Color(0xFF285970), Color(0xFF203E57), Color(0xFF492B50))))
@@ -805,8 +845,8 @@ private fun FeaturedDeckV2(game: GameModel, modifier: Modifier = Modifier) {
         Box(
             Modifier
                 .matchParentSize()
-                .rotate(11f)
-                .offset(x = 6.dp, y = 12.dp)
+                .rotate(faceRotation)
+                .offset(x = faceX.dp, y = faceY.dp)
                 .shadow(13.dp, RoundedCornerShape(18.dp), spotColor = Color.Black.copy(alpha = .46f))
                 .clip(RoundedCornerShape(18.dp))
                 .background(
@@ -1257,6 +1297,19 @@ private fun BottomDockV2(
     onSettings: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val diceInteraction = remember { MutableInteractionSource() }
+    val dicePressed by diceInteraction.collectIsPressedAsState()
+    val diceScale by animateFloatAsState(
+        targetValue = if (dicePressed) .92f else 1f,
+        animationSpec = spring(dampingRatio = .72f, stiffness = 520f),
+        label = "dock_dice_scale"
+    )
+    val diceRotation by animateFloatAsState(
+        targetValue = if (dicePressed) -16f else 0f,
+        animationSpec = spring(dampingRatio = .75f, stiffness = 500f),
+        label = "dock_dice_rotation"
+    )
+
     Row(
         modifier = modifier
             .shadow(18.dp, CircleShape, spotColor = Color.Black.copy(alpha = .78f))
@@ -1277,10 +1330,19 @@ private fun BottomDockV2(
         Box(
             modifier = Modifier
                 .size(46.dp)
+                .graphicsLayer {
+                    scaleX = diceScale
+                    scaleY = diceScale
+                    rotationZ = diceRotation
+                }
                 .shadow(8.dp, CircleShape, spotColor = FeaturedCoral.copy(alpha = .22f))
                 .clip(CircleShape)
                 .background(Brush.linearGradient(listOf(Color(0xFFFFBC76), Color(0xFFF88D88))))
-                .clickable(onClick = onDice),
+                .clickable(
+                    interactionSource = diceInteraction,
+                    indication = null,
+                    onClick = onDice
+                ),
             contentAlignment = Alignment.Center
         ) {
             Icon(Icons.Filled.Casino, contentDescription = stringResource(R.string.dice_title), tint = Color(0xFF111016), modifier = Modifier.size(23.dp))
