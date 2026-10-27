@@ -9,12 +9,12 @@
     <string name="home_v2_play_now">PLAY NOW →</string>
     <string name="home_v2_random_title">Can’t decide?</string>
     <string name="home_v2_random_aside">RANDOM</string>
-    <string name="home_v2_games_title">Games</string>
-    <string name="home_v2_games_aside">%1$d MODES</string>
+    <string name="home_v2_games_title">Games for tonight</string>
+    <string name="home_v2_games_aside">%1$d GAMES</string>
     <string name="home_v2_coming_title">Coming next</string>
     <string name="home_v2_feedback">FEEDBACK</string>
-    <string name="home_v2_suggest_title">What should arrive next?</string>
-    <string name="home_v2_suggest_body">Tell me which game or rule should be in Kampai.</string>
+    <string name="home_v2_suggest_title">Coming soon</string>
+    <string name="home_v2_suggest_body">Have an idea or rule that should be in Kampai?</string>
     <string name="home_v2_suggest_action">SUGGEST A GAME</string>
     <string name="home_v2_suggest_subject">Game suggestion for Kampai</string>
     <string name="home_v2_party">Manage party</string>
@@ -23,4 +23,9 @@
     <string name="home_v2_intensity_medium">Medium</string>
     <string name="home_v2_intensity_strong">Strong</string>
     <string name="home_v2_intensity_extreme">Extreme</string>
+    <string name="home_v2_vibe_icebreaker">Icebreaker</string>
+    <string name="home_v2_vibe_duels">Duels</string>
+    <string name="home_v2_vibe_spicy">Spicy</string>
+    <string name="home_v2_vibe_chaos">Chaos</string>
+    <string name="home_v2_footer">KAMPAI ✦ LET THE NIGHT BEGIN</string>
 </resources>
